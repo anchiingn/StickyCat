@@ -14,7 +14,14 @@ def get_stickers():
 @sticker_routes.route('/<int:id>')
 def get_single_sticker(id):
     sticker = Sticker.query.get(id)
-    return sticker.to_dict()
+
+    sticker_data = []
+    data = sticker.to_dict()
+    currentStickers = User.query.filter_by(id = sticker.ownerId).all()
+    data['user'] = [user.to_dict() for user in currentStickers]
+    sticker_data.append(data)
+
+    return sticker_data
 
 @sticker_routes.route('/my-stickers')
 @login_required
@@ -30,3 +37,7 @@ def get_current_stickers():
 
     return sticker_data
 
+@sticker_routes.route('/new', methods=["POST","GET"])
+@login_required
+def post_new_stickers():
+    pass

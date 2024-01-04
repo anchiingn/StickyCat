@@ -15,23 +15,20 @@ export default function CurrentStickers () {
 
     const stickers = Object.values(allStickers)
 
-    let isUser = false
-    for (let sticker of stickers) {
-        if (user.id === sticker.ownerId) {
-            isUser = true
-        }
-    }
-    
+
     return (
         <>
-            {user && isUser && 
+            {user && 
             stickers.map(sticker => {
-                return (
-                    <NavLink to={`/stickers/${sticker?.id}`} key={sticker.id}>
-                        <img src={sticker?.image} alt={sticker?.title} />
-                        <div>{sticker?.title}</div>
-                    </NavLink>
-                )
+                if (user?.id === sticker?.ownerId) {
+                    return (
+                        <NavLink to={`/stickers/${sticker?.id}`} key={sticker?.id}>
+                            <img src={sticker?.image} alt={sticker?.title} />
+                            <div>{sticker?.title}</div>
+                            <div>{sticker?.price}</div>
+                        </NavLink>
+                    )
+                }
             })
             }
         </>

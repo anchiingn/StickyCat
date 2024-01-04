@@ -12,10 +12,16 @@ export default function StickerDetail() {
         dispatch(thunkLoadSingleSticker(id))
     }, [dispatch, id])
 
+    const single_sticker = Object.values(sticker)
+
     return (
         <>
-            <img src={sticker.image} alt={sticker.title} />
-            <div>{sticker?.title}</div>
+            <img src={single_sticker[0]?.image} alt={single_sticker[0]?.title} />
+            <div>{single_sticker[0]?.title}</div>
+            <div>{single_sticker[0]?.price}</div>
+            <div>Message from creator: {single_sticker[0]?.message}</div>
+            <div>Height: {single_sticker[0]?.height}</div>
+            <div>Width: {single_sticker[0]?.width}</div>
         </>
     )
 }
