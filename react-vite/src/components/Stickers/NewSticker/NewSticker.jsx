@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { thunkCreateNewStickers } from '../../../redux/stickerReducer';
+import { thunkCreateNewStickers, thunkLoadAllStickers } from '../../../redux/stickerReducer';
 
 export default function NewSticker () {
     const [title, setTitle] = useState('');
@@ -17,17 +17,27 @@ export default function NewSticker () {
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        const newSticker = {
-            title, 
-            price,
-            image,
-            height,
-            width,
-            message
-        }
-        console.log(newSticker)
+        // const newSticker = {
+        //     title, 
+        //     price,
+        //     image,
+        //     height,
+        //     width,
+        //     message
+        // }
+        // console.log(newSticker)
+
+        const formData = new FormData()
+        formData.append("title", title)
+        formData.append("price", price)
+        formData.append("image", image)
+        formData.append("height", height)
+        formData.append("width", width)
+        formData.append("message", message)
+
     
-        await dispatch(thunkCreateNewStickers(newSticker))
+        await dispatch(thunkCreateNewStickers(formData))
+        await dispatch(thunkLoadAllStickers())
         navigate('/')
     }
 

@@ -7,8 +7,8 @@ class Sticker(db.Model):
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
-    id = db.Column(db.Integer, primary_key=True, unique=True)
-    ownerId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), unique=True)
+    id = db.Column(db.Integer, primary_key=True)
+    ownerId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     title = db.Column(db.String(50))
     price = db.Column(db.Float)
     image = db.Column(db.String)

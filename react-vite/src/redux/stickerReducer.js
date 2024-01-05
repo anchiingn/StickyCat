@@ -1,6 +1,10 @@
+import AllStickers from "../components/Stickers/AllStickers/AllStickers"
+
 const LOAD_ALL_STICKERS = 'stickers/loadAllStickers'
 const LOAD_SINGLE_STICKER = 'stickers/loadSingleSticker'
+const LOAD_CURRENT_STICKERS = 'stickers/loadCurrentStickers'
 const CREATE_NEW_STICKERS = 'stickers/createNewStickers'
+const DELETE_STICKER = 'stickers/deleteStickers'
 
 const loadAllStickers = (allStickers) => {
     return {
@@ -16,10 +20,24 @@ const loadSingleSticker = (sticker) => {
     }
 }
 
+const loadCurrentSticker = (stickers) => {
+    return {
+        type: LOAD_CURRENT_STICKERS,
+        stickers
+    }
+}
+
 const createNewSticker = (stickers) => {
     return {
         type: CREATE_NEW_STICKERS,
         stickers
+    }
+}
+
+const deleteSticker = (sticker) => {
+    return {
+        type: DELETE_STICKER,
+        sticker
     }
 }
 
@@ -49,33 +67,44 @@ export const thunkLoadCurrentStickers = () => async (dispatch) => {
 
     if (res.ok) {
         const allStickers = await res.json()
-        dispatch(loadAllStickers(allStickers))
+        console.log(allStickers)
+        dispatch(loadCurrentSticker(allStickers))
         return allStickers
     }
 }
 
 export const thunkCreateNewStickers = (sticker) => async (dispatch) => {
-    try {
-        const res = await fetch('/api/stickers/new', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(sticker)
-        });
 
-        if (res.ok) {
-            const newSticker = await res.json();
-            dispatch(createNewSticker(newSticker));
-            return newSticker;
-        } else {
-            // Handle non-OK response (e.g., res.status !== 200)
-            // You might want to throw an error, log the response, or handle it according to your app's requirements
-            throw new Error('Failed to create new sticker');
-        }
-    } catch (error) {
-        // Handle fetch errors (e.g., network issues, server errors)
-        console.error('Error creating new sticker:', error);
+    const res = await fetch('/api/stickers/new', {
+        method: 'POST',
+        // headers: { "Content-Type": "application/json" },
+        body: sticker
+    });
+
+    if (res.ok) {
+        const newSticker = await res.json();
+        dispatch(createNewSticker(newSticker));
+        return newSticker;
+    } else {
         throw new Error('Failed to create new sticker');
     }
+
+};
+
+export const thunkDeleteStickers = (id) => async (dispatch) => {
+
+    const res = await fetch(`/api/stickers/${id}/delete-sticker`, {
+        method: 'DELETE',
+        // headers: { "Content-Type": "application/json" },
+    });
+
+    if (res.ok) {
+        dispatch(deleteSticker(id));
+        return id;
+    } else {
+        throw new Error('Failed to delete sticker');
+    }
+
 };
 
 //reducer
@@ -86,8 +115,15 @@ export const stickerReducer = (state = initialState, action) => {
             return { ...state, ...action.allStickers }
         case LOAD_SINGLE_STICKER:
             return { ...state, ...action.sticker }
+        case LOAD_CURRENT_STICKERS:
+            return { ...state, ...action.stickers }
         case CREATE_NEW_STICKERS:
             return { ...state, [action.stickers.id]: action.stickers };
+        case DELETE_STICKER: {
+            let newState = { ...state };
+            delete newState[action.sticker];
+            return newState;
+        }
         default:
             return state
     }
