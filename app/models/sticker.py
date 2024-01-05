@@ -7,13 +7,13 @@ class Sticker(db.Model):
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
-    id = db.Column(db.Integer, primary_key=True)
-    ownerId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
-    title = db.Column(db.String(50), nullable=False)
-    price = db.Column(db.Float, nullable=False)
-    image = db.Column(db.String, nullable=False)
-    height = db.Column(db.String)
-    width = db.Column(db.String)
+    id = db.Column(db.Integer, primary_key=True, unique=True)
+    ownerId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), unique=True)
+    title = db.Column(db.String(50))
+    price = db.Column(db.Float)
+    image = db.Column(db.String)
+    height = db.Column(db.Integer)
+    width = db.Column(db.Integer)
     message = db.Column(db.String(300))
     shipdate = db.Column(db.Date)
     createAt = db.Column(db.Date, default=datetime.now())

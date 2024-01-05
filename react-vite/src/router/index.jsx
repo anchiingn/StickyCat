@@ -4,6 +4,7 @@ import SignupFormPage from '../components/SignupFormPage';
 import AllStickers from '../components/Stickers/AllStickers/AllStickers';
 import StickerDetail from '../components/Stickers/StickerDetail/StickerDetail';
 import CurrentStickers from '../components/Stickers/CurrentStickers/CurrentStickers';
+import NewSticker from '../components/Stickers/NewSticker/NewSticker';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "my-stickers",
         element: <CurrentStickers />
+      },
+      {
+        path: "new",
+        element: <NewSticker />
       },
       {
         path: "*",

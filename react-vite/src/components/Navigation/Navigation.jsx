@@ -11,7 +11,9 @@ function Navigation() {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-
+      <li>
+        <NavLink to="/new">new sticker</NavLink>
+      </li>
       <li>
         <ProfileButton />
       </li>
