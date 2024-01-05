@@ -1,5 +1,3 @@
-import AllStickers from "../components/Stickers/AllStickers/AllStickers"
-
 const LOAD_ALL_STICKERS = 'stickers/loadAllStickers'
 const LOAD_SINGLE_STICKER = 'stickers/loadSingleSticker'
 const LOAD_CURRENT_STICKERS = 'stickers/loadCurrentStickers'

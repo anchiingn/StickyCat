@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useDispatch } from "react-redux"
 import { thunkDeleteStickers, thunkLoadCurrentStickers } from "../../../redux/stickerReducer"
 import { useModal } from "../../../context/Modal"
 
@@ -11,6 +10,7 @@ export default function DeleteSticker({sticker}) {
         e.preventDefault()
 
         await dispatch(thunkDeleteStickers(sticker.id))
+        await dispatch(thunkLoadCurrentStickers())
         .then(closeModal())
     }
 
