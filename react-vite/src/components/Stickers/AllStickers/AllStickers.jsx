@@ -21,11 +21,13 @@ export default function AllStickers() {
         <>
             {stickers.map(sticker => {
                 return (
-                    <NavLink to={`/stickers/${sticker?.id}`} key={sticker?.id}>
-                        <img src={sticker?.image} alt={sticker?.title} />
-                        <div>{sticker?.title}</div>
-                        <div>{sticker?.price}</div>
-                    </NavLink>
+                    <div key={sticker?.id}>
+                        <NavLink to={`/stickers/${sticker?.id}`} >
+                            <img src={sticker?.image} alt={sticker?.title} />
+                            <div>{sticker?.title}</div>
+                            <div>{sticker?.price}</div>
+                        </NavLink>
+                    </div>
                 )
             })}
         </>

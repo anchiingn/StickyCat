@@ -4,6 +4,7 @@ import { thunkLoadAllReviews } from "../../../redux/reviewReducer"
 import OpenModalMenuItem from "../../Navigation/OpenModalMenuItem"
 import CreateReview from "../CreateReview/CreateReview"
 import DeleteReview from "../DeleteReview/DeleteReview"
+import EditReview from "../EditReview/EditReview"
 import { thunkLoadSingleSticker } from "../../../redux/stickerReducer"
 
 
@@ -29,14 +30,20 @@ export default function ALlReviews({ sticker, id }) {
                     reviews.map(review => {
                         // console.log(review);
                         return (
-                            <div>
+                            <div key={review.id}>
                                 <div>Review by: {review.user?.firstname}</div>
                                 <div style={{ color: 'red' }}>Review: {review.review}</div>
                                 {user && user.id === review.userId &&(
-                                    <OpenModalMenuItem 
-                                    itemText='Delete'
-                                    modalComponent={<DeleteReview review={review} id={id}/>}
-                                    />
+                                    <div>
+                                        <OpenModalMenuItem 
+                                        itemText='Delete'
+                                        modalComponent={<DeleteReview review={review} id={id} sticker={sticker[0]}/>}
+                                        />
+                                        <OpenModalMenuItem 
+                                        itemText='edit'
+                                        modalComponent={<EditReview reviewDetail={review} id={id} sticker={sticker[0]}/>}
+                                        />
+                                    </div>
                                 )}
                             </div>
                         );
@@ -47,7 +54,7 @@ export default function ALlReviews({ sticker, id }) {
                 {user && (
                     <OpenModalMenuItem 
                         itemText='Give me Review'
-                        modalComponent={<CreateReview reviews={reviews} />}
+                        modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
                     />
                 )}
             </div>

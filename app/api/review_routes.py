@@ -30,19 +30,18 @@ def edit_reviews(id):
 
     if form.validate_on_submit():
 
-        review.userId=current_user.id,
-        review.review=form.data['review'],
-        review.rating=form.data['rating'],
+        review.review=form.data['review']
+        review.star=form.data['star']
 
         db.session.commit()
         return review.to_dict()
     else:
-        return jsonify(message='Bad Data')
+        return jsonify(message='Bad Data'),400
     
 
 @review_routes.route('/<int:id>/delete-review', methods=["DELETE"])
 def delete_reviews(id):
-    review = Review.query.filter_by(stickerId = id).first()
+    review = Review.query.get(id)
     
     if review:
         db.session.delete(review)

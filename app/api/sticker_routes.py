@@ -46,7 +46,7 @@ def get_current_stickers():
     return sticker_data
 
 
-@sticker_routes.route('/new', methods=["POST"])
+@sticker_routes.route('/new-sticker', methods=["POST"])
 def create_new_stickers():
     form = StickerForm()
 
@@ -135,7 +135,7 @@ def create_new_reviews(id):
             userId=current_user.id,
             stickerId=id,
             review=form.data['review'],
-            rating=form.data['rating'],
+            star=form.data['star'],
         )
 
         db.session.add(new_review)

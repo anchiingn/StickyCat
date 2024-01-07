@@ -5,5 +5,5 @@ from wtforms.validators import DataRequired, Email, ValidationError, URL
 
 class ReviewForm(FlaskForm):
     review=TextAreaField('review')
-    rating=IntegerField('rating')
+    star=IntegerField('star')
     
