@@ -33,9 +33,10 @@ const createNewSticker = (stickers) => {
 }
 
 const deleteSticker = (sticker) => {
+    console.log('this is delete:', sticker)
     return {
         type: DELETE_STICKER,
-        sticker
+        sticker: sticker
     }
 }
 
@@ -65,8 +66,8 @@ export const thunkLoadCurrentStickers = () => async (dispatch) => {
 
     if (res.ok) {
         const allStickers = await res.json()
-        console.log(allStickers)
-        dispatch(loadCurrentSticker(allStickers))
+        console.log('get current sticker:',allStickers)
+        dispatch(loadAllStickers(allStickers))
         return allStickers
     }
 }
@@ -93,7 +94,7 @@ export const thunkDeleteStickers = (id) => async (dispatch) => {
 
     const res = await fetch(`/api/stickers/${id}/delete-sticker`, {
         method: 'DELETE',
-        // headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
     });
 
     if (res.ok) {
@@ -113,15 +114,15 @@ export const stickerReducer = (state = initialState, action) => {
             return { ...state, ...action.allStickers }
         case LOAD_SINGLE_STICKER:
             return { ...state, ...action.sticker }
-        case LOAD_CURRENT_STICKERS:
-            return { ...state, ...action.stickers }
+        // case LOAD_CURRENT_STICKERS:
+        //     console.log('state:',state,'action:',action)
+        //     return { ...state, ...action.stickers }
         case CREATE_NEW_STICKERS:
             return { ...state, [action.stickers.id]: action.stickers };
-        case DELETE_STICKER: {
+        case DELETE_STICKER: 
             let newState = { ...state };
             delete newState[action.sticker];
             return newState;
-        }
         default:
             return state
     }

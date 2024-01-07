@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { thunkLoadSingleSticker } from "../../../redux/stickerReducer"
 import { useParams } from "react-router-dom"
+import ALlReviews from "../../Reviews/AllReviews/AllReviews"
+import { thunkLoadAllReviews } from "../../../redux/reviewReducer"
 
 export default function StickerDetail() {
     const { id } = useParams()
@@ -10,6 +12,7 @@ export default function StickerDetail() {
 
     useEffect(() => {
         dispatch(thunkLoadSingleSticker(id))
+        dispatch(thunkLoadAllReviews(id))
     }, [dispatch, id])
 
     const single_sticker = Object.values(sticker)
@@ -22,6 +25,9 @@ export default function StickerDetail() {
             <div>Message from creator: {single_sticker[0]?.message}</div>
             <div>Height: {single_sticker[0]?.height}</div>
             <div>Width: {single_sticker[0]?.width}</div>
+            <div>
+                <ALlReviews sticker={single_sticker} id={id}/>
+            </div>
         </>
     )
 }

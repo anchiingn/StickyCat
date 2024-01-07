@@ -17,6 +17,7 @@ def seed_reviews():
     
     
     db.session.add(review1)
+    db.session.add(review2)
 
     db.session.commit()
 

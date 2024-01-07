@@ -1,0 +1,35 @@
+import { useDispatch } from "react-redux"
+import { useModal } from "../../../context/Modal"
+import { thunkDeleteReviews, thunkLoadAllReviews } from "../../../redux/reviewReducer"
+import { thunkLoadSingleSticker } from "../../../redux/stickerReducer"
+import { useNavigate } from "react-router-dom"
+
+export default function DeleteReview({ review, id }) {
+    const dispatch = useDispatch()
+    const { closeModal } = useModal()
+    const navigate = useNavigate()
+
+    const delete_review = async (e) => {
+        e.preventDefault()
+
+        await dispatch(thunkDeleteReviews(review.id));
+        await dispatch(thunkLoadAllReviews(id));
+        await dispatch(thunkLoadSingleSticker(id));
+
+        closeModal();
+        navigate(`stickers/${id}`);
+    }
+
+    return (
+        <>
+            <div>
+                <div>Confirm Delete</div>
+                <div>Are you sure you want to remove this review?</div>
+                <div>
+                    <button onClick={delete_review}>Yes </button>
+                    <button onClick={closeModal}>No </button>
+                </div>
+            </div>
+        </>
+    )
+}

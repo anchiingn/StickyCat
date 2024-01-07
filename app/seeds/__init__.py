@@ -27,7 +27,7 @@ def seed():
         undo_carts()
     seed_users()
     seed_stickers()
-    seed_reviews
+    seed_reviews()
     seed_favorites()
     seed_carts()
     # Add other seed functions here

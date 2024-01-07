@@ -2,7 +2,9 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db
 from app.forms.sticker_form import StickerForm
+from app.forms.review_form import ReviewForm
 from app.models.sticker import Sticker
+from app.models.review import Review
 from app.models.user import User
 from app.api.aws_helpers import upload_file_to_s3, remove_file_from_s3, get_unique_filename
 
@@ -115,12 +117,29 @@ def update_stickers(id):
 def delete_sticker(id):
     sticker = Sticker.query.get(id)
 
-    file_delete = remove_file_from_s3(sticker.image)
-    print('aaaaaaaaaaaaaaaaasasasasaas', file_delete)
+    db.session.delete(sticker)
+    db.session.commit()
+    
+    return jsonify(message='Sucessfully delete sticker')
 
-    if file_delete is True:  
-        db.session.delete(sticker)
+
+@sticker_routes.route('/<int:id>/new-review', methods=["POST"])
+def create_new_reviews(id):
+    form = ReviewForm()
+
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+
+        new_review = Review(
+            userId=current_user.id,
+            stickerId=id,
+            review=form.data['review'],
+            rating=form.data['rating'],
+        )
+
+        db.session.add(new_review)
         db.session.commit()
-        return jsonify(message='Sucessfully delete sticker')
-    return jsonify(message='Fail delete sticker')
-
+        return new_review.to_dict()
+    else:
+        return jsonify(message='Bad Data')
