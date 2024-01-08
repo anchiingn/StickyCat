@@ -13,7 +13,7 @@ function Navigation() {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/new">new sticker</NavLink>
+        <NavLink to="/new-sticker">new sticker</NavLink>
       </li>
       <li>
         <button onClick={e => setShow(!show)}>cart</button>
