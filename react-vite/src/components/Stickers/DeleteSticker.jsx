@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
-import { thunkDeleteStickers, thunkLoadCurrentStickers } from "../../../redux/stickerReducer"
-import { useModal } from "../../../context/Modal"
+import { thunkDeleteStickers, thunkLoadCurrentStickers } from "../../redux/stickerReducer"
+import { useModal } from "../../context/Modal"
 
 export default function DeleteSticker({sticker}) {
     const dispatch = useDispatch()

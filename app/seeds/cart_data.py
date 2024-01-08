@@ -4,7 +4,8 @@ from sqlalchemy.sql import text
 def seed_carts():
     cart1 = Cart(
             userId=1,
-            stickerId=1,
+            stickerId=3,
+            cart=True
         )
     
     

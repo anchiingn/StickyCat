@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { thunkLoadAllFavorites } from "../../../redux/stickerReducer"
-import OpenModalMenuItem from "../../Navigation/OpenModalMenuItem"
+import { thunkLoadAllFavorites } from "../../redux/stickerReducer"
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
 import { NavLink } from "react-router-dom"
-import DeleteFavorites from "../DeleteFavorites/DeleteFavorites"
+import DeleteFavorites from "./DeleteFavorites"
 
 
 export default function AllFavoriteStickers() {

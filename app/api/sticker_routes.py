@@ -79,7 +79,7 @@ def create_new_stickers():
         return jsonify(message='Bad Data')
     
 
-@sticker_routes.route('/<int:id>/update-sticker', methods=["PUT"])
+@sticker_routes.route('/<int:id>/edit-sticker', methods=["PUT"])
 def update_stickers(id):
     sticker = Sticker.query.get(id)
 

@@ -1,1 +1,8 @@
 /* TODO: Add sitewide styles */
+* {
+    margin: 0px;
+}
+
+body {
+    position: relative;
+}

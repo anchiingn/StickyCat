@@ -3,6 +3,7 @@ const LOAD_SINGLE_STICKER = 'stickers/loadSingleSticker'
 // const LOAD_CURRENT_STICKERS = 'stickers/loadCurrentStickers'
 const CREATE_NEW_STICKERS = 'stickers/createNewStickers'
 const DELETE_STICKER = 'stickers/deleteStickers'
+const EDIT_STICKER = 'stickers/editStickers'
 
 const LOAD_ALL_FAVORITES = 'stickers/loadAllFavorites'
 const ADD_TO_FAVORITE = 'stickers/addToFavorite'
@@ -43,6 +44,16 @@ const deleteSticker = (sticker) => {
         sticker: sticker
     }
 }
+
+const editSticker = (sticker) => {
+    console.log('this is delete:', sticker)
+    return {
+        type: EDIT_STICKER,
+        sticker: sticker
+    }
+}
+
+
 
 const loadAllFavorites = (stickers) => {
     return {
@@ -112,7 +123,6 @@ export const thunkCreateNewStickers = (sticker) => async (dispatch) => {
     } else {
         throw new Error('Failed to create new sticker');
     }
-
 };
 
 export const thunkDeleteStickers = (id) => async (dispatch) => {
@@ -129,6 +139,25 @@ export const thunkDeleteStickers = (id) => async (dispatch) => {
         throw new Error('Failed to delete sticker');
     }
 };
+
+export const thunkEditStickers = (sticker, id) => async (dispatch) => {
+
+    const res = await fetch(`/api/stickers/${id}/edit-sticker`, {
+        method: 'POST',
+        // headers: { "Content-Type": "application/json" },
+        body: sticker
+    });
+
+    if (res.ok) {
+        const newSticker = await res.json();
+        await dispatch(editSticker(newSticker));
+        return newSticker;
+    } else {
+        throw new Error('Failed to editsticker');
+    }
+};
+
+
 
 export const thunkLoadAllFavorites = () => async (dispatch) => {
     const res = await fetch("/api/favorites/my-favorite-stickers");
@@ -191,6 +220,8 @@ export const stickerReducer = (state = initialState, action) => {
             let newState = { ...state };
             delete newState[action.sticker];
             return newState;
+        case EDIT_STICKER:
+            return { ...state, [action.sticker.id]: action.sticker };
 
         case LOAD_ALL_FAVORITES:
             return { ...state, ...action.stickers }

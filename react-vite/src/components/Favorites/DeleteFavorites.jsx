@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { thunkDeleteFromFavorite, thunkLoadAllFavorites } from "../../../redux/stickerReducer";
-import { useModal } from "../../../context/Modal";
+import { thunkDeleteFromFavorite, thunkLoadAllFavorites } from "../../redux/stickerReducer";
+import { useModal } from "../../context/Modal";
 
 export default function DeleteFavorites({ sticker }) {
     const { closeModal } = useModal();

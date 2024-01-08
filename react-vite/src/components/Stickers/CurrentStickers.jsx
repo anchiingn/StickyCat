@@ -1,18 +1,16 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { thunkLoadCurrentStickers } from "../../../redux/stickerReducer"
+import { thunkLoadCurrentStickers } from "../../redux/stickerReducer"
 import { NavLink } from "react-router-dom"
-import OpenModalMenuItem from "../../Navigation/OpenModalMenuItem"
-import DeleteSticker from "../DeleteSticker/DeleteSticker"
-
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
+import DeleteSticker from "./DeleteSticker"
+import EditSticker from "./EditSticker"
 
 export default function CurrentStickers() {
     const dispatch = useDispatch()
     const allStickers = useSelector(state => state.stickers)
     const user = useSelector(state => state.session?.user)
     
-    console.log(allStickers)
-
     useEffect(() => {
         dispatch(thunkLoadCurrentStickers())
     }, [dispatch])
@@ -33,6 +31,7 @@ export default function CurrentStickers() {
                                 <div>{sticker?.price}</div>
                             </NavLink>
                             <div>
+                                <NavLink to={`/${sticker.id}/edit-sticker`}>edit</NavLink>
                                 <OpenModalMenuItem
                                     itemText='Delete'
                                     modalComponent={<DeleteSticker sticker={sticker} />}

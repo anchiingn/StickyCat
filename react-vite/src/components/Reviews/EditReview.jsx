@@ -1,19 +1,27 @@
-import { thunkCreateNewReviews, thunkLoadAllReviews } from "../../../redux/reviewReducer";
+import { thunkEditReviews, thunkLoadAllReviews } from "../../redux/reviewReducer";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { useModal } from "../../../context/Modal";
-import { thunkLoadSingleSticker } from "../../../redux/stickerReducer";
+import { useModal } from "../../context/Modal";
+import { thunkLoadSingleSticker } from "../../redux/stickerReducer";
 
 
-export default function CreateReview ({ reviews, sticker }) {
+export default function EditReview ({ reviewDetail, sticker }) {
+    console.log(reviewDetail)
     const { id } = useParams()
     const { closeModal } = useModal()
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const [review, setReview] = useState('')
-    const [star, setStar] = useState(0)
+    const [review, setReview] = useState(reviewDetail?.review)
+    const [star, setStar] = useState(reviewDetail?.star)
+
+    useEffect(() => {
+        if (reviewDetail) {
+            setReview(review ? review : reviewDetail.review)
+            setStar(star ? star : reviewDetail.star)
+        }
+    }, [reviewDetail, review, star])
 
     const onSubmit = async(e) => {
         e.preventDefault()
@@ -22,16 +30,17 @@ export default function CreateReview ({ reviews, sticker }) {
             review,
             star
         }
+        console.log(new_review)
 
-        await dispatch(thunkCreateNewReviews(new_review, id))
-        await dispatch(thunkLoadAllReviews(id))
-        await dispatch(thunkLoadSingleSticker(id))
+        await dispatch(thunkEditReviews(new_review, reviewDetail?.id))
+        await dispatch(thunkLoadAllReviews(sticker?.id))
+        await dispatch(thunkLoadSingleSticker(sticker?.id))
         closeModal()
 
     }
     return (
         <>
-            <div>create</div>
+            <div>edit</div>
             <form onSubmit={onSubmit}>
                 <label>Review</label>
                 <textarea 

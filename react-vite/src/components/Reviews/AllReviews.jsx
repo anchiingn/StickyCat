@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import { thunkLoadAllReviews } from "../../../redux/reviewReducer"
-import OpenModalMenuItem from "../../Navigation/OpenModalMenuItem"
-import CreateReview from "../CreateReview/CreateReview"
-import DeleteReview from "../DeleteReview/DeleteReview"
-import EditReview from "../EditReview/EditReview"
-import { thunkLoadSingleSticker } from "../../../redux/stickerReducer"
+import { thunkLoadAllReviews } from "../../redux/reviewReducer"
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
+import CreateReview from "./CreateReview"
+import DeleteReview from "./DeleteReview"
+import EditReview from "./EditReview"
+import { thunkLoadSingleSticker } from "../../redux/stickerReducer"
 
 
 export default function ALlReviews({ sticker, id }) {

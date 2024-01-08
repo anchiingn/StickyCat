@@ -41,4 +41,5 @@ def remove_favorite(id):
         db.session.delete(favorite_sticker)
         db.session.commit()
         return jsonify(message='Remove from favorite successfully')
+    
     return jsonify(message='Sticker not found')
