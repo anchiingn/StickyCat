@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkLogout } from "../../redux/session";
-import OpenModalMenuItem from "./OpenModalMenuItem";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
 import { NavLink } from "react-router-dom";
 
 function ProfileButton() {
@@ -41,41 +38,33 @@ function ProfileButton() {
 
   return (
     <>
-      <button onClick={toggleMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
-      {showMenu && (
-        <ul className={"profile-dropdown"} ref={ulRef}>
-          {user ? (
-            <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              {user && (
-                <>
-                <NavLink to="/my-stickers">My Stickers</NavLink>
-                <NavLink to={"/my-favorite-stickers"}>My Favorite Stickers</NavLink>
-                </>
-              )}
-              <li>
-                <button onClick={logout}>Log Out</button>
-              </li>
-            </>
-          ) : (
-            <>
-              <OpenModalMenuItem
-                itemText="Log In"
-                onItemClick={closeMenu}
-                modalComponent={<LoginFormModal />}
-              />
-              <OpenModalMenuItem
-                itemText="Sign Up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-              />
-            </>
-          )}
-        </ul>
-      )}
+    {user ? (
+      <>
+        <button onClick={toggleMenu}>
+          <i className="fas fa-user-circle" />
+        </button>
+        {showMenu && (
+          <ul className={"profile-dropdown"} ref={ulRef}>
+              <>
+                <li>{user.username}</li>
+                <li>{user.email}</li>
+                {user && (
+                  <>
+                  <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink>
+                  <NavLink to="/my-favorite-stickers" className="navlink">My Favorite Stickers</NavLink>
+                  </>
+                )}
+                <li>
+                  <button onClick={logout}>Log Out</button>
+                </li>
+              </>
+          </ul>
+        )}
+      </>
+    ) : (
+      <NavLink to="/login" className="navlink">Sign In/Up</NavLink>
+    )
+  }
     </>
   );
 }

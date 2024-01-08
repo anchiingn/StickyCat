@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
         element: <NewSticker />
       },
       {
-        path: "/:id/edit-sticker",
+        path: ":id/edit-sticker",
         element: <EditSticker />
       },
       {

@@ -1,0 +1,78 @@
+/* --- LogIn ---*/
+.login_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50em;
+    height: 25em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(149, 149, 149, 0.5);
+    margin-bottom: 50px;
+}
+
+.login_container > h1 {
+    padding-bottom: 35px;
+    font-weight: bold;
+}
+
+.login_form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 45em;
+    height: 15em;
+}
+
+/* --- signup ---*/
+.signup_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50em;
+    height: 36em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(149, 149, 149, 0.5);
+    margin-bottom: 50px;
+}
+
+.signup_container > h1 {
+    padding-bottom: 35px;
+    font-weight: bold;
+}
+
+.signup_form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 45em;
+    height: 25em;
+}
+
+/* ---Both --- */
+.form > input {
+    height: 3em;
+    border: 3px solix gray;
+    margin-bottom: 20px;
+}
+
+
+.form > button {
+    margin-top: 10px;
+    height: 3.5em;
+    border-radius: 50px;
+    border: none;
+    background-color: pink;
+}
+
+.login-signup_button {
+    height: 3.5em;
+    width: 53em;
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(61, 35, 229);
+    margin-top: 25px;
+    cursor: pointer;
+}
+
