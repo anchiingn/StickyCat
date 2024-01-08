@@ -51,7 +51,10 @@ function ProfileButton() {
               <li>{user.username}</li>
               <li>{user.email}</li>
               {user && (
+                <>
                 <NavLink to="/my-stickers">My Stickers</NavLink>
+                <NavLink to={"/my-favorite-stickers"}>My Favorite Stickers</NavLink>
+                </>
               )}
               <li>
                 <button onClick={logout}>Log Out</button>

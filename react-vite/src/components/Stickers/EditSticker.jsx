@@ -1,18 +1,41 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { thunkCreateNewStickers, thunkLoadAllStickers } from '../../../redux/stickerReducer';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { thunkEditStickers, thunkLoadCurrentStickers, thunkLoadSingleSticker } from '../../redux/stickerReducer';
 
-export default function NewSticker () {
-    const [title, setTitle] = useState('');
-    const [price, setPrice] = useState('');
-    const [image, setImage] = useState('');
-    const [height, setHeight] = useState('');
-    const [width, setWidth] = useState('');
-    const [message, setMessage] = useState('');
-
+export default function EditSticker () {
+    const { id } = useParams();
+    const navigation = useNavigate()
     const dispatch = useDispatch();
     const navigate = useNavigate();
+                                            
+    const fetchStickers = useSelector(state => state.stickers)
+
+    useEffect(() => {
+        dispatch(thunkLoadSingleSticker(id))
+    },[dispatch, id])
+
+    const sticker = fetchStickers ?Object.values(fetchStickers).pop() :[]
+
+    const [title, setTitle] = useState(sticker?.title);
+    const [price, setPrice] = useState(sticker?.price);
+    const [image, setImage] = useState(sticker?.image);
+    const [height, setHeight] = useState(sticker?.height);
+    const [width, setWidth] = useState(sticker?.width);
+    const [message, setMessage] = useState(sticker?.message);
+
+
+    useEffect(() => {
+        if (sticker) {
+            setTitle(title ? title : sticker.title)
+            setPrice(price ? price : sticker.price)
+            setImage(image ? image : sticker.image)
+            setHeight(height ? height : sticker.height)
+            setWidth(width ? width : sticker.width)
+            setMessage(message ? message : sticker.message)
+        }
+    }, [sticker, title, price, title, price, image, height, width, message])
+
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -36,9 +59,9 @@ export default function NewSticker () {
         formData.append("message", message)
 
     
-        await dispatch(thunkCreateNewStickers(formData))
-        await dispatch(thunkLoadAllStickers())
-        navigate('/')
+        await dispatch(thunkEditStickers(formData, id))
+        await dispatch(thunkLoadCurrentStickers())
+        navigate('/my-stickers')
     }
 
 
