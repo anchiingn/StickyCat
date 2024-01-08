@@ -1,8 +1,8 @@
 """data
 
-Revision ID: 64620c5c6457
+Revision ID: b9379bc3721a
 Revises: 
-Create Date: 2024-01-08 12:00:01.853019
+Create Date: 2024-01-08 17:22:57.951826
 
 """
 from alembic import op
@@ -13,7 +13,7 @@ environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = '64620c5c6457'
+revision = 'b9379bc3721a'
 down_revision = None
 branch_labels = None
 depends_on = None
