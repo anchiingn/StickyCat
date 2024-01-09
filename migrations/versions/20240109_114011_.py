@@ -40,7 +40,7 @@ def upgrade():
     sa.Column('image', sa.String(), nullable=True),
     sa.Column('height', sa.Numeric(precision=2), nullable=True),
     sa.Column('width', sa.Numeric(precision=2), nullable=True),
-    sa.Column('message', sa.String(length=300), nullable=True),
+    sa.Column('message', sa.String(length=500), nullable=True),
     sa.Column('shipdate', sa.Date(), nullable=True),
     sa.Column('createAt', sa.Date(), nullable=True),
     sa.Column('updateAt', sa.Date(), nullable=True),

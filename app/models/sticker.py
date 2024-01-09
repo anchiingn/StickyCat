@@ -14,7 +14,7 @@ class Sticker(db.Model):
     image = db.Column(db.String)
     height = db.Column(db.Numeric(precision=2))
     width = db.Column(db.Numeric(precision=2))
-    message = db.Column(db.String(300))
+    message = db.Column(db.String(500))
     shipdate = db.Column(db.Date)
     createAt = db.Column(db.Date, default=datetime.now())
     updateAt = db.Column(db.Date, default=datetime.now())
