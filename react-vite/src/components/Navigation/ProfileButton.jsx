@@ -1,13 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkLogout } from "../../redux/session";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { thunkLoadCurrentStickers } from "../../redux/stickerReducer";
 
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
+  const navigate = useNavigate()
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
@@ -36,6 +38,11 @@ function ProfileButton() {
     closeMenu();
   };
 
+  const goMySticker = async(e) => {
+    await dispatch(thunkLoadCurrentStickers())
+    navigate('/my-stickers')
+  }
+
   return (
     <>
     {user ? (
@@ -50,7 +57,8 @@ function ProfileButton() {
                 <li>{user.email}</li>
                 {user && (
                   <>
-                  <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink>
+                  <button onClick={goMySticker}>my stickers</button>
+                  {/* <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink> */}
                   <NavLink to="/my-favorite-stickers" className="navlink">My Favorite Stickers</NavLink>
                   </>
                 )}

@@ -67,8 +67,9 @@ export default function EditSticker () {
 
     return (
         <>
-            <div>
-                <form onSubmit={onSubmit} encType="multipart/form-data">
+            <div className="container">
+            <div className="login_container">
+                <form onSubmit={onSubmit} encType="multipart/form-data" className={["login_form", "form"].join(" ")}>
                     <label>title</label>
                     <input 
                         type="text"
@@ -107,6 +108,7 @@ export default function EditSticker () {
                     <button>Submit</button>
                 </form>
             </div>
+        </div>
         </>
     )
 }

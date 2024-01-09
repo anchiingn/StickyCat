@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { thunkLoadAllStickers } from "../../redux/stickerReducer"
 import { NavLink } from "react-router-dom"
 import './Stickers.css'
@@ -11,6 +11,7 @@ export default function AllStickers() {
 
     useEffect(() => {
         dispatch(thunkLoadAllStickers())
+        
     }, [dispatch])
 
     const stickers = Object.values(allStickers)

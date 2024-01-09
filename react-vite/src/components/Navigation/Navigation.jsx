@@ -1,16 +1,27 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import AllCartStickers from "../Carts/AllCartStickers";
 import { useState } from "react";
+import { thunkLoadAllStickers, thunkLoadCurrentStickers } from "../../redux/stickerReducer";
+import { useDispatch } from "react-redux";
 
 function Navigation() {
   const [show, setShow] = useState(false)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const goBackHome = async(e) => {
+    await dispatch(thunkLoadAllStickers())
+    navigate('/')
+  }
+
 
   return (
     <div id="nav_container">
       <div id="logo_container">
-          <div id="logo-name">StickyCat</div>
+        <button id="logo-name" onClick={goBackHome}> StickyCat</button>
+        {/* <NavLink to="/" className="navlink" id="logo-name"><i className="fa-solid fa-cat"></i> StickyCat</NavLink> */}
       </div>
       
       <div id="nav-link_container">

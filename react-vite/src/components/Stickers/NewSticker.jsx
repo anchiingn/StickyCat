@@ -44,8 +44,9 @@ export default function NewSticker () {
 
     return (
         <>
-            <div>
-                <form onSubmit={onSubmit} encType="multipart/form-data">
+        {/* <div className="container">
+            <div className="login_container"> */}
+                <form onSubmit={onSubmit} encType="multipart/form-data" >
                     <label>title</label>
                     <input 
                         type="text"
@@ -83,7 +84,8 @@ export default function NewSticker () {
                     />
                     <button>Submit</button>
                 </form>
-            </div>
+            {/* </div>
+        </div> */}
         </>
     )
 }

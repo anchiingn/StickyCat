@@ -6,7 +6,7 @@ import CreateReview from "./CreateReview"
 import DeleteReview from "./DeleteReview"
 import EditReview from "./EditReview"
 import { thunkLoadSingleSticker } from "../../redux/stickerReducer"
-
+import './Reviews.css'
 
 export default function ALlReviews({ sticker, id }) {
     const dispatch = useDispatch()
@@ -25,7 +25,7 @@ export default function ALlReviews({ sticker, id }) {
     return (
         <>
             <div>
-                <div style={{ fontWeight: 'bold' }}>this is all reviews</div>
+                <div style={{ fontWeight: 'bold' }}>Customer Reviews:</div>
                 {reviews.length > 0 ? (
                     reviews.map(review => {
                         // console.log(review);

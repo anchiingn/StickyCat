@@ -1,6 +1,6 @@
 const LOAD_ALL_STICKERS = 'stickers/loadAllStickers'
 const LOAD_SINGLE_STICKER = 'stickers/loadSingleSticker'
-// const LOAD_CURRENT_STICKERS = 'stickers/loadCurrentStickers'
+const LOAD_CURRENT_STICKERS = 'stickers/loadCurrentStickers'
 const CREATE_NEW_STICKERS = 'stickers/createNewStickers'
 const DELETE_STICKER = 'stickers/deleteStickers'
 const EDIT_STICKER = 'stickers/editStickers'
@@ -23,12 +23,12 @@ const loadSingleSticker = (sticker) => {
     }
 }
 
-// const loadCurrentSticker = (stickers) => {
-//     return {
-//         type: LOAD_CURRENT_STICKERS,
-//         stickers
-//     }
-// }
+const loadCurrentSticker = (stickers) => {
+    return {
+        type: LOAD_CURRENT_STICKERS,
+        stickers
+    }
+}
 
 const createNewSticker = (stickers) => {
     return {
@@ -82,7 +82,7 @@ export const thunkLoadAllStickers = () => async (dispatch) => {
 
     if (res.ok) {
         const allStickers = await res.json()
-        await dispatch(loadAllStickers(allStickers))
+        dispatch(loadAllStickers(allStickers))
         return allStickers
     }
 }
@@ -92,7 +92,7 @@ export const thunkLoadSingleSticker = (id) => async (dispatch) => {
 
     if (res.ok) {
         const sticker = await res.json()
-        await dispatch(loadSingleSticker(sticker))
+        dispatch(loadSingleSticker(sticker))
         return sticker
     }
 }
@@ -103,7 +103,7 @@ export const thunkLoadCurrentStickers = () => async (dispatch) => {
     if (res.ok) {
         const allStickers = await res.json()
         console.log('get current sticker:', allStickers)
-        await dispatch(loadAllStickers(allStickers))
+        dispatch(loadCurrentSticker(allStickers))
         return allStickers
     }
 }
@@ -118,7 +118,7 @@ export const thunkCreateNewStickers = (sticker) => async (dispatch) => {
 
     if (res.ok) {
         const newSticker = await res.json();
-        await dispatch(createNewSticker(newSticker));
+        dispatch(createNewSticker(newSticker));
         return newSticker;
     } else {
         throw new Error('Failed to create new sticker');
@@ -133,8 +133,7 @@ export const thunkDeleteStickers = (id) => async (dispatch) => {
     });
 
     if (res.ok) {
-        await dispatch(deleteSticker(id));
-        return id;
+        dispatch(deleteSticker(id));
     } else {
         throw new Error('Failed to delete sticker');
     }
@@ -150,7 +149,7 @@ export const thunkEditStickers = (sticker, id) => async (dispatch) => {
 
     if (res.ok) {
         const newSticker = await res.json();
-        await dispatch(editSticker(newSticker));
+        dispatch(editSticker(newSticker));
         return newSticker;
     } else {
         throw new Error('Failed to editsticker');
@@ -211,9 +210,9 @@ export const stickerReducer = (state = initialState, action) => {
             return { ...state, ...action.allStickers }
         case LOAD_SINGLE_STICKER:
             return { ...state, ...action.sticker }
-        // case LOAD_CURRENT_STICKERS:
-        //     console.log('state:',state,'action:',action)
-        //     return { ...state, ...action.stickers }
+        case LOAD_CURRENT_STICKERS:
+            console.log('state:',state,'action:',action)
+            return { ...state, ...action.stickers }
         case CREATE_NEW_STICKERS:
             return { ...state, [action.stickers.id]: action.stickers };
         case DELETE_STICKER:
@@ -224,6 +223,7 @@ export const stickerReducer = (state = initialState, action) => {
             return { ...state, [action.sticker.id]: action.sticker };
 
         case LOAD_ALL_FAVORITES:
+            console.log('state:',state,'action:',action)
             return { ...state, ...action.stickers }
         case ADD_TO_FAVORITE:
             return { ...state, [action.sticker.id]: action.sticker };

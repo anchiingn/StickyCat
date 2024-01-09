@@ -18,26 +18,32 @@ export default function AllFavoriteStickers() {
     const favorite_stickers = fetchAllFavorites ? Object.values(fetchAllFavorites) : []
     return (
         <>
-            {favorite_stickers.map(sticker => {
-                // Check if sticker and sticker.stickers exist and have at least one element
-                if (sticker && sticker.stickers && sticker.stickers.length > 0) {
-                    return (
-                        <div key={sticker?.id}>
-                            <NavLink to={`/stickers/${sticker?.stickerId}`}>
-                                <img src={sticker?.stickers[0]?.image} alt={sticker?.stickers[0]?.title} />
-                                <div>{sticker?.stickers[0]?.title}</div>
-                                <div>{sticker?.stickers[0]?.price}</div>
-                            </NavLink>
-                            <div>
-                                <OpenModalMenuItem
-                                    itemText='Delete'
-                                    modalComponent={<DeleteFavorites sticker={sticker} />}
-                                />
+        <div className="container">
+            <div className="sticker-cards_container">
+                {favorite_stickers.map(sticker => {
+                    // Check if sticker and sticker.stickers exist and have at least one element
+                    if (sticker && sticker.stickers && sticker.stickers.length > 0) {
+                        return (
+                            <div key={sticker?.id}>
+                                <NavLink to={`/stickers/${sticker?.stickerId}`}>
+                                    <div id="sticker-images_container">
+                                        <img src={sticker?.stickers[0]?.image} alt={sticker?.stickers[0]?.title} />
+                                    </div>
+                                    <div>{sticker?.stickers[0]?.title}</div>
+                                    <div>{sticker?.stickers[0]?.price}</div>
+                                </NavLink>
+                                <div>
+                                    <OpenModalMenuItem
+                                        itemText='Delete'
+                                        modalComponent={<DeleteFavorites sticker={sticker} />}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    )
-                } 
-            })}
+                        )
+                    } 
+                })}
+            </div>
+        </div>
         </>
     )
 }

@@ -40,19 +40,22 @@
     justify-content: space-between;
 }
 
+
+
 /* --- StickerDeatil ---*/
 #sticker-detail_container {
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 50px 10em;
 }
 
 #sticker-detail_image {
     display: flex;
     justify-content: center;
     width: 25em;
-    margin-left: 130px;
+    margin-right: 20px;
 }
 
 #sticker-detail_infos {
@@ -60,14 +63,14 @@
     flex-direction: column;
     width: 40em;
     height: 30em;
-    background-color: aqua;
-    margin-right: 140px;
+    /* background-color: aqua; */
 }
 
 #sticker-detail_infos > #top-part {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    padding-top: 70px;
 }
 
 #sticker-detail_infos > #top-part > #title {
@@ -75,5 +78,35 @@
 }
 
 #sticker-detail_infos > #name {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#cart-shipdate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    margin-bottom: 30px;
+}
+
+#sticker-detail_infos > #cart-shipdate > #addToCart {
+    width: 29em;
+    height: 45px;
+    border: none;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+#sticker-detail_infos > #message > div:first-child {
+    font-weight: 600;
+}
+
+#sticker-detail_infos > #message > div:nth-child(2) {
+    text-align: justify;
+}
+
+#review_container {
+    margin: 50px 10em;
+    margin-top: 90px;
 }

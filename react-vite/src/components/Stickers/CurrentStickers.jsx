@@ -17,31 +17,38 @@ export default function CurrentStickers() {
 
     const stickers = Object.values(allStickers)
 
-
+console.log(stickers)
     return (
         <>
-        {user &&
-            stickers.map(sticker => {
-                if (user?.id === sticker?.ownerId) {
-                    return (
-                        <div key={sticker?.id}>
-                            <NavLink to={`/stickers/${sticker?.id}`} >
-                                <img src={sticker?.image} alt={sticker?.title} />
+        {user && (
+            <div className="container">
+                <div className="sticker-cards_container"> 
+                    {stickers.map(sticker => {
+                        if (user?.id === sticker?.ownerId) {
+                            return (
+                                <div key={sticker?.id} className="stickers_container">
+                                <NavLink to={`/stickers/${sticker?.id}`} >
+                                <div id="sticker-images_container">
+                                    <img src={sticker?.image} alt={sticker?.title} />
+                                </div>
                                 <div>{sticker?.title}</div>
                                 <div>{sticker?.price}</div>
-                            </NavLink>
-                            <div>
+                                </NavLink>
+                                <div>
                                 <NavLink to={`/${sticker.id}/edit-sticker`}>edit</NavLink>
                                 <OpenModalMenuItem
-                                    itemText='Delete'
-                                    modalComponent={<DeleteSticker sticker={sticker} />}
+                                itemText='Delete'
+                                modalComponent={<DeleteSticker sticker={sticker} />}
                                 />
-                            </div>
-                        </div>
-                    )
-                }
-            })
-        }
+                                </div>
+                                </div>
+                                )
+                            }
+                        })}
+                </div>
+
+            </div>
+        )}
         </>
     )
 }
