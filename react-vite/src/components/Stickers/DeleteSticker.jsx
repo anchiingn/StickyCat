@@ -1,16 +1,19 @@
 import { useDispatch } from "react-redux"
 import { thunkDeleteStickers, thunkLoadCurrentStickers } from "../../redux/stickerReducer"
 import { useModal } from "../../context/Modal"
+import { useNavigate } from "react-router-dom"
 
 export default function DeleteSticker({sticker}) {
     const dispatch = useDispatch()
     const { closeModal } = useModal()
+    const navigation = useNavigate()
    
     const delete_sticker = async (e) => {
 
         await dispatch(thunkDeleteStickers(sticker.id))
-        // await dispatch(thunkLoadCurrentStickers())
+        await dispatch(thunkLoadCurrentStickers())
         closeModal()
+        navigation('/my-stickers')
     }
 
     return (

@@ -4,7 +4,6 @@ import { thunkLoadCurrentStickers } from "../../redux/stickerReducer"
 import { NavLink } from "react-router-dom"
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
 import DeleteSticker from "./DeleteSticker"
-import EditSticker from "./EditSticker"
 
 export default function CurrentStickers() {
     const dispatch = useDispatch()

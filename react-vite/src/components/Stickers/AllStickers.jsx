@@ -7,7 +7,7 @@ import './Stickers.css'
 
 export default function AllStickers() {
     const dispatch = useDispatch()
-    const allStickers = useSelector(state => state.stickers)
+    const allStickers = useSelector(state => state?.stickers)
 
     // console.log(allStickers)
 
