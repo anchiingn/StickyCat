@@ -8,26 +8,33 @@ function Navigation() {
   const [show, setShow] = useState(false)
 
   return (
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/new-sticker">new sticker</NavLink>
-      </li>
-      <li>
-        <button onClick={e => setShow(!show)}>cart</button>
-        {show && (
-          <div style={{backgroundColor:'blue', width:'10em',height:'100vh', position:'sticky',top:'0px'}}>
-            <div>hi</div>
-            <AllCartStickers />
-          </div>
-        )}
-      </li>
-      <li>
-        <ProfileButton />
-      </li>
-    </ul>
+    <div id="nav_container">
+      <div id="logo_container">
+          <div id="logo-name">StickyCat</div>
+      </div>
+      
+      <div id="nav-link_container">
+        <NavLink to="/" className="navlink">Home</NavLink>
+        <NavLink to="/new-sticker" className="navlink">new sticker</NavLink>
+      </div>
+
+      <div id='profile-cart'>
+        <div>
+          <ProfileButton />
+        </div>
+
+        <div>
+          <button onClick={e => setShow(!show)}><i className="fa-solid fa-cart-shopping"></i></button>
+          {show && (
+            <div id="cart-modal">
+              <div>hi</div>
+              <AllCartStickers />
+            </div>
+          )}
+        </div>
+
+      </div>
+    </div>
   );
 }
 

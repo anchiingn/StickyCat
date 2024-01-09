@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { thunkLoadAllStickers } from "../../redux/stickerReducer"
 import { NavLink } from "react-router-dom"
-import './AllStickers.css'
+import './Stickers.css'
 
 
 export default function AllStickers() {
@@ -19,17 +19,25 @@ export default function AllStickers() {
 
     return (
         <>
-            {stickers.map(sticker => {
-                return (
-                    <div key={sticker?.id}>
-                        <NavLink to={`/stickers/${sticker?.id}`} >
-                            <img src={sticker?.image} alt={sticker?.title} />
-                            <div>{sticker?.title}</div>
-                            <div>{sticker?.price}</div>
-                        </NavLink>
-                    </div>
-                )
-            })}
+        <div className="container">
+            <div className="sticker-cards_container">
+                {stickers.map(sticker => {
+                    return (
+                        <div key={sticker?.id} className="stickers_container">
+                            <NavLink to={`/stickers/${sticker?.id}`} className={'navlink'}>
+                                <div id="sticker-images_container">
+                                    <img src={sticker?.image} alt={sticker?.title} />
+                                </div>
+                                <div className="sticker_details">
+                                    <div>{sticker?.title}</div>
+                                    <div>${sticker?.price}</div>
+                                </div>
+                            </NavLink>
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
         </>
     )
 }
