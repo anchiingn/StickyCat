@@ -30,10 +30,10 @@ const loadCurrentSticker = (stickers) => {
     }
 }
 
-const createNewSticker = (stickers) => {
+const createNewSticker = (sticker) => {
     return {
         type: CREATE_NEW_STICKERS,
-        stickers
+        sticker
     }
 }
 
@@ -82,6 +82,7 @@ export const thunkLoadAllStickers = () => async (dispatch) => {
 
     if (res.ok) {
         const allStickers = await res.json()
+        console.log(allStickers)
         dispatch(loadAllStickers(allStickers))
         return allStickers
     }
@@ -207,14 +208,17 @@ const initialState = {}
 export const stickerReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL_STICKERS:
-            return { ...state, ...action.allStickers }
+            const newStates = state
+            action.allStickers.forEach(sticker => newStates[sticker.id] = sticker)
+            return newStates
         case LOAD_SINGLE_STICKER:
             return { ...state, ...action.sticker }
         case LOAD_CURRENT_STICKERS:
             console.log('state:',state,'action:',action)
             return { ...state, ...action.stickers }
         case CREATE_NEW_STICKERS:
-            return { ...state, [action.stickers.id]: action.stickers };
+            console.log('action:',action)
+            return { ...state, [action.sticker.id]: action.sticker };
         case DELETE_STICKER:
             let newState = { ...state };
             delete newState[action.sticker];

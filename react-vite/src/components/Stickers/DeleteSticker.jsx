@@ -9,7 +9,7 @@ export default function DeleteSticker({sticker}) {
     const delete_sticker = async (e) => {
 
         await dispatch(thunkDeleteStickers(sticker.id))
-        await dispatch(thunkLoadCurrentStickers())
+        // await dispatch(thunkLoadCurrentStickers())
         closeModal()
     }
 

@@ -37,7 +37,7 @@ export default function NewSticker () {
 
     
         await dispatch(thunkCreateNewStickers(formData))
-        await dispatch(thunkLoadAllStickers())
+        // await dispatch(thunkLoadAllStickers())
         navigate('/')
     }
 
