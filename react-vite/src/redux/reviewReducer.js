@@ -42,11 +42,11 @@ export const thunkLoadAllReviews = (id) => async (dispatch) => {
     }
 }
 
-export const thunkCreateNewReviews = (review,id) => async (dispatch) => {
+export const thunkCreateNewReviews = (review, id) => async (dispatch) => {
     const res = await fetch(`/api/stickers/${id}/new-review`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(review)    
+        body: JSON.stringify(review)
     });
 
     if (res.ok) {
@@ -58,14 +58,14 @@ export const thunkCreateNewReviews = (review,id) => async (dispatch) => {
     }
 };
 
-export const thunkEditReviews = (review,id) => async (dispatch) => {
-    console.log('before fetch',review, id)
+export const thunkEditReviews = (review, id) => async (dispatch) => {
+    console.log('before fetch', review, id)
     const res = await fetch(`/api/reviews/${id}/edit-review`, {
         method: 'PUT',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(review)    
+        body: JSON.stringify(review)
     });
-    console.log('after fetch',review,id)
+    console.log('after fetch', review, id)
 
     if (res.ok) {
         const newreview = await res.json();
@@ -99,7 +99,9 @@ const initialState = {}
 export const reviewReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL_REVIEWS:
-            return { ...state, ...action.allReviews }
+            const newStates = { ...state }
+            action.allReviews.forEach(review => newStates[review.id] = review)
+            return newStates
         case CREATE_NEW_REVIEW:
             return { ...state, [action.reviews.id]: action.reviews };
         case EDIT_REVIEW:

@@ -9,7 +9,8 @@ export default function DeleteSticker({sticker}) {
     const navigation = useNavigate()
    
     const delete_sticker = async (e) => {
-
+        e.preventDefault()
+        
         await dispatch(thunkDeleteStickers(sticker.id))
         await dispatch(thunkLoadCurrentStickers())
         closeModal()

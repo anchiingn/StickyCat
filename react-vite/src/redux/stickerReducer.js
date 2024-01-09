@@ -1,11 +1,11 @@
 const LOAD_ALL_STICKERS = 'stickers/loadAllStickers'
 const LOAD_SINGLE_STICKER = 'stickers/loadSingleSticker'
-// const LOAD_CURRENT_STICKERS = 'stickers/loadCurrentStickers'
+const LOAD_CURRENT_STICKERS = 'stickers/loadCurrentStickers'
 const CREATE_NEW_STICKERS = 'stickers/createNewStickers'
 const DELETE_STICKER = 'stickers/deleteStickers'
 const EDIT_STICKER = 'stickers/editStickers'
 
-// const LOAD_ALL_FAVORITES = 'stickers/loadAllFavorites'
+const LOAD_ALL_FAVORITES = 'stickers/loadAllFavorites'
 const ADD_TO_FAVORITE = 'stickers/addToFavorite'
 const DELETE_FROM_FAVORITE = 'stickers/deleteFromFavorite'
 
@@ -23,12 +23,12 @@ const loadSingleSticker = (sticker) => {
     }
 }
 
-// const loadCurrentSticker = (stickers) => {
-//     return {
-//         type: LOAD_CURRENT_STICKERS,
-//         stickers
-//     }
-// }
+const loadCurrentSticker = (stickers) => {
+    return {
+        type: LOAD_CURRENT_STICKERS,
+        stickers
+    }
+}
 
 const createNewSticker = (sticker) => {
     return {
@@ -55,12 +55,12 @@ const editSticker = (sticker) => {
 
 
 
-// const loadAllFavorites = (stickers) => {
-//     return {
-//         type: LOAD_ALL_FAVORITES,
-//         stickers
-//     };
-// }
+const loadAllFavorites = (stickers) => {
+    return {
+        type: LOAD_ALL_FAVORITES,
+        stickers
+    };
+}
 
 const addToFavorite = (sticker) => {
     return {
@@ -163,7 +163,7 @@ export const thunkLoadAllFavorites = () => async (dispatch) => {
     const res = await fetch("/api/favorites/my-favorite-stickers");
     if (res.ok) {
         const allStickers = await res.json();
-        dispatch(loadAllStickers(allStickers));
+        dispatch(loadAllFavorites(allStickers));
         return allStickers;
     } else {
         throw new Error('Failed to load all favorite stickers');
@@ -208,20 +208,17 @@ const initialState = {}
 export const stickerReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL_STICKERS:
-            const newStates = { ...state }
+            const newStates = {...state}
             action.allStickers.forEach(sticker => newStates[sticker.id] = sticker)
+            console.log('newState', newStates)
             return newStates
         case LOAD_SINGLE_STICKER:
             return { ...state, ...action.sticker }
         // case LOAD_CURRENT_STICKERS:
-        //     return { ...state, ...action.stickers }
-        case CREATE_NEW_STICKERS:
-            console.log('action:', action)
-            return { ...state, [action.sticker.id]: action.sticker };
-        // case LOAD_ALL_FAVORITES:
         //     console.log('state:',state,'action:',action)
         //     return { ...state, ...action.stickers }
-        case ADD_TO_FAVORITE:
+        case CREATE_NEW_STICKERS:
+            console.log('action:',action)
             return { ...state, [action.sticker.id]: action.sticker };
         case DELETE_STICKER:
             let newState = { ...state };
@@ -230,6 +227,10 @@ export const stickerReducer = (state = initialState, action) => {
         case EDIT_STICKER:
             return { ...state, [action.sticker.id]: action.sticker };
 
+        case LOAD_ALL_FAVORITES:
+            return { ...state, ...action.stickers }
+        case ADD_TO_FAVORITE:
+            return { ...state, [action.sticker.id]: action.sticker };
         default:
             return state
     }
