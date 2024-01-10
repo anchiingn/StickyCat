@@ -14,6 +14,7 @@ export default function CreateReview ({ reviews, sticker }) {
 
     const [review, setReview] = useState('')
     const [star, setStar] = useState(0)
+    let [hover, setHover ] = useState('') 
 
     const onSubmit = async(e) => {
         e.preventDefault()
@@ -27,7 +28,6 @@ export default function CreateReview ({ reviews, sticker }) {
         await dispatch(thunkLoadAllReviews(id))
         await dispatch(thunkLoadSingleSticker(id))
         closeModal()
-
     }
     return (
         <>
@@ -39,11 +39,28 @@ export default function CreateReview ({ reviews, sticker }) {
                     onChange={e => setReview(e.target.value)}
                 />
                 <label>Star</label>
-                <input 
-                    type="radio"
-                    value={star}
-                    onChange={e => setStar(e.target.value)}
-                />
+                {[1, 2, 3, 4, 5].map((starNum, index) => {
+                    let currentStar = index + 1;
+                    console.log(currentStar, starNum, hover)
+                            return (
+                                <label
+                                    key={starNum}
+                                    onMouseEnter={() => setHover(currentStar)}
+                                    onMouseLeave={() => setHover(0)}
+                                >
+                                    <input
+                                        key={starNum}
+                                        name={`starNum${starNum}`}
+                                        type="radio"
+                                        value={currentStar}
+                                        onChange={e => setStar(e.target.value)}
+                                    />
+                                    <i className={`fa-solid fa-star`} style={{
+                                        color: (hover || star ) >= currentStar ? 'orangered' : 'black'
+                                    }}></i>
+                                </label>
+                            )
+                        })}
                 <button>submit</button>
             </form>
         </>

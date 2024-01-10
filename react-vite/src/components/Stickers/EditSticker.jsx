@@ -19,7 +19,6 @@ export default function EditSticker () {
 
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
-    const [image, setImage] = useState('');
     const [height, setHeight] = useState('');
     const [width, setWidth] = useState('');
     const [message, setMessage] = useState('');
@@ -40,26 +39,26 @@ export default function EditSticker () {
     const onSubmit = async (e) => {
         e.preventDefault()
 
-        // const newSticker = {
-        //     title, 
-        //     price,
-        //     image,
-        //     height,
-        //     width,
-        //     message
-        // }
-        // console.log(newSticker)
+        const newSticker = {
+            title, 
+            price,
+            height,
+            width,
+            message
+        }
 
-        const formData = new FormData()
-        formData.append("title", title)
-        formData.append("price", price)
-        formData.append("image", image)
-        formData.append("height", height)
-        formData.append("width", width)
-        formData.append("message", message)
+        console.log(newSticker)
 
-        
-        await dispatch(thunkEditStickers(formData, id))
+        // const formData = new FormData()
+        // formData.append("title", title)
+        // formData.append("price", price)
+        // formData.append("image", image)
+        // formData.append("height", height)
+        // formData.append("width", width)
+        // formData.append("message", message)
+
+        // console.log('formdata', formData)
+        await dispatch(thunkEditStickers(newSticker, id))
         // await dispatch(thunkLoadCurrentStickers())
         navigate('/my-stickers')
     }
@@ -69,6 +68,7 @@ export default function EditSticker () {
         <>
             {/* <div className="container">
             <div className="login_container"> */}
+            <img src={sticker.image} alt="" style={{height:'100px'}}/>
                 <form onSubmit={onSubmit} encType="multipart/form-data" >
                     <label>title</label>
                     <input 
@@ -82,12 +82,7 @@ export default function EditSticker () {
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                     />
-                    <label>image</label>
-                    <input 
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => setImage(e.target.files[0])}
-                    />
+                    
                     <label>height</label>
                     <input 
                         type="number"

@@ -8,7 +8,8 @@ class StickerForm(FlaskForm):
     title=StringField('title')
     price=FloatField('price')
     image = FileField("image", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
-    # image=StringField('image')
     height=IntegerField('height')
     width=IntegerField('width')
     message=TextAreaField('message')
+
+

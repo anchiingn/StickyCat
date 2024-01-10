@@ -21,7 +21,7 @@ export default function ALlReviews({ sticker, id }) {
     if (!fetchAllReviews) return null
 
     const reviews = fetchAllReviews ? Object.values(fetchAllReviews) : []
-    // console.log(reviews)
+    console.log(reviews)
     return (
         <>
             <div>

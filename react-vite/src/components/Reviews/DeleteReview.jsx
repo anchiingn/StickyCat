@@ -12,13 +12,11 @@ export default function DeleteReview({ review, id, sticker }) {
     const delete_review = async (e) => {
         e.preventDefault()
 
-        console.log('before')
         await dispatch(thunkDeleteReviews(review.id));
         await dispatch(thunkLoadAllReviews(sticker.id));
         await dispatch(thunkLoadSingleSticker(sticker.id));
-        // window.location.reload(true);
+        
         closeModal();
-        console.log('after')
 
     }
     return (

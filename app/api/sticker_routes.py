@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db
 from app.forms.sticker_form import StickerForm
+from app.forms.updatestickerr_forrm import UpdateStickerForm
 from app.forms.review_form import ReviewForm
 from app.models.sticker import Sticker
 from app.models.review import Review
@@ -83,34 +84,34 @@ def create_new_stickers():
 def update_stickers(id):
     sticker = Sticker.query.get(id)
 
-    form = StickerForm()
+    form = UpdateStickerForm()
 
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
 
-        image=form.data['image']
-        image.filename = get_unique_filename(image.filename)
-        upload = upload_file_to_s3(image)
+        # image=form.data['image']
+        # image.filename = get_unique_filename(image.filename)
+        # upload = upload_file_to_s3(image)
 
-        if "url" not in upload:
-            return {'errors': upload}
-        else:
-            remove_file_from_s3(sticker.image)
-            sticker.image = upload('url')
+        # if "url" not in upload:
+        #     return {'errors': upload}
+        # else:
+        #     remove_file_from_s3(sticker.image)
+        #     sticker.image = upload('url')
 
         
-        sticker.title=form.data['title'],
-        sticker.image=upload['url'],
-        sticker.price=form.data['price'],
-        sticker.height=form.data['height'],
-        sticker.width=form.data['width'],
+        sticker.title=form.data['title']
+        # sticker.image=upload['url'],
+        sticker.price=form.data['price']
+        sticker.height=form.data['height']
+        sticker.width=form.data['width']
         sticker.message=form.data['message']
         
         db.session.commit()
         return sticker.to_dict()
     else:
-        return jsonify(message='Bad Data')
+        return jsonify(message='Bad Data'),400
     
 
 @sticker_routes.route('/<int:id>/delete-sticker', methods=["DELETE"])

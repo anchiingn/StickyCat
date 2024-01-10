@@ -1,6 +1,6 @@
 const LOAD_ALL_STICKERS = 'stickers/loadAllStickers'
 const LOAD_SINGLE_STICKER = 'stickers/loadSingleSticker'
-const LOAD_CURRENT_STICKERS = 'stickers/loadCurrentStickers'
+// const LOAD_CURRENT_STICKERS = 'stickers/loadCurrentStickers'
 const CREATE_NEW_STICKERS = 'stickers/createNewStickers'
 const DELETE_STICKER = 'stickers/deleteStickers'
 const EDIT_STICKER = 'stickers/editStickers'
@@ -23,12 +23,12 @@ const loadSingleSticker = (sticker) => {
     }
 }
 
-const loadCurrentSticker = (stickers) => {
-    return {
-        type: LOAD_CURRENT_STICKERS,
-        stickers
-    }
-}
+// const loadCurrentSticker = (stickers) => {
+//     return {
+//         type: LOAD_CURRENT_STICKERS,
+//         stickers
+//     }
+// }
 
 const createNewSticker = (sticker) => {
     return {
@@ -38,7 +38,6 @@ const createNewSticker = (sticker) => {
 }
 
 const deleteSticker = (sticker) => {
-    console.log('this is delete:', sticker)
     return {
         type: DELETE_STICKER,
         sticker: sticker
@@ -46,7 +45,6 @@ const deleteSticker = (sticker) => {
 }
 
 const editSticker = (sticker) => {
-    console.log('this is delete:', sticker)
     return {
         type: EDIT_STICKER,
         sticker: sticker
@@ -141,19 +139,21 @@ export const thunkDeleteStickers = (id) => async (dispatch) => {
 };
 
 export const thunkEditStickers = (sticker, id) => async (dispatch) => {
-
+console.log('sticker', sticker)
     const res = await fetch(`/api/stickers/${id}/edit-sticker`, {
-        method: 'POST',
-        // headers: { "Content-Type": "application/json" },
-        body: sticker
+        method: 'PUT',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(sticker)
     });
+    console.log('res', res)
 
     if (res.ok) {
         const newSticker = await res.json();
+        console.log('newsticker', newSticker)
         dispatch(editSticker(newSticker));
         return newSticker;
     } else {
-        throw new Error('Failed to editsticker');
+        throw new Error('Failed to edit sticker');
     }
 };
 
@@ -213,12 +213,13 @@ export const stickerReducer = (state = initialState, action) => {
             console.log('newState', newStates)
             return newStates
         case LOAD_SINGLE_STICKER:
-            return { ...state, ...action.sticker }
+            let nextState = { ...state }
+            nextState = { ...action.sticker }
+            return nextState
         // case LOAD_CURRENT_STICKERS:
         //     console.log('state:',state,'action:',action)
         //     return { ...state, ...action.stickers }
         case CREATE_NEW_STICKERS:
-            console.log('action:',action)
             return { ...state, [action.sticker.id]: action.sticker };
         case DELETE_STICKER:
             let newState = { ...state };
@@ -227,8 +228,11 @@ export const stickerReducer = (state = initialState, action) => {
         case EDIT_STICKER:
             return { ...state, [action.sticker.id]: action.sticker };
 
-        case LOAD_ALL_FAVORITES:
-            return { ...state, ...action.stickers }
+        case LOAD_ALL_FAVORITES:{
+            const newStates = {...state}
+            action.stickers.forEach(sticker => newStates[sticker.id] = sticker)
+            return newStates
+        }
         case ADD_TO_FAVORITE:
             return { ...state, [action.sticker.id]: action.sticker };
         default:

@@ -12,9 +12,10 @@ export default function EditReview ({ reviewDetail, sticker }) {
     const { closeModal } = useModal()
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
+    
     const [review, setReview] = useState(reviewDetail?.review)
     const [star, setStar] = useState(reviewDetail?.star)
+    const [hover, setHover ] = useState('') 
 
     useEffect(() => {
         if (reviewDetail) {
@@ -48,11 +49,27 @@ export default function EditReview ({ reviewDetail, sticker }) {
                     onChange={e => setReview(e.target.value)}
                 />
                 <label>Star</label>
-                <input 
-                    type="radio"
-                    value={star}
-                    onChange={e => setStar(e.target.value)}
-                />
+                {[1, 2, 3, 4, 5].map((starNum, index) => {
+                            const currentStar = index + 1;
+                            return (
+                                <label
+                                    key={starNum}
+                                    onMouseEnter={() => setHover(currentStar)}
+                                    onMouseLeave={() => setHover(0)}
+                                >
+                                    <input
+                                        key={starNum}
+                                        name={`starNum${starNum}`}
+                                        type="radio"
+                                        value={currentStar}
+                                        onChange={e => setStar(e.target.value)}
+                                    />
+                                    <i className={`fa-solid fa-star`} style={{
+                                        color: (hover || star) >= currentStar ? 'orangered' : 'black'
+                                    }}></i>
+                                </label>
+                            )
+                        })}
                 <button>submit</button>
             </form>
         </>

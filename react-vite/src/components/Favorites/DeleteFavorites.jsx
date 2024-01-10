@@ -10,7 +10,9 @@ export default function DeleteFavorites({ sticker }) {
         e.preventDefault()
         await dispatch(thunkDeleteFromFavorite(sticker.id))
         await dispatch(thunkLoadAllFavorites())
-            .then(closeModal)
+        
+        closeModal()
+        navigation('/my-favorite-stickers')
 
     }
 
