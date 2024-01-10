@@ -4,7 +4,7 @@ import { thunkLoadSingleSticker, thunkAddToFavorite, thunkLoadAllStickers } from
 import { useParams,useNavigate } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
-import { thunkAddToCart } from "../../redux/cardReducer"
+import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
 
 export default function StickerDetail() {
     const { id } = useParams()
@@ -33,18 +33,17 @@ export default function StickerDetail() {
         e.preventDefault()
 
         await dispatch(thunkAddToCart(single_sticker, id))
+        await dispatch(thunkLoadAllCarts())
     }
 
     const goBack = async(e) => {
         e.preventDefault()
 
-        await dispatch(thunkLoadAllStickers())
         navigate(-1)
     }
 
     const date = new Date(new Date().getTime()+(10*24*60*60*1000))
     const shipdate = new Date(date)
-    console.log(shipdate)
 
     const day = shipdate.getDate()
     const month = shipdate.getMonth()

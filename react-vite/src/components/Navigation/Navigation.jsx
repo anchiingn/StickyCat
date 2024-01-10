@@ -2,7 +2,7 @@ import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import AllCartStickers from "../Carts/AllCartStickers";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { thunkLoadAllStickers, thunkLoadCurrentStickers } from "../../redux/stickerReducer";
 import { useDispatch } from "react-redux";
 
@@ -10,11 +10,32 @@ function Navigation() {
   const [show, setShow] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const ulRef = useRef();
 
   const goBackHome = async(e) => {
     await dispatch(thunkLoadAllStickers())
     navigate('/')
   }
+
+  const toggleMenu = (e) => {
+    e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
+    setShow(!show);
+  };
+
+  useEffect(() => {
+    if (!show) return;
+
+    const closeMenu = (e) => {
+      if (ulRef.current && !ulRef.current.contains(e.target)) {
+        setShowMenu(false);
+      }
+    };
+    console.log
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [show]);
 
 
   return (
@@ -35,10 +56,11 @@ function Navigation() {
         </div>
 
         <div>
-          <button onClick={e => setShow(!show)}><i className="fa-solid fa-cart-shopping"></i></button>
+          <button onClick={toggleMenu}><i className="fa-solid fa-cart-shopping"></i></button>
           {show && (
             <div id="cart-modal">
               <div>hi</div>
+              <button onClick={toggleMenu}>x</button>
               <AllCartStickers />
             </div>
           )}

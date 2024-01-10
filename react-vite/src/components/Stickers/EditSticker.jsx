@@ -59,7 +59,7 @@ export default function EditSticker () {
 
         // console.log('formdata', formData)
         await dispatch(thunkEditStickers(newSticker, id))
-        // await dispatch(thunkLoadCurrentStickers())
+        await dispatch(thunkLoadCurrentStickers())
         navigate('/my-stickers')
     }
 

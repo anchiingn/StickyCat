@@ -80,7 +80,7 @@ export const thunkLoadAllStickers = () => async (dispatch) => {
 
     if (res.ok) {
         const allStickers = await res.json()
-        console.log(allStickers)
+        // console.log(allStickers)
         dispatch(loadAllStickers(allStickers))
         return allStickers
     }
@@ -101,7 +101,7 @@ export const thunkLoadCurrentStickers = () => async (dispatch) => {
 
     if (res.ok) {
         const allStickers = await res.json()
-        console.log('get current sticker:', allStickers)
+        // console.log('get current sticker:', allStickers)
         dispatch(loadAllStickers(allStickers))
         return allStickers
     }
@@ -139,17 +139,15 @@ export const thunkDeleteStickers = (id) => async (dispatch) => {
 };
 
 export const thunkEditStickers = (sticker, id) => async (dispatch) => {
-console.log('sticker', sticker)
     const res = await fetch(`/api/stickers/${id}/edit-sticker`, {
         method: 'PUT',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(sticker)
     });
-    console.log('res', res)
 
     if (res.ok) {
         const newSticker = await res.json();
-        console.log('newsticker', newSticker)
+        // console.log('newsticker', newSticker)
         dispatch(editSticker(newSticker));
         return newSticker;
     } else {
@@ -210,21 +208,26 @@ export const stickerReducer = (state = initialState, action) => {
         case LOAD_ALL_STICKERS:
             const newStates = {...state}
             action.allStickers.forEach(sticker => newStates[sticker.id] = sticker)
-            console.log('newState', newStates)
+            // console.log('newState', newStates)
             return newStates
+
         case LOAD_SINGLE_STICKER:
             let nextState = { ...state }
             nextState = { ...action.sticker }
             return nextState
+
         // case LOAD_CURRENT_STICKERS:
         //     console.log('state:',state,'action:',action)
         //     return { ...state, ...action.stickers }
+
         case CREATE_NEW_STICKERS:
             return { ...state, [action.sticker.id]: action.sticker };
+
         case DELETE_STICKER:
             let newState = { ...state };
             delete newState[action.sticker];
             return newState;
+
         case EDIT_STICKER:
             return { ...state, [action.sticker.id]: action.sticker };
 
@@ -233,6 +236,7 @@ export const stickerReducer = (state = initialState, action) => {
             action.stickers.forEach(sticker => newStates[sticker.id] = sticker)
             return newStates
         }
+
         case ADD_TO_FAVORITE:
             return { ...state, [action.sticker.id]: action.sticker };
         default:

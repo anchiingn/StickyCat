@@ -27,7 +27,7 @@ export default function ALlReviews({ sticker, id }) {
             <div>
                 <div style={{ fontWeight: 'bold' }}>Customer Reviews:</div>
                 {reviews.length > 0 ? (
-                    reviews.map(review => {
+                    [...new Set (reviews.map(review => {
                         // console.log(review);
                         return (
                             <div key={review.id}>
@@ -48,7 +48,7 @@ export default function ALlReviews({ sticker, id }) {
                             </div>
                         );
                     })
-                ) : (
+                )]) : (
                     <div>No reviews available.</div>
                 )}
                 {user && (

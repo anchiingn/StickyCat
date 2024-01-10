@@ -13,7 +13,6 @@ export default function AllStickers() {
 
     useEffect(() => {
         dispatch(thunkLoadAllStickers())
-        console.log('hello')
     }, [dispatch])
 
     const stickers = Object.values(allStickers)

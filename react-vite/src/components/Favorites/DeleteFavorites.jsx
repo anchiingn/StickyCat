@@ -1,18 +1,21 @@
 import { useDispatch } from "react-redux";
 import { thunkDeleteFromFavorite, thunkLoadAllFavorites } from "../../redux/stickerReducer";
 import { useModal } from "../../context/Modal";
+import { useNavigate } from "react-router-dom";
 
 export default function DeleteFavorites({ sticker }) {
     const { closeModal } = useModal();
     const dispatch = useDispatch();
+    const navigate = useNavigate()
+
 
     const removeFavorite = async (e) => {
         e.preventDefault()
         await dispatch(thunkDeleteFromFavorite(sticker.id))
-        await dispatch(thunkLoadAllFavorites())
+        // await dispatch(thunkLoadAllFavorites())
         
         closeModal()
-        navigation('/my-favorite-stickers')
+        navigate('/my-favorite-stickers')
 
     }
 

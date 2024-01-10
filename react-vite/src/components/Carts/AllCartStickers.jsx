@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkDeleteFromCart, thunkLoadAllCarts } from "../../redux/cardReducer";
+import { thunkLoadAllCarts } from "../../redux/cardReducer";
 import { NavLink } from "react-router-dom";
-
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import DeleteFromCart from "./DeleteFromCart";
 
 export default function AllCartStickers () {
     const dispatch = useDispatch()
@@ -15,9 +16,6 @@ export default function AllCartStickers () {
 
     const cart_stickers = fetchCartStickers ?Object.values(fetchCartStickers) :[]
 
-    const remove_sticker = async(e) => {
-        e.preventDefault()
-    }
 
     return (
         <>
@@ -25,6 +23,7 @@ export default function AllCartStickers () {
                 <div>this is my cart</div>
                 {cart_stickers.map(sticker => {
                     if (sticker && sticker.stickers && sticker.stickers.length > 0) {
+                        // console.log(sticker)
                         return (
                             <div key={sticker?.id}>
                                 <NavLink to={`/stickers/${sticker?.stickerId}`}>
@@ -32,7 +31,10 @@ export default function AllCartStickers () {
                                     <div>{sticker?.stickers[0]?.title}</div>
                                     <div>{sticker?.stickers[0]?.price}</div>
                                 </NavLink>
-                                <button onClick={remove_sticker}>x</button>
+                                <OpenModalMenuItem 
+                                    itemText={'remove'}
+                                    modalComponent={<DeleteFromCart sticker={sticker}/>}
+                                />
                                 <div>subtotal: {sticker?.stickers[0]?.price * sticker.quantity}</div>
                                 <button>Checkout</button>
                             </div>
