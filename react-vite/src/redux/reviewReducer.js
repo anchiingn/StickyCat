@@ -97,7 +97,7 @@ const initialState = {}
 export const reviewReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL_REVIEWS:
-            const newStates = { ...state }
+            const newStates = {}
             action.allReviews.forEach(review => newStates[review.id] = review)
             return newStates
         case CREATE_NEW_REVIEW:

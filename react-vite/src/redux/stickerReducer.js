@@ -206,13 +206,14 @@ const initialState = {}
 export const stickerReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL_STICKERS:
-            const newStates = {...state}
+            // console.log(state)
+            const newStates = {}
             action.allStickers.forEach(sticker => newStates[sticker.id] = sticker)
             // console.log('newState', newStates)
             return newStates
 
         case LOAD_SINGLE_STICKER:
-            let nextState = { ...state }
+            let nextState = { }
             nextState = { ...action.sticker }
             return nextState
 
@@ -232,7 +233,7 @@ export const stickerReducer = (state = initialState, action) => {
             return { ...state, [action.sticker.id]: action.sticker };
 
         case LOAD_ALL_FAVORITES:{
-            const newStates = {...state}
+            const newStates = {}
             action.stickers.forEach(sticker => newStates[sticker.id] = sticker)
             return newStates
         }

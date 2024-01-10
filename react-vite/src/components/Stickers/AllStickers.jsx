@@ -16,8 +16,9 @@ export default function AllStickers() {
     }, [dispatch])
 
     const stickers = Object.values(allStickers)
-    // console.log(stickers)
 
+    const twoSticekrs = stickers.slice(0,2)
+    console.log(twoSticekrs)
     // if (!allStickers) return null;
 
     return (

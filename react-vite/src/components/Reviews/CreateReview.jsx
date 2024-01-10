@@ -27,6 +27,7 @@ export default function CreateReview ({ reviews, sticker }) {
         await dispatch(thunkCreateNewReviews(new_review, id))
         await dispatch(thunkLoadAllReviews(id))
         await dispatch(thunkLoadSingleSticker(id))
+        navigate(`/stickers/${id}`)
         closeModal()
     }
     return (
