@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { thunkCreateNewStickers, thunkLoadAllStickers } from '../../redux/stickerReducer';
@@ -10,22 +10,42 @@ export default function NewSticker () {
     const [height, setHeight] = useState('');
     const [width, setWidth] = useState('');
     const [message, setMessage] = useState('');
+    const [validation, setValidation] = useState({})
+    const [submit, setSubmit] = useState(false)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const errors = {}
+            if (!title) {
+                errors.title = 'Title is required';
+            }
+            if (!price) {
+                errors.price = 'Price is required';
+            }
+            if (price && !/^[0-9]+$/.test(price)) {
+                errors.price = 'Must be number'
+            }
+            if (!image) {
+                errors.image = 'Image is required';
+            }
+            if (!height) {
+                errors.height = 'height is required';
+            }
+            if (!width) {
+                errors.width = 'width is required';
+            }
+        
+    
+        setValidation(errors);
+    
+    }, [title, image, price]);
+console.log(validation)
     const onSubmit = async (e) => {
         e.preventDefault()
-
-        // const newSticker = {
-        //     title, 
-        //     price,
-        //     image,
-        //     height,
-        //     width,
-        //     message
-        // }
-        // console.log(newSticker)
+        
+       setSubmit(true)
 
         const formData = new FormData()
         formData.append("title", title)
@@ -35,18 +55,23 @@ export default function NewSticker () {
         formData.append("width", width)
         formData.append("message", message)
 
-    
         await dispatch(thunkCreateNewStickers(formData))
+
         // await dispatch(thunkLoadAllStickers())
         navigate('/')
     }
-
 
     return (
         <>
         {/* <div className="container">
             <div className="login_container"> */}
                 <form onSubmit={onSubmit} encType="multipart/form-data" >
+                {validation.title && submit && <p className="errors">{validation.title}</p>}
+                {validation.price && submit && <p className="errors">{validation.price}</p>}
+                {validation.image && submit && <p className="errors">{validation.image}</p>}
+                {validation.height && submit && <p className="errors">{validation.height}</p>}
+                {validation.width && submit && <p className="errors">{validation.width}</p>}
+
                     <label>title</label>
                     <input 
                         type="text"
@@ -64,6 +89,7 @@ export default function NewSticker () {
                         type="file"
                         accept="image/*"
                         onChange={(e) => setImage(e.target.files[0])}
+                        
                     />
                     <label>height</label>
                     <input 
@@ -82,7 +108,7 @@ export default function NewSticker () {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                     />
-                    <button>Submit</button>
+                    <button >Submit</button>
                 </form>
             {/* </div>
         </div> */}

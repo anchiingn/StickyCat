@@ -77,7 +77,7 @@ def create_new_stickers():
         db.session.commit()
         return new_sticker.to_dict()
     else:
-        return jsonify(message='Bad Data')
+        return form.errors, 401
     
 
 @sticker_routes.route('/<int:id>/edit-sticker', methods=["PUT"])
@@ -111,7 +111,7 @@ def update_stickers(id):
         db.session.commit()
         return sticker.to_dict()
     else:
-        return jsonify(message='Bad Data'),400
+        return form.errors, 401
     
 
 @sticker_routes.route('/<int:id>/delete-sticker', methods=["DELETE"])

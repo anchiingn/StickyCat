@@ -17,11 +17,13 @@ export default function EditSticker () {
 
     const sticker = fetchStickers ?Object.values(fetchStickers).pop() :[]
 
-    const [title, setTitle] = useState(sticker?.title);
-    const [price, setPrice] = useState(sticker?.price);
-    const [height, setHeight] = useState(sticker?.height);
-    const [width, setWidth] = useState(sticker?.width);
-    const [message, setMessage] = useState(sticker?.message);
+    const [title, setTitle] = useState(sticker?.title || '');
+    const [price, setPrice] = useState(sticker?.price || '');
+    const [height, setHeight] = useState(sticker?.height || '');
+    const [width, setWidth] = useState(sticker?.width || '');
+    const [message, setMessage] = useState(sticker?.message || '');
+    const [validation, setValidation] = useState({})
+    const [submit, setSubmit] = useState(false)
 
 
     useEffect(() => {
@@ -32,6 +34,27 @@ export default function EditSticker () {
             setWidth(width ? width : sticker.width)
             setMessage(message ? message : sticker.message)
         }
+
+        const errors = {}
+            if (!title) {
+                errors.title = 'Title is required';
+            }
+            if (!price) {
+                errors.price = 'Price is required';
+            }
+            if (price && !/^[0-9]+$/.test(price)) {
+                errors.price = 'Must be number'
+            }
+            if (!height) {
+                errors.height = 'height is required';
+            }
+            if (!width) {
+                errors.width = 'width is required';
+            }
+        
+    
+        setValidation(errors);
+
     }, [sticker, title, price, title, price, height, width, message])
 
 
@@ -46,7 +69,7 @@ export default function EditSticker () {
             message
         }
 
-        console.log(newSticker)
+        setSubmit(true)
 
         // const formData = new FormData()
         // formData.append("title", title)
@@ -67,8 +90,13 @@ export default function EditSticker () {
         <>
             {/* <div className="container">
             <div className="login_container"> */}
-            <img src={sticker.image} alt="" style={{height:'100px'}}/>
+            <img src={sticker?.image} alt="" style={{height:'100px'}}/>
                 <form onSubmit={onSubmit} encType="multipart/form-data" >
+                {validation.title && submit && <p className="errors">{validation.title}</p>}
+                {validation.price && submit && <p className="errors">{validation.price}</p>}
+                {validation.height && submit && <p className="errors">{validation.height}</p>}
+                {validation.width && submit && <p className="errors">{validation.width}</p>}
+
                     <label>title</label>
                     <input 
                         type="text"

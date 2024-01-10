@@ -63,7 +63,7 @@ function LoginFormPage() {
               required
             />
 
-          {errors.email && <p className="errors">{errors.email}</p>}
+          {errors.email && <p className="errors">*{errors.email}</p>}
           <label>
             Password
           </label>
@@ -73,7 +73,7 @@ function LoginFormPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          {errors.password && <p className="errors">{errors.password}</p>}
+          {errors.password && <p className="errors">*{errors.password}</p>}
 
           <button type="submit">Sign In</button>
         </form>
