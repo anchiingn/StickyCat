@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: ba4a746c7f16
+Revision ID: 63380f2144af
 Revises: 
-Create Date: 2024-01-10 11:15:47.274222
+Create Date: 2024-01-10 11:47:07.126320
 
 """
 from alembic import op
@@ -12,9 +12,8 @@ import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
-
 # revision identifiers, used by Alembic.
-revision = 'ba4a746c7f16'
+revision = '63380f2144af'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -39,8 +38,8 @@ def upgrade():
     sa.Column('title', sa.String(length=50), nullable=True),
     sa.Column('price', sa.Float(), nullable=True),
     sa.Column('image', sa.String(), nullable=True),
-    sa.Column('height', sa.Numeric(precision=2), nullable=True),
-    sa.Column('width', sa.Numeric(precision=2), nullable=True),
+    sa.Column('height', sa.Float(), nullable=True),
+    sa.Column('width', sa.Float(), nullable=True),
     sa.Column('message', sa.String(length=500), nullable=True),
     sa.Column('shipdate', sa.Date(), nullable=True),
     sa.Column('createAt', sa.Date(), nullable=True),
@@ -79,6 +78,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+
 
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
