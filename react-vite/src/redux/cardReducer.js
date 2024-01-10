@@ -73,7 +73,7 @@ const initialState = {}
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL_CARTS:
-            const newStates = {...state}
+            const newStates = {}
             action.stickers.forEach(sticker => newStates[sticker.id] = sticker)
             // console.log('newState', newStates)
             return newStates

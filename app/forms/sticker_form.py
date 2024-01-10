@@ -5,11 +5,11 @@ from flask_wtf.file import FileField, FileAllowed, FileRequired
 from app.api.aws_helpers import ALLOWED_EXTENSIONS
 
 class StickerForm(FlaskForm):
-    title=StringField('title')
-    price=FloatField('price')
+    title=StringField('title', validators=[DataRequired()])
+    price=FloatField('price', validators=[DataRequired()])
     image = FileField("image", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
     height=IntegerField('height')
     width=IntegerField('width')
-    message=TextAreaField('message')
+    message=TextAreaField('message', validators=[DataRequired()])
 
 
