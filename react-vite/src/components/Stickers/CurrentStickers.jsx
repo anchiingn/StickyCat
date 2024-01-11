@@ -13,7 +13,6 @@ export default function CurrentStickers() {
     
     useEffect(() => {
         dispatch(thunkLoadCurrentStickers())
-        dispatch(thunkLoadAllReviews())
     }, [dispatch])
 
     const stickers = Object.values(allStickers)

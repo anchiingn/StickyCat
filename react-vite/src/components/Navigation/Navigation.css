@@ -9,10 +9,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  top: 0px;
+  padding: 10px 15px;
+  top: 20px;
+  border-radius: 50px;
+  border: none;
   background-color: pink;
+  width: 60em;
+  margin-top: 20px;
   margin-bottom: 40px;
+  margin-left: 15em;
 }
 
 #nav-link_container {
@@ -34,7 +39,9 @@
 
 /* --- Logo --- */
 #logo-name {
-  font-size: 30px;
+  font-size: 22px;
+  font-family: var(--big-font);
+  letter-spacing: 1.25px;
 }
 
 /* --- Cart --- */

@@ -20,11 +20,12 @@ export default function DeleteSticker({sticker}) {
     return (
         <>
             <div>
-            <div>Confirm Delete</div>
-            <div>Are you sure you want to remove this sticker?</div>
-            <div>
-                <button onClick={delete_sticker}>Yes </button>
-                <button onClick={closeModal}>No </button>
+                <img src={sticker?.image} alt="" style={{height:'100px'}}/>
+                <div>Confirm Delete</div>
+                <div>Are you sure you want to remove this sticker?</div>
+                <div>
+                    <button onClick={delete_sticker}>Yes </button>
+                    <button onClick={closeModal}>No </button>
             </div>
         </div>
         </>

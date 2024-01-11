@@ -1,9 +1,17 @@
 /* TODO: Add sitewide styles */
+:root {
+    --big-font: 'Alfa Slab One', serif;
+    --small-font: 'Red Hat Display', sans-serif;
+}
+
 * {
     margin: 0px;
+    font-family: var(--small-font);
+    font-weight: 500;
 }
 
 body {
     width: 100vw;
     position: relative;
+    display: flex;
 }

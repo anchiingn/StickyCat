@@ -16,12 +16,12 @@ export default function DeleteFavorites({ sticker }) {
         
         closeModal()
         navigate('/my-favorite-stickers')
-
     }
 
     return (
         <>
             <div >
+                <img src={sticker?.stickers[0]?.image} alt="" style={{height:'100px'}}/>
                 <h2 >Delete Favorite Sticker?</h2>
                 <div>Are you sure you want to remove this favorite sticker?</div>
                 <div >

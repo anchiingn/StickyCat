@@ -35,8 +35,7 @@ export default function AllCartStickers () {
                                     itemText={'remove'}
                                     modalComponent={<DeleteFromCart sticker={sticker}/>}
                                 />
-                                <div>subtotal: {sticker?.stickers[0]?.price * sticker.quantity}</div>
-                                <button>Checkout</button>
+                                <div>subtotal: {(sticker?.stickers[0]?.price * sticker.quantity).toFixed(2)}</div>
                             </div>
                         )
                     }

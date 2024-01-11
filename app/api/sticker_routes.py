@@ -7,6 +7,7 @@ from app.forms.review_form import ReviewForm
 from app.models.sticker import Sticker
 from app.models.review import Review
 from app.models.user import User
+from app.models.favorite import Favorite
 from app.api.aws_helpers import upload_file_to_s3, remove_file_from_s3, get_unique_filename
 
 sticker_routes = Blueprint('stickers', __name__)
@@ -23,9 +24,15 @@ def get_single_sticker(id):
     sticker = Sticker.query.get(id)
 
     sticker_data = []
+
     data = sticker.to_dict()
     currentStickers = User.query.filter_by(id = sticker.ownerId).all()
+    favorites = Favorite.query.filter_by(stickerId = sticker.id).all()
+    reviews = Review.query.filter_by(stickerId = sticker.id).all()
+
     data['user'] = [user.to_dict() for user in currentStickers]
+    data['favorited'] = [favorite.to_dict() for favorite in favorites]
+    data['reviews'] = [review.to_dict() for review in reviews]
     sticker_data.append(data)
 
     return sticker_data

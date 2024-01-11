@@ -7,12 +7,17 @@ import CurrentStickers from '../components/Stickers/CurrentStickers';
 import NewSticker from '../components/Stickers/NewSticker';
 import EditSticker from '../components/Stickers/EditSticker';
 import AllFavoriteStickers from '../components/Favorites/AllFavoriteStickers';
+import MainPage from '../components/ExtraPages/MainPage'
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
+      {
+        path: "/main-page",
+        element: <MainPage />
+      },
       {
         path: "/",
         element: <AllStickers />,

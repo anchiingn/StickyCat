@@ -58,8 +58,7 @@ function ProfileButton() {
                 <li>{user.email}</li>
                 {user && (
                   <>
-                  <button onClick={goMySticker}>my stickers</button>
-                  {/* <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink> */}
+                  <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink>
                   <NavLink to="/my-favorite-stickers" className="navlink">My Favorite Stickers</NavLink>
                   </>
                 )}

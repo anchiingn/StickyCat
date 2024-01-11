@@ -1,0 +1,11 @@
+#main_container {
+    width: 100vw;
+    height: 40em;
+    background: rgb(255,208,70);
+    background: linear-gradient(360deg, rgba(255,208,70,1) 0%, rgba(161,131,55,1) 6%, rgba(110,90,47,1) 12%, rgba(85,69,43,1) 16%, rgba(32,26,35,1) 33%);
+}
+
+#thin_container {
+    background: rgb(255,208,70);
+    height: 70px;
+}

@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { thunkLoadSingleSticker, thunkAddToFavorite, thunkLoadAllStickers } from "../../redux/stickerReducer"
+import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer"
 import { useParams,useNavigate } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
+import AllCartStickers from "../Carts/AllCartStickers"
+
 
 export default function StickerDetail() {
     const { id } = useParams()
@@ -12,9 +14,8 @@ export default function StickerDetail() {
     const sticker = useSelector(state => state?.stickers)
     const user = useSelector(state => state.session.user)
     const navigate = useNavigate()
-
+    const [cart, setCart] = useState(false)
     const [show, setShow] = useState(false)
-
 
     useEffect(() => {
         dispatch(thunkLoadSingleSticker(id))
@@ -22,26 +23,43 @@ export default function StickerDetail() {
     }, [dispatch, id])
     
     const single_sticker = sticker ? Object.values(sticker) : []
+    // console.log(single_sticker)
 
+
+    // ------ Add/Remove from Favorite ---------//
     const addToFavorite = async(e) => {
         e.preventDefault()
-
         await dispatch(thunkAddToFavorite(single_sticker, id))
+        await dispatch(thunkLoadSingleSticker(id))
     }
 
+    const removeFromFavorite = async(e) => {
+        e.preventDefault()
+        await dispatch(thunkDeleteFromFavorite(single_sticker[0]?.favorited[0]?.id))
+        await dispatch(thunkLoadSingleSticker(id))
+    }
+
+
+    // ------ Add To Cart ---------//
     const addToCart = async(e) => {
         e.preventDefault()
+
+        setCart(true)
 
         await dispatch(thunkAddToCart(single_sticker, id))
         await dispatch(thunkLoadAllCarts())
     }
 
+
+    // ------ Go Back Previous Page ---------//
     const goBack = async(e) => {
         e.preventDefault()
 
         navigate(-1)
     }
 
+
+    // ------ Get Shipdate ---------//
     const date = new Date(new Date().getTime()+(10*24*60*60*1000))
     const shipdate = new Date(date)
 
@@ -74,7 +92,15 @@ export default function StickerDetail() {
                     
                     <div id="cart-shipdate">
                         <button id="addToCart" onClick={addToCart}>Add to Cart</button>
+                            {cart && (
+                                <div id="cart-modal">
+                                <button onClick={() => setCart(false)}>x</button>
+                                <AllCartStickers />
+                                <button>Checkout</button>
+                                </div>
+                            )}
                         <div>Estimated to Ship {monthName} {day}, {year}</div>
+                        
                     </div>
 
                     <div id="message">
@@ -84,7 +110,7 @@ export default function StickerDetail() {
 
                     <div >
                         <div>product detail</div>
-                        <button onClick={e => setShow(!show)}> v</button>
+                        <button onClick={() => setShow(!show)}> v</button>
                         {show && (
                             <>
                                 <div>
@@ -93,8 +119,8 @@ export default function StickerDetail() {
                                         <div id="height">Height: {single_sticker[0]?.height}</div>
                                         <div id="width">Width: {single_sticker[0]?.width}</div>
                                     </div>
-                                    <div>material</div>
-                                    <div>Care Instructions</div>
+                                    <div>material:</div>
+                                    <div>Care Instructions:</div>
                                 </div>
                             </>
                         )}
@@ -126,12 +152,24 @@ export default function StickerDetail() {
                     </div> */}
 
                     {user && single_sticker[0]?.ownerId !== user.id && (
-                        <div>
-                            <button onClick={addToFavorite}>Favorite</button>
-                        </div>
-                    )}
+                        <>
+                            {single_sticker[0]?.favorited?.length === 0 ?(
+                                <div>
+                                    <button onClick={addToFavorite}>Favorite</button>
+                                </div>
+                            ): (
+                                <div>
+                                    <button onClick={removeFromFavorite}>Favorited</button>
+                                </div>
+                            )}
+                        </>
+                    )
+                }
                 </div>
             </div>
+
+
+            {/*  ------ Get Reviews --------- */}
             <div id="review_container">
                 <ALlReviews sticker={single_sticker} id={id}/>
             </div>

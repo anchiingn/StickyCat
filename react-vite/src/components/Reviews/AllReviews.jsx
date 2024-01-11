@@ -12,7 +12,7 @@ export default function ALlReviews({ sticker, id }) {
     const dispatch = useDispatch()
     const fetchAllReviews = useSelector(state => state.reviews)
     const user = useSelector(state => state.session.user)
-    // console.log(user)
+
     useEffect(() => {
         dispatch(thunkLoadAllReviews(id))
         dispatch(thunkLoadSingleSticker(id))
@@ -21,14 +21,21 @@ export default function ALlReviews({ sticker, id }) {
     if (!fetchAllReviews) return null
 
     const reviews = fetchAllReviews ? Object.values(fetchAllReviews) : []
-    console.log(reviews)
+    // console.log(reviews)
+
+    let starRating = 0
+    for (let review of reviews) {
+        starRating += (review?.star)/2
+    }
+    console.log(starRating)
+
     return (
         <>
             <div>
                 <div style={{ fontWeight: 'bold' }}>Customer Reviews:</div>
+                <div>total reviews: {reviews.length} ------ total Rating: {starRating.toFixed(2)}</div>
                 {reviews.length > 0 ? (
                     reviews.map(review => {
-                        console.log(review.star);
                         return (
                             <div key={review.id}>
                                 <div>Review by: {review.user?.firstname}</div>
