@@ -18,13 +18,15 @@ export default function DeleteFromCart({ sticker }) {
 
     return (
         <>
-            <div >
-                <img src={sticker?.stickers[0]?.image} alt="" style={{height:'100px'}}/>
-                <h2 >Delete Sticker From Cart?</h2>
-                <div>Are you sure you want to remove this sticker from cart?</div>
-                <div >
-                    <button onClick={removeCart}>Delete</button>
-                    <button onClick={closeModal}>Cancel</button>
+            <div className="delete_container">
+                <img src={sticker?.stickers[0]?.image} alt=""/>
+                <div className="delete-texts">
+                    <h2 >Delete Sticker From Cart?</h2>
+                    <div>Do you want to remove this sticker?</div>
+                    <div className="delete-buttons">
+                        <button onClick={removeCart}>Bye Bye</button>
+                        <button onClick={closeModal}>Nooooo!</button>
+                    </div>
                 </div>
             </div>
         </>
