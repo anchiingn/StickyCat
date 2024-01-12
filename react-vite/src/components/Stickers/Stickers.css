@@ -7,14 +7,21 @@
     align-items: center;
 }
 
+#sticker-images_container{
+    /* background-color: aqua; */
+    width: 16em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
+}
+
 #sticker-images_container img{
     display: flex;
     justify-content: center;
-    height: 19em;
-    width: 16em;
-    object-fit: fill;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+    height: 18em;
+    width: 14em;
+    object-fit: contain;
     /* border-bottom: 1px solid; */
 }
 
@@ -33,6 +40,7 @@
     margin: 25px;
     border-bottom: solid;
     padding: 10px;
+    background-color: aliceblue;
 }
 
 .sticker_details {

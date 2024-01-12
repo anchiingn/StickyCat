@@ -23,9 +23,11 @@ function Navigation() {
   let price = 0;
   let quantity = 0;
   for (let sticker of  cart_stickers) {
-    price += sticker?.stickers[0]?.price
-    quantity += sticker.quantity
-    total = (price * quantity).toFixed(2)
+    if (sticker && sticker.length > 0) {
+      price += sticker?.stickers[0]?.price
+      quantity += sticker.quantity
+      total = (price * quantity).toFixed(2)
+    }
   }
 
   // -------- Close Cart When Click Outside --------//
