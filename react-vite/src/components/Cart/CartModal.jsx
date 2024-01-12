@@ -10,6 +10,8 @@ const [show, setShow] = useState(true)
   const dispatch = useDispatch()
   const ulRef = useRef();
   const fetchCartStickers = useSelector(state => state.carts)
+  const user = useSelector(state => state.session.user)
+
 
   useEffect(() => {
       dispatch(thunkLoadAllCarts())
@@ -29,6 +31,8 @@ const [show, setShow] = useState(true)
  
 
   return (
+    <>
+    {user ?(
         <div id="cart_container">
                 <AllCartStickers />
                 <div id="total-price">Total: <span>{total}</span></div>
@@ -37,6 +41,16 @@ const [show, setShow] = useState(true)
                 </button>
               
         </div>
+    ) :(
+      <div>
+        <div>not thing in cart..., you need to sign in</div>
+        <button>
+          <NavLink to='/login'>Sign In/Up</NavLink>
+        </button>
+      </div>
+    )
+  }
+    </>
   );
 }
 

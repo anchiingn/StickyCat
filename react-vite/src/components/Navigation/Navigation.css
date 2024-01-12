@@ -74,7 +74,7 @@
 
 #cart-modal {
   position: fixed;
-  background-color: var(--color-red);
+  background-color: var(--color-white);
   box-shadow: -5px 0px 9px var(--color-shadow);
   top: 0px;
   right: 0px;

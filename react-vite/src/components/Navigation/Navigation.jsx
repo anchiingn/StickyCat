@@ -64,7 +64,7 @@ function Navigation() {
 
             <div>
               <div id="cart-modal_container"> 
-                <button onClick={toggleMenu} className="buttons" yh><i className="fa-solid fa-cart-shopping" style={{fontSize:'20px'}}/></button>
+                <button onClick={toggleMenu} className="buttons"><i className="fa-solid fa-cart-shopping" style={{fontSize:'20px'}}/></button>
                 <div id="cart-stickers_length">{cart_stickers.length}</div>
               </div>
               {show && (
