@@ -39,17 +39,13 @@ function ProfileButton() {
     navigate('/')
   };
 
-  const goMySticker = async(e) => {
-    await dispatch(thunkLoadCurrentStickers())
-    navigate('/my-stickers')
-  }
 
   return (
     <>
     {user ? (
       <>
-        <button onClick={toggleMenu}>
-          <i className="fas fa-user-circle" />
+        <button onClick={toggleMenu} className="buttons">
+          <i className="fas fa-user-circle" style={{fontSize:'25px', marginRight:'10px'}}/>
         </button>
         {showMenu && (
           <ul className={"profile-dropdown"} ref={ulRef}>

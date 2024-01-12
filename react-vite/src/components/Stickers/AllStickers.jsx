@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { thunkLoadAllStickers } from "../../redux/stickerReducer"
 import { NavLink } from "react-router-dom"
-import './Stickers.css'
+import './css/AllStickers.css'
 
 
 export default function AllStickers() {
@@ -23,7 +23,7 @@ export default function AllStickers() {
 
     return (
         <>
-        <div className="container">
+        <div className="">
         <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>All Sticky Stickers</div>
         <p>This is all sticker from ... to ..., cute .... never boring</p>
             <div className="sticker-cards_container">

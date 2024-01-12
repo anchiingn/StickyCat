@@ -5,7 +5,8 @@ import { useParams,useNavigate } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
-import AllCartStickers from "../Carts/AllCartStickers"
+import AllCartStickers from "../Cart/AllCartStickers"
+import CartModal from "../Cart/CartModal"
 
 
 export default function StickerDetail() {
@@ -94,10 +95,14 @@ export default function StickerDetail() {
                         <button id="addToCart" onClick={addToCart}>Add to Cart</button>
                             {cart && (
                                 <div id="cart-modal">
-                                <button onClick={() => setCart(false)}>x</button>
-                                <AllCartStickers />
-                                <button>Checkout</button>
+                                <div id="cart-top">
+                                  <div style={{fontWeight:'bold'}}>My Cart -</div>
+                                  <button onClick={() => setCart(false)} className="buttons"><i class="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
                                 </div>
+                                <div>
+                                  <CartModal />
+                                </div>
+                              </div>
                             )}
                         <div>Estimated to Ship {monthName} {day}, {year}</div>
                         

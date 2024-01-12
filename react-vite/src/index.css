@@ -2,6 +2,12 @@
 :root {
     --big-font: 'Alfa Slab One', serif;
     --small-font: 'Red Hat Display', sans-serif;
+    --color-white: #fffcf7;
+    --color-beige: #f8f3e0;
+    --color-shadow: rgb(95, 94, 92, 0.4);
+    --color-black: #201f1e;
+    --color-red: #e33626;
+    --color-yellow: #f6b32e;
 }
 
 * {
@@ -11,7 +17,20 @@
 }
 
 body {
-    width: 100vw;
+    /* width: 100vw;
     position: relative;
     display: flex;
+    justify-content: center; */
+    background-color: var(--color-beige);
+}
+
+.navlink {
+    color: black;
+    text-decoration: none;
+}
+
+.buttons {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }

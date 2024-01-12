@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
-import AllCartStickers from "../Carts/AllCartStickers";
+import AllCartStickers from "../Cart/AllCartStickers";
 import { useState, useEffect, useRef } from "react";
 import {  useDispatch, useSelector } from "react-redux";
 import { thunkLoadAllCarts } from "../../redux/cardReducer";
+import CartModal from "../Cart/CartModal";
 
 function Navigation() {
   const [show, setShow] = useState(false)
@@ -18,17 +19,6 @@ function Navigation() {
   },[dispatch]);
 
   const cart_stickers = fetchCartStickers ?Object.values(fetchCartStickers) :[];
-
-  let total = 0;
-  let price = 0;
-  let quantity = 0;
-  for (let sticker of  cart_stickers) {
-    if (sticker && sticker.length > 0) {
-      price += sticker?.stickers[0]?.price
-      quantity += sticker.quantity
-      total = (price * quantity).toFixed(2)
-    }
-  }
 
   // -------- Close Cart When Click Outside --------//
   const toggleMenu = (e) => {
@@ -51,42 +41,48 @@ function Navigation() {
   }, [show]);
 
 
-
-
   return (
-    <div id="nav_container">
-      <div id="logo_container">
-        {/* <button id="logo-name" onClick={goBackHome}> StickyCat</button> */}
-        <NavLink to="/" className="navlink" id="logo-name"><i className="fa-solid fa-cat"></i> StickyCat</NavLink>
-      </div>
-      
-      <div id="nav-link_container">
-        <NavLink to="/explored-stickers" className="navlink">Explored Stickers</NavLink>
-        {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
-        <NavLink to="/launch-stickers" className="navlink" >Launch Stickers</NavLink>
-      </div>
+    <div className="container">
 
-      <div id='profile-cart'>
-        <div>
-          <ProfileButton />
-        </div>
+        <div id="nav_container">
 
-        <div>
-          <button onClick={toggleMenu}><i className="fa-solid fa-cart-shopping"></i></button>
-          <div>{cart_stickers.length}</div>
-          {show && (
-            <div id="cart-modal">
-              <button onClick={toggleMenu}>x</button>
-              <AllCartStickers />
-              <div>Total: {total}</div>
-              <button onClick={toggleMenu}>
-                <NavLink to="/checkout">Checkout</NavLink>
-              </button>
+          <div id="logo_container">
+            <img src="./src/images/logo.png" alt="" style={{width:'35px'}}/>
+            <NavLink to="/" className="navlink" id="logo-name">StickyCat</NavLink>
+          </div>
+          
+          <div id="nav-link_container">
+            <NavLink to="/explored-stickers" className="navlink">Explored Stickers</NavLink>
+            {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
+            <NavLink to="/launch-stickers" className="navlink" >Launch Stickers</NavLink>
+          </div>
+
+          <div id='profile-cart_container'>
+            <div>
+              <ProfileButton />
             </div>
-          )}
-        </div>
 
-      </div>
+            <div>
+              <div id="cart-modal_container"> 
+                <button onClick={toggleMenu} className="buttons" yh><i className="fa-solid fa-cart-shopping" style={{fontSize:'20px'}}/></button>
+                <div id="cart-stickers_length">{cart_stickers.length}</div>
+              </div>
+              {show && (
+                <div id="cart-modal">
+                  <div id="cart-top">
+                    <div style={{fontWeight:'bold'}}>My Cart -</div>
+                    <button onClick={toggleMenu} className="buttons"><i class="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
+                  </div>
+                  <div>
+                    <CartModal />
+                  </div>
+                </div>
+              )}
+            </div>
+
+          </div>
+
+        </div>
     </div>
   );
 }

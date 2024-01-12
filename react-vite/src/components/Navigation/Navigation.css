@@ -1,55 +1,94 @@
-
-.profile-dropdown {
-  position: absolute;
+/* ------ Containers ------ */
+.container {
+  width: 100dvw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-/* --- Navbar --- */
 #nav_container {
-  position: sticky;
+  width: calc(100% - 10em);
+  background-color: var(--color-white);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  top: 20px;
+  margin: 30px;
+  padding: 8px 25px;
   border-radius: 50px;
-  border: none;
-  background-color: pink;
-  width: 60em;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  margin-left: 15em;
+  box-shadow: 0px 5px 6px var(--color-shadow);
 }
 
-#nav-link_container {
+
+/* ------ Logos ------ */
+#logo_container {
   display: flex;
-  gap: 5em;
+  align-items: center;
 }
 
-#profile-cart {
-  display: flex;
-  gap: 20px;
-}
-
-.navlink{
-  color: black;
-  text-decoration: none;
-}
-
-
-
-/* --- Logo --- */
 #logo-name {
-  font-size: 22px;
   font-family: var(--big-font);
-  letter-spacing: 1.25px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-top: 3px;
+  margin-left: 5px;
 }
 
-/* --- Cart --- */
+
+/* ------ NavLinks ------ */
+#nav-link_container {
+  width: 20em;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#nav-link_container > .navlink:hover {
+  border-bottom: 1.5px solid var(--color-red);
+}
+
+#nav-link_container > .navlink.active {
+  border-bottom: 1.5px solid var(--color-red);
+  /* color: var(--color-red); */
+}
+
+/* ------ Profile/Cart ------ */
+#profile-cart_container, #cart_container {
+  display: flex;
+  align-items: center;
+}
+
+#cart-modal_container > #cart-stickers_length {
+  position: absolute;
+  top: 35px;
+  right: 80px;
+  background-color: var(--color-red);
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
 #cart-modal {
   position: fixed;
-  background-color: blue;
+  background-color: var(--color-red);
+  box-shadow: -5px 0px 9px var(--color-shadow);
   top: 0px;
   right: 0px;
   height: 100vh;
   width: 25em;
 }
+
+#cart-modal > #cart-top {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--color-black);
+}
+
+
+
