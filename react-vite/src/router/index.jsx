@@ -8,6 +8,9 @@ import NewSticker from '../components/Stickers/NewSticker';
 import EditSticker from '../components/Stickers/EditSticker';
 import AllFavoriteStickers from '../components/Favorites/AllFavoriteStickers';
 import MainPage from '../components/ExtraPages/MainPage'
+import CheckoutPage from '../components/ExtraPages/CheckoutPage';
+import LaunchStickers from '../components/ExtraPages/LaunchStickers';
+import HowItWork from '../components/ExtraPages/HowItWork';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -15,11 +18,11 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/main-page",
+        path: "/",
         element: <MainPage />
       },
       {
-        path: "/",
+        path: "/explored-stickers",
         element: <AllStickers />,
       },
       {
@@ -49,6 +52,18 @@ export const router = createBrowserRouter([
       {
         path: "my-favorite-stickers",
         element: <AllFavoriteStickers />
+      },
+      {
+        path: "how-it-work",
+        element: <HowItWork />
+      },
+      {
+        path:"launch-stickers",
+        element: <LaunchStickers /> 
+      },
+      {
+        path:"checkout",
+        element: <CheckoutPage /> 
       },
       {
         path: "*",

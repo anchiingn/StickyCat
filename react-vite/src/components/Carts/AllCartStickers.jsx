@@ -30,12 +30,12 @@ export default function AllCartStickers () {
                                     <img src={sticker?.stickers[0]?.image} alt={sticker?.stickers[0]?.title} style={{width:'100px', height:'100px'}}/>
                                     <div>{sticker?.stickers[0]?.title}</div>
                                     <div>{sticker?.stickers[0]?.price}</div>
+                                    <div>{sticker?.quantity}</div>
                                 </NavLink>
                                 <OpenModalMenuItem 
                                     itemText={'remove'}
                                     modalComponent={<DeleteFromCart sticker={sticker}/>}
                                 />
-                                <div>subtotal: {(sticker?.stickers[0]?.price * sticker.quantity).toFixed(2)}</div>
                             </div>
                         )
                     }

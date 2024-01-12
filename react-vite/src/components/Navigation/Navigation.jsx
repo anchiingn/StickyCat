@@ -3,18 +3,32 @@ import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import AllCartStickers from "../Carts/AllCartStickers";
 import { useState, useEffect, useRef } from "react";
-import {  useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
+import { thunkLoadAllCarts } from "../../redux/cardReducer";
 
 function Navigation() {
   const [show, setShow] = useState(false)
-  const user = useSelector(state => state.session.user)
-  const stickers = useSelector(state => state.carts)
+  // const user = useSelector(state => state.session.user)
+  const dispatch = useDispatch()
   const ulRef = useRef();
+  const fetchCartStickers = useSelector(state => state.carts)
 
-  //need to add cart to sticker in backend
-  const s = Object.values(stickers)
-  console.log(s)
+  useEffect(() => {
+      dispatch(thunkLoadAllCarts())
+  },[dispatch]);
 
+  const cart_stickers = fetchCartStickers ?Object.values(fetchCartStickers) :[];
+
+  let total = 0;
+  let price = 0;
+  let quantity = 0;
+  for (let sticker of  cart_stickers) {
+    price += sticker?.stickers[0]?.price
+    quantity += sticker.quantity
+    total = (price * quantity).toFixed(2)
+  }
+
+  // -------- Close Cart When Click Outside --------//
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
     setShow(!show);
@@ -25,15 +39,16 @@ function Navigation() {
 
     const closeMenu = (e) => {
       if (ulRef.current && !ulRef.current.contains(e.target)) {
-        setShowMenu(false);
+        setShow(false);
       }
     };
-    console.log
 
     document.addEventListener("click", closeMenu);
 
     return () => document.removeEventListener("click", closeMenu);
   }, [show]);
+
+
 
 
   return (
@@ -44,11 +59,9 @@ function Navigation() {
       </div>
       
       <div id="nav-link_container">
-        <div>Explore StickyCat</div>
-        <div>How It Work</div>
-        {user && (
-          <NavLink to="/new-sticker" className="navlink" >Launch Stickers</NavLink>
-        )}
+        <NavLink to="/explored-stickers" className="navlink">Explored Stickers</NavLink>
+        {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
+        <NavLink to="/launch-stickers" className="navlink" >Launch Stickers</NavLink>
       </div>
 
       <div id='profile-cart'>
@@ -58,12 +71,15 @@ function Navigation() {
 
         <div>
           <button onClick={toggleMenu}><i className="fa-solid fa-cart-shopping"></i></button>
-          <div></div>
+          <div>{cart_stickers.length}</div>
           {show && (
             <div id="cart-modal">
               <button onClick={toggleMenu}>x</button>
               <AllCartStickers />
-              <button>Checkout</button>
+              <div>Total: {total}</div>
+              <button onClick={toggleMenu}>
+                <NavLink to="/checkout">Checkout</NavLink>
+              </button>
             </div>
           )}
         </div>

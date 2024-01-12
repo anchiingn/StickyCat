@@ -155,11 +155,11 @@ export default function StickerDetail() {
                         <>
                             {single_sticker[0]?.favorited?.length === 0 ?(
                                 <div>
-                                    <button onClick={addToFavorite}>Favorite</button>
+                                    <button onClick={addToFavorite}><i className="fa-regular fa-heart"></i></button>
                                 </div>
                             ): (
                                 <div>
-                                    <button onClick={removeFromFavorite}>Favorited</button>
+                                    <button onClick={removeFromFavorite}><i className="fa-solid fa-heart"></i></button>
                                 </div>
                             )}
                         </>

@@ -25,15 +25,19 @@ export default function ALlReviews({ sticker, id }) {
 
     let starRating = 0
     for (let review of reviews) {
+        if (reviews?.length >= 1) {
         starRating += (review?.star)/2
+        }
+        else {
+            starRating = review?.star
+        }
     }
-    console.log(starRating)
 
     return (
         <>
             <div>
                 <div style={{ fontWeight: 'bold' }}>Customer Reviews:</div>
-                <div>total reviews: {reviews.length} ------ total Rating: {starRating.toFixed(2)}</div>
+                <div>total reviews: {reviews.length} ------ total Rating: {starRating.toFixed(1)}</div>
                 {reviews.length > 0 ? (
                     reviews.map(review => {
                         return (

@@ -15,6 +15,8 @@ sticker_routes = Blueprint('stickers', __name__)
 @sticker_routes.route('/')
 def get_stickers():
     stickers = Sticker.query.all()
+
+    
     allStickers = [sticker.to_dict() for sticker in stickers]
     return allStickers
 

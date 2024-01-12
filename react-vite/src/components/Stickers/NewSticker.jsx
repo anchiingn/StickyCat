@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { thunkCreateNewStickers, thunkLoadAllStickers } from '../../redux/stickerReducer';
+import { thunkCreateNewStickers } from '../../redux/stickerReducer';
 
 export default function NewSticker () {
     const [title, setTitle] = useState('');
@@ -40,8 +40,9 @@ export default function NewSticker () {
     
         setValidation(errors);
     
-    }, [title, image, price]);
-console.log(validation)
+    }, [title, image, price, height, width]);
+
+
     const onSubmit = async (e) => {
         e.preventDefault()
         
@@ -56,7 +57,6 @@ console.log(validation)
         formData.append("message", message)
 
         await dispatch(thunkCreateNewStickers(formData))
-
         // await dispatch(thunkLoadAllStickers())
         navigate('/')
     }
