@@ -9,6 +9,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  top: 0px;
+  z-index: 100;
 }
 
 #nav_container {
