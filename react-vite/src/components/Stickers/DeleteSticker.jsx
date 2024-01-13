@@ -13,6 +13,7 @@ export default function DeleteSticker({sticker}) {
         
         await dispatch(thunkDeleteStickers(sticker.id))
         await dispatch(thunkLoadCurrentStickers())
+        
         closeModal()
         navigation('/my-stickers')
     }

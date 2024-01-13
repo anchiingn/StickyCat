@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { thunkLoadCurrentStickers } from "../../redux/stickerReducer"
 import { NavLink } from "react-router-dom"
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
@@ -22,35 +22,49 @@ console.log(stickers)
         <>
         {user && (
             <div className="allStickers_container">
-                <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px', borderBottom:'1.5px solid var(--color-black)'}}>My Sticky Stickers</div>
                 {stickers.length === 0 ?(
-                    <div>Opps... you have no sticker, let create one</div>
+                    <>
+                        <div className="user-stickers_container">
+                            <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>My Sticky Stickers</div>
+                            <p className="user-paragraph">Oops! Your sticker collection seems a bit bare. Let's create a charming masterpiece together!</p>
+                            <div className="line-in-between"></div>
+                            <button className="user-button">
+                                <NavLink to={'/new-sticker'} className={'navlink'} style={{padding:'20px 40px', borderRadius:'50px'}}>Create Sticker</NavLink>
+                            </button>
+                        </div>
+                    </>
                 ) :(
-                    <div className="sticker-cards_container"> 
-                    {stickers.map(sticker => {
-                        if (user?.id === sticker?.ownerId) {
-                            return (
-                            <div key={sticker?.id} className="stickers_container">
-                                <NavLink to={`/stickers/${sticker?.id}`} className={'navlink'}>
-                                    <div className="sticker-images_container">
-                                        <img src={sticker?.image} alt={sticker?.title} />
+                    <>
+                        <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>My Sticky Stickers</div>
+                        <div className="line-in-between"></div>
+                        <div className="sticker-cards_container"> 
+                        {stickers.map(sticker => {
+                            if (user?.id === sticker?.ownerId) {
+                                return (
+                                <div key={sticker?.id} className="stickers_container">
+                                    <NavLink to={`/stickers/${sticker?.id}`} className={'navlink'}>
+                                        <div className="sticker-images_container">
+                                            <img src={sticker?.image} alt={sticker?.title} />
+                                        </div>
+                                        <div className="sticker-details_top">
+                                            <div>{sticker?.title}</div>
+                                            <div>${sticker?.price}</div>
+                                        </div>
+                                    </NavLink>
+                                    <div className="sticker-details_bottom">
+                                        <NavLink to={`/${sticker.id}/edit-sticker`} className={'navlink'}>edit</NavLink>
+                                        <div style={{listStyle:'none', cursor:'pointer'}}>
+                                            <OpenModalMenuItem
+                                            itemText='Delete'
+                                            modalComponent={<DeleteSticker sticker={sticker} />}
+                                            />
+                                        </div>
                                     </div>
-                                    <div className="sticker-details_top">
-                                        <div>{sticker?.title}</div>
-                                        <div>${sticker?.price}</div>
-                                    </div>
-                                </NavLink>
-                                <div className="sticker-details_bottom">
-                                    <NavLink to={`/${sticker.id}/edit-sticker`} className={'navlink'}>edit</NavLink>
-                                    <OpenModalMenuItem
-                                    itemText='Delete'
-                                    modalComponent={<DeleteSticker sticker={sticker} />}
-                                    />
                                 </div>
-                            </div>
-                            )}
-                        })}
-                    </div>
+                                )}
+                            })}
+                        </div>
+                    </>
                 )}
             </div>
         )}

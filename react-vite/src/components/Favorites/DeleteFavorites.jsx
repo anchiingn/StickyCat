@@ -20,13 +20,15 @@ export default function DeleteFavorites({ sticker }) {
 
     return (
         <>
-            <div >
-                <img src={sticker?.stickers[0]?.image} alt="" style={{height:'100px'}}/>
-                <h2 >Delete Favorite Sticker?</h2>
-                <div>Are you sure you want to remove this favorite sticker?</div>
-                <div >
-                    <button onClick={removeFavorite}>Delete</button>
-                    <button onClick={closeModal}>Cancel</button>
+            <div className="delete_container">
+                <img src={sticker?.stickers[0]?.image} alt=""/>
+                <div className="delete-texts">
+                    <h2 >Delete Favorite Sticker?</h2>
+                    <div>Do you want to remove this sticker?</div>
+                    <div className="delete-buttons">
+                        <button onClick={removeFavorite}>Bye Bye</button>
+                        <button onClick={closeModal}>Nooooo!</button>
+                    </div>
                 </div>
             </div>
         </>

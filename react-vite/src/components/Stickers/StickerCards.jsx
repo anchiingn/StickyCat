@@ -49,6 +49,7 @@ export default function StickerCards({ sticker }) {
                     <div>${sticker?.price}</div>
                 </div>
             </NavLink>
+            {user && sticker?.ownerId !== user.id ? (
             <div className="sticker-details_bottom">
                 <div>
                     <button id="addToCart" onClick={addToCart} className="buttons"><i className="fa-solid fa-cart-shopping"/></button>
@@ -65,7 +66,6 @@ export default function StickerCards({ sticker }) {
                         )}
                 </div>
                 <div>
-                    {user && sticker?.ownerId !== user.id && (
                         <>
                             {sticker?.favorited?.length === 0 ?(
                             <div>
@@ -77,11 +77,11 @@ export default function StickerCards({ sticker }) {
                             </div>
                             )}
                         </>
-                        )
-                    }
                 </div>
-
             </div>
+            ) :(
+                <div style={{margin:'15px'}}></div>
+            )}
 
         </>
     )

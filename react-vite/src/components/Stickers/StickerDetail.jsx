@@ -76,7 +76,6 @@ export default function StickerDetail() {
             break
         }
     }
-    
     return (
         <>
         {single_sticker && single_sticker.length > 0 && single_sticker[0].user && single_sticker[0].user.length > 0 &&(
@@ -91,8 +90,9 @@ export default function StickerDetail() {
                     </div>
                     <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
                     
+                    {user && single_sticker[0]?.ownerId !== user.id && (
                     <div id="cart-shipdate">
-                        <button id="addToCart" onClick={addToCart}>Add to Cart</button>
+                            <button id="addToCart" onClick={addToCart}>Add to Cart</button>
                             {cart && (
                                 <div id="cart-modal">
                                 <div id="cart-top">
@@ -105,8 +105,8 @@ export default function StickerDetail() {
                               </div>
                             )}
                         <div>Estimated to Ship {monthName} {day}, {year}</div>
-                        
                     </div>
+                    )}
 
                     <div id="message">
                         <div>Message from creator:</div>

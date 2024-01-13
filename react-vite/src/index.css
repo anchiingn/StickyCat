@@ -3,11 +3,11 @@
     --big-font: 'Alfa Slab One', serif;
     --small-font: 'Red Hat Display', sans-serif;
     --color-white: #fffcf7;
-    --color-beige: #f8f3e0;
+    --color-background: #e0e0ce;
     --color-shadow: rgb(95, 94, 92, 0.4);
     --color-black: #201f1e;
     --color-red: #e33626;
-    --color-yellow: #f6b32e;
+    --color-yellow: #f2af29;
 }
 
 * {
@@ -19,9 +19,8 @@
 body {
     /* width: 100vw;
     position: relative;
-    display: flex;
-    justify-content: center; */
-    background-color: var(--color-beige);
+     */
+    background-color: var(--color-background);
 }
 
 .navlink {
