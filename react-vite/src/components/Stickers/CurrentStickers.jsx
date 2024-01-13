@@ -21,32 +21,37 @@ console.log(stickers)
     return (
         <>
         {user && (
-            <div className="container">
-                <div className="sticker-cards_container"> 
+            <div className="allStickers_container">
+                <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px', borderBottom:'1.5px solid var(--color-black)'}}>My Sticky Stickers</div>
+                {stickers.length === 0 ?(
+                    <div>Opps... you have no sticker, let create one</div>
+                ) :(
+                    <div className="sticker-cards_container"> 
                     {stickers.map(sticker => {
                         if (user?.id === sticker?.ownerId) {
                             return (
-                                <div key={sticker?.id} className="stickers_container">
-                                <NavLink to={`/stickers/${sticker?.id}`} >
-                                <div id="sticker-images_container">
-                                    <img src={sticker?.image} alt={sticker?.title} />
-                                </div>
-                                <div>{sticker?.title}</div>
-                                <div>{sticker?.price}</div>
+                            <div key={sticker?.id} className="stickers_container">
+                                <NavLink to={`/stickers/${sticker?.id}`} className={'navlink'}>
+                                    <div className="sticker-images_container">
+                                        <img src={sticker?.image} alt={sticker?.title} />
+                                    </div>
+                                    <div className="sticker-details_top">
+                                        <div>{sticker?.title}</div>
+                                        <div>${sticker?.price}</div>
+                                    </div>
                                 </NavLink>
-                                <div>
-                                <NavLink to={`/${sticker.id}/edit-sticker`}>edit</NavLink>
-                                <OpenModalMenuItem
-                                itemText='Delete'
-                                modalComponent={<DeleteSticker sticker={sticker} />}
-                                />
+                                <div className="sticker-details_bottom">
+                                    <NavLink to={`/${sticker.id}/edit-sticker`} className={'navlink'}>edit</NavLink>
+                                    <OpenModalMenuItem
+                                    itemText='Delete'
+                                    modalComponent={<DeleteSticker sticker={sticker} />}
+                                    />
                                 </div>
-                                </div>
-                                )
-                            }
+                            </div>
+                            )}
                         })}
-                </div>
-
+                    </div>
+                )}
             </div>
         )}
         </>

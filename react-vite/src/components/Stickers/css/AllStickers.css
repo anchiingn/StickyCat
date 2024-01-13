@@ -5,7 +5,6 @@
 }
 
 .sticker-cards_container {
-    background-color: pink;
     width: calc(100% - 7em);
     display: flex;
     justify-content: center;
@@ -40,10 +39,16 @@
     margin-bottom: 10px;
 }
 
-.sticker_details {
-    background-color: aqua;
+.sticker-details_top {
     display: flex;
     justify-content: space-between;
     padding-top: 5px;
     border-bottom: 1.5px solid var(--color-black);
+}
+
+.sticker-details_bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 15.1em;
+    margin: 5px 0px;
 }

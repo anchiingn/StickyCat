@@ -9,17 +9,12 @@ import StickerCards from "./StickerCards"
 export default function AllStickers() {
     const dispatch = useDispatch()
     const allStickers = useSelector(state => state?.stickers)
-    // const [hover, setHover] = useState(false)
-
-    // console.log(allStickers)
 
     useEffect(() => {
         dispatch(thunkLoadAllStickers())
     }, [dispatch])
 
     const stickers = Object.values(allStickers)
-
-    // if (!allStickers) return null;
 
 
     return (

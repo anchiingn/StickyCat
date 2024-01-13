@@ -16,9 +16,14 @@ sticker_routes = Blueprint('stickers', __name__)
 def get_stickers():
     stickers = Sticker.query.all()
 
-    
-    allStickers = [sticker.to_dict() for sticker in stickers]
-    return allStickers
+    sticker_data = []
+    for sticker in stickers:
+        data = sticker.to_dict()
+        favorites = Favorite.query.filter_by(stickerId = sticker.id).all()
+        data['favorited'] = [favorite.to_dict() for favorite in favorites]
+        sticker_data.append(data)
+
+    return sticker_data
 
 
 @sticker_routes.route('/<int:id>')
