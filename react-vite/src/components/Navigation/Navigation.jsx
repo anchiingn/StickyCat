@@ -47,8 +47,8 @@ function Navigation() {
         <div id="nav_container">
 
           <div id="logo_container">
-            <img src="./src/images/logo.png" alt="" style={{width:'35px'}}/>
-            <NavLink to="/" className="navlink" id="logo-name">StickyCat</NavLink>
+            <img src="./public/images/logo.png" alt="" style={{width:'35px'}}/>
+            <NavLink to="/explored-stickers" className="navlink" id="logo-name">StickyCat</NavLink>
           </div>
           
           <div id="nav-link_container">

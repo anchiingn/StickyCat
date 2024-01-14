@@ -34,8 +34,7 @@ function LoginFormPage() {
   const demo = async (e) => {
     e.preventDefault()
     return await dispatch(thunkLogin({ email: 'demo@aa.io', password: 'password' }))
-    .then(closeModal())
-    .then(navigate('/'))
+    .then(navigate('/explored-stickers'))
   }
 
   const signup = async (e) => {

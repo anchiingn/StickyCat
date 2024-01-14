@@ -6,7 +6,7 @@ export default function LaunchStickers () {
     return (
         <>
         <div className='image-backgrround'>
-            <img src="./src/images/IMG_2901.JPG" alt=""/>
+            <img src="./public/images/IMG_2901.JPG" alt=""/>
         </div>
         <div className='blank-background_container'>
             <div className='small_container'>Innovation <span>-</span> Imaginative <span>-</span> Originality <span>-</span> Inventive <span>-</span> Visionary</div>

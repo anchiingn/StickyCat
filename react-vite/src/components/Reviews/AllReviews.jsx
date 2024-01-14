@@ -35,18 +35,20 @@ export default function ALlReviews({ sticker, id }) {
 
     return (
         <>
-            <div>
-                <div style={{ fontWeight: 'bold' }}>Customer Reviews:</div>
-                <div>total reviews: {reviews.length} ------ total Rating: {starRating.toFixed(1)}</div>
+            <div id="reviews_container">
+                <div id="reviews-top_container">
+                    <div style={{ fontWeight: 'bold' }}>Customer Reviews:</div>
+                    <div>total reviews: {reviews.length} ------ total Rating: {starRating.toFixed(1)}</div>
+                </div>
+                    
                 {reviews.length > 0 ? (
                     reviews.map(review => {
                         return (
                             <div key={review.id}>
-                                <div>Review by: {review.user?.firstname}</div>
-                                <div style={{ color: 'red' }}>Review: {review.review}</div>
-                                <div>stars:{review.star}</div>
+                                <div className="reviews">
+                                <div>{review.user?.firstname} {review.user?.lastname}</div>
                                 {user && user.id === review.userId &&(
-                                    <div>
+                                    <div id="review_edit-delete">
                                         <OpenModalMenuItem 
                                         itemText='Delete'
                                         modalComponent={<DeleteReview review={review} id={id} sticker={sticker[0]}/>}
@@ -57,6 +59,12 @@ export default function ALlReviews({ sticker, id }) {
                                         />
                                     </div>
                                 )}
+                                </div>
+
+                                <div className="reviews">
+                                    <div> {review.review}</div>
+                                    {/* <div>stars:{review.star}</div> */}
+                                </div>
                             </div>
                         );
                     })
@@ -64,12 +72,12 @@ export default function ALlReviews({ sticker, id }) {
                     <div>No reviews available.</div>
                 )}
                 {user && (
-                    <div style={{border:'1px solid', width:'150px', cursor:'pointer', backgroundColor:'pink'}}>
+                    <button>
                         <OpenModalMenuItem 
                             itemText='Give me Review'
                             modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
                         />
-                    </div>
+                    </button>
                 )}
             </div>
         </>

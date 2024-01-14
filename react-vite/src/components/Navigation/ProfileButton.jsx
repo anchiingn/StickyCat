@@ -54,13 +54,13 @@ function ProfileButton() {
                 <li>{user.email}</li>
                 {user && (
                   <>
-                  <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink>
-                  <NavLink to="/my-favorite-stickers" className="navlink">My Favorite Stickers</NavLink>
+                  <div id="profile-navlink">
+                    <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink>
+                    <NavLink to="/my-favorite-stickers" className="navlink">My Favorite Stickers</NavLink>
+                  </div>
                   </>
                 )}
-                <li>
-                  <button onClick={logout}>Log Out</button>
-                </li>
+                <button onClick={logout}>Log Out</button>
               </>
           </ul>
         )}

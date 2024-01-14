@@ -32,17 +32,13 @@ export default function CreateReview ({ reviews, sticker }) {
     }
     return (
         <>
-            <div>create</div>
-            <form onSubmit={onSubmit}>
-                <label>Review</label>
-                <textarea 
-                    value={review}
-                    onChange={e => setReview(e.target.value)}
-                />
-                <label>Star</label>
-                {[1, 2, 3, 4, 5].map((starNum, index) => {
-                    let currentStar = index + 1;
-                    console.log(currentStar, starNum, hover)
+            <div className="review-form_container">
+                <div>Post Review</div>
+                <form onSubmit={onSubmit} id="review_form">
+                    <div id="review-star">
+                        {[1, 2, 3, 4, 5].map((starNum, index) => {
+                            let currentStar = index + 1;
+                            // console.log(currentStar, starNum, hover)
                             return (
                                 <label
                                     key={starNum}
@@ -60,10 +56,19 @@ export default function CreateReview ({ reviews, sticker }) {
                                         color: (hover || star ) >= currentStar ? 'orangered' : 'black'
                                     }}></i>
                                 </label>
-                            )
-                        })}
-                <button>submit</button>
-            </form>
+                        )})}
+                    </div>
+
+                    <div id="post-review">
+                        <label>Review</label>
+                        <textarea 
+                            value={review}
+                            onChange={e => setReview(e.target.value)}
+                        />
+                        <button>submit</button>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }
