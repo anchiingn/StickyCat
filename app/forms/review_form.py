@@ -4,6 +4,6 @@ from wtforms.validators import DataRequired, Email, ValidationError, URL
 
 
 class ReviewForm(FlaskForm):
-    review=TextAreaField('review')
+    review=TextAreaField('review', validators=[DataRequired()])
     star=IntegerField('star')
     

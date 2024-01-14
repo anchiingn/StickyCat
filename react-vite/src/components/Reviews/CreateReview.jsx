@@ -64,6 +64,7 @@ export default function CreateReview ({ reviews, sticker }) {
                         <textarea 
                             value={review}
                             onChange={e => setReview(e.target.value)}
+                            required
                         />
                         <button>submit</button>
                     </div>

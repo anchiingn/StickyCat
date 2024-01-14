@@ -36,7 +36,7 @@ def edit_reviews(id):
         db.session.commit()
         return review.to_dict()
     else:
-        return jsonify(message='Bad Data'),400
+        return form.errors, 401
     
 
 @review_routes.route('/<int:id>/delete-review', methods=["DELETE"])
