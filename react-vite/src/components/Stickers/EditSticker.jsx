@@ -85,14 +85,14 @@ export default function EditSticker () {
         navigate('/my-stickers')
     }
 
-
+console.log(sticker?.image)
     return (
         <>
         <div className='container'>
             <div className='sticker-form_container'>
                     <div>Edit Sticker</div>
-                    <img src={sticker?.image} alt="" style={{width:"500px"}}/>
-                    <form onSubmit={onSubmit} encType="multipart/form-data" className='create-form'>
+                    <img src={sticker?.image} alt="" style={{width:"170px", margin:'10px 0px'}}/>
+                    <form onSubmit={onSubmit} encType="multipart/form-data" className='edit-form'>
                     {validation.title && submit && <p className="errors">{validation.title}</p>}
                     {validation.price && submit && <p className="errors">{validation.price}</p>}
                     {validation.height && submit && <p className="errors">{validation.height}</p>}
@@ -110,7 +110,7 @@ export default function EditSticker () {
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />
-                        <div>
+                        <div className='height-width_container'>
                             <label>height</label>
                             <input 
                                 type="number"

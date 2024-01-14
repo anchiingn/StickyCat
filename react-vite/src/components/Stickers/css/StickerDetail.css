@@ -50,6 +50,13 @@
     border: none;
     border-radius: 50px;
     margin-bottom: 10px;
+    background-color: var(--color-red);
+}
+
+#sticker-detail_infos > #cart-shipdate > #addToCart:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    cursor: pointer;
 }
 
 #sticker-detail_infos > #message > div:first-child {
@@ -64,3 +71,13 @@
     margin: 50px 10em;
     margin-top: 90px;
 } 
+
+.favorite-button {
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    color: var(--color-red);
+    border:1.5px solid var(--color-black);
+    cursor: pointer;
+    margin-top: 10px;
+}

@@ -42,10 +42,10 @@ const [show, setShow] = useState(true)
               
         </div>
     ) :(
-      <div>
-        <div>not thing in cart..., you need to sign in</div>
+      <div id="cart_container">
+        <div style={{marginBottom:'20px'}}>Nothing in cart... You need to sign in</div>
         <button>
-          <NavLink to='/login'>Sign In/Up</NavLink>
+          <NavLink to='/login' className={'navlink'}>Sign In/Up</NavLink>
         </button>
       </div>
     )

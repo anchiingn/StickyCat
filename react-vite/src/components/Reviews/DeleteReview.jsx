@@ -21,7 +21,7 @@ export default function DeleteReview({ review, id, sticker }) {
     }
     return (
         <>
-            <div>
+            <div className="delete-review_container">
                 <div>Confirm Delete</div>
                 <div>Are you sure you want to remove this review?</div>
                 <div>

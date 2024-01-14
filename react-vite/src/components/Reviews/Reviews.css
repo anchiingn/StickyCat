@@ -1,7 +1,7 @@
 #reviews-top_container{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .reviews{
@@ -11,6 +11,13 @@
 
 #review_edit-delete {
     cursor: pointer;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+#review_edit-delete > div:hover {
+    color: var(--color-red);
 }
 
 /* ------ Create Review ------ */
@@ -24,6 +31,9 @@
 
 .review-form_container > div:first-child {
     margin-bottom: 20px;
+    font-size: 30px;
+    font-family: var(--big-font);
+    letter-spacing: 1.5px;
 }
 
 
@@ -44,7 +54,65 @@ input[type="radio"]{
     /* align-items: center; */
 }
 
-#post-review > button {
-    margin-top: 20px;
+#post-review > textarea {
+    width: 20em;
+    height: 5em;
 }
 
+
+#post-review > button {
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1.5px solid var(--color-black);
+    background-color: var(--color-red);
+}
+
+#post-review > button:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+
+/* ------ Delete Review ------ */
+.delete-review_container {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-review_container > div:first-child{
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-family: var(--big-font);
+    letter-spacing: 1.5px;
+}
+
+.delete-review_container > div:nth-child(2){
+    margin-bottom: 20px;
+}
+
+.delete-review_container > div:nth-child(3) > button{
+    margin: 0px 10px;
+    width: 70px;
+    height: 30px;
+    border-radius: 50px;
+    border: 1.5px solid var(--color-black);
+    cursor: pointer;
+}
+
+.delete-review_container > div:nth-child(3) > button:nth-child(1){
+    background-color: var(--color-red);
+}
+
+.delete-review_container > div:nth-child(3) > button:nth-child(1):hover{
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.delete-review_container > div:nth-child(3) > button:nth-child(2){
+    background-color: var(--color-black);
+    color: var(--color-white);
+}

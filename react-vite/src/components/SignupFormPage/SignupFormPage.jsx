@@ -67,19 +67,20 @@ function SignupFormPage() {
         <h1>Sign Up</h1>
         {/* {errors.server && <p className="errors">*{errors.server}</p>} */}
         <form onSubmit={handleSubmit} className={["signup_form", "form"].join(" ")}>
-          <div style={{display:'flex'}}>
+          <div className="firstname-lastname">
           <label>
-            firstname
+            Firstname
           </label>
             <input 
               type="text"
               value={firstname}
               onChange={(e) => setFirstname(e.target.value)}
               required
-            />
+            />, 
+
             <label>
-            lastname
-          </label>
+            Lastname
+            </label>
             <input 
               type="text"
               value={lastname}

@@ -46,23 +46,28 @@ export default function ALlReviews({ sticker, id }) {
                         return (
                             <div key={review.id}>
                                 <div className="reviews">
-                                <div>{review.user?.firstname} {review.user?.lastname}</div>
+                                    
+                                <div> <i className="fas fa-user-circle" style={{fontSize:'18px', marginRight:'10px'}}/>{review.user?.firstname} {review.user?.lastname}</div>
                                 {user && user.id === review.userId &&(
                                     <div id="review_edit-delete">
-                                        <OpenModalMenuItem 
-                                        itemText='Delete'
-                                        modalComponent={<DeleteReview review={review} id={id} sticker={sticker[0]}/>}
-                                        />
-                                        <OpenModalMenuItem 
-                                        itemText='edit'
-                                        modalComponent={<EditReview reviewDetail={review} id={id} sticker={sticker[0]}/>}
-                                        />
+                                        <div>
+                                            <OpenModalMenuItem 
+                                            itemText='Edit'
+                                            modalComponent={<EditReview reviewDetail={review} id={id} sticker={sticker[0]}/>}
+                                            />
+                                        </div>
+                                        <div>
+                                            <OpenModalMenuItem 
+                                            itemText='Delete'
+                                            modalComponent={<DeleteReview review={review} id={id} sticker={sticker[0]}/>}
+                                            />
+                                        </div>
                                     </div>
                                 )}
                                 </div>
 
                                 <div className="reviews">
-                                    <div> {review.review}</div>
+                                    <div style={{marginBottom:'15px'}}> - {review.review}</div>
                                     {/* <div>stars:{review.star}</div> */}
                                 </div>
                             </div>
@@ -71,14 +76,16 @@ export default function ALlReviews({ sticker, id }) {
                 ) : (
                     <div>No reviews available.</div>
                 )}
-                {user && (
-                    <button>
-                        <OpenModalMenuItem 
-                            itemText='Give me Review'
-                            modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
-                        />
-                    </button>
-                )}
+                <div className="create-form">
+                    {user && (
+                        <button style={{listStyle:'none', marginTop:'20px'}}>
+                            <OpenModalMenuItem 
+                                itemText='Give me Review'
+                                modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
+                            />
+                        </button>
+                    )}
+                </div>
             </div>
         </>
     )

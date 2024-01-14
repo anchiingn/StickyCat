@@ -73,40 +73,40 @@ export default function NewSticker () {
                     {validation.height && submit && <p className="errors">{validation.height}</p>}
                     {validation.width && submit && <p className="errors">{validation.width}</p>}
 
-                        <label>image</label>
+                        <label>Image</label>
                         <input 
                             type="file"
                             accept="image/*"
                             onChange={(e) => setImage(e.target.files[0])}
                             
                             />
-                        <label>title</label>
+                        <label>Title</label>
                         <input 
                             type="text"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
-                        <label>price</label>
+                        <label>Price</label>
                         <input 
                             type="text"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />
-                        <div>
-                            <label>height</label>
+                        <div className='height-width_container'>
+                            <label>Height</label>
                             <input 
                                 type="number"
                                 value={height}
                                 onChange={(e) => setHeight(e.target.value)}
-                            />
-                            <label>width</label>
+                            />,
+                            <label>Width</label>
                             <input 
                                 type="number"
                                 value={width}
                                 onChange={(e) => setWidth(e.target.value)}
                             />
                         </div>
-                        <label>message</label>
+                        <label>Message</label>
                         <textarea 
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}

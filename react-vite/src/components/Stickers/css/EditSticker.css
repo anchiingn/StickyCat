@@ -4,7 +4,7 @@
     align-items: center;
     width: 50em;
     height: 30em;
-    margin-top: 40px;
+    margin-top: 26px;
 }
 
 .sticker-form_container > div:first-child{
@@ -14,44 +14,37 @@
     letter-spacing: 1.5px;
 }
 
-.create-form {
+.edit-form {
     display: flex;
     flex-direction: column;
 }
 
-.create-form > label {
+.edit-form > label {
     margin-top: 10px;
 }
 
-.create-form > .height-width_container {
+.edit-form > .height-width_container {
     margin-top: 10px;
 }
 
-.create-form > .height-width_container > label {
+.edit-form > .height-width_container > label {
     margin: 10px;
 }
 
-.create-form > textarea {
+.edit-form > textarea {
     height: 100px;
     margin-bottom: 20px;
     
 }
 
-.create-form > button {
+.edit-form > button {
     height: 50px;
     border-radius: 50px;
     border: 1.5px solid var(--color-black);
     background-color: var(--color-red);
 }
 
-.create-form > button {
-    height: 50px;
-    border-radius: 50px;
-    border: 1.5px solid var(--color-black);
-    background-color: var(--color-red);
-}
-
-.create-form > button:hover {
+.edit-form > button:hover {
     background-color: var(--color-black);
     color: var(--color-white);
     cursor: pointer;

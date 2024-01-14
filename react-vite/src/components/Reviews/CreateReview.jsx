@@ -60,7 +60,6 @@ export default function CreateReview ({ reviews, sticker }) {
                     </div>
 
                     <div id="post-review">
-                        <label>Review</label>
                         <textarea 
                             value={review}
                             onChange={e => setReview(e.target.value)}

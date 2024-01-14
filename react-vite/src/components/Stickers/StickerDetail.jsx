@@ -109,7 +109,7 @@ export default function StickerDetail() {
                     )}
 
                     <div id="message">
-                        <div>Message from creator:</div>
+                        <div style={{fontWeight:'bold'}}>Message from creator:</div>
                         <div>{single_sticker[0]?.message}</div>
                     </div>
 
@@ -119,7 +119,7 @@ export default function StickerDetail() {
                         {!show && ( */}
                             <>
                                 <div>
-                                    <div>Dimensions:</div>
+                                    <div style={{fontWeight:'bold', marginTop:'10px'}}>Dimensions:</div>
                                     <div>
                                         <div id="height">Height: {single_sticker[0]?.height}</div>
                                         <div id="width">Width: {single_sticker[0]?.width}</div>
@@ -160,11 +160,11 @@ export default function StickerDetail() {
                         <>
                             {single_sticker[0]?.favorited?.length === 0 ?(
                                 <div>
-                                    <button onClick={addToFavorite}><i className="fa-regular fa-heart"></i></button>
+                                    <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart"></i></button>
                                 </div>
                             ): (
                                 <div>
-                                    <button onClick={removeFromFavorite}><i className="fa-solid fa-heart"></i></button>
+                                    <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart"></i></button>
                                 </div>
                             )}
                         </>
@@ -178,7 +178,7 @@ export default function StickerDetail() {
             <div id="review_container">
                 <ALlReviews sticker={single_sticker} id={id}/>
             </div>
-            <button onClick={goBack}>go back</button>
+            {/* <button onClick={goBack}>go back</button> */}
             </>
         )}
         </>

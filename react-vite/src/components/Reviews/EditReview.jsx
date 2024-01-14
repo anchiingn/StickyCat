@@ -42,7 +42,7 @@ export default function EditReview ({ reviewDetail, sticker }) {
     return (
         <>
             <div className="review-form_container">
-                <div>Post Review</div>
+                <div>Edit Review</div>
                 <form onSubmit={onSubmit} id="review_form">
                     <div id="review-star">
                         {[1, 2, 3, 4, 5].map((starNum, index) => {
@@ -69,7 +69,6 @@ export default function EditReview ({ reviewDetail, sticker }) {
                     </div>
 
                     <div id="post-review">
-                        <label>Review</label>
                         <textarea 
                             value={review}
                             onChange={e => setReview(e.target.value)}
