@@ -47,8 +47,8 @@ function Navigation() {
         <div id="nav_container">
 
           <div id="logo_container">
-            <img src="https://stickycat.s3.us-east-2.amazonaws.com/Landing_Page_.png" alt="" style={{width:'35px'}}/>
-            <NavLink to="/explored-stickers" className="navlink" id="logo-name">StickyCat</NavLink>
+            <NavLink to="/" className="navlink"><img src="https://stickycat.s3.us-east-2.amazonaws.com/Landing_Page_.png" alt="" style={{width:'35px'}}/></NavLink>
+            <NavLink to="/" className="navlink" id="logo-name">StickyCat</NavLink>
           </div>
           
           <div id="nav-link_container">

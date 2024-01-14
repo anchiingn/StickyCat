@@ -52,7 +52,7 @@
 }
 
 .stickers_container {
-    background-color: var(--color-white);
+    background-color: rgb(245, 239, 229);
     width: 16.5em;
     margin: 15px 20px;
     display: flex;
@@ -83,6 +83,7 @@
     justify-content: space-between;
     padding-top: 5px;
     border-bottom: 1.5px solid var(--color-black);
+    margin-bottom: 20px;
 }
 
 .sticker-details_bottom {

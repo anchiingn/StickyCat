@@ -14,29 +14,29 @@ export default function StickerCards({ sticker }) {
     const dispatch = useDispatch()
 
 
-    // ------ Add/Remove from Favorite ---------//
-    const addToFavorite = async(e) => {
-        e.preventDefault()
-        await dispatch(thunkAddToFavorite(sticker, sticker?.id))
-        await dispatch(thunkLoadAllStickers())
-    }
+    // // ------ Add/Remove from Favorite ---------//
+    // const addToFavorite = async(e) => {
+    //     e.preventDefault()
+    //     await dispatch(thunkAddToFavorite(sticker, sticker?.id))
+    //     await dispatch(thunkLoadAllStickers())
+    // }
 
-    const removeFromFavorite = async(e) => {
-        e.preventDefault()
-        await dispatch(thunkDeleteFromFavorite(sticker?.favorited[0]?.id))
-        await dispatch(thunkLoadAllStickers())
-    }
+    // const removeFromFavorite = async(e) => {
+    //     e.preventDefault()
+    //     await dispatch(thunkDeleteFromFavorite(sticker?.favorited[0]?.id))
+    //     await dispatch(thunkLoadAllStickers())
+    // }
  
 
-    // ------ Add To Cart ---------//
-    const addToCart = async(e) => {
-        e.preventDefault()
+    // // ------ Add To Cart ---------//
+    // const addToCart = async(e) => {
+    //     e.preventDefault()
 
-        setCart(true)
+    //     setCart(true)
 
-        await dispatch(thunkAddToCart(sticker, sticker?.id))
-        await dispatch(thunkLoadAllCarts())
-    }
+    //     await dispatch(thunkAddToCart(sticker, sticker?.id))
+    //     await dispatch(thunkLoadAllCarts())
+    // }
 
     return (
         <>
@@ -49,7 +49,7 @@ export default function StickerCards({ sticker }) {
                     <div>${sticker?.price}</div>
                 </div>
             </NavLink>
-            {user && sticker?.ownerId !== user.id ? (
+            {/* {user && sticker?.ownerId !== user.id ? (
             <div className="sticker-details_bottom">
                 <div>
                     <button id="addToCart" onClick={addToCart} className="buttons"><i className="fa-solid fa-cart-shopping"/></button>
@@ -81,7 +81,7 @@ export default function StickerCards({ sticker }) {
             </div>
             ) :(
                 <div style={{margin:'15px'}}></div>
-            )}
+            )} */}
 
         </>
     )

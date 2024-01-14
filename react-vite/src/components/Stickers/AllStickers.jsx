@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { thunkLoadAllStickers } from "../../redux/stickerReducer"
-import { NavLink } from "react-router-dom"
 import './Stickers.css'
 import StickerCards from "./StickerCards"
 

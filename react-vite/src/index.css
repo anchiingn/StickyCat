@@ -2,12 +2,12 @@
 :root {
     --big-font: 'Alfa Slab One', serif;
     --small-font: 'Red Hat Display', sans-serif;
-    --color-white: #fffcf7;
-    --color-background: #f1ece0;
+    --color-white: #f7f7f5;
+    --color-background: #f7f7f5;
     --color-shadow: rgb(95, 94, 92, 0.4);
     --color-black: #201f1e;
     --color-red: #e33626;
-    --color-yellow: #f2af29;
+    --color-yellow: #f2d729;
 }
 
 * {
@@ -32,5 +32,9 @@ body {
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+#about_container {
+    
 }
 
