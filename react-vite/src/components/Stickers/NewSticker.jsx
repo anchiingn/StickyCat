@@ -58,60 +58,63 @@ export default function NewSticker () {
 
         await dispatch(thunkCreateNewStickers(formData))
         // await dispatch(thunkLoadAllStickers())
-        navigate('/')
+        navigate('/my-stickers')
     }
 
     return (
         <>
-        {/* <div className="container">
-            <div className="login_container"> */}
-                <form onSubmit={onSubmit} encType="multipart/form-data" >
-                {validation.title && submit && <p className="errors">{validation.title}</p>}
-                {validation.price && submit && <p className="errors">{validation.price}</p>}
-                {validation.image && submit && <p className="errors">{validation.image}</p>}
-                {validation.height && submit && <p className="errors">{validation.height}</p>}
-                {validation.width && submit && <p className="errors">{validation.width}</p>}
+        <div className='container'>
+            <div className='sticker-form_container'>
+                    <div>New Sticker</div>
+                    <form onSubmit={onSubmit} encType="multipart/form-data" className='create-form'>
+                    {validation.title && submit && <p className="errors">{validation.title}</p>}
+                    {validation.price && submit && <p className="errors">{validation.price}</p>}
+                    {validation.image && submit && <p className="errors">{validation.image}</p>}
+                    {validation.height && submit && <p className="errors">{validation.height}</p>}
+                    {validation.width && submit && <p className="errors">{validation.width}</p>}
 
-                    <label>title</label>
-                    <input 
-                        type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                    <label>price</label>
-                    <input 
-                        type="text"
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                    />
-                    <label>image</label>
-                    <input 
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => setImage(e.target.files[0])}
-                        
-                    />
-                    <label>height</label>
-                    <input 
-                        type="number"
-                        value={height}
-                        onChange={(e) => setHeight(e.target.value)}
-                    />
-                    <label>width</label>
-                    <input 
-                        type="number"
-                        value={width}
-                        onChange={(e) => setWidth(e.target.value)}
-                    />
-                    <label>message</label>
-                    <textarea 
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                    />
-                    <button >Submit</button>
-                </form>
-            {/* </div>
-        </div> */}
+                        <label>image</label>
+                        <input 
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => setImage(e.target.files[0])}
+                            
+                            />
+                        <label>title</label>
+                        <input 
+                            type="text"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                        <label>price</label>
+                        <input 
+                            type="text"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                        />
+                        <div>
+                            <label>height</label>
+                            <input 
+                                type="number"
+                                value={height}
+                                onChange={(e) => setHeight(e.target.value)}
+                            />
+                            <label>width</label>
+                            <input 
+                                type="number"
+                                value={width}
+                                onChange={(e) => setWidth(e.target.value)}
+                            />
+                        </div>
+                        <label>message</label>
+                        <textarea 
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                        />
+                        <button >Submit</button>
+                    </form>
+            </div>
+        </div> 
         </>
     )
 }

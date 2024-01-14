@@ -1,0 +1,50 @@
+#reviews-top_container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.reviews{
+    display: flex;
+    justify-content: space-between;
+}
+
+#review_edit-delete {
+    cursor: pointer;
+}
+
+/* ------ Create Review ------ */
+
+.review-form_container{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.review-form_container > div:first-child {
+    margin-bottom: 20px;
+}
+
+
+#review-star{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="radio"]{
+    visibility:hidden;
+}
+
+#post-review {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+#post-review > button {
+    margin-top: 20px;
+}
+

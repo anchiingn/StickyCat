@@ -114,21 +114,21 @@ export default function StickerDetail() {
                     </div>
 
                     <div >
-                        <div>product detail</div>
-                        <button onClick={() => setShow(!show)}> v</button>
-                        {show && (
+                        {/* <div>product detail</div> */}
+                        {/* <button onClick={() => setShow(!show)}> v</button>
+                        {!show && ( */}
                             <>
                                 <div>
-                                    <div>Dimensions</div>
+                                    <div>Dimensions:</div>
                                     <div>
                                         <div id="height">Height: {single_sticker[0]?.height}</div>
                                         <div id="width">Width: {single_sticker[0]?.width}</div>
                                     </div>
-                                    <div>material:</div>
-                                    <div>Care Instructions:</div>
+                                    {/* <div>material:</div>
+                                    <div>Care Instructions:</div> */}
                                 </div>
                             </>
-                        )}
+                        {/* )} */}
                     </div>
 
                     {/* <div>

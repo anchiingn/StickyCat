@@ -1,5 +1,30 @@
 .profile-dropdown {
   position: absolute;
+  list-style: none;
+  width: 160px;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  right: 135px;
+  top: 50px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.profile-dropdown > #profile-navlink {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.profile-dropdown > #profile-navlink > .navlink:hover {
+  color: var(--color-red);
+}
+
+.profile-dropdown > button:hover {
+  cursor: pointer;
+  background-color: var(--color-red);
 }
 
 /* ------ Containers ------ */
