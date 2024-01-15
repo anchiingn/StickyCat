@@ -46,15 +46,13 @@ export default function CartStickerCards ({ sticker }) {
                     </div>
                 </div>
             </NavLink>
-            <div onClick={toggleMenu} id="remove-card_threeDots"><i class="fa-solid fa-ellipsis-vertical" /></div>
-            {showMenu && (
-                <div id="cart-remove">
+                <div id="remove-card_threeDots" style={{listStyle:'none'}}>
                     <OpenModalMenuItem 
-                        itemText={'remove'}
+                        itemText={<><i class="fa-regular fa-trash-can"></i></>}
                         modalComponent={<DeleteFromCart sticker={sticker}/>}
                     />
                 </div>
-            )}
+        
         </div>       
         </>
     )

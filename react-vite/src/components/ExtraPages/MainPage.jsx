@@ -77,9 +77,9 @@ export default function MainPage () {
                 <NavLink to={'/new-sticker'} className={'navlink'}>Let Start!</NavLink>
             </div>
 
-            {/* <div id='footer-mainpage_container'>
+            <div id='footer-mainpage_container'>
 
-            </div> */}
+            </div> 
         </>
     )
 }

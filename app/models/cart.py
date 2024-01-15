@@ -12,7 +12,7 @@ class Cart(db.Model):
     cart = db.Column(db.Boolean, default=False)
     quantity = db.Column(db.Integer, default=1)
 
-    user_cart = db.relationship('User', back_populates='cart_user', cascade='delete')
+    user_cart = db.relationship('User', back_populates='cart_user')
     sticker_cart = db.relationship('Sticker', back_populates='cart_sticker')
 
     def to_dict(self):

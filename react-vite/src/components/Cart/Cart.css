@@ -97,8 +97,9 @@
 #remove-card_threeDots{
     position: relative;
     bottom: 85px;
-    left: 20.6em;
+    left: 20.1em;
     cursor: pointer;
+    /* font-size: 20px; */
 }
 
 #cart-remove {

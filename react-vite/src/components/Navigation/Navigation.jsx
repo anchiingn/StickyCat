@@ -20,25 +20,30 @@ function Navigation() {
 
   const cart_stickers = fetchCartStickers ?Object.values(fetchCartStickers) :[];
 
+  let quantity = 0
+  for (let sticker of cart_stickers) {
+    quantity += sticker?.quantity
+  }
+
   // -------- Close Cart When Click Outside --------//
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
     setShow(!show);
   };
 
-  useEffect(() => {
-    if (!show) return;
+  // useEffect(() => {
+  //   if (!show) return;
 
-    const closeMenu = (e) => {
-      if (ulRef.current && !ulRef.current.contains(e.target)) {
-        setShow(false);
-      }
-    };
+  //   const closeMenu = (e) => {
+  //     if (ulRef.current && !ulRef.current.contains(e.target)) {
+  //       setShow(false);
+  //     }
+  //   };
 
-    document.addEventListener("click", closeMenu);
+  //   document.addEventListener("click", closeMenu);
 
-    return () => document.removeEventListener("click", closeMenu);
-  }, [show]);
+  //   return () => document.removeEventListener("click", closeMenu);
+  // }, [show]);
 
 
   return (
@@ -64,8 +69,11 @@ function Navigation() {
 
             <div>
               <div id="cart-modal_container"> 
-                <button onClick={toggleMenu} className="buttons"><i className="fa-solid fa-cart-shopping" style={{fontSize:'20px'}}/></button>
-                <div id="cart-stickers_length" style={{cursor:'pointer'}}>{cart_stickers.length}</div>
+                <button onClick={toggleMenu} className="buttons">
+                  <i className="fa-solid fa-cart-shopping" style={{fontSize:'20px'}}/>
+                  <div id="cart-stickers_length" style={{cursor:'pointer'}}>{quantity}</div>
+                </button>
+                
               </div>
               {show && (
                 <div id="cart-modal">

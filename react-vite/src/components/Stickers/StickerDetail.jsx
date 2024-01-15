@@ -47,6 +47,11 @@ export default function StickerDetail() {
 
         setCart(true)
 
+        setCart(true)
+        setTimeout(() => {
+            setCart(false)
+        }, 2000)
+
         await dispatch(thunkAddToCart(single_sticker, id))
         await dispatch(thunkLoadAllCarts())
     }
@@ -94,15 +99,16 @@ export default function StickerDetail() {
                     <div id="cart-shipdate">
                             <button id="addToCart" onClick={addToCart}>Add to Cart</button>
                             {cart && (
-                                <div id="cart-modal">
-                                <div id="cart-top">
-                                  <div style={{fontWeight:'bold'}}>My Cart -</div>
-                                  <button onClick={() => setCart(false)} className="buttons"><i class="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
-                                </div>
-                                <div>
-                                  <CartModal />
-                                </div>
-                              </div>
+                            //     <div id="cart-modal">
+                            //     <div id="cart-top">
+                            //       <div style={{fontWeight:'bold'}}>My Cart -</div>
+                            //       <button onClick={() => setCart(false)} className="buttons"><i class="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
+                            //     </div>
+                            //     <div>
+                            //       <CartModal />
+                            //     </div>
+                            //   </div>
+                            <div>Sticker added to cart</div>
                             )}
                         <div>Estimated to Ship {monthName} {day}, {year}</div>
                     </div>

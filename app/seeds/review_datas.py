@@ -22,7 +22,7 @@ def seed_reviews():
         )
     review4 = Review(
             userId=1,
-            stickerId=2,
+            stickerId=4,
             review='look so so so weird',
             star= 3,
         )

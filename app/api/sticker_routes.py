@@ -7,6 +7,7 @@ from app.forms.review_form import ReviewForm
 from app.models.sticker import Sticker
 from app.models.review import Review
 from app.models.user import User
+from app.models.cart import Cart
 from app.models.favorite import Favorite
 from app.api.aws_helpers import upload_file_to_s3, remove_file_from_s3, get_unique_filename
 
@@ -20,6 +21,8 @@ def get_stickers():
     for sticker in stickers:
         data = sticker.to_dict()
         favorites = Favorite.query.filter_by(stickerId = sticker.id).all()
+        carts = Cart.query.filter_by(stickerId = sticker.id).all()
+        data['cart'] = [cart.to_dict() for cart in carts]
         data['favorited'] = [favorite.to_dict() for favorite in favorites]
         sticker_data.append(data)
 

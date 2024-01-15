@@ -32,6 +32,8 @@ export default function ALlReviews({ sticker, id }) {
             starRating = review?.star
         }
     }
+console.log(sticker[0]?.onwerId !== user?.id)
+console.log(sticker[0].ownerId !== user?.id)
 
     return (
         <>
@@ -77,7 +79,7 @@ export default function ALlReviews({ sticker, id }) {
                     <div>No reviews available.</div>
                 )}
                 <div className="create-form">
-                    {user && (
+                    {user && sticker[0].ownerId !== user?.id &&(
                         <button style={{listStyle:'none', marginTop:'20px'}}>
                             <OpenModalMenuItem 
                                 itemText='Give me Review'

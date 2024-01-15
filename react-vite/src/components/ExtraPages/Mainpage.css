@@ -160,6 +160,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-top: 5px solid var(--color-red);
+    margin-top: -10px;
 }
 
 #launch-sticker_container > div:nth-child(1) {
