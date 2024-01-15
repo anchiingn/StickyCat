@@ -6,7 +6,7 @@
     --color-background: #f7f7f5;
     --color-shadow: rgb(95, 94, 92, 0.4);
     --color-black: #201f1e;
-    --color-red: #e33626;
+    --color-red: rgb(233, 68, 27);
     --color-yellow: #f2d729;
 }
 
@@ -34,7 +34,4 @@ body {
     cursor: pointer;
 }
 
-#about_container {
-    
-}
 

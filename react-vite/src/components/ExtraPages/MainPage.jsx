@@ -14,7 +14,7 @@ export default function MainPage () {
     }, [dispatch])
 
     const stickers = Object.values(allStickers)
-    const s = stickers.slice(0,3)
+    const s = stickers.slice(0,4)
 
     return (
         <>
@@ -72,11 +72,14 @@ export default function MainPage () {
 
             <div id='launch-sticker_container'>
                 <div>LAUNCH YOUR STICKER</div>
+                <p>Let's craft your stickers together! With StickyCat, we'll collaborate to bring your designs to life, ensuring a personalized, delightful sticker collection for you and your fans. Ready to embark on this creative journey?</p>
+                <div id="black-line"></div>
+                <NavLink to={'/new-sticker'} className={'navlink'}>Let Start!</NavLink>
             </div>
 
-            <div id='footer-mainpage_container'>
+            {/* <div id='footer-mainpage_container'>
 
-            </div>
+            </div> */}
         </>
     )
 }

@@ -66,7 +66,7 @@ function ProfileButton() {
         )}
       </>
     ) : (
-      <NavLink to="/login" className="navlink">Sign In/Up</NavLink>
+      <NavLink to="/login" className="navlink" style={{color:'var(--color-red)', marginRight:'5px'}}>Sign In/Up</NavLink>
     )
   }
     </>

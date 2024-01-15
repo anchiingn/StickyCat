@@ -34,7 +34,7 @@
 
 /* ----- Yellow Space Container ----- */
 .yellow_container {
-    background-color: var(--color-yellow);
+    background-color: rgb(249, 203, 35);
     position: relative;
     bottom: 7.8em;
     width: 100vw;
@@ -45,7 +45,7 @@
 }
 
 .yellow2_container {
-    background-color: var(--color-yellow);
+    background-color: rgb(249, 203, 35);
     position: absolute;
     top: 74em;
     width: 100vw;
@@ -74,7 +74,7 @@
 
 /* ----- About ----- */
 #about_container {
-    background-color: var(--color-red);
+    background-color: rgb(233, 68, 27);
     position: relative;
     display: flex;
     height: 40em;
@@ -132,44 +132,70 @@
 
 /* ----- Explored Stickers ----- */
 #explored-stickers_container {
-    margin-top: -70px;
-    height: 34.5em;
+    margin-top: -50px;
+    height: 37.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #explored-stickers_container > div:nth-child(1) {
-    margin-bottom: 45px;
+    margin-bottom: 55px;
 }
 
 #explored-stickers_container > #explored-stickers_cards {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 #explored-stickers_cards > #sticker-cards{
     display: flex;
-    width: 55em;
+    width: 75em;
     
 }
 
 /* ----- Launch Sticker ----- */
 #launch-sticker_container {
     height: 20em;
-    background-color: rgb(37, 91, 200);
+    background-color: #255bc8;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #launch-sticker_container > div:nth-child(1) {
-    margin-top: 30px;
+    margin-top: 45px;
     color: var(--color-white);
     font-size: 22px;
+}
+
+#launch-sticker_container > p {
+    width: 40em;
+    margin-top: 30px;
+    color: var(--color-white);
+    font-weight: 400;
+}
+
+#launch-sticker_container > #black-line {
+    width: 20em;
+    height: 1.5px;
+    background-color: var(--color-black);
+    margin: 40px 0px;
+}
+
+#launch-sticker_container > .navlink {
+    padding: 10px 40px;
+    background-color: rgb(249, 203, 35);
+    border-radius: 50px;
+}
+
+#launch-sticker_container > .navlink:hover {
+   color: var(--color-white);
+    background-color: var(--color-black);
+    
 }
 
 /* ----- Footer ----- */
 #footer-mainpage_container {
     height: 5em;
-    background-color: var(--color-red);
+    background-color: rgb(233, 68, 27);
 }

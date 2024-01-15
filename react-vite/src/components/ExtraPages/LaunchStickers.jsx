@@ -12,7 +12,7 @@ export default function LaunchStickers () {
             <div className='small_container'>Innovation <span>-</span> Imaginative <span>-</span> Originality <span>-</span> Inventive <span>-</span> Visionary</div>
             <div className='about-infos_container'>
                 <h1>TURN YOUR CREATIVITY INTO STICKER</h1>
-                <p>Bringing your dream sticker collection to life has never been more seamless! StickyCat partners with you to conceptualize, present, market, and manufacture a unique sticker series tailored by you, exclusively for your fans! And guess what? It's a worry-free journey with no upfront expenses!</p>
+                <p>Let's embark on a creative journey together! With StickyCat, we'll join forces to bring your dream sticker collection to life. Collaborating, conceptualizing, presenting, marketing, and manufacturing – all tailored by you for your fans. The best part? It's a seamless, worry-free adventure with no upfront expenses!</p>
                 <div className="line-in-between"></div>
 
                 <button className='user-button'>
