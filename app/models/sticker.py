@@ -29,7 +29,7 @@ class Sticker(db.Model):
             'id': self.id,
             'ownerId': self.ownerId,
             'title': self.title,
-            'price': self.price,
+            'price': "%.2f" % self.price,
             'image': self.image,
             'height': self.height,
             'width': self.width,

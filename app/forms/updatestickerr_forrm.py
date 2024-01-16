@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired, Email, ValidationError, URL
 
 class UpdateStickerForm(FlaskForm):
     title=StringField('title', validators=[DataRequired()])
-    price=IntegerField('price', validators=[DataRequired()])
+    price=FloatField('price', validators=[DataRequired()])
     height=IntegerField('height', validators=[DataRequired()])
     width=IntegerField('width', validators=[DataRequired()])
     message=TextAreaField('message')
