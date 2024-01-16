@@ -82,6 +82,8 @@ export default function StickerDetail() {
             break
         }
     }
+
+    console.log(single_sticker[0]?.favorited?.length === 0 || single_sticker[0]?.favorited[0]?.userId === user.id )
     return (
         <>
         {single_sticker && single_sticker.length > 0 && single_sticker[0].user && single_sticker[0].user.length > 0 &&(
@@ -111,7 +113,7 @@ export default function StickerDetail() {
                             <div>
                                 <button id="addToCart" onClick={addToCart}>Add to Cart</button>
 
-                                {single_sticker[0]?.favorited?.length === 0 ?(
+                                {single_sticker[0]?.favorited?.length === 0 || single_sticker[0]?.favorited[0]?.userId !== user.id ?(
                                     <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart"></i></button>
                                 ): (
                                     <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart"></i></button>

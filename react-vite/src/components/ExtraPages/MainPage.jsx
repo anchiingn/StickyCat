@@ -74,7 +74,7 @@ export default function MainPage () {
                 <div>LAUNCH YOUR STICKER</div>
                 <p>Let&apos;s craft your stickers together! With StickyCat, we&apos;ll collaborate to bring your designs to life, ensuring a personalized, delightful sticker collection for you and your fans. Ready to embark on this creative journey?</p>
                 <div id="black-line"></div>
-                <NavLink to={'/new-sticker'} className={'navlink'}>Let Start!</NavLink>
+                <NavLink to={'/launch-sticker'} className={'navlink'}>Let Start!</NavLink>
             </div>
 
             <div id='footer-mainpage_container'>
