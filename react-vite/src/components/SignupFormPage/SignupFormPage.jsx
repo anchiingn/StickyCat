@@ -51,7 +51,6 @@ function SignupFormPage() {
     } else {
       navigate("/");
     }
-    console.log(errors)
   };
 
   const signin = async (e) => {
@@ -61,7 +60,7 @@ function SignupFormPage() {
 
   return (
     <>
-    <div className="container">
+    <div className="log-sign_container">
       <div className="signup_container">
         
         <h1>Sign Up</h1>
@@ -137,7 +136,13 @@ function SignupFormPage() {
 
       </div>
 
-        <button onClick={signin} className="login-signup_button">Sign In</button>
+      <div className="text-before-button_container">
+        <span></span>
+        <div>Already have an account</div>
+        <span></span>
+      </div>
+
+      <button onClick={signin} className="login-signup_button">Sign In</button>
 
     </div>
     </>

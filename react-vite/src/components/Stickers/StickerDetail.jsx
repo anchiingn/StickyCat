@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer"
-import { useParams,useNavigate } from "react-router-dom"
+import { useParams,useNavigate, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
-import AllCartStickers from "../Cart/AllCartStickers"
-import CartModal from "../Cart/CartModal"
+// import AllCartStickers from "../Cart/AllCartStickers"
+// import CartModal from "../Cart/CartModal"
 
 
 export default function StickerDetail() {
@@ -85,6 +85,15 @@ export default function StickerDetail() {
         <>
         {single_sticker && single_sticker.length > 0 && single_sticker[0].user && single_sticker[0].user.length > 0 &&(
             <>
+            <div className="stickers-toppart_container">
+                <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
+                /
+                <NavLink to={'/explored-stickers'} className={'navlink'}>Explored Stickers</NavLink> 
+                /
+                <NavLink className={'navlink'}>{single_sticker[0]?.title}</NavLink>
+            </div>
+
+
             <div id="sticker-detail_container">
                 <img id='sticker-detail_image' src={single_sticker[0]?.image} alt={single_sticker[0]?.title} />
 
@@ -97,26 +106,29 @@ export default function StickerDetail() {
                     
                     {user && single_sticker[0]?.ownerId !== user.id && (
                     <div id="cart-shipdate">
-                            <button id="addToCart" onClick={addToCart}>Add to Cart</button>
+                        <div >
+                            <div>
+                                <button id="addToCart" onClick={addToCart}>Add to Cart</button>
+
+                                {single_sticker[0]?.favorited?.length === 0 ?(
+                                    <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart"></i></button>
+                                ): (
+                                    <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart"></i></button>
+                                )}
+                            </div>
+
                             {cart && (
-                            //     <div id="cart-modal">
-                            //     <div id="cart-top">
-                            //       <div style={{fontWeight:'bold'}}>My Cart -</div>
-                            //       <button onClick={() => setCart(false)} className="buttons"><i class="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
-                            //     </div>
-                            //     <div>
-                            //       <CartModal />
-                            //     </div>
-                            //   </div>
-                            <div>Sticker added to cart</div>
+                                <div id="cart-noti">Sticker has been added to cart</div>
                             )}
+                        </div>
+
                         <div>Estimated to Ship {monthName} {day}, {year}</div>
                     </div>
                     )}
 
                     <div id="message">
                         <div style={{fontWeight:'bold'}}>Message from creator:</div>
-                        <div>{single_sticker[0]?.message}</div>
+                        <div style={{margin:'0px 20px'}}>{single_sticker[0]?.message}</div>
                     </div>
 
                     <div >
@@ -126,9 +138,9 @@ export default function StickerDetail() {
                             <>
                                 <div>
                                     <div style={{fontWeight:'bold', marginTop:'10px'}}>Dimensions:</div>
-                                    <div>
-                                        <div id="height">Height: {single_sticker[0]?.height}</div>
-                                        <div id="width">Width: {single_sticker[0]?.width}</div>
+                                    <div style={{margin:'0px 20px'}}>
+                                        <div id="height">Height: {single_sticker[0]?.height} inchs</div>
+                                        <div id="width">Width: {single_sticker[0]?.width} inchs</div>
                                     </div>
                                     {/* <div>material:</div>
                                     <div>Care Instructions:</div> */}
@@ -162,20 +174,6 @@ export default function StickerDetail() {
                         )}
                     </div> */}
 
-                    {user && single_sticker[0]?.ownerId !== user.id && (
-                        <>
-                            {single_sticker[0]?.favorited?.length === 0 ?(
-                                <div>
-                                    <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart"></i></button>
-                                </div>
-                            ): (
-                                <div>
-                                    <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart"></i></button>
-                                </div>
-                            )}
-                        </>
-                        )
-                    }
                 </div>
             </div>
 

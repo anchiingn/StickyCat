@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
         element: <HowItWork />
       },
       {
-        path:"launch-stickers",
+        path:"launch-sticker",
         element: <LaunchStickers /> 
       },
       {

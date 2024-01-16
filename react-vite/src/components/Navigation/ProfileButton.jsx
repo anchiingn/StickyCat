@@ -52,12 +52,14 @@ function ProfileButton() {
               <>
                 <li>{user.username}</li>
                 <li>{user.email}</li>
+                <div className="profile-underline"></div>
                 {user && (
                   <>
                   <div id="profile-navlink">
                     <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink>
                     <NavLink to="/my-favorite-stickers" className="navlink">My Favorite Stickers</NavLink>
                   </div>
+                  <div className="profile-underline"></div>
                   </>
                 )}
                 <button onClick={logout}>Log Out</button>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { thunkCreateNewStickers } from '../../redux/stickerReducer';
 
 export default function NewSticker () {
@@ -63,6 +63,13 @@ export default function NewSticker () {
 
     return (
         <>
+        <div className="stickers-toppart_container">
+            <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
+            /
+            <NavLink to={'/launch-sticker'} className={'navlink'}>Launch Sticker</NavLink> 
+            /
+            <NavLink className={'navlink'}>Create Sticker</NavLink>
+        </div>
         <div className='container'>
             <div className='sticker-form_container'>
                     <div>New Sticker</div>

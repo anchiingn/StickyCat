@@ -200,4 +200,11 @@
 #footer-mainpage_container {
     height: 5em;
     background-color: rgb(233, 68, 27);
+    display: flex;
+    align-items: center;
+}
+
+#footer-mainpage_container > img {
+    height: 70px;
+    margin-left: 20px;
 }

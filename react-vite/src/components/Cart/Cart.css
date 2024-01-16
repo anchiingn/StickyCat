@@ -41,6 +41,23 @@
     color: var(--color-white);
 }
 
+#cart_container > button {
+    border: none;
+}
+
+#cart_container > button > .navlink {
+    background-color: var(--color-red);
+    border-radius: 50px;
+    border: none;
+    padding: 4px 10px;
+}
+  
+#cart_container > button > .navlink:hover {
+    background-color: var(--color-black);
+    color: rgb(93, 92, 91);
+    cursor: pointer;
+}
+
 /* ------ All Cart Stickers ------ */
 #cart-stickers_container{
     width: 21em;

@@ -41,7 +41,7 @@ export default function MainPage () {
                     
                     <div id='about-texts_container'>
                         <p>
-                            Welcome to StickyCat, where creativity and cuteness collide! We're the platform showcasing adorable, whimsical stickers that spread joy far and wide. StickyCat isn't just about stickers; it's a magical realm where creators and brands craft enchanting collections, aiming to sprinkle the world with sweetness, one sticker at a time.
+                            Welcome to StickyCat, where creativity and cuteness collide! We&apos;re the platform showcasing adorable, whimsical stickers that spread joy far and wide. StickyCat isn&apos;t just about stickers; it&apos;s a magical realm where creators and brands craft enchanting collections, aiming to sprinkle the world with sweetness, one sticker at a time.
                         </p>
                         <p>
                         At StickyCat, creators bring their playful and cute designs to life. Once their creations are ready, we handle the entire sticker-making journey – from production and manufacturing to the enchanting delivery of these lovable stickers to your doorstep. Join us at StickyCat, where each sticker is a delightful messenger of joy, spreading happiness wherever it goes!
@@ -72,13 +72,16 @@ export default function MainPage () {
 
             <div id='launch-sticker_container'>
                 <div>LAUNCH YOUR STICKER</div>
-                <p>Let's craft your stickers together! With StickyCat, we'll collaborate to bring your designs to life, ensuring a personalized, delightful sticker collection for you and your fans. Ready to embark on this creative journey?</p>
+                <p>Let&apos;s craft your stickers together! With StickyCat, we&apos;ll collaborate to bring your designs to life, ensuring a personalized, delightful sticker collection for you and your fans. Ready to embark on this creative journey?</p>
                 <div id="black-line"></div>
                 <NavLink to={'/new-sticker'} className={'navlink'}>Let Start!</NavLink>
             </div>
 
             <div id='footer-mainpage_container'>
-
+                {/* <img src="https://stickycat.s3.us-east-2.amazonaws.com/Landing_Page_.png" alt="" /> */}
+                <div>GitHub: 
+                    <NavLink to={'https://github.com/anchiingn'} className={'navlink'}>anchiingn</NavLink>
+                </div>
             </div> 
         </>
     )

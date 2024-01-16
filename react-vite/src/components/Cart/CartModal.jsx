@@ -37,13 +37,13 @@ const [show, setShow] = useState(true)
                 <AllCartStickers />
                 <div id="total-price">Total: <span>{total}</span></div>
                 <button id="checkout" onClick={() => setShow(false)} >
-                  <NavLink to="/checkout" className={'navlink'}>Checkout</NavLink>
+                  {/* <NavLink to="/checkout" className={'navlink'}>Checkout</NavLink> */}
                 </button>
               
         </div>
     ) :(
       <div id="cart_container">
-        <div style={{marginBottom:'20px'}}>Nothing in cart... You need to sign in</div>
+        <div style={{marginBottom:'20px'}}>Nothing in cart ... You need to sign in</div>
         <button>
           <NavLink to='/login' className={'navlink'}>Sign In/Up</NavLink>
         </button>

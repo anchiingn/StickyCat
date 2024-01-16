@@ -34,7 +34,7 @@ function LoginFormPage() {
   const demo = async (e) => {
     e.preventDefault()
     return await dispatch(thunkLogin({ email: 'demo@aa.io', password: 'password' }))
-    .then(navigate('/explored-stickers'))
+    .then(navigate('/'))
   }
 
   const signup = async (e) => {
@@ -44,7 +44,7 @@ function LoginFormPage() {
 
   return (
     <>
-    <div className="container">
+    <div className="log-sign_container">
       <div className="login_container">
 
         <h1>Sign In</h1>
@@ -77,9 +77,17 @@ function LoginFormPage() {
           <button type="submit">Sign In</button>
         </form>
 
-    </div>
-        <button onClick={signup} className="login-signup_button">Sign Up</button>
-        <button onClick={demo} className="login-signup_button">Demo User</button>
+      </div>
+
+      <div className="text-before-button_container">
+        <span></span>
+        <div>Don't have account</div>
+        <span></span>
+      </div>
+
+      <button onClick={signup} className="login-signup_button">Sign Up</button>
+      <button onClick={demo} className="login-signup_button">Demo User</button>
+
     </div>
     </>
   );

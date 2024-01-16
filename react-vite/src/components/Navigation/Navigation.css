@@ -12,7 +12,15 @@
   border-radius: 15px;
   border-radius: 20px;
   box-shadow: 0px 2px 2px grey,
-              0px 0px 1px grey;}
+              0px 0px 1px grey;
+}
+
+.profile-underline {
+  padding-bottom: 10px;
+  width: 90px;
+  border-bottom: 1.5px solid var(--color-black);
+  margin-bottom: 10px;
+}
 
 .profile-dropdown > #profile-navlink {
   display: flex;
@@ -24,9 +32,17 @@
   color: var(--color-red);
 }
 
-.profile-dropdown > button:hover {
-  cursor: pointer;
+.profile-dropdown > button {
   background-color: var(--color-red);
+  border-radius: 50px;
+  border: none;
+  padding: 3px 10px;
+}
+
+.profile-dropdown > button:hover {
+  background-color: var(--color-black);
+  color: rgb(93, 92, 91);
+  cursor: pointer;
 }
 
 /* ------ Containers ------ */

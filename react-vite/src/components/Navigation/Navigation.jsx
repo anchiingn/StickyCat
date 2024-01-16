@@ -59,7 +59,7 @@ function Navigation() {
           <div id="nav-link_container">
             <NavLink to="/explored-stickers" className="navlink">Explored Stickers</NavLink>
             {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
-            <NavLink to="/launch-stickers" className="navlink" >Launch Stickers</NavLink>
+            <NavLink to="/launch-sticker" className="navlink" >Launch Sticker</NavLink>
           </div>
 
           <div id='profile-cart_container'>

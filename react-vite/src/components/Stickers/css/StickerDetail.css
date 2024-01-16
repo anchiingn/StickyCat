@@ -42,18 +42,33 @@
     padding-bottom: 10px;
     border-bottom: 1px solid black;
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-#sticker-detail_infos > #cart-shipdate > #addToCart {
+#cart-shipdate > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 27.5em;
+    height: 80px;
+}
+
+#cart-noti {
+    color: var(--color-red);
+    margin-top: -10px;
+}
+
+#sticker-detail_infos > #cart-shipdate > div > div > #addToCart {
     width: 29em;
     height: 45px;
     border: none;
     border-radius: 50px;
     margin-bottom: 10px;
     background-color: var(--color-red);
+    margin-right: 20px;
 }
 
-#sticker-detail_infos > #cart-shipdate > #addToCart:hover {
+#sticker-detail_infos > #cart-shipdate > div > div > #addToCart:hover {
     background-color: var(--color-black);
     color: var(--color-white);
     cursor: pointer;

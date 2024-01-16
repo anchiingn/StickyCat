@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, NavLink } from 'react-router-dom';
 import { thunkEditStickers, thunkLoadCurrentStickers, thunkLoadSingleSticker } from '../../redux/stickerReducer';
 
 export default function EditSticker () {
@@ -85,9 +85,13 @@ export default function EditSticker () {
         navigate('/my-stickers')
     }
 
-console.log(sticker?.image)
     return (
         <>
+        <div className="stickers-toppart_container">
+            <NavLink to={'/my-stickers'} className={'navlink'}>My Stickers</NavLink> 
+            /
+            <NavLink className={'navlink'}>Edit Sticker</NavLink>
+        </div>
         <div className='container'>
             <div className='sticker-form_container'>
                     <div>Edit Sticker</div>

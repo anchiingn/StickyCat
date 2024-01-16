@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { thunkLoadAllStickers } from "../../redux/stickerReducer"
 import './Stickers.css'
 import StickerCards from "./StickerCards"
+import { NavLink } from "react-router-dom"
 
 
 export default function AllStickers() {
@@ -18,8 +19,14 @@ export default function AllStickers() {
 
     return (
         <>
+        <div className="stickers-toppart_container">
+            <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
+            /
+            <NavLink className={'navlink'}>Explored Stickers</NavLink> 
+        </div>
+
+        {/* <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>All Sticky Stickers</div> */}
         <div className="allStickers_container">
-            <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>All Sticky Stickers</div>
             <p>Explore stickers from around the world, where each one is a delightful tiny masterpiece. <br/>Brimming with cuteness and playful charm, they're sure to bring a smile to your day.</p>
             <div className="line-in-between"></div>
             <div className="sticker-cards_container">
