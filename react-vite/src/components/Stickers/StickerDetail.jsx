@@ -32,12 +32,14 @@ export default function StickerDetail() {
         e.preventDefault()
         await dispatch(thunkAddToFavorite(single_sticker, id))
         await dispatch(thunkLoadSingleSticker(id))
+        await dispatch(thunkLoadAllCarts())
     }
 
     const removeFromFavorite = async(e) => {
         e.preventDefault()
         await dispatch(thunkDeleteFromFavorite(single_sticker[0]?.favorited[0]?.id))
         await dispatch(thunkLoadSingleSticker(id))
+        await dispatch(thunkLoadAllCarts())
     }
 
 

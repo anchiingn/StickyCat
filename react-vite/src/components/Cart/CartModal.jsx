@@ -35,10 +35,10 @@ const [show, setShow] = useState(true)
     {user ?(
         <div id="cart_container">
                 <AllCartStickers />
-                <div id="total-price">Total: <span>{total}</span></div>
-                <button id="checkout" onClick={() => setShow(false)} >
-                  {/* <NavLink to="/checkout" className={'navlink'}>Checkout</NavLink> */}
-                </button>
+                <div id="total-price">Total: <span>${total}</span></div>
+                {/* <button id="checkout" onClick={() => setShow(false)} >
+                  <NavLink to="/checkout" className={'navlink'}>Checkout</NavLink>
+                </button> */}
               
         </div>
     ) :(

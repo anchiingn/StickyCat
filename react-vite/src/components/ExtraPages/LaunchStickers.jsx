@@ -1,8 +1,11 @@
 import { NavLink } from 'react-router-dom'
 import NewSticker from '../Stickers/NewSticker'
 import './ExtraPages.css'
+import { useSelector } from 'react-redux'
 
 export default function LaunchStickers () {
+    const user = useSelector(state => state.session.user)
+    console.log(user)
     return (
         <>
         <div className='image-backgrround'>
@@ -21,7 +24,10 @@ export default function LaunchStickers () {
                 <div className="line-in-between"></div>
 
                 <button className='user-button'>
-                    <NavLink to="/new-sticker" className={'navlink'} style={{padding:'20px 40px', borderRadius:'50px'}}> Let Create Sticker</NavLink>
+                    {user ?(
+                        <NavLink to="/new-sticker" className={'navlink'} style={{padding:'20px 40px', borderRadius:'50px'}}> Let Create Sticker</NavLink>
+                    ): (<NavLink to="/login" className={'navlink'} style={{padding:'20px 40px', borderRadius:'50px'}}> Let Create Sticker</NavLink>                    )
+                    }
                 </button>
             </div>
         </div>

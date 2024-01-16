@@ -24,9 +24,9 @@ export default function NewSticker () {
             if (!price) {
                 errors.price = 'Price is required';
             }
-            if (price && !/^[0-9]+$/.test(price)) {
-                errors.price = 'Must be number'
-            }
+            // if (price && !/^[0-9]+$/.test(price)) {
+            //     errors.price = 'Must be number'
+            // }
             if (!image) {
                 errors.image = 'Image is required';
             }

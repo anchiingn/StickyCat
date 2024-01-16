@@ -44,7 +44,7 @@ export default function AllFavoriteStickers() {
                     <div className="sticker-cards_container">
                         {favorite_stickers.map(sticker => {
                             // Check if sticker and sticker.stickers exist and have at least one element
-                        if (sticker && sticker.stickers && sticker.stickers.length > 0) {
+                        if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
                             return (
                                 <div key={sticker?.id} className="stickers_container">
                                     <NavLink to={`/stickers/${sticker?.stickerId}`} className={'navlink'}>
