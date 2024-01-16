@@ -22,8 +22,8 @@ const [show, setShow] = useState(true)
   
   let total = 0;
   for (let sticker of cart_stickers) {
-    if (sticker && sticker?.stickers && sticker?.stickers?.length > 0 && sticker?.userId === user.id) {
-      console.log(sticker)
+    if (sticker && sticker?.stickers && sticker?.stickers?.length > 0 && sticker?.userId === user?.id) {
+      // console.log(sticker)
       total += sticker?.stickers[0]?.price * sticker.quantity;
     }
   }
