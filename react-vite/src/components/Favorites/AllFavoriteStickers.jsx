@@ -16,6 +16,7 @@ export default function AllFavoriteStickers() {
     }, [dispatch])
 
     const favorite_stickers = fetchAllFavorites ? Object.values(fetchAllFavorites) : []
+    console.log(favorite_stickers)
     return (
     <>
         {user && (

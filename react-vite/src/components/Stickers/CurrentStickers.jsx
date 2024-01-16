@@ -4,7 +4,7 @@ import { thunkLoadCurrentStickers } from "../../redux/stickerReducer"
 import { NavLink } from "react-router-dom"
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
 import DeleteSticker from "./DeleteSticker"
-import { thunkLoadAllReviews } from "../../redux/reviewReducer"
+// import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 
 export default function CurrentStickers() {
     const dispatch = useDispatch()
@@ -16,8 +16,6 @@ export default function CurrentStickers() {
     }, [dispatch])
 
     const stickers = Object.values(allStickers)
-    const pathName = window
-    console.log(pathName)
 
     return (
         <>

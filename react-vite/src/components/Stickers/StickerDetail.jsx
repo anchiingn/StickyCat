@@ -21,6 +21,7 @@ export default function StickerDetail() {
     useEffect(() => {
         dispatch(thunkLoadSingleSticker(id))
         dispatch(thunkLoadAllReviews(id))
+        
     }, [dispatch, id])
     
     const single_sticker = sticker ? Object.values(sticker) : []
