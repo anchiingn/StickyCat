@@ -59,7 +59,7 @@ export default function CurrentStickers() {
                                             </div>
                                         </NavLink>
                                         <div className="sticker-details_bottom">
-                                            <NavLink to={`/${sticker.id}/edit-sticker`} className={'navlink'}>edit</NavLink>
+                                            <NavLink to={`/${sticker.id}/edit-sticker`} className={'navlink'}>Edit</NavLink>
                                             <div style={{listStyle:'none', cursor:'pointer'}}>
                                                 <OpenModalMenuItem
                                                 itemText='Delete'

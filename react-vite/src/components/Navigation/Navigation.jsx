@@ -13,6 +13,7 @@ function Navigation() {
   const dispatch = useDispatch()
   const ulRef = useRef();
   const fetchCartStickers = useSelector(state => state.carts)
+  const user = useSelector (state => state.session.user)
 
   useEffect(() => {
       dispatch(thunkLoadAllCarts())
@@ -22,7 +23,10 @@ function Navigation() {
 
   let quantity = 0
   for (let sticker of cart_stickers) {
-    quantity += sticker?.quantity
+    if (user && sticker.userId === user.id) {
+      console.log(sticker)
+      quantity += sticker?.quantity
+    }
   }
 
   // -------- Close Cart When Click Outside --------//
@@ -30,6 +34,7 @@ function Navigation() {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
     setShow(!show);
   };
+
 
   // useEffect(() => {
   //   if (!show) return;

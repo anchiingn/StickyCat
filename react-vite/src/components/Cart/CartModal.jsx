@@ -29,10 +29,10 @@ const [show, setShow] = useState(true)
 
   total = (total).toFixed(2);
  
-
+  
   return (
     <>
-    {user ?(
+    {user ? (
         <div id="cart_container">
                 <AllCartStickers />
                 <div id="total-price">Total: <span>${total}</span></div>

@@ -32,14 +32,12 @@ export default function StickerDetail() {
         e.preventDefault()
         await dispatch(thunkAddToFavorite(single_sticker, id))
         await dispatch(thunkLoadSingleSticker(id))
-        await dispatch(thunkLoadAllCarts())
     }
 
     const removeFromFavorite = async(e) => {
         e.preventDefault()
         await dispatch(thunkDeleteFromFavorite(single_sticker[0]?.favorited[0]?.id))
         await dispatch(thunkLoadSingleSticker(id))
-        await dispatch(thunkLoadAllCarts())
     }
 
 
@@ -60,11 +58,11 @@ export default function StickerDetail() {
 
 
     // ------ Go Back Previous Page ---------//
-    const goBack = async(e) => {
-        e.preventDefault()
+    // const goBack = async(e) => {
+    //     e.preventDefault()
 
-        navigate(-1)
-    }
+    //     navigate(-1)
+    // }
 
 
     // ------ Get Shipdate ---------//
@@ -106,7 +104,7 @@ export default function StickerDetail() {
                     </div>
                     <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
                     
-                    {user && single_sticker[0]?.ownerId !== user.id && (
+                    {user && single_sticker[0]?.ownerId !== user?.id && (
                     <div id="cart-shipdate">
                         <div >
                             <div>
