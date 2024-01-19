@@ -5,6 +5,7 @@ import { useParams, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
+import StickerCards from "./StickerCards"
 
 
 
@@ -180,7 +181,7 @@ export default function StickerDetail() {
             <div id="review_container">
                 <ALlReviews sticker={single_sticker} id={id}/>
             </div>
-            {/* <button onClick={goBack}>go back</button> */}
+
             </>
         )}
         </>

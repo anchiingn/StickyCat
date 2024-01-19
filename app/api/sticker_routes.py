@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db
+from datetime import date
 from app.forms.sticker_form import StickerForm
 from app.forms.updatestickerr_forrm import UpdateStickerForm
 from app.forms.review_form import ReviewForm
@@ -124,6 +125,7 @@ def update_stickers(id):
         sticker.height=form.data['height']
         sticker.width=form.data['width']
         sticker.message=form.data['message']
+        sticker.updateAt=date.today()
         
         db.session.commit()
         return sticker.to_dict()

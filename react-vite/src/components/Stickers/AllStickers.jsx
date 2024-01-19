@@ -29,16 +29,19 @@ export default function AllStickers() {
                     //because it is array, it will start at zero, so add 1 and use slice to take the zero out 
 
     function prevPage () {
+        window.scrollTo(0, 0);
         if (currentPage !== 1) {
             setCurrentPage(currentPage - 1)
         }
     }
     
     function changeCurrentPage (id) {
+        window.scrollTo(0, 0);
         setCurrentPage(id)
     }
     
     function nextPage () {
+        window.scrollTo(0, 0);
         if ( currentPage !== numOfPage) {
             setCurrentPage(currentPage + 1)
         }
