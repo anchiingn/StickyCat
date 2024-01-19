@@ -3,30 +3,20 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteFromCart from "./DeleteFromCart";
+import { thunkAddToCart, thunkDeleteFromCart, thunkLoadAllCarts, thunkRemoveOneSticker } from "../../redux/cardReducer";
 
 export default function CartStickerCards ({ sticker }) {
     const dispatch = useDispatch()
-    const [showMenu, setShowMenu] = useState(false)
-    const ulRef = useRef();
 
-    const toggleMenu = (e) => {
-        e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
-        setShowMenu(!showMenu);
-      };
-    
-      useEffect(() => {
-        if (!showMenu) return;
-    
-        const closeMenu = (e) => {
-          if (ulRef.current && !ulRef.current.contains(e.target)) {
-            setShowMenu(false);
-          }
-        };
-    
-        document.addEventListener("click", closeMenu);
-    
-        return () => document.removeEventListener("click", closeMenu);
-      }, [showMenu]);
+    const addSticker = async () => {
+        await dispatch(thunkAddToCart(sticker, sticker?.stickerId))
+        await dispatch(thunkLoadAllCarts())
+    }
+
+    const removeSticker = async () => {
+        await dispatch(thunkRemoveOneSticker(sticker?.id))
+        await dispatch(thunkLoadAllCarts())
+    }
 
     return (
         <>
@@ -35,6 +25,7 @@ export default function CartStickerCards ({ sticker }) {
                 <div id="cart-sticker-images_container">
                     <img src={sticker?.stickers[0]?.image} alt={sticker?.stickers[0]?.title}/>
                 </div>
+            </NavLink>
                 <div id="cart-infos_container">
                     <div className="cart-infos">
                         <div>{sticker?.stickers[0]?.title}</div>
@@ -42,11 +33,14 @@ export default function CartStickerCards ({ sticker }) {
                     </div>
                     <div className="cart-infos">
                         <div>Quantity -</div>
-                        <div>{sticker?.quantity}</div>
+                        <div style={{display:'flex'}} id="quantity-add-remove">
+                            <button style={{marginRight:'6px'}} onClick={removeSticker}><i className="fa-solid fa-minus"></i></button>
+                            <div>{sticker?.quantity}</div>
+                            <button style={{marginLeft:'5px'}} onClick={addSticker}><i className="fa-solid fa-plus"></i></button>
+                        </div>
                     </div>
                 </div>
-            </NavLink>
-                <div id="remove-card_threeDots" style={{listStyle:'none'}}>
+                <div id="remove-card" style={{listStyle:'none'}}>
                     <OpenModalMenuItem 
                         itemText={<><i class="fa-regular fa-trash-can"></i></>}
                         modalComponent={<DeleteFromCart sticker={sticker}/>}

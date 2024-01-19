@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { thunkLoadAllStickers } from "../../redux/stickerReducer"
 import './Stickers.css'
 import StickerCards from "./StickerCards"
@@ -17,6 +17,34 @@ export default function AllStickers() {
     const stickers = Object.values(allStickers)
 
 
+    const [ currentPage, setCurrentPage ] = useState(1);
+    const stickerPerPage = 16;
+    const lastIndex = currentPage * stickerPerPage; //16
+    const firstIndex = lastIndex - stickerPerPage; //0
+    const stickerPage = stickers.slice(firstIndex, lastIndex); //take the first 16 stickers
+    const numOfPage = Math.ceil(stickers.length / stickerPerPage); //get page numbers 
+    const numbers = [...Array(numOfPage + 1).keys()].slice(1) 
+                    //make the numofPage into Array
+                    //use .keys to get the number of page
+                    //because it is array, it will start at zero, so add 1 and use slice to take the zero out 
+
+    function prevPage () {
+        if (currentPage !== 1) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+    
+    function changeCurrentPage (id) {
+        setCurrentPage(id)
+    }
+    
+    function nextPage () {
+        if ( currentPage !== numOfPage) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
+
+
     return (
         <>
         <div className="stickers-toppart_container">
@@ -30,7 +58,7 @@ export default function AllStickers() {
             <p>Explore stickers from around the world, where each one is a delightful tiny masterpiece. <br/>Brimming with cuteness and playful charm, they're sure to bring a smile to your day.</p>
             <div className="line-in-between"></div>
             <div className="sticker-cards_container">
-                {stickers.map(sticker => {
+                {stickerPage.map(sticker => {
                     return (
                         <div key={sticker?.id} className="stickers_container">
                             <StickerCards sticker={sticker} />
@@ -39,6 +67,23 @@ export default function AllStickers() {
                 })}
             </div>
         </div>
+
+        <nav>
+            <ul>
+                <li>
+                    <button onClick={() => prevPage()}>Prev</button>
+                </li>
+                {numbers.map((n, i) => (
+                        // console.log(n)
+                        <li key={i}>
+                            <button className={`numPage ${currentPage === n ? 'active' : ''}`} onClick={() => changeCurrentPage(n)}>{n}</button>
+                        </li>
+                    ))}
+                <li>
+                    <button onClick={() => nextPage()}>Next</button>
+                </li>
+            </ul>
+        </nav>
         </>
     )
 }

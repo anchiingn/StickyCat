@@ -65,7 +65,7 @@
 }
 
 .stickers_container {
-    background-color: rgb(243, 238, 225);
+    /* background-color: rgb(243, 238, 225); */
     width: 16.5em;
     margin: 15px 20px;
     display: flex;
@@ -73,15 +73,15 @@
     align-items: center;
     /* justify-content: center; */
     border-radius: 20px;
-    box-shadow: 0px 5px 3px var(--color-shadow),
-                0px 0px 1px var(--color-shadow);
+    /* box-shadow: 0px 5px 3px var(--color-shadow),
+                0px 0px 1px var(--color-shadow); */
 }
 
-.stickers_container:hover {
-    box-shadow: 0px 5px 5px grey,
+/* .stickers_container:hover { */
+    /* box-shadow: 0px 5px 5px grey,
                 0px 0px 1px gray;
 
-}
+} */
 
 .sticker-images_container {
     display: flex;
@@ -112,6 +112,37 @@
     width: 15.1em;
     margin-top: -12px;
     margin-bottom: 5px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+    margin: 30px 0px 60px 0px;
+}
+
+nav > ul > li > button {
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(232, 226, 212); 
+    box-shadow: 0px 3px 2px grey;
+    cursor: pointer;
+}
+
+.numPage {
+    width: 30px;
+    height: 30px;
+}
+
+nav > ul > li > button:hover {
+    background-color: rgb(216, 209, 191); 
+    color: rgb(88, 87, 86);
+}
+
+.numPage.active {
+    background-color: var(--color-yellow);
 }
 
 

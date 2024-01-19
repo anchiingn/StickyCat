@@ -16,7 +16,6 @@ export default function AllFavoriteStickers() {
     }, [dispatch])
 
     const favorite_stickers = fetchAllFavorites ? Object.values(fetchAllFavorites) : []
-    console.log(favorite_stickers)
     return (
     <>
         {user && (
@@ -31,7 +30,7 @@ export default function AllFavoriteStickers() {
                     <>
                     <div className="user-stickers_container"> 
                         {/* <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>My Favorite Sticky Stickers</div> */}
-                        <p className="user-paragraph">Oops! Your sticker collection seems a bit bare. Let's explored all charming masterpiece together!</p>
+                        <p className="user-paragraph">Oops! Your sticker collection seems a bit bare. Let&apos;s explored all charming masterpiece together!</p>
                         <div className="line-in-between"></div>
                         <button className="user-button">
                             <NavLink to={'/explored-stickers'} className={'navlink'} style={{padding:'20px 40px', borderRadius:'50px'}}>Explored Sticker</NavLink>

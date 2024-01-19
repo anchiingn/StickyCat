@@ -77,6 +77,8 @@
     background-color: rgb(233, 68, 27);
     position: relative;
     display: flex;
+    justify-content: space-between;
+    width: 100dvw;
     height: 40em;
     bottom: 7.8em;
 }
@@ -101,7 +103,7 @@
 }
 
 #about-title_container > div:nth-child(1) {
-    margin-top: 100px;
+    margin-top: 75px;
     font-size: 28px;
     letter-spacing: 1.75px;
     font-weight: 500;
@@ -129,6 +131,29 @@
     letter-spacing: 0.5px;
 }
 
+#about-texts_container > .navlink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    width: 11em;
+    height: 55px;
+    /* font-size: 17px; */
+    font-weight: 400;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+#about-texts_container > .navlink:hover {
+    color: rgb(93, 92, 91);
+}
+
+#about-texts_container > .navlink > i {
+    margin-left: 10px;
+}
 
 /* ----- Explored Stickers ----- */
 #explored-stickers_container {
@@ -191,7 +216,7 @@
 }
 
 #launch-sticker_container > .navlink:hover {
-   color: var(--color-white);
+   color: rgb(93, 92, 91);
     background-color: var(--color-black);
     
 }
@@ -208,3 +233,27 @@
     height: 70px;
     margin-left: 20px;
 }
+
+#footer-top { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aqua; */
+    width: 100%; 
+    margin: 0px 100px;
+    
+}
+
+#footer-top > div:first-child{
+    font-family: var(--big-font);
+    letter-spacing: 2.5px;
+    font-size: 30px;
+    color: rgb(249, 203, 35);
+}
+
+#footer-top > #about-link > .navlink{
+    font-size: 30px;
+    color: rgb(249, 203, 35);
+    margin-left: 20px;
+}
+

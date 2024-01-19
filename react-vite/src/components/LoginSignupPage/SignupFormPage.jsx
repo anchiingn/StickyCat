@@ -5,7 +5,7 @@ import { thunkSignup } from "../../redux/session";
 
 import './SignupForm.css'
 
-function SignupFormPage() {
+export default function SignupFormPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const sessionUser = useSelector((state) => state.session.user);
@@ -149,4 +149,3 @@ function SignupFormPage() {
   );
 }
 
-export default SignupFormPage;

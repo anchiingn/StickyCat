@@ -46,6 +46,7 @@ export default function MainPage () {
                         <p>
                         At StickyCat, creators bring their playful and cute designs to life. Once their creations are ready, we handle the entire sticker-making journey – from production and manufacturing to the enchanting delivery of these lovable stickers to your doorstep. Join us at StickyCat, where each sticker is a delightful messenger of joy, spreading happiness wherever it goes!
                         </p>
+                        <NavLink to={'/how-it-work'} className={'navlink'}>Discover More <i className="fa-solid fa-hand-point-right"></i></NavLink>
                     </div>
                 </div>
             </div>
@@ -79,8 +80,15 @@ export default function MainPage () {
 
             <div id='footer-mainpage_container'>
                 {/* <img src="https://stickycat.s3.us-east-2.amazonaws.com/Landing_Page_.png" alt="" /> */}
-                <div>GitHub: 
-                    <NavLink to={'https://github.com/anchiingn'} className={'navlink'}>anchiingn</NavLink>
+                <div id="footer-top">
+                    <div>StickyCat</div>
+                    <div id="about-link">
+                        <NavLink to={'https://github.com/anchiingn'} className={'navlink'}><i className="fa-brands fa-square-github"></i></NavLink>
+                        <NavLink to={'https://www.linkedin.com/in/anchinguyen/'} className={'navlink'}><i className="fa-brands fa-linkedin"></i></NavLink>
+                    </div>
+                </div>
+                <div id="footer-detail">
+                        
                 </div>
             </div> 
         </>

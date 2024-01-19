@@ -21,7 +21,6 @@ export default function ALlReviews({ sticker, id }) {
     if (!fetchAllReviews) return null
 
     const reviews = fetchAllReviews ? Object.values(fetchAllReviews) : []
-    // console.log(reviews)
 
     let starRating = 0
     for (let review of reviews) {
@@ -32,8 +31,6 @@ export default function ALlReviews({ sticker, id }) {
             starRating = review?.star
         }
     }
-console.log(sticker[0]?.onwerId !== user?.id)
-console.log(sticker[0].ownerId !== user?.id)
 
     return (
         <>

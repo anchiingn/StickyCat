@@ -6,14 +6,11 @@ export default function DeleteFromCart({ sticker }) {
     const { closeModal } = useModal();
     const dispatch = useDispatch();
 
-    console.log(sticker.id)
-
     const removeCart = async (e) => {
         e.preventDefault()
         await dispatch(thunkDeleteFromCart(sticker?.id))
         await dispatch(thunkLoadAllCarts())
         closeModal()
-
     }
 
     return (

@@ -1,11 +1,10 @@
 import { NavLink } from 'react-router-dom'
-import NewSticker from '../Stickers/NewSticker'
 import './ExtraPages.css'
 import { useSelector } from 'react-redux'
 
 export default function LaunchStickers () {
     const user = useSelector(state => state.session.user)
-    console.log(user)
+    
     return (
         <>
         <div className='image-backgrround'>
@@ -20,7 +19,7 @@ export default function LaunchStickers () {
             <div className='about-infos_container'>
 
                 <h1>TURN YOUR CREATIVITY INTO STICKER</h1>
-                <p>Let's embark on a creative journey together! With StickyCat, we'll join forces to bring your dream sticker collection to life. Collaborating, conceptualizing, presenting, marketing, and manufacturing – all tailored by you for your fans. The best part? It's a seamless, worry-free adventure with no upfront expenses!</p>
+                <p>Let&apos;s embark on a creative journey together! With StickyCat, we&apos;ll join forces to bring your dream sticker collection to life. Collaborating, conceptualizing, presenting, marketing, and manufacturing – all tailored by you for your fans. The best part? It&apos;s a seamless, worry-free adventure with no upfront expenses!</p>
                 <div className="line-in-between"></div>
 
                 <button className='user-button'>

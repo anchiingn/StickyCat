@@ -1,12 +1,12 @@
 import { thunkCreateNewReviews, thunkLoadAllReviews } from "../../redux/reviewReducer";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { thunkLoadSingleSticker } from "../../redux/stickerReducer";
 
 
-export default function CreateReview ({ reviews, sticker }) {
+export default function CreateReview () {
     const { id } = useParams()
     const { closeModal } = useModal()
     const dispatch = useDispatch()
@@ -38,7 +38,6 @@ export default function CreateReview ({ reviews, sticker }) {
                     <div id="review-star">
                         {[1, 2, 3, 4, 5].map((starNum, index) => {
                             let currentStar = index + 1;
-                            // console.log(currentStar, starNum, hover)
                             return (
                                 <label
                                     key={starNum}

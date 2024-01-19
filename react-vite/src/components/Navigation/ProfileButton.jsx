@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkLogout } from "../../redux/session";
 import { NavLink, useNavigate } from "react-router-dom";
-import { thunkLoadCurrentStickers } from "../../redux/stickerReducer";
 
 function ProfileButton() {
   const dispatch = useDispatch();

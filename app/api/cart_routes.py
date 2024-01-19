@@ -59,3 +59,29 @@ def remove_cart(id):
         return jsonify(message='Remove from cart successfully')
     
     return jsonify(message='Sticker not found')
+
+@cart_routes.route('<int:id>/one-sticker', methods=['DELETE'])
+def remove_one_sticker(id):
+    cart_sticker = Cart.query.get(id)
+
+    if cart_sticker.quantity > 1:
+        cart_sticker.quantity -= 1
+        db.session.commit()
+        return jsonify(message='decrease the quantity by 1')
+    
+    
+    return jsonify(message='Sticker not found')
+
+@cart_routes.route('/remove-all-stickers', methods=['DELETE'])
+def remove_all_sticker():
+    cart_stickers = Cart.query.all()  
+
+    if cart_stickers:
+        ''' have to iterate to delete all'''
+        for sticker in cart_stickers:  
+            db.session.delete(sticker)
+        db.session.commit()
+        return jsonify(message='Remove All Stickers in cart')
+    
+    
+    return jsonify(message='Stickers not found')

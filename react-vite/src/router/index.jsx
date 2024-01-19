@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
-import LoginFormPage from '../components/LoginFormPage';
-import SignupFormPage from '../components/SignupFormPage';
+import LoginFormPage from '../components/LoginSignupPage/LoginFormPage';
+import SignupFormPage from '../components/LoginSignupPage/SignupFormPage';
 import AllStickers from '../components/Stickers/AllStickers';
 import StickerDetail from '../components/Stickers/StickerDetail';
 import CurrentStickers from '../components/Stickers/CurrentStickers';
@@ -11,6 +11,7 @@ import MainPage from '../components/ExtraPages/MainPage'
 import CheckoutPage from '../components/ExtraPages/CheckoutPage';
 import LaunchStickers from '../components/ExtraPages/LaunchStickers';
 import HowItWork from '../components/ExtraPages/HowItWork';
+import Thankyou from '../components/ExtraPages/ThankYou';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
         path:"checkout",
         element: <CheckoutPage /> 
+      },
+      {
+        path:"thank-you-for-your-purchased",
+        element: <Thankyou />
       },
       {
         path: "*",

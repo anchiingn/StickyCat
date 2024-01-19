@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer"
-import { useParams,useNavigate, NavLink } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
-// import AllCartStickers from "../Cart/AllCartStickers"
-// import CartModal from "../Cart/CartModal"
+
 
 
 export default function StickerDetail() {
@@ -14,9 +13,7 @@ export default function StickerDetail() {
     const dispatch = useDispatch()
     const sticker = useSelector(state => state?.stickers)
     const user = useSelector(state => state.session.user)
-    const navigate = useNavigate()
     const [cart, setCart] = useState(false)
-    const [show, setShow] = useState(false)
 
     useEffect(() => {
         dispatch(thunkLoadSingleSticker(id))
@@ -25,7 +22,6 @@ export default function StickerDetail() {
     }, [dispatch, id])
     
     const single_sticker = sticker ? Object.values(sticker) : []
-    // console.log(single_sticker)
 
 
     // ------ Add/Remove from Favorite ---------//
