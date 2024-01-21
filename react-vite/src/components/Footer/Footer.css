@@ -1,0 +1,37 @@
+/* ----- Footer ----- */
+#footer-mainpage_container {
+    height: 5em;
+    background-color: rgb(233, 68, 27);
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    
+}
+
+#footer-mainpage_container > img {
+    height: 70px;
+    margin-left: 20px;
+}
+
+#footer-top { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aqua; */
+    width: 100%; 
+    margin: 0px 100px;
+    
+}
+
+#footer-top > div:first-child{
+    font-family: var(--big-font);
+    letter-spacing: 2.5px;
+    font-size: 30px;
+    color: rgb(249, 203, 35);
+}
+
+#footer-top > #about-link > .navlink{
+    font-size: 30px;
+    color: rgb(249, 203, 35);
+    margin-left: 20px;
+}

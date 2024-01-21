@@ -10,7 +10,7 @@
     width: 32em;
     /* margin-top: 20px; */
     position: relative;
-    right: 55px;
+    right: 105px;
     bottom: 10px;
 
 }
@@ -27,10 +27,20 @@
 
 #mainpage-title-text > span {
     font-family: var(--big-font);
-    font-size: 70px;
+    font-size: 100px;
     color: var(--color--black);
     letter-spacing: 8px;
+    bottom: 55px;
 } 
+
+#mainpage-title-text > span:nth-child(1) {
+    position: absolute;
+    left: -2em;
+}
+#mainpage-title-text > span:nth-child(2) {
+    position: absolute;
+    right: -1.7em;
+}
 
 /* ----- Yellow Space Container ----- */
 .yellow_container {
@@ -47,7 +57,7 @@
 .yellow2_container {
     background-color: rgb(249, 203, 35);
     position: absolute;
-    top: 74em;
+    top: 82em;
     width: 100vw;
     height: 50px;
     display: flex;
@@ -77,21 +87,21 @@
     background-color: rgb(233, 68, 27);
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100dvw;
     height: 40em;
     bottom: 7.8em;
 }
 
 #about-image_container {
-    width: 50em;
+    width: 55em;
     height: 40em;
     overflow: hidden;
     
 }
 
 #about-image_container > img {
-    width: 50em;
+    width: 100%;
 }
 
 #about-title_container, #about-texts_container {
@@ -106,7 +116,7 @@
     margin-top: 75px;
     font-size: 28px;
     letter-spacing: 1.75px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-white);
 }
 
@@ -135,7 +145,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 50px;
     width: 11em;
     height: 55px;
     /* font-size: 17px; */
@@ -221,39 +231,5 @@
     
 }
 
-/* ----- Footer ----- */
-#footer-mainpage_container {
-    height: 5em;
-    background-color: rgb(233, 68, 27);
-    display: flex;
-    align-items: center;
-}
 
-#footer-mainpage_container > img {
-    height: 70px;
-    margin-left: 20px;
-}
-
-#footer-top { 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* background-color: aqua; */
-    width: 100%; 
-    margin: 0px 100px;
-    
-}
-
-#footer-top > div:first-child{
-    font-family: var(--big-font);
-    letter-spacing: 2.5px;
-    font-size: 30px;
-    color: rgb(249, 203, 35);
-}
-
-#footer-top > #about-link > .navlink{
-    font-size: 30px;
-    color: rgb(249, 203, 35);
-    margin-left: 20px;
-}
 

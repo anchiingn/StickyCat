@@ -1,18 +1,19 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {  useDispatch, useSelector } from "react-redux";
 import { thunkLoadAllCarts } from "../../redux/cardReducer";
 import CartModal from "../Cart/CartModal";
 
 function Navigation() {
   const [show, setShow] = useState(false)
-  // const user = useSelector(state => state.session.user)
+  const ulRef = useRef();
   const dispatch = useDispatch()
   const fetchCartStickers = useSelector(state => state.carts)
   const fetchStickers = useSelector(state => state.stickers)
   const user = useSelector (state => state.session.user)
+  
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -35,16 +36,27 @@ function Navigation() {
     setShow(!show);
   };
 
+  useEffect(() => {
+    if (!show) return;
 
+    const closeMenu = (e) => {
+      if (ulRef.current && !ulRef.current.contains(e.target)) {
+        setShow(false);
+      }
+    };
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [show]);
 
 
   return (
     <div className="container">
 
         <div id="nav_container">
-
           <div id="logo_container">
-            <NavLink to="/" className="navlink"><img src="https://stickycat.s3.us-east-2.amazonaws.com/Landing_Page_.png" alt="" style={{width:'35px'}}/></NavLink>
+            <NavLink to="/" className="navlink"><img src="https://stickycat.s3.us-east-2.amazonaws.com/Screen_Shot_2024-01-17_at_3.15.46_PM.png" alt="" style={{width:'35px'}}/></NavLink>
             <NavLink to="/" className="navlink" id="logo-name">StickyCat</NavLink>
           </div>
           
@@ -68,7 +80,7 @@ function Navigation() {
                 
               </div>
               {show && (
-                <div id="cart-modal">
+                <div id="cart-modal" ref={ulRef}>
 
                   <div id="cart-top">
                     <div style={{fontWeight:'bold'}}>My Cart -</div>

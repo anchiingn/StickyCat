@@ -44,12 +44,12 @@ function ProfileButton() {
     {user ? (
       <>
         <button onClick={toggleMenu} className="buttons">
-          <i className="fas fa-user-circle" style={{fontSize:'25px', marginRight:'10px'}}/>
+        <i class="fa-solid fa-user" style={{fontSize:'20px', marginRight:'10px', position:'relative', top:'1px', right:'-5px'}}/>
         </button>
         {showMenu && (
           <ul className={"profile-dropdown"} ref={ulRef}>
               <>
-                <li>{user.username}</li>
+                <li>Hi, {user.username}</li>
                 <li>{user.email}</li>
                 <div className="profile-underline"></div>
                 {user && (

@@ -62,7 +62,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
-  padding: 8px 40px;
+  padding: 10px 40px;
   /* border-radius: 50px; */
   /* box-shadow: 0px 3px 2px rgba(128, 128, 128, 0.1); */
 }
@@ -85,10 +85,11 @@
 
 /* ------ NavLinks ------ */
 #nav-link_container {
-  width: 30em;
+  /* width: 30em; */
   height: 25px;
   display: flex;
   justify-content: space-evenly;
+  gap: 40px;
 }
 
 #nav-link_container > .navlink:hover {
@@ -108,7 +109,7 @@
 
 #cart-stickers_length {
   position: absolute;
-  top: 20px;
+  top: 23px;
   right: 35px;
   background-color: var(--color-red);
   color: var(--color-white);
@@ -144,6 +145,10 @@
 #cart-modal > #checkout_container {
   display: flex;
   justify-content: center;
+}
+
+#cart-modal > #checkout_container > button {
+  background-color: transparent;
 }
 
 

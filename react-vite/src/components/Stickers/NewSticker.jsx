@@ -100,13 +100,13 @@ export default function NewSticker () {
                             onChange={(e) => setPrice(e.target.value)}
                         />
                         <div className='height-width_container'>
-                            <label>Height</label>
+                            <label>Height "</label>
                             <input 
                                 type="number"
                                 value={height}
                                 onChange={(e) => setHeight(e.target.value)}
                             />,
-                            <label>Width</label>
+                            <label>Width "</label>
                             <input 
                                 type="number"
                                 value={width}

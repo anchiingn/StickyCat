@@ -7,6 +7,7 @@
     margin: 0px 15px;
 }
 
+
 .allStickers_container {
     display: flex;
     flex-direction: column;
@@ -40,28 +41,13 @@
     margin-top: 25px;
 }
 
-.user-button {
-    margin-top: 40px;
-    padding: 20px 0px;
-    border-radius: 50px;
-    border: 2px solid var(--color-black);
-    background-color: var(--color-red);
-}
-
-.user-button:hover {
-    background-color: var(--color-black);
-}
-
-.user-button > .navlink:hover {
-    color: white;
-}
-
 .sticker-cards_container {
     width: calc(100% - 17.3em);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     margin-top: 18px;
+    margin-bottom: 50px;
 }
 
 .stickers_container {
@@ -120,23 +106,27 @@ nav ul {
     align-items: center;
     list-style: none;
     gap: 10px;
-    margin: 30px 0px 60px 0px;
+    margin: -10px 0px 60px 0px;
 }
 
-nav > ul > li > button {
-    border-radius: 50px;
+nav > ul > li > button:not(.numPage) {
     border: none;
-    background-color: rgb(232, 226, 212); 
-    box-shadow: 0px 3px 2px grey;
+    background-color: transparent;
     cursor: pointer;
 }
 
 .numPage {
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(232, 226, 212); 
+    /* box-shadow: 0px 3px 2px grey; */
+    cursor: pointer;
     width: 30px;
     height: 30px;
 }
 
-nav > ul > li > button:hover {
+
+.numPage:hover {
     background-color: rgb(216, 209, 191); 
     color: rgb(88, 87, 86);
 }
@@ -146,3 +136,19 @@ nav > ul > li > button:hover {
 }
 
 
+#best-seller {
+    position: absolute;
+    top: 13em;
+    right: -20px;
+    background: var(--color-yellow);
+    color: var(--color-red);
+    line-height: 16px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 50px;
+}

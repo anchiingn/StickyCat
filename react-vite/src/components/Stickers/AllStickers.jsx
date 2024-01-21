@@ -9,14 +9,23 @@ import { NavLink } from "react-router-dom"
 export default function AllStickers() {
     const dispatch = useDispatch()
     const allStickers = useSelector(state => state?.stickers)
+    // const [ filter, setFilter ] = useState('')
 
     useEffect(() => {
         dispatch(thunkLoadAllStickers())
     }, [dispatch])
 
     const stickers = Object.values(allStickers)
+    
+    // for(let sticker of stickers ) {
+    //     const days = new Date(sticker.createAt)
+    //     sticker['day'] = days.getTime()        
+    // }
 
+    // stickers.sort((a,b) => b.day - a.day)
 
+    
+    // -------------------  Pagination  ------------------- //
     const [ currentPage, setCurrentPage ] = useState(1);
     const stickerPerPage = 16;
     const lastIndex = currentPage * stickerPerPage; //16
@@ -70,11 +79,10 @@ export default function AllStickers() {
                 })}
             </div>
         </div>
-
         <nav>
             <ul>
                 <li>
-                    <button onClick={() => prevPage()}>Prev</button>
+                    <button onClick={() => prevPage()}><i className="fa-solid fa-arrow-left"></i></button>
                 </li>
                 {numbers.map((n, i) => (
                         // console.log(n)
@@ -83,7 +91,7 @@ export default function AllStickers() {
                         </li>
                     ))}
                 <li>
-                    <button onClick={() => nextPage()}>Next</button>
+                    <button onClick={() => nextPage()}><i className="fa-solid fa-arrow-right"></i></button>
                 </li>
             </ul>
         </nav>

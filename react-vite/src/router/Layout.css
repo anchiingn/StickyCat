@@ -1,0 +1,10 @@
+#page_container {
+    display: flex;
+    min-height: 100vh;
+}
+
+#content_warp{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
