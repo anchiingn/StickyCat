@@ -1,9 +1,8 @@
-import { useEffect, useState,useRef } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteFromCart from "./DeleteFromCart";
-import { thunkAddToCart, thunkDeleteFromCart, thunkLoadAllCarts, thunkRemoveOneSticker } from "../../redux/cardReducer";
+import { thunkAddToCart, thunkLoadAllCarts, thunkRemoveOneSticker } from "../../redux/cardReducer";
 
 export default function CartStickerCards ({ sticker }) {
     const dispatch = useDispatch()
