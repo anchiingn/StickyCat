@@ -67,7 +67,6 @@ export const thunkEditReviews = (review, id) => async (dispatch) => {
 
     if (res.ok) {
         const newreview = await res.json();
-        console.log('newreview', newreview)
         dispatch(editReview(newreview));
         return newreview;
     } else {
@@ -76,12 +75,10 @@ export const thunkEditReviews = (review, id) => async (dispatch) => {
 };
 
 export const thunkDeleteReviews = (id) => async (dispatch) => {
-    console.log('before fetch', id)
     const res = await fetch(`/api/reviews/${id}/delete-review`, {
         method: 'DELETE',
         headers: { "Content-Type": "application/json" },
     });
-    console.log('after fetch', id)
 
     if (res.ok) {
         dispatch(deleteReview(id));

@@ -58,7 +58,7 @@
     margin-top: -10px;
 }
 
-#sticker-detail_infos > #cart-shipdate > div > div > #addToCart {
+#addToCart {
     width: 29em;
     height: 45px;
     border: none;
@@ -68,7 +68,7 @@
     margin-right: 20px;
 }
 
-#sticker-detail_infos > #cart-shipdate > div > div > #addToCart:hover {
+#addToCart:hover {
     background-color: var(--color-black);
     color: var(--color-white);
     cursor: pointer;
@@ -92,7 +92,7 @@
     width: 30px;
     height: 30px;
     color: var(--color-red);
-    border:1.5px solid var(--color-black);
+    border: none;
     cursor: pointer;
-    margin-top: 10px;
+    background-color: transparent;
 }

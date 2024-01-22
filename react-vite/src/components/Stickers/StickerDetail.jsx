@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer"
-import { useParams,useNavigate, NavLink } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
-// import AllCartStickers from "../Cart/AllCartStickers"
-// import CartModal from "../Cart/CartModal"
 
 
 export default function StickerDetail() {
@@ -14,9 +12,7 @@ export default function StickerDetail() {
     const dispatch = useDispatch()
     const sticker = useSelector(state => state?.stickers)
     const user = useSelector(state => state.session.user)
-    const navigate = useNavigate()
     const [cart, setCart] = useState(false)
-    const [show, setShow] = useState(false)
 
     useEffect(() => {
         dispatch(thunkLoadSingleSticker(id))
@@ -25,10 +21,9 @@ export default function StickerDetail() {
     }, [dispatch, id])
     
     const single_sticker = sticker ? Object.values(sticker) : []
-    // console.log(single_sticker)
 
 
-    // ------ Add/Remove from Favorite ---------//
+    // -------------------  Add/Remove from Favorite ------------------- //
     const addToFavorite = async(e) => {
         e.preventDefault()
         await dispatch(thunkAddToFavorite(single_sticker, id))
@@ -42,7 +37,7 @@ export default function StickerDetail() {
     }
 
 
-    // ------ Add To Cart ---------//
+    // ------------------- Add To Cart ------------------- //
     const addToCart = async(e) => {
         e.preventDefault()
 
@@ -58,15 +53,7 @@ export default function StickerDetail() {
     }
 
 
-    // ------ Go Back Previous Page ---------//
-    // const goBack = async(e) => {
-    //     e.preventDefault()
-
-    //     navigate(-1)
-    // }
-
-
-    // ------ Get Shipdate ---------//
+    // -------------------  Get Shipdate ------------------- //
     const date = new Date(new Date().getTime()+(10*24*60*60*1000))
     const shipdate = new Date(date)
 
@@ -109,13 +96,13 @@ export default function StickerDetail() {
                     {user && single_sticker[0]?.ownerId !== user?.id && (
                     <div id="cart-shipdate">
                         <div >
-                            <div>
+                            <div style={{display:'flex', alignItems:'center'}}>
                                 <button id="addToCart" onClick={addToCart}>Add to Cart</button>
 
                                 {single_sticker[0]?.favorited?.length === 0 || single_sticker[0]?.favorited[0]?.userId !== user?.id ?(
-                                    <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart"></i></button>
+                                    <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart" style={{fontSize:'25px'}}/></button>
                                 ): (
-                                    <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart"></i></button>
+                                    <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart" style={{fontSize:'25px'}}/></button>
                                 )}
                             </div>
 
@@ -133,48 +120,16 @@ export default function StickerDetail() {
                         <div style={{margin:'0px 20px'}}>{single_sticker[0]?.message}</div>
                     </div>
 
-                    <div >
-                        {/* <div>product detail</div> */}
-                        {/* <button onClick={() => setShow(!show)}> v</button>
-                        {!show && ( */}
-                            <>
-                                <div>
-                                    <div style={{fontWeight:'bold', marginTop:'10px'}}>Dimensions:</div>
-                                    <div style={{margin:'0px 20px'}}>
-                                        <div id="height">Height: {single_sticker[0]?.height} inchs</div>
-                                        <div id="width">Width: {single_sticker[0]?.width} inchs</div>
-                                    </div>
-                                    {/* <div>material:</div>
-                                    <div>Care Instructions:</div> */}
-                                </div>
-                            </>
-                        {/* )} */}
+                  
+                    <div>
+                        <div style={{fontWeight:'bold', marginTop:'10px'}}>Dimensions:</div>
+                        <div style={{margin:'0px 20px'}}>
+                            <div id="height">Height: {single_sticker[0]?.height}" </div>
+                            <div id="width">Width: {single_sticker[0]?.width}" </div>
+                        </div>
+                    
                     </div>
-
-                    {/* <div>
-                        <div>How do StickerCat Work?</div>
-                        <button onClick={e => setShow(!show)}> v</button>
-                        {show && (
-                            <>
-                                <div>Design</div>
-                                <div>
-                                    design ......
-                                </div>
-                                <div>launch</div>
-                                <div>
-                                    launch ......
-                                </div>
-                                <div>make</div>
-                                <div>
-                                    make ......
-                                </div>
-                                <div>ship</div>
-                                <div>
-                                    ship ......
-                                </div>
-                            </>
-                        )}
-                    </div> */}
+                      
 
                 </div>
             </div>
@@ -184,7 +139,8 @@ export default function StickerDetail() {
             <div id="review_container">
                 <ALlReviews sticker={single_sticker} id={id}/>
             </div>
-            {/* <button onClick={goBack}>go back</button> */}
+            
+
             </>
         )}
         </>

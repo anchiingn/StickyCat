@@ -1,69 +1,79 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
-import AllCartStickers from "../Cart/AllCartStickers";
 import { useState, useEffect, useRef } from "react";
 import {  useDispatch, useSelector } from "react-redux";
-import { thunkLoadAllCarts } from "../../redux/cardReducer";
+import { thunkLoadAllCarts, thunkRemoveAllSticker } from "../../redux/cardReducer";
 import CartModal from "../Cart/CartModal";
+
 
 function Navigation() {
   const [show, setShow] = useState(false)
-  // const user = useSelector(state => state.session.user)
-  const dispatch = useDispatch()
   const ulRef = useRef();
+  const dispatch = useDispatch()
   const fetchCartStickers = useSelector(state => state.carts)
+  const fetchStickers = useSelector(state => state.stickers)
   const user = useSelector (state => state.session.user)
+  
+  const navigate = useNavigate()
 
   useEffect(() => {
       dispatch(thunkLoadAllCarts())
   },[dispatch]);
 
-  const cart_stickers = fetchCartStickers ?Object.values(fetchCartStickers) :[];
+  const cart_stickers = Object.values(fetchCartStickers);
+  const stickers = Object.values(fetchStickers)
 
   let quantity = 0
   for (let sticker of cart_stickers) {
     if (user && sticker.userId === user.id) {
-      console.log(sticker)
       quantity += sticker?.quantity
     }
   }
 
   // -------- Close Cart When Click Outside --------//
   const toggleMenu = (e) => {
-    e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
+    e.stopPropagation(); 
     setShow(!show);
   };
 
+  useEffect(() => {
+    if (!show) return;
 
-  // useEffect(() => {
-  //   if (!show) return;
+    const closeMenu = (e) => {
+      if (ulRef.current && !ulRef.current.contains(e.target)) {
+        setShow(false);
+      }
+    };
 
-  //   const closeMenu = (e) => {
-  //     if (ulRef.current && !ulRef.current.contains(e.target)) {
-  //       setShow(false);
-  //     }
-  //   };
+    document.addEventListener("click", closeMenu);
 
-  //   document.addEventListener("click", closeMenu);
+    return () => document.removeEventListener("click", closeMenu);
+  }, [show]);
 
-  //   return () => document.removeEventListener("click", closeMenu);
-  // }, [show]);
+
+  const getCheckout = async () => {
+    if (cart_stickers.length >= 1) {
+      await dispatch(thunkRemoveAllSticker())
+      await dispatch(thunkLoadAllCarts())
+
+      navigate('/thank-you-for-your-purchased')
+    }
+}
 
 
   return (
     <div className="container">
 
         <div id="nav_container">
-
           <div id="logo_container">
-            <NavLink to="/" className="navlink"><img src="https://stickycat.s3.us-east-2.amazonaws.com/Landing_Page_.png" alt="" style={{width:'35px'}}/></NavLink>
+            {/* <NavLink to="/" className="navlink"><img src="https://stickycat.s3.us-east-2.amazonaws.com/Screen_Shot_2024-01-17_at_3.15.46_PM.png" alt="" style={{width:'35px'}}/></NavLink> */}
             <NavLink to="/" className="navlink" id="logo-name">StickyCat</NavLink>
           </div>
           
           <div id="nav-link_container">
-            <NavLink to="/explored-stickers" className="navlink">Explored Stickers</NavLink>
             {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
+            <NavLink to="/explored-stickers" className="navlink">Explored Stickers</NavLink>
             <NavLink to="/launch-sticker" className="navlink" >Launch Sticker</NavLink>
           </div>
 
@@ -81,14 +91,25 @@ function Navigation() {
                 
               </div>
               {show && (
-                <div id="cart-modal">
+                <div id="cart-modal" ref={ulRef}>
+
                   <div id="cart-top">
                     <div style={{fontWeight:'bold'}}>My Cart -</div>
-                    <button onClick={toggleMenu} className="buttons"><i class="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
+                    <button onClick={toggleMenu} className="buttons"><i className="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
                   </div>
+
                   <div>
                     <CartModal />
                   </div>
+
+                  {user && (
+                    <div id="checkout_container">
+                      <button id="checkout" onClick={toggleMenu}>
+                        <div onClick={getCheckout}>Checkout</div>
+                      </button>
+                    </div>
+                  )}
+
                 </div>
               )}
             </div>

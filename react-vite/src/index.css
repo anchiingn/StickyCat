@@ -8,18 +8,18 @@
     --color-black: #201f1e;
     --color-red: rgb(233, 68, 27);
     --color-yellow: #f2d729;
+    --hover-grey: rgb(93, 92, 91);
 }
 
 * {
     margin: 0px;
     font-family: var(--small-font);
     font-weight: 500;
+    /* display: flex; */
 }
 
+
 body {
-    /* width: 100vw;
-    position: relative;
-     */
     background-color: var(--color-background);
 }
 
@@ -33,5 +33,4 @@ body {
     background-color: transparent;
     cursor: pointer;
 }
-
 

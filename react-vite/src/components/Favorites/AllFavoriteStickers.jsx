@@ -16,11 +16,12 @@ export default function AllFavoriteStickers() {
     }, [dispatch])
 
     const favorite_stickers = fetchAllFavorites ? Object.values(fetchAllFavorites) : []
-    console.log(favorite_stickers)
     return (
     <>
         {user && (
             <>
+            {/* <div style={{display:'flex', flexDirection:'column', backgroundColor:'aqua', height:'max-content'}}> */}
+                
             <div className="stickers-toppart_container">
             <NavLink className={'navlink'}>My Favorite Stickers</NavLink> 
             /
@@ -31,7 +32,7 @@ export default function AllFavoriteStickers() {
                     <>
                     <div className="user-stickers_container"> 
                         {/* <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>My Favorite Sticky Stickers</div> */}
-                        <p className="user-paragraph">Oops! Your sticker collection seems a bit bare. Let's explored all charming masterpiece together!</p>
+                        <p className="user-paragraph">Oops! Your sticker collection seems a bit bare. Let&apos;s explored all charming masterpiece together!</p>
                         <div className="line-in-between"></div>
                         <button className="user-button">
                             <NavLink to={'/explored-stickers'} className={'navlink'} style={{padding:'20px 40px', borderRadius:'50px'}}>Explored Sticker</NavLink>
@@ -42,39 +43,40 @@ export default function AllFavoriteStickers() {
                     <>
                     {/* <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>My Favorite Sticky Stickers</div>
                     <div className="line-in-between"></div> */}
-                    <div className="sticker-cards_container">
-                        {favorite_stickers.map(sticker => {
-                            // Check if sticker and sticker.stickers exist and have at least one element
-                        if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
-                            return (
-                                <div key={sticker?.id} className="stickers_container">
-                                    <NavLink to={`/stickers/${sticker?.stickerId}`} className={'navlink'}>
-                                        <div className="sticker-images_container">
-                                            <img src={sticker?.stickers[0]?.image} alt={sticker?.stickers[0]?.title} />
-                                        </div>
-                                        <div className="sticker-details_top">
-                                            <div>{sticker?.stickers[0]?.title}</div>
-                                            <div>${sticker?.stickers[0]?.price}</div>
-                                        </div>
-                                    </NavLink>
-                                    <div className="sticker-details_bottom">
-                                        <div></div>
-                                        <div style={{listStyle:'none', cursor:'pointer'}}>
-                                            <OpenModalMenuItem
-                                            itemText='Delete'
-                                            modalComponent={<DeleteFavorites sticker={sticker} />}
-                                            />
+                        <div className="sticker-cards_container">
+                            {favorite_stickers.map(sticker => {
+                                // Check if sticker and sticker.stickers exist and have at least one element
+                            if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
+                                return (
+                                    <div key={sticker?.id} className="stickers_container">
+                                        <NavLink to={`/stickers/${sticker?.stickerId}`} className={'navlink'}>
+                                            <div className="sticker-images_container">
+                                                <img src={sticker?.stickers[0]?.image} alt={sticker?.stickers[0]?.title} />
+                                            </div>
+                                            <div className="sticker-details_top">
+                                                <div>{sticker?.stickers[0]?.title}</div>
+                                                <div>${sticker?.stickers[0]?.price}</div>
+                                            </div>
+                                        </NavLink>
+                                        <div className="sticker-details_bottom">
+                                            <div></div>
+                                            <div style={{listStyle:'none', cursor:'pointer'}}>
+                                                <OpenModalMenuItem
+                                                itemText='Delete'
+                                                modalComponent={<DeleteFavorites sticker={sticker} />}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            )} })}
-                    </div>
+                                )} })}
+                        </div>
                     </>
                 )}
         </div>
+
+        {/* </div> */}
         </>
         )}
-
     </>
     )
 }

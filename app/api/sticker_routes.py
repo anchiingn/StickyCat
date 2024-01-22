@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db
+from datetime import date
 from app.forms.sticker_form import StickerForm
 from app.forms.updatestickerr_forrm import UpdateStickerForm
 from app.forms.review_form import ReviewForm
@@ -22,8 +23,11 @@ def get_stickers():
         data = sticker.to_dict()
         favorites = Favorite.query.filter_by(stickerId = sticker.id).all()
         carts = Cart.query.filter_by(stickerId = sticker.id).all()
+        reviews = Review.query.filter_by(stickerId = sticker.id).all()
+        
         data['cart'] = [cart.to_dict() for cart in carts]
         data['favorited'] = [favorite.to_dict() for favorite in favorites]
+        data['reviews'] = [review.to_dict() for review in reviews]
         sticker_data.append(data)
 
     return sticker_data
@@ -124,6 +128,7 @@ def update_stickers(id):
         sticker.height=form.data['height']
         sticker.width=form.data['width']
         sticker.message=form.data['message']
+        sticker.updateAt=date.now()
         
         db.session.commit()
         return sticker.to_dict()

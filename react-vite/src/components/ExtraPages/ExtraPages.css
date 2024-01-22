@@ -1,8 +1,8 @@
 .image-backgrround {
     width: 100vw;
-    height: 40em;
-    position: absolute;
-    top: 0px;
+    height: 20em;
+    position: relative;
+    top: -60px;
     z-index: -1;
 }
 
@@ -13,11 +13,11 @@
 }
 
 .blank-background_container {
-    position: relative;
+    /* position: relative; */
     top: 21em;
     background-color: var(--color-white);
     height: 35em;
-    box-shadow: 0px -1px 10px var(--color-shadow);
+    /* box-shadow: 0px -1px 10px var(--color-shadow); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,7 +40,7 @@
 }
 
 .about-infos_container {
-    width: 40em;
+    width: 35em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,6 +50,67 @@
 .about-infos_container > p {
     margin-top: 30px;
     margin-bottom: 15px;
-    width: 25em;
+    width: 27em;
+    text-align: center;
 }
 
+.user-button {
+    margin-top: 40px;
+    padding: 15px 0px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--color-red);
+    font-size: 16px;
+}
+
+.user-button:hover {
+    background-color: var(--color-black);
+}
+
+.user-button > .navlink:hover {
+    color: var(--hover-grey);
+}
+
+/* ---------- Checkout ------------ */
+#checkout_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#checkout-stickers {
+    width: 55em;
+    display: flex;
+    padding-left: 50px;
+    margin-bottom: 30px;
+}
+
+#checkout-stickers-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 30em;
+    margin-left: 50px;
+    margin-bottom: 25px;
+}
+
+#checkout-price {
+    background-color: yellow;
+    width: 35em;
+}
+
+/* ---------- Thank You Message ------------ */
+#thank-you-message_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#thank-you-message_container > h1 {
+    margin-bottom: 20px;
+}
+
+#thank-you-message_container > div {
+    display: flex;
+    gap: 10px;
+}

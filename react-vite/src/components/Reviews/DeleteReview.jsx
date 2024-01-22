@@ -2,13 +2,10 @@ import { useDispatch } from "react-redux"
 import { useModal } from "../../context/Modal"
 import { thunkDeleteReviews, thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkLoadSingleSticker } from "../../redux/stickerReducer"
-import { useNavigate } from "react-router-dom"
 
-export default function DeleteReview({ review, id, sticker }) {
+export default function DeleteReview({ review, sticker }) {
     const dispatch = useDispatch()
     const { closeModal } = useModal()
-    const navigate = useNavigate()
-// console.log(sticker)
     const delete_review = async (e) => {
         e.preventDefault()
 

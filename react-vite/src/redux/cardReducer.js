@@ -68,6 +68,38 @@ export const thunkDeleteFromCart = (id) => async (dispatch) => {
     }
 }
 
+export const thunkRemoveOneSticker = (id) => async (dispatch) => {
+    const res = await fetch(`/api/carts/${id}/one-sticker`, {
+        method: 'DELETE',
+        headers: { "Content-Type": "application/json" },
+    })
+
+    if (res.ok) {
+        const sticker = await res.json();
+        dispatch(deleteFromCart(sticker));
+        return sticker;
+    }
+    else {
+        throw new Error('Failed to delete from cart');
+    }
+}
+
+export const thunkRemoveAllSticker = () => async (dispatch) => {
+    const res = await fetch(`/api/carts/remove-all-stickers`, {
+        method: 'DELETE',
+        headers: { "Content-Type": "application/json" },
+    })
+
+    if (res.ok) {
+        const sticker = await res.json();
+        dispatch(deleteFromCart(sticker));
+        return sticker;
+    }
+    else {
+        throw new Error('Failed to delete from cart');
+    }
+}
+
 //reducer
 const initialState = {}
 export const cartReducer = (state = initialState, action) => {
@@ -75,7 +107,6 @@ export const cartReducer = (state = initialState, action) => {
         case LOAD_ALL_CARTS:
             const newStates = {}
             action.stickers.forEach(sticker => newStates[sticker.id] = sticker)
-            // console.log('newState', newStates)
             return newStates
         case ADD_TO_CART:
             return { ...state, [action.sticker.id]: action.sticker };

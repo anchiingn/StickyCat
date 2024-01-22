@@ -80,7 +80,6 @@ export const thunkLoadAllStickers = () => async (dispatch) => {
 
     if (res.ok) {
         const allStickers = await res.json()
-        // console.log(allStickers)
         dispatch(loadAllStickers(allStickers))
         return allStickers
     }
@@ -101,7 +100,6 @@ export const thunkLoadCurrentStickers = () => async (dispatch) => {
 
     if (res.ok) {
         const allStickers = await res.json()
-        // console.log('get current sticker:', allStickers)
         dispatch(loadAllStickers(allStickers))
         return allStickers
     }
@@ -147,7 +145,6 @@ export const thunkEditStickers = (sticker, id) => async (dispatch) => {
 
     if (res.ok) {
         const newSticker = await res.json();
-        // console.log('newsticker', newSticker)
         dispatch(editSticker(newSticker));
         return newSticker;
     } else {
@@ -206,20 +203,14 @@ const initialState = {}
 export const stickerReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL_STICKERS:
-            // console.log(state)
             const newStates = {}
             action.allStickers.forEach(sticker => newStates[sticker.id] = sticker)
-            // console.log('newState', newStates)
             return newStates
 
         case LOAD_SINGLE_STICKER:
             let nextState = { }
             nextState = { ...action.sticker }
             return nextState
-
-        // case LOAD_CURRENT_STICKERS:
-        //     console.log('state:',state,'action:',action)
-        //     return { ...state, ...action.stickers }
 
         case CREATE_NEW_STICKERS:
             return { ...state, [action.sticker.id]: action.sticker };

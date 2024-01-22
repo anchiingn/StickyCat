@@ -5,7 +5,6 @@ import { thunkEditStickers, thunkLoadCurrentStickers, thunkLoadSingleSticker } f
 
 export default function EditSticker () {
     const { id } = useParams();
-    const navigation = useNavigate()
     const dispatch = useDispatch();
     const navigate = useNavigate();
                                             
@@ -55,7 +54,7 @@ export default function EditSticker () {
     
         setValidation(errors);
 
-    }, [sticker, title, price, title, price, height, width, message])
+    }, [sticker, title, price, height, width, message])
 
 
     const onSubmit = async (e) => {
@@ -79,7 +78,6 @@ export default function EditSticker () {
         // formData.append("width", width)
         // formData.append("message", message)
 
-        // console.log('formdata', formData)
         await dispatch(thunkEditStickers(newSticker, id))
         await dispatch(thunkLoadCurrentStickers())
         navigate('/my-stickers')

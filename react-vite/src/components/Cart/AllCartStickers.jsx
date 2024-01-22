@@ -1,16 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkLoadAllCarts } from "../../redux/cardReducer";
-import { NavLink } from "react-router-dom";
-import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
-import DeleteFromCart from "./DeleteFromCart";
 import CartStickerCards from "./CartStickerCards";
 
 export default function AllCartStickers () {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const fetchCartStickers = useSelector(state => state.carts)
-    const [show, setShow] = useState(false)
 
     useEffect(() => {
         dispatch(thunkLoadAllCarts())

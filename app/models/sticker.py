@@ -15,14 +15,13 @@ class Sticker(db.Model):
     height = db.Column(db.Float)
     width = db.Column(db.Float)
     message = db.Column(db.String(500))
-    shipdate = db.Column(db.Date)
     createAt = db.Column(db.Date, default=datetime.now())
     updateAt = db.Column(db.Date, default=datetime.now())
 
     user_sticker = db.relationship('User', back_populates='sticker_user')
-    cart_sticker = db.relationship('Cart', back_populates='sticker_cart')
-    review_sticker = db.relationship('Review', back_populates='sticker_review')
-    favorite_sticker = db.relationship('Favorite', back_populates='sticker_favorite')
+    cart_sticker = db.relationship('Cart', back_populates='sticker_cart', cascade='delete')
+    review_sticker = db.relationship('Review', back_populates='sticker_review', cascade='delete')
+    favorite_sticker = db.relationship('Favorite', back_populates='sticker_favorite', cascade='delete')
 
     def to_dict(self):
         return {
@@ -34,7 +33,6 @@ class Sticker(db.Model):
             'height': self.height,
             'width': self.width,
             'message': self.message,
-            'shipdate': self.shipdate,
             'createAt': self.createAt,
             'updateAt': self.updateAt
         }
