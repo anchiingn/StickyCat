@@ -17,6 +17,7 @@
 .create-form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
 }
 
 .create-form > label {
@@ -38,22 +39,15 @@
 }
 
 .create-form > button {
-    height: 50px;
+    height: 45px;
     border-radius: 50px;
-    border: 1.5px solid var(--color-black);
-    background-color: var(--color-red);
-}
-
-.create-form > button {
-    height: 50px;
-    border-radius: 50px;
-    border: 1.5px solid var(--color-black);
+    border: none;
     background-color: var(--color-red);
 }
 
 .create-form > button:hover {
     background-color: var(--color-black);
-    color: var(--color-white);
+    color: var(--hover-grey);
     cursor: pointer;
 }
 

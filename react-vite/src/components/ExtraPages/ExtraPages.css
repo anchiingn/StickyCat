@@ -71,6 +71,33 @@
     color: var(--hover-grey);
 }
 
+/* ---------- Checkout ------------ */
+#checkout_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#checkout-stickers {
+    width: 55em;
+    display: flex;
+    padding-left: 50px;
+    margin-bottom: 30px;
+}
+
+#checkout-stickers-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 30em;
+    margin-left: 50px;
+    margin-bottom: 25px;
+}
+
+#checkout-price {
+    background-color: yellow;
+    width: 35em;
+}
+
 /* ---------- Thank You Message ------------ */
 #thank-you-message_container {
     display: flex;

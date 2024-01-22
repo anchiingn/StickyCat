@@ -3,8 +3,9 @@ import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import { useState, useEffect, useRef } from "react";
 import {  useDispatch, useSelector } from "react-redux";
-import { thunkLoadAllCarts } from "../../redux/cardReducer";
+import { thunkLoadAllCarts, thunkRemoveAllSticker } from "../../redux/cardReducer";
 import CartModal from "../Cart/CartModal";
+
 
 function Navigation() {
   const [show, setShow] = useState(false)
@@ -51,17 +52,27 @@ function Navigation() {
   }, [show]);
 
 
+  const getCheckout = async () => {
+    if (cart_stickers.length >= 1) {
+      await dispatch(thunkRemoveAllSticker())
+      await dispatch(thunkLoadAllCarts())
+
+      navigate('/thank-you-for-your-purchased')
+    }
+}
+
+
   return (
     <div className="container">
 
         <div id="nav_container">
           <div id="logo_container">
-            <NavLink to="/" className="navlink"><img src="https://stickycat.s3.us-east-2.amazonaws.com/Screen_Shot_2024-01-17_at_3.15.46_PM.png" alt="" style={{width:'35px'}}/></NavLink>
+            {/* <NavLink to="/" className="navlink"><img src="https://stickycat.s3.us-east-2.amazonaws.com/Screen_Shot_2024-01-17_at_3.15.46_PM.png" alt="" style={{width:'35px'}}/></NavLink> */}
             <NavLink to="/" className="navlink" id="logo-name">StickyCat</NavLink>
           </div>
           
           <div id="nav-link_container">
-            <NavLink to="/how-it-work" className="navlink">How It Work</NavLink>
+            {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
             <NavLink to="/explored-stickers" className="navlink">Explored Stickers</NavLink>
             <NavLink to="/launch-sticker" className="navlink" >Launch Sticker</NavLink>
           </div>
@@ -94,7 +105,7 @@ function Navigation() {
                   {user && (
                     <div id="checkout_container">
                       <button id="checkout" onClick={toggleMenu}>
-                        <NavLink to="/checkout" className={'navlink'}>Checkout</NavLink>
+                        <div onClick={getCheckout}>Checkout</div>
                       </button>
                     </div>
                   )}

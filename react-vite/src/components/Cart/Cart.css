@@ -16,11 +16,11 @@
     margin: 20px 0px;
 }
 
-#checkout{
+#checkout {
     border: none;
 }
 
-#checkout > .navlink {
+#checkout > div{
     background-color: var(--color-red);
     border-radius: 50px;
     width: 11em;
@@ -33,9 +33,11 @@
     font-weight: 400;
 }
 
-#checkout > .navlink:hover {
+
+#checkout > div:hover {
     color: rgb(93, 92, 91);
     background-color: var(--color-black);
+    cursor: pointer;
 }
 
 #cart_container > button {

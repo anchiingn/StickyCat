@@ -33,7 +33,7 @@ export default function MainPage () {
                 <div id='about-image_container'>
                     <img src="https://stickycat.s3.us-east-2.amazonaws.com/IMG_2901+2.jpg" alt="" />
                 </div>
-                <div>
+                <div id="about-info">
                     <div id='about-title_container'>
                         <div>ABOUT STICKERCAT</div>
                         <div>ABOUT STICKERCAT</div>
@@ -46,7 +46,7 @@ export default function MainPage () {
                         <p>
                             Here at StickyCat, creators bring their playful designs to life, and once ready, we handle everything from production to the enchanting delivery of these lovable stickers. Join us, where each sticker becomes a delightful messenger, spreading happiness wherever it goes!
                         </p>
-                        <NavLink to={'/how-it-work'} className={'navlink'}>Discover More <i className="fa-solid fa-hand-point-right"></i></NavLink>
+                        {/* <NavLink to={'/how-it-work'} className={'navlink'}>Discover More <i className="fa-solid fa-hand-point-right">/></NavLink> */}
                     </div>
                 </div>
             </div>

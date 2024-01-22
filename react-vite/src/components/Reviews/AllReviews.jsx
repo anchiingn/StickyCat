@@ -25,7 +25,7 @@ export default function ALlReviews({ sticker, id }) {
     let starRating = 0
     for (let review of reviews) {
         if (reviews?.length >= 1) {
-        starRating += (review?.star)/2
+            starRating += (review?.star)/reviews?.length
         }
         else {
             starRating = review?.star

@@ -93,6 +93,12 @@
     bottom: 7.8em;
 }
 
+#about-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #about-image_container {
     width: 55em;
     height: 40em;
@@ -113,7 +119,7 @@
 }
 
 #about-title_container > div:nth-child(1) {
-    margin-top: 75px;
+    margin-top: -50px;
     font-size: 28px;
     letter-spacing: 1.75px;
     font-weight: 600;

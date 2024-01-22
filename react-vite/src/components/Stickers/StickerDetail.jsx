@@ -96,13 +96,13 @@ export default function StickerDetail() {
                     {user && single_sticker[0]?.ownerId !== user?.id && (
                     <div id="cart-shipdate">
                         <div >
-                            <div>
+                            <div style={{display:'flex', alignItems:'center'}}>
                                 <button id="addToCart" onClick={addToCart}>Add to Cart</button>
 
                                 {single_sticker[0]?.favorited?.length === 0 || single_sticker[0]?.favorited[0]?.userId !== user?.id ?(
-                                    <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart"></i></button>
+                                    <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart" style={{fontSize:'25px'}}/></button>
                                 ): (
-                                    <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart"></i></button>
+                                    <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart" style={{fontSize:'25px'}}/></button>
                                 )}
                             </div>
 
