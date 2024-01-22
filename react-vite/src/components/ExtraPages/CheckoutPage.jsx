@@ -21,7 +21,7 @@ export default function CheckoutPage () {
         <>
             <div id='checkout_container'>
                 <div >
-                    <div>hi</div>
+                    <div>hi!</div>
                     {cart_stickers.map(sticker => {
                         return (
                             <>
