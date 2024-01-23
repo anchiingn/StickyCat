@@ -126,6 +126,9 @@
 
 #cart-modal {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--color-white);
   box-shadow: -5px 0px 9px var(--color-shadow);
   top: 0px;
@@ -135,12 +138,21 @@
   z-index: 100;
 }
 
+#cart-stickers_container{
+    width: 21em;
+    height: 42em;
+    position: relative;
+    overflow: scroll;
+    scrollbar-gutter: stable;
+}
+
 #cart-modal > #cart-top {
   display: flex;
   justify-content: space-between;
   margin: 15px;
   padding-bottom: 8px;
   border-bottom: 1.5px solid var(--color-black);
+  width: 21em;
 }
 
 

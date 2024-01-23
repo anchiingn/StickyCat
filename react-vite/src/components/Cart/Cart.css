@@ -10,7 +10,7 @@
 #cart_container > #total-price{
     display: flex;
     justify-content: space-between;
-    width: 21em;
+    width: 20em;
     padding-bottom: 8px;
     border-bottom: 1.5px solid var(--color-black);
     margin: 20px 0px;
@@ -58,17 +58,21 @@
 }
 
 /* ------ All Cart Stickers ------ */
-#cart-stickers_container{
+
+
+/* #cart-stickers_container{
     width: 21em;
     height: 30em;
     position: relative;
     overflow: scroll;
     scrollbar-gutter: stable;
-}
+    background-color: aqua;
+} */
 
 #cart-sticker-cards_container{
     display: flex;
     justify-content: space-between;
+    width: 21em;
 }
 
 #cart-sticker-images_container{
@@ -77,6 +81,8 @@
     align-items: center;
     height: 8em;
     width: 8em;
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 

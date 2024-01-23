@@ -17,7 +17,7 @@ export default function AllCartStickers () {
 
     return (
         <>
-            <div id="cart-stickers_container">
+            <div >
                 {cart_stickers.map(sticker => {
                     if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
                         return (

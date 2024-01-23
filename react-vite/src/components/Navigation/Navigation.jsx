@@ -4,7 +4,8 @@ import "./Navigation.css";
 import { useState, useEffect, useRef } from "react";
 import {  useDispatch, useSelector } from "react-redux";
 import { thunkLoadAllCarts, thunkRemoveAllSticker } from "../../redux/cardReducer";
-import CartModal from "../Cart/CartModal";
+import AllCartStickers from "../Cart/AllCartStickers";
+
 
 
 function Navigation() {
@@ -52,6 +53,17 @@ function Navigation() {
   }, [show]);
 
 
+  // -------- Total Price --------//
+  let total = 0;
+  for (let sticker of cart_stickers) {
+    if (sticker && sticker?.stickers && sticker?.stickers?.length > 0 && sticker?.userId === user?.id) {
+      total += sticker?.stickers[0]?.price * sticker.quantity;
+    }
+  }
+  total = (total).toFixed(2); 
+
+
+  // -------- Checkout --------//
   const getCheckout = async () => {
     if (cart_stickers.length >= 1) {
       await dispatch(thunkRemoveAllSticker())
@@ -59,9 +71,9 @@ function Navigation() {
 
       navigate('/thank-you-for-your-purchased')
     }
-}
+  }
 
-
+  
   return (
     <div className="container">
 
@@ -77,12 +89,13 @@ function Navigation() {
             <NavLink to="/launch-sticker" className="navlink" >Launch Sticker</NavLink>
           </div>
 
+
           <div id='profile-cart_container'>
             <div>
               <ProfileButton />
             </div>
 
-            <div>
+            <div id="cart-container">
               <div id="cart-modal_container"> 
                 <button onClick={toggleMenu} className="buttons">
                   <i className="fa-solid fa-cart-shopping" style={{fontSize:'20px'}}/>
@@ -90,6 +103,7 @@ function Navigation() {
                 </button>
                 
               </div>
+
               {show && (
                 <div id="cart-modal" ref={ulRef}>
 
@@ -98,24 +112,35 @@ function Navigation() {
                     <button onClick={toggleMenu} className="buttons"><i className="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
                   </div>
 
-                  <div>
-                    <CartModal />
-                  </div>
+                  <div id="cart-stickers_container">
+                  {user ? (
+                    <>
+                      <div id="cart_container">
+                          <AllCartStickers />
+                          <div id="total-price">Total: <span>${total}</span></div>
+                      </div>
 
-                  {user && (
-                    <div id="checkout_container" style={{position:'sticky'}}>
-                      <button id="checkout" onClick={toggleMenu}>
-                        <div onClick={getCheckout}>Checkout</div>
+                      <div id="checkout_container">
+                        <button id="checkout" onClick={toggleMenu}>
+                          <div onClick={getCheckout}>Checkout</div>
+                        </button>
+                      </div>
+                    </>
+                  ) :(
+                    <div id="cart_container">
+                      <div style={{marginBottom:'20px'}}>Nothing in cart ... You need to sign in</div>
+                      <button>
+                        <NavLink to='/login' className={'navlink'}>Sign In/Up</NavLink>
                       </button>
                     </div>
                   )}
+                  </div>
 
                 </div>
               )}
+
             </div>
-
           </div>
-
         </div>
     </div>
   );
