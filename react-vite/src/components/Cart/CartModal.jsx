@@ -33,8 +33,8 @@ const [show, setShow] = useState(false)
     <>
     {user ? (
         <div id="cart_container">
-                <AllCartStickers />
-                <div id="total-price">Total: <span>${total}</span></div>
+            <AllCartStickers />
+            <div id="total-price">Total: <span>${total}</span></div>
         </div>
     ) :(
       <div id="cart_container">

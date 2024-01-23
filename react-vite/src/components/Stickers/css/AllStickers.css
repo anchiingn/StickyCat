@@ -45,7 +45,7 @@
     width: calc(100% - 17em);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 18px;
     margin-bottom: 50px;
@@ -83,7 +83,7 @@
     height: 100%;
 }
 
-.sticker-details {
+.sticker-details_top {
     display: flex;
     justify-content: space-between;
     padding-top: 5px;
@@ -92,6 +92,12 @@
     margin: 10px 5px;
 }
 
+.sticker-details_bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 14.5em;
+    margin-top: -10px;
+}
 
 nav ul {
     display: flex;

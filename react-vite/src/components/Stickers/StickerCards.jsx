@@ -16,7 +16,7 @@ export default function StickerCards({ sticker }) {
                     <div className="sticker-images_container">
                         <img src={sticker?.image} alt={sticker?.title}/>
                     </div>
-                    <div className="sticker-details">
+                    <div className="sticker-details_top">
                         <div>{sticker?.title}</div>
                         <div>${sticker?.price}</div>
                     </div>

@@ -91,10 +91,10 @@ export default function EditSticker () {
             <NavLink className={'navlink'}>Edit Sticker</NavLink>
         </div>
         <div className='container'>
-            <div className='sticker-form_container'>
+            <div className='sticker-form_container' style={{marginBottom:'250px'}}>
                     <div>Edit Sticker</div>
                     <img src={sticker?.image} alt="" style={{width:"170px", margin:'10px 0px'}}/>
-                    <form onSubmit={onSubmit} encType="multipart/form-data" className='edit-form'>
+                    <form onSubmit={onSubmit} encType="multipart/form-data" className='edit-form' >
                     {validation.title && submit && <p className="errors">{validation.title}</p>}
                     {validation.price && submit && <p className="errors">{validation.price}</p>}
                     {validation.height && submit && <p className="errors">{validation.height}</p>}
@@ -131,7 +131,7 @@ export default function EditSticker () {
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                         />
-                        <button >Submit</button>
+                        <button>Submit</button>
                     </form>
             </div>
         </div> 

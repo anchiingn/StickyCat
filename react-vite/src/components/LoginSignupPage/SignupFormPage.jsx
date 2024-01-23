@@ -142,7 +142,7 @@ export default function SignupFormPage() {
         <span></span>
       </div>
 
-      <button onClick={signin} className="login-signup_button">Sign In</button>
+      <button onClick={signin} className="login-signup_button" style={{marginBottom:'100px'}}>Sign In</button>
 
     </div>
     </>

@@ -128,7 +128,7 @@ def update_stickers(id):
         sticker.height=form.data['height']
         sticker.width=form.data['width']
         sticker.message=form.data['message']
-        sticker.updateAt=date.now()
+        sticker.updateAt=date.today()
         
         db.session.commit()
         return sticker.to_dict()
