@@ -79,6 +79,7 @@ export default function AllStickers() {
                 })}
             </div>
         </div>
+        
         <nav>
             <ul>
                 <li>

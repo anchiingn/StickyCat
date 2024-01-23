@@ -39,12 +39,12 @@ export default function CartStickerCards ({ sticker }) {
                         </div>
                     </div>
                 </div>
-                <div id="remove-card" style={{listStyle:'none'}}>
+                {/* <div id="remove-card" style={{listStyle:'none'}}>
                     <OpenModalMenuItem 
                         itemText={<><i class="fa-regular fa-trash-can"></i></>}
                         modalComponent={<DeleteFromCart sticker={sticker}/>}
                     />
-                </div>
+                </div> */}
         
         </div>       
         </>
