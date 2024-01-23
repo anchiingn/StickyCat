@@ -47,6 +47,10 @@
     margin-top: 80px;
 }
 
+.about-infos_container > h1 {
+    width: 19em;
+}
+
 .about-infos_container > p {
     margin-top: 30px;
     margin-bottom: 15px;

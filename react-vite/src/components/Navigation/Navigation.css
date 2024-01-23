@@ -90,6 +90,8 @@
   display: flex;
   justify-content: space-evenly;
   gap: 40px;
+  position: relative;
+  left: -20px;
 }
 
 #nav-link_container > .navlink:hover {

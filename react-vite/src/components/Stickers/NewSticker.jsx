@@ -10,8 +10,8 @@ export default function NewSticker () {
     const [height, setHeight] = useState('');
     const [width, setWidth] = useState('');
     const [message, setMessage] = useState('');
-    const [validation, setValidation] = useState({})
     const [submit, setSubmit] = useState(false)
+    const [validation, setValidation] = useState({})
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -24,9 +24,9 @@ export default function NewSticker () {
             if (!price) {
                 errors.price = 'Price is required';
             }
-            // if (price && !/^[0-9]+$/.test(price)) {
-            //     errors.price = 'Must be number'
-            // }
+            if (price && /[a-z]/.test(price)) {
+                errors.price = 'Must be number'
+            }
             if (!image) {
                 errors.image = 'Image is required';
             }
@@ -36,12 +36,14 @@ export default function NewSticker () {
             if (!width) {
                 errors.width = 'width is required';
             }
+            if (message && message.length > 500) {
+                errors.message = 'Must contain 500 characters long'
+            }
         
     
         setValidation(errors);
     
-    }, [title, image, price, height, width]);
-
+    }, [title, image, price, height, width, message]);
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -79,6 +81,7 @@ export default function NewSticker () {
                     {validation.image && submit && <p className="errors">{validation.image}</p>}
                     {validation.height && submit && <p className="errors">{validation.height}</p>}
                     {validation.width && submit && <p className="errors">{validation.width}</p>}
+                    {validation.message && submit && <p className="errors">{validation.message}</p>}
 
                         <label>Image</label>
                         <input 
@@ -118,7 +121,7 @@ export default function NewSticker () {
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                         />
-                        <button >Submit</button>
+                        <button>Submit</button>
                     </form>
             </div>
         </div> 

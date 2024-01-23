@@ -1,5 +1,6 @@
 /* ----- Footer ----- */
 #footer-mainpage_container {
+    width: 100dvw;
     height: 5em;
     background-color: rgb(233, 68, 27);
     display: flex;
@@ -34,4 +35,8 @@
     font-size: 30px;
     color: rgb(249, 203, 35);
     margin-left: 20px;
+}
+
+@media screen and (max-width: 1250px){
+    
 }

@@ -42,9 +42,10 @@
 }
 
 .sticker-cards_container {
-    width: calc(100% - 17.3em);
+    width: calc(100% - 17em);
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
     margin-top: 18px;
     margin-bottom: 50px;
@@ -74,7 +75,6 @@
     align-items: center;
     width: 15em;
     height: 18em;
-    margin: 10px 0px 10px 10px;
 }
 
 .sticker-images_container > img {
@@ -83,22 +83,15 @@
     height: 100%;
 }
 
-.sticker-details_top {
+.sticker-details {
     display: flex;
     justify-content: space-between;
     padding-top: 5px;
     border-bottom: 1.5px solid var(--color-black);
     margin-bottom: 20px;
-    margin-left: 10px;
+    margin: 10px 5px;
 }
 
-.sticker-details_bottom {
-    display: flex;
-    justify-content: space-between;
-    width: 15.1em;
-    margin-top: -12px;
-    margin-bottom: 5px;
-}
 
 nav ul {
     display: flex;

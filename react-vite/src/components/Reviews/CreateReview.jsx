@@ -1,5 +1,5 @@
 import { thunkCreateNewReviews, thunkLoadAllReviews } from "../../redux/reviewReducer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
@@ -15,9 +15,27 @@ export default function CreateReview () {
     const [review, setReview] = useState('')
     const [star, setStar] = useState(0)
     let [hover, setHover ] = useState('') 
+    const [submit, setSubmit] = useState(false)
+    const [validation, setValidation] = useState({})
+
+    useEffect(() => {
+        const errors = {}
+            if (!review) {
+                errors.review = 'Review is required'
+            }
+            if (review && review.length > 100) {
+                errors.review = 'Must contain 100 characters long'
+            }
+        
+    
+        setValidation(errors);
+    
+    }, [review]);
 
     const onSubmit = async(e) => {
         e.preventDefault()
+
+        setSubmit(true)
 
         const new_review = {
             review,
@@ -30,10 +48,12 @@ export default function CreateReview () {
         navigate(`/stickers/${id}`)
         closeModal()
     }
+    console.log(validation.review)
     return (
         <>
             <div className="review-form_container">
                 <div>Post Review</div>
+                {validation.review && submit && <p className="errors">{validation.review}</p>}
                 <form onSubmit={onSubmit} id="review_form">
                     <div id="review-star">
                         {[1, 2, 3, 4, 5].map((starNum, index) => {
@@ -62,7 +82,6 @@ export default function CreateReview () {
                         <textarea 
                             value={review}
                             onChange={e => setReview(e.target.value)}
-                            required
                         />
                         <button>submit</button>
                     </div>
