@@ -1,14 +1,12 @@
 import { NavLink } from "react-router-dom";
 import AllCartStickers from "./AllCartStickers";
-import { useState, useEffect, useRef } from "react";
+import { useEffect } from "react";
 import {  useDispatch, useSelector } from "react-redux";
 import { thunkLoadAllCarts } from "../../redux/cardReducer";
 import './Cart.css'
 
 function CartModal() {
-const [show, setShow] = useState(false)
   const dispatch = useDispatch()
-  const ulRef = useRef();
   const fetchCartStickers = useSelector(state => state.carts)
   const user = useSelector(state => state.session.user)
 

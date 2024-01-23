@@ -43,7 +43,6 @@ export default function StickerDetail() {
 
         setCart(true)
 
-        setCart(true)
         setTimeout(() => {
             setCart(false)
         }, 2000)

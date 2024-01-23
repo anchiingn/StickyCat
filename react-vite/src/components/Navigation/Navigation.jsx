@@ -103,7 +103,7 @@ function Navigation() {
                   </div>
 
                   {user && (
-                    <div id="checkout_container">
+                    <div id="checkout_container" style={{position:'sticky'}}>
                       <button id="checkout" onClick={toggleMenu}>
                         <div onClick={getCheckout}>Checkout</div>
                       </button>

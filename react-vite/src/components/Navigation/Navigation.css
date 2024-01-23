@@ -130,7 +130,7 @@
   box-shadow: -5px 0px 9px var(--color-shadow);
   top: 0px;
   right: 0px;
-  height: 100vh;
+  height: 100%;
   width: 25em;
   z-index: 100;
 }
