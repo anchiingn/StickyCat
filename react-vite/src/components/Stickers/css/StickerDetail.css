@@ -7,21 +7,24 @@
 #sticker-detail_container > div {
     margin-top: 50px;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-evenly;
     align-items: flex-start;
+    height: fit-content;
+    width: 80%;
     /* margin: 50px 10em; */
 }
 
+
 #sticker-detail_image {
-    width: 25em;
+    width: calc(43% - 150px);
     margin-right: 20px;
 }
 
 #sticker-detail_infos {
     display: flex;
     flex-direction: column;
-    width: 40em;
-    height: 30em;
+    width: 35em;
+    height: fit-content;
 }
 
 #star-rating {
@@ -40,7 +43,7 @@
     align-items: flex-end;
 }
 
-#sticker-detail_infos > #top-part > #title {
+#sticker-detail_infos > #top-part > #title, #price {
     font-size: 25px;
 }
 
@@ -68,7 +71,7 @@
 
 #cart-noti {
     color: var(--color-red);
-    margin-top: -10px;
+    margin-top: -5px;
 }
 
 #addToCart {
@@ -102,10 +105,7 @@
 
 .favorite-button {
     border-radius: 100px;
-    width: 30px;
-    height: 30px;
     color: var(--color-red);
     border: none;
     cursor: pointer;
-    background-color: transparent;
 }

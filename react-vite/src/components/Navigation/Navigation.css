@@ -136,11 +136,21 @@
   height: 100%;
   width: 25em;
   z-index: 100;
+  animation: cart-slide 0.6s ease-in-out;
+}
+
+@keyframes cart-slide {
+  0% {
+    transform: translateX(25em);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 #cart-stickers_container{
     width: 21em;
-    height: 42em;
+    height: 45em;
     position: relative;
     overflow: scroll;
     scrollbar-gutter: stable;

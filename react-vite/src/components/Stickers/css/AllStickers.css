@@ -42,11 +42,12 @@
 }
 
 .sticker-cards_container {
-    width: calc(100% - 17em);
-    display: flex;
-    flex-wrap: wrap;
+    /* width: calc(100% - 17em); */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: center; */
     margin-top: 18px;
     margin-bottom: 50px;
 }
@@ -137,8 +138,8 @@ nav > ul > li > button:not(.numPage) {
 
 #best-seller {
     position: absolute;
-    top: 13em;
-    right: -20px;
+    top: 14em;
+    right: -10px;
     color: var(--color-red);
     line-height: 18px;
     width: 50px;

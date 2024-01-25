@@ -7,6 +7,7 @@ import DeleteReview from "./DeleteReview"
 import EditReview from "./EditReview"
 import { thunkLoadSingleSticker } from "../../redux/stickerReducer"
 import './Reviews.css'
+import { NavLink } from "react-router-dom"
 
 export default function ALlReviews({ sticker, id }) {
     const dispatch = useDispatch()
@@ -59,15 +60,21 @@ export default function ALlReviews({ sticker, id }) {
                         return (
                             <div>
                                 <i className={`fa-solid fa-star`} style={{
-                                    color: starRating >= starNum ? 'var(--color-red)' : 'black',
+                                    color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
                                     fontSize:'20px'
                                 }}></i>
                             </div>
                     ) })}
-                    <div>{starRating.toFixed(1)} ({reviews?.length})</div>
+                    <div style={{marginLeft:'5px'}}>{starRating.toFixed(1)} ({reviews?.length})</div>
                 </div>                    
                 {reviews.length > 0 ? (
                     reviews.map(review => {
+                        const date = new Date(review.createAt)
+    
+                        const day = date.getDate()
+                        const month = date.getMonth() + 1
+                        const year = date.getFullYear()
+
                         return (
                             <div key={review.id}>
                                 <div id="star-rating" style={{marginTop:'25px', marginBottom:'10px'}}>
@@ -75,7 +82,7 @@ export default function ALlReviews({ sticker, id }) {
                                         return (
                                         <div>
                                             <i className={`fa-solid fa-star`} style={{
-                                                color: review?.star >= starNum ? 'var(--color-red)' : 'black',
+                                                color: review?.star >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
                                                 fontSize:'8px'
                                             }}></i>
                                         </div>
@@ -83,7 +90,7 @@ export default function ALlReviews({ sticker, id }) {
                                 </div>
                                 <div className="reviews">
                                     <div> <i className="fas fa-user-circle" style={{fontSize:'18px', marginRight:'10px'}}/>{review.user?.firstname} {review.user?.lastname}</div>
-                                    {/* <div id="review-date">{month}/{day}/{year}</div> */}
+                                    <div id="review-date">{month}/{day}/{year}</div>
                                 </div>
 
                                 <div className="user-review">
@@ -113,14 +120,19 @@ export default function ALlReviews({ sticker, id }) {
                 )}
 
                 <div id="create-review">
-                    {user && sticker[0].ownerId !== user?.id &&(
+                    {user ? (sticker[0].ownerId !== user?.id && (
                         <button style={{listStyle:'none', marginTop:'20px'}}>
                             <OpenModalMenuItem 
                                 itemText='- WRITE A REVIEW -'
                                 modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
                             />
                         </button>
-                    )}
+                    )) : (
+                        <button style={{listStyle:'none', marginTop:'20px'}}>
+                            <NavLink to='/login' className={'navlink'}>- WRITE A REVIEW -</NavLink>
+                        </button>
+                    )
+                }
                 </div>
 
             </div>

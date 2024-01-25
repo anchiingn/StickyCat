@@ -16,6 +16,8 @@ export default function AllFavoriteStickers() {
     }, [dispatch])
 
     const favorite_stickers = fetchAllFavorites ? Object.values(fetchAllFavorites) : []
+    favorite_stickers.sort((a,b) => b.id - a.id)
+
     return (
     <>
         {user && (

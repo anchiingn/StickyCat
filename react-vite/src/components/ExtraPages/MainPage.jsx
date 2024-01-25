@@ -35,8 +35,8 @@ export default function MainPage () {
                 </div>
                 <div id="about-info">
                     <div id='about-title_container'>
-                        <div>ABOUT STICKERCAT</div>
-                        <div>ABOUT STICKERCAT</div>
+                        <div>ABOUT STICKYCAT</div>
+                        <div>ABOUT STICKYCAT</div>
                     </div>
                     
                     <div id='about-texts_container'>
@@ -71,7 +71,7 @@ export default function MainPage () {
             </div>
 
             <div id='launch-sticker_container'>
-                <div>LAUNCH YOUR STICKER</div>
+                <div >LAUNCH YOUR STICKER</div>
                 <p>Let&apos;s craft your stickers together! With StickyCat, we&apos;ll collaborate to bring your designs to life, ensuring a personalized, delightful sticker collection for you and your fans. Ready to embark on this creative journey?</p>
                 <div id="black-line"></div>
                 <NavLink to={'/launch-sticker'} className={'navlink'}>Let Start!</NavLink>

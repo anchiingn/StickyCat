@@ -47,7 +47,7 @@
     align-items: center;
     flex-direction: column;
     width: 50em;
-    height: 36em;
+    height: 34em;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgb(149, 149, 149, 0.5);
     margin-bottom: 50px;
@@ -55,7 +55,7 @@
 }
 
 .signup_container > h1 {
-    padding-bottom: 35px;
+    margin-bottom: 35px;
     font-size: 30px;
     letter-spacing: 1.5px;
     margin-top: -25px;
@@ -69,6 +69,22 @@
     height: 23em;
 }
 
+.firstname-lastname {
+    margin-bottom: 10px;
+}
+
+.firstname-lastname > label{
+    margin-right: 10px;
+}
+
+.firstname-lastname > label:nth-child(3) {
+    margin-left: 10px;
+}
+
+.firstname-lastname > input {
+    width: 18.85em;
+}
+
 /* ---Both --- */
 .form > input {
     height: 3em;
@@ -77,18 +93,18 @@
 }
 
 
-.form > button {
+.form > div > button {
     margin-top: 10px;
-    height: 3.5em;
+    padding: 10px 40px;
     border-radius: 50px;
-    border: 1.5px solid var(--color-black);
+    border: none;
     background-color: var(--color-red);
     cursor: pointer;
 }
 
-.form > button:hover {
+.form > div > button:hover {
     background-color: var(--color-black);
-    color: var(--color-white);
+    color: var(--hover-grey);
 }
 
 .login-signup_button {
@@ -107,21 +123,7 @@
     color: rgb(93, 92, 91);
 }
 
-.firstname-lastname {
-    margin-bottom: 10px;
-}
 
-.firstname-lastname > label{
-    margin-right: 10px;
-}
-
-.firstname-lastname > label:nth-child(3) {
-    margin-left: 10px;
-}
-
-.firstname-lastname > input {
-    width: 19.5em;
-}
 
 
 

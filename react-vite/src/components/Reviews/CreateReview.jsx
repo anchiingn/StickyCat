@@ -20,6 +20,9 @@ export default function CreateReview () {
 
     useEffect(() => {
         const errors = {}
+            if (!star) {
+                errors.star = 'Star must be 1-5'
+            }
             if (!review) {
                 errors.review = 'Review is required'
             }
@@ -30,7 +33,7 @@ export default function CreateReview () {
     
         setValidation(errors);
     
-    }, [review]);
+    }, [review, star]);
 
     const onSubmit = async(e) => {
         e.preventDefault()
@@ -54,6 +57,7 @@ export default function CreateReview () {
             <div className="review-form_container">
                 <div>Post Review</div>
                 {validation.review && submit && <p className="errors">{validation.review}</p>}
+                {validation.star && submit && <p className="errors">{validation.star}</p>}
                 <form onSubmit={onSubmit} id="review_form">
                     <div id="review-star">
                         {[1, 2, 3, 4, 5].map((starNum, index) => {

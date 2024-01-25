@@ -100,33 +100,33 @@ export default function EditSticker () {
                     {validation.height && submit && <p className="errors">{validation.height}</p>}
                     {validation.width && submit && <p className="errors">{validation.width}</p>}
 
-                        <label>title</label>
+                        <label>Title</label>
                         <input 
                             type="text"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
-                        <label>price</label>
+                        <label>Price</label>
                         <input 
                             type="text"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />
                         <div className='height-width_container'>
-                            <label>height</label>
+                            <label>Height</label>
                             <input 
                                 type="number"
                                 value={height}
                                 onChange={(e) => setHeight(e.target.value)}
                             />
-                            <label>width</label>
+                            <label>Width</label>
                             <input 
                                 type="number"
                                 value={width}
                                 onChange={(e) => setWidth(e.target.value)}
                             />
                         </div>
-                        <label>message</label>
+                        <label>Message</label>
                         <textarea 
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}

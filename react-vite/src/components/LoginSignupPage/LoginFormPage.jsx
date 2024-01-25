@@ -54,7 +54,7 @@ function LoginFormPage() {
           errors.map((message) => <p className="errors" key={message}>{message}</p>)}
         <form onSubmit={handleSubmit} className={["login_form", "form"].join(" ")}>
           <label>
-            Email
+            Email <span style={{color:'var(--color-red)'}}>*</span>
           </label>
             <input className='login_input'
               type="text"
@@ -65,7 +65,7 @@ function LoginFormPage() {
 
           {errors.email && <p className="errors">*{errors.email}</p>}
           <label>
-            Password
+            Password <span style={{color:'var(--color-red)'}}>*</span>
           </label>
             <input className='login_input'
               type="password"
@@ -75,7 +75,10 @@ function LoginFormPage() {
             />
           {errors.password && <p className="errors">*{errors.password}</p>}
 
-          <button type="submit">Sign In</button>
+          <div style={{display:'flex', justifyContent:'center'}}>
+            <button type="submit">Sign In</button>
+          </div>
+
         </form>
 
       </div>

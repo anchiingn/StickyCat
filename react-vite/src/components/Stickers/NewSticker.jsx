@@ -73,7 +73,7 @@ export default function NewSticker () {
             <NavLink className={'navlink'} style={{cursor:'default'}}>Create Sticker</NavLink>
         </div>
         <div className='container'>
-            <div className='sticker-form_container' style={{marginBottom:'250px'}}>
+            <div className='sticker-form_container' style={{marginBottom:'200px'}}>
                     <div>New Sticker</div>
                     <form onSubmit={onSubmit} encType="multipart/form-data" className='create-form'>
                     {validation.title && submit && <p className="errors">{validation.title}</p>}
@@ -83,33 +83,33 @@ export default function NewSticker () {
                     {validation.width && submit && <p className="errors">{validation.width}</p>}
                     {validation.message && submit && <p className="errors">{validation.message}</p>}
 
-                        <label>Image</label>
+                        <label>Image <span style={{color:'var(--color-red)'}}>*</span> </label>
                         <input 
                             type="file"
                             accept="image/*"
                             onChange={(e) => setImage(e.target.files[0])}
                             
                             />
-                        <label>Title</label>
+                        <label>Title <span style={{color:'var(--color-red)'}}>*</span> </label>
                         <input 
                             type="text"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
-                        <label>Price</label>
+                        <label>Price <span style={{color:'var(--color-red)'}}>*</span> </label>
                         <input 
                             type="text"
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />
                         <div className='height-width_container'>
-                            <label>Height "</label>
+                            <label>Height <span style={{color:'var(--color-red)'}}>*</span> </label>
                             <input 
                                 type="number"
                                 value={height}
                                 onChange={(e) => setHeight(e.target.value)}
-                            />,
-                            <label>Width "</label>
+                            />
+                            <label>Width <span style={{color:'var(--color-red)'}}>*</span> </label>
                             <input 
                                 type="number"
                                 value={width}

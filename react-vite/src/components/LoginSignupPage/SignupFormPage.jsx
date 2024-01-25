@@ -68,17 +68,17 @@ export default function SignupFormPage() {
         <form onSubmit={handleSubmit} className={["signup_form", "form"].join(" ")}>
           <div className="firstname-lastname">
           <label>
-            Firstname
+            Firstname <span style={{color:'var(--color-red)'}}>*</span>
           </label>
             <input 
               type="text"
               value={firstname}
               onChange={(e) => setFirstname(e.target.value)}
               required
-            />, 
+            />
 
             <label>
-            Lastname
+            Lastname <span style={{color:'var(--color-red)'}}>*</span>
             </label>
             <input 
               type="text"
@@ -88,7 +88,7 @@ export default function SignupFormPage() {
             />
           </div>
           <label>
-            Email
+            Email <span style={{color:'var(--color-red)'}}>*</span>
           </label>
             <input 
               type="text"
@@ -99,7 +99,7 @@ export default function SignupFormPage() {
           {errors.email && <p className="errors">*{errors.email}</p>}
 
           <label>
-            Username
+            Username <span style={{color:'var(--color-red)'}}>*</span>
           </label>
             <input
               type="text"
@@ -110,7 +110,7 @@ export default function SignupFormPage() {
           {errors.username && <p className="errors">*{errors.username}</p>}
 
           <label>
-            Password
+            Password <span style={{color:'var(--color-red)'}}>*</span>
           </label>
             <input
               type="password"
@@ -121,7 +121,7 @@ export default function SignupFormPage() {
           {errors.password && <p className="errors">*{errors.password}</p>}
 
           <label>
-            Confirm Password
+            Confirm Password <span style={{color:'var(--color-red)'}}>*</span>
           </label>
             <input
               type="password"
@@ -131,7 +131,9 @@ export default function SignupFormPage() {
             />
           {errors.confirmPassword && <p className="errors">*{errors.confirmPassword}</p>}
 
-          <button type="submit">Sign Up</button>
+          <div style={{display:'flex', justifyContent:'center'}}>
+            <button type="submit">Sign Up</button>
+          </div>
         </form>
 
       </div>

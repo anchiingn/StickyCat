@@ -81,6 +81,8 @@ export default function StickerDetail() {
         }
     }
 
+    console.log(single_sticker)
+
 
     return (
         <>
@@ -105,31 +107,32 @@ export default function StickerDetail() {
                             return (
                                 <div>
                                     <i className={`fa-solid fa-star`} style={{
-                                        color: starRating >= starNum ? 'var(--color-red)' : 'black',
+                                        color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
                                         fontSize:'8px'
                                     }}></i>
                                 </div>
                         ) })}
-                        <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>{starRating.toFixed(1)}</div>
+                        <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>{starRating.toFixed(1)} ({reviews?.length})</div>
                         </div>
 
                         <div id="top-part">  
                             <div id="title">{single_sticker[0]?.title}</div>
                             <div id="price">${single_sticker[0]?.price}</div>
                         </div>
-                        <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
+                        <div style={{display:'flex', justifyContent:'space-between'}}>
+                            <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
+                            {single_sticker[0]?.favorited?.length === 0 || single_sticker[0]?.favorited[0]?.userId !== user?.id ?(
+                                <i className="fa-regular fa-heart favorite-button" style={{fontSize:'16px'}} onClick={addToFavorite}/>
+                            ): (
+                                <i className="fa-solid fa-heart favorite-button" style={{fontSize:'16px'}} onClick={removeFromFavorite}/>
+                            )}
+                        </div>
                         
                         {user && single_sticker[0]?.ownerId !== user?.id && (
                         <div id="cart-shipdate">
                             <div >
                                 <div style={{display:'flex', alignItems:'center'}}>
                                     <button id="addToCart" onClick={addToCart}>Add to Cart</button>
-
-                                    {single_sticker[0]?.favorited?.length === 0 || single_sticker[0]?.favorited[0]?.userId !== user?.id ?(
-                                        <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart" style={{fontSize:'25px'}}/></button>
-                                    ): (
-                                        <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart" style={{fontSize:'25px'}}/></button>
-                                    )}
                                 </div>
 
                                 {cart && (

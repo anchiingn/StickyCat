@@ -1,5 +1,5 @@
 #reviews_container {
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 
 #reviews-top_container{
@@ -30,9 +30,10 @@
     border-bottom: 1px solid var(--color-black);
 }
 
-#create-review > button:hover {
+#create-review > button:hover, button > .navlink:hover {
     color: var(--color-red);
 }
+
 
 .reviews{
     display: flex;

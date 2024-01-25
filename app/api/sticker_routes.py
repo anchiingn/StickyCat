@@ -43,7 +43,9 @@ def get_single_sticker(id):
     currentStickers = User.query.filter_by(id = sticker.ownerId).all()
     favorites = Favorite.query.filter_by(stickerId = sticker.id).all()
     reviews = Review.query.filter_by(stickerId = sticker.id).all()
+    carts = Cart.query.filter_by(stickerId = sticker.id).all()
 
+    data['cart'] = [cart.to_dict() for cart in carts]
     data['user'] = [user.to_dict() for user in currentStickers]
     data['favorited'] = [favorite.to_dict() for favorite in favorites]
     data['reviews'] = [review.to_dict() for review in reviews]
