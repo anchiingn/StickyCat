@@ -46,7 +46,6 @@ export default function MainPage () {
                         <p>
                             Here at StickyCat, creators bring their playful designs to life, and once ready, we handle everything from production to the enchanting delivery of these lovable stickers. Join us, where each sticker becomes a delightful messenger, spreading happiness wherever it goes!
                         </p>
-                        {/* <NavLink to={'/how-it-work'} className={'navlink'}>Discover More <i className="fa-solid fa-hand-point-right">/></NavLink> */}
                     </div>
                 </div>
             </div>

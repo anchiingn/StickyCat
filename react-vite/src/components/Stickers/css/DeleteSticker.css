@@ -14,10 +14,11 @@
 .delete-texts{
     width: 20em;
     height: 15em;
-    padding: 0px 20px 20px 20px;
+    padding: 0px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .delete-texts > h2 {
@@ -35,27 +36,30 @@
 .delete-buttons > button {  
     border-radius: 10px;
     margin-bottom: 16px;
-    border: 2px solid var(--color-black);
+    /* border: 2px solid var(--color-black); */
 }
 
 .delete-buttons > button:first-child {
     background-color: var(--color-red);
     font-size: 20px;
     font-weight: bold;
-    width: 14em;
-    height: 5.5em;
+    width: 10em;
+    height: 4em;
     cursor: pointer;
-}
-
-.delete-buttons > button:first-child:hover {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    border: none;
+    border-radius: 50px;
 }
 
 .delete-buttons > button:nth-child(2) {
     background-color: var(--color-black);
     color: var(--color-white);
-    width: 14em;
-    height: 5.5em;
+    width: 10em;
+    height: 3em;
     cursor: pointer;
+    border-radius: 100px;
+}
+
+.delete-buttons > button:first-child:hover, .delete-buttons >button:nth-child(2):hover {
+    background-color: var(--color-black);
+    color: var(--hover-grey);
 }

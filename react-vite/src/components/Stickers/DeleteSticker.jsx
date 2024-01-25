@@ -23,7 +23,7 @@ export default function DeleteSticker({sticker}) {
             <div className="delete_container">
                 <img src={sticker?.image} alt="" />
                 <div className="delete-texts">
-                    <h2 >Delete Sticker From Cart?</h2>
+                    <h2 >Delete Sticker</h2>
                     <div>Do you want to remove this sticker?</div>
                     <div className="delete-buttons">
                         <button onClick={delete_sticker}>Bye Bye</button>

@@ -73,7 +73,7 @@ export default function NewSticker () {
             <NavLink className={'navlink'}>Create Sticker</NavLink>
         </div>
         <div className='container'>
-            <div className='sticker-form_container'>
+            <div className='sticker-form_container' style={{marginBottom:'250px'}}>
                     <div>New Sticker</div>
                     <form onSubmit={onSubmit} encType="multipart/form-data" className='create-form'>
                     {validation.title && submit && <p className="errors">{validation.title}</p>}

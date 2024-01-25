@@ -120,7 +120,7 @@ function Navigation() {
                           <div id="total-price">Total: <span>${total}</span></div>
                       </div>
 
-                      <div id="checkout_container">
+                      <div id="checkout_container" >
                         <button id="checkout" onClick={toggleMenu}>
                           <div onClick={getCheckout}>Checkout</div>
                         </button>

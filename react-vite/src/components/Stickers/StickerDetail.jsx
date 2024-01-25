@@ -78,57 +78,58 @@ export default function StickerDetail() {
                 /
                 <NavLink to={'/explored-stickers'} className={'navlink'}>Explored Stickers</NavLink> 
                 /
-                <NavLink className={'navlink'}>{single_sticker[0]?.title}</NavLink>
+                <NavLink className={'navlink'} style={{cursor:'default'}}>{single_sticker[0]?.title}</NavLink>
             </div>
 
 
             <div id="sticker-detail_container">
-                <img id='sticker-detail_image' src={single_sticker[0]?.image} alt={single_sticker[0]?.title} />
+                <div>
+                    <img id='sticker-detail_image' src={single_sticker[0]?.image} alt={single_sticker[0]?.title} />
 
-                <div id='sticker-detail_infos'>
-                    <div id="top-part">  
-                        <div id="title">{single_sticker[0]?.title}</div>
-                        <div id="price">${single_sticker[0]?.price}</div>
-                    </div>
-                    <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
-                    
-                    {user && single_sticker[0]?.ownerId !== user?.id && (
-                    <div id="cart-shipdate">
-                        <div >
-                            <div style={{display:'flex', alignItems:'center'}}>
-                                <button id="addToCart" onClick={addToCart}>Add to Cart</button>
+                    <div id='sticker-detail_infos'>
+                        <div id="top-part">  
+                            <div id="title">{single_sticker[0]?.title}</div>
+                            <div id="price">${single_sticker[0]?.price}</div>
+                        </div>
+                        <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
+                        
+                        {user && single_sticker[0]?.ownerId !== user?.id && (
+                        <div id="cart-shipdate">
+                            <div >
+                                <div style={{display:'flex', alignItems:'center'}}>
+                                    <button id="addToCart" onClick={addToCart}>Add to Cart</button>
 
-                                {single_sticker[0]?.favorited?.length === 0 || single_sticker[0]?.favorited[0]?.userId !== user?.id ?(
-                                    <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart" style={{fontSize:'25px'}}/></button>
-                                ): (
-                                    <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart" style={{fontSize:'25px'}}/></button>
+                                    {single_sticker[0]?.favorited?.length === 0 || single_sticker[0]?.favorited[0]?.userId !== user?.id ?(
+                                        <button className="favorite-button" onClick={addToFavorite}><i className="fa-regular fa-heart" style={{fontSize:'25px'}}/></button>
+                                    ): (
+                                        <button className="favorite-button" onClick={removeFromFavorite}><i className="fa-solid fa-heart" style={{fontSize:'25px'}}/></button>
+                                    )}
+                                </div>
+
+                                {cart && (
+                                    <div id="cart-noti">Sticker has been added to cart</div>
                                 )}
                             </div>
 
-                            {cart && (
-                                <div id="cart-noti">Sticker has been added to cart</div>
-                            )}
+                            <div>Estimated to Ship {monthName} {day}, {year}</div>
+                        </div>
+                        )}
+
+                        <div id="message">
+                            <div style={{fontWeight:'bold'}}>Message from creator:</div>
+                            <div style={{margin:'0px 20px'}}>{single_sticker[0]?.message}</div>
                         </div>
 
-                        <div>Estimated to Ship {monthName} {day}, {year}</div>
-                    </div>
-                    )}
-
-                    <div id="message">
-                        <div style={{fontWeight:'bold'}}>Message from creator:</div>
-                        <div style={{margin:'0px 20px'}}>{single_sticker[0]?.message}</div>
-                    </div>
-
-                  
-                    <div>
-                        <div style={{fontWeight:'bold', marginTop:'10px'}}>Dimensions:</div>
-                        <div style={{margin:'0px 20px'}}>
-                            <div id="height">Height: {single_sticker[0]?.height}" </div>
-                            <div id="width">Width: {single_sticker[0]?.width}" </div>
-                        </div>
                     
+                        <div>
+                            <div style={{fontWeight:'bold', marginTop:'10px'}}>Dimensions:</div>
+                            <div style={{margin:'0px 20px'}}>
+                                <div id="height">Height: {single_sticker[0]?.height}" </div>
+                                <div id="width">Width: {single_sticker[0]?.width}" </div>
+                            </div>
+                        </div>
+                        
                     </div>
-                      
 
                 </div>
             </div>
