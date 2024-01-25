@@ -11,6 +11,7 @@ export default function StickerDetail() {
     const { id } = useParams()
     const dispatch = useDispatch()
     const sticker = useSelector(state => state?.stickers)
+    const fetchReviews = useSelector(state => state?.reviews)
     const user = useSelector(state => state.session.user)
     const [cart, setCart] = useState(false)
 
@@ -21,7 +22,7 @@ export default function StickerDetail() {
     }, [dispatch, id])
     
     const single_sticker = sticker ? Object.values(sticker) : []
-
+    const reviews = Object.values(fetchReviews)
 
     // -------------------  Add/Remove from Favorite ------------------- //
     const addToFavorite = async(e) => {
@@ -69,6 +70,18 @@ export default function StickerDetail() {
         }
     }
 
+    // -------------------  Star Rating  ------------------- //
+    let starRating = 0
+    for (let review of reviews) {
+        if (reviews?.length >= 1) {
+            starRating += (review?.star)/reviews?.length
+        }
+        else {
+            starRating = review?.star
+        }
+    }
+
+
     return (
         <>
         {single_sticker && single_sticker.length > 0 && single_sticker[0].user && single_sticker[0].user.length > 0 &&(
@@ -87,6 +100,19 @@ export default function StickerDetail() {
                     <img id='sticker-detail_image' src={single_sticker[0]?.image} alt={single_sticker[0]?.title} />
 
                     <div id='sticker-detail_infos'>
+                        <div id="star-rating">
+                        {[1, 2, 3, 4, 5].map((starNum) => {
+                            return (
+                                <div>
+                                    <i className={`fa-solid fa-star`} style={{
+                                        color: starRating >= starNum ? 'var(--color-red)' : 'black',
+                                        fontSize:'8px'
+                                    }}></i>
+                                </div>
+                        ) })}
+                        <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>{starRating.toFixed(1)}</div>
+                        </div>
+
                         <div id="top-part">  
                             <div id="title">{single_sticker[0]?.title}</div>
                             <div id="price">${single_sticker[0]?.price}</div>

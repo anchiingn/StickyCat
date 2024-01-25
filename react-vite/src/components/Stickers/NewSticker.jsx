@@ -70,7 +70,7 @@ export default function NewSticker () {
             /
             <NavLink to={'/launch-sticker'} className={'navlink'}>Launch Sticker</NavLink> 
             /
-            <NavLink className={'navlink'}>Create Sticker</NavLink>
+            <NavLink className={'navlink'} style={{cursor:'default'}}>Create Sticker</NavLink>
         </div>
         <div className='container'>
             <div className='sticker-form_container' style={{marginBottom:'250px'}}>

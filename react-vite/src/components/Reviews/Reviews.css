@@ -1,12 +1,55 @@
+#reviews_container {
+    margin-bottom: 150px;
+}
+
 #reviews-top_container{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    align-items: flex-end;
+    /* margin-bottom: 30px; */
+}
+
+#create-review {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#create-review > button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    /* padding: 5px 15px;
+    border-radius: 50px; */
+}
+
+#total-reviews {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--color-black);
+}
+
+#create-review > button:hover {
+    color: var(--color-red);
 }
 
 .reviews{
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+}
+
+#review-date {
+    color: var(--hover-grey);
+    font-size: 10px;
+}
+
+.user-review {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--color-black);
 }
 
 #review_edit-delete {

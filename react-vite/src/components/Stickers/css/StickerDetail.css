@@ -9,8 +9,7 @@
     display: flex;
     /* justify-content: space-between; */
     align-items: flex-start;
-    margin: 50px 10em;
-    resize: both;
+    /* margin: 50px 10em; */
 }
 
 #sticker-detail_image {
@@ -23,6 +22,16 @@
     flex-direction: column;
     width: 40em;
     height: 30em;
+}
+
+#star-rating {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+#star-rating > div {
+    margin: -1px;
 }
 
 #sticker-detail_infos > #top-part {

@@ -72,7 +72,7 @@ export default function CreateReview () {
                                         onChange={e => setStar(e.target.value)}
                                     />
                                     <i className={`fa-solid fa-star`} style={{
-                                        color: (hover || star ) >= currentStar ? 'orangered' : 'black'
+                                        color: (hover || star ) >= currentStar ? 'var(--color-red)' : 'black'
                                     }}></i>
                                 </label>
                         )})}

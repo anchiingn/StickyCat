@@ -88,7 +88,7 @@ export default function EditSticker () {
         <div className="stickers-toppart_container">
             <NavLink to={'/my-stickers'} className={'navlink'}>My Stickers</NavLink> 
             /
-            <NavLink className={'navlink'}>Edit Sticker</NavLink>
+            <NavLink className={'navlink'} style={{cursor:'default'}}>Edit Sticker</NavLink>
         </div>
         <div className='container'>
             <div className='sticker-form_container' style={{marginBottom:'250px'}}>
