@@ -28,6 +28,7 @@ export default function StickerCards({ sticker }) {
                     )}
                 </div>
             </NavLink>
+            
         </>
     )
 }

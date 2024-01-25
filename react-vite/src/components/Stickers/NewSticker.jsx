@@ -63,6 +63,7 @@ export default function NewSticker () {
         navigate('/my-stickers')
     }
 
+    
     return (
         <>
         <div className="stickers-toppart_container">

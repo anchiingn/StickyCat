@@ -57,7 +57,6 @@ export default function MainPage () {
             <div id='explored-stickers_container'>
                 <div>EXPLORED STICKERS</div>
                 <div id='explored-stickers_cards'>
-                    <div id="sticker-cards">
                         {s.map(sticker => {
                             return (
                                 <div key={sticker?.id} className="stickers_container">
@@ -65,7 +64,6 @@ export default function MainPage () {
                                 </div>
                             )
                         })}
-                    </div>
                 </div>
                 <NavLink to={'/explored-stickers'} className={'navlink'}>- VIEW ALL -</NavLink>
             </div>

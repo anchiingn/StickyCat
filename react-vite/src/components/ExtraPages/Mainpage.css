@@ -182,18 +182,15 @@
 }
 
 #explored-stickers_container > div:nth-child(1) {
-    margin-bottom: 55px;
     font-size: 22px;
 }
 
-#explored-stickers_container > #explored-stickers_cards {
-    margin-bottom: 60px;
-}
 
-#explored-stickers_cards > #sticker-cards{
+#explored-stickers_cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: 100%; 
+    width: calc(100% - 10em);
+    margin: 70px;
 }
 
 /* ----- Launch Sticker ----- */
