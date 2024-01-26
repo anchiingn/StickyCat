@@ -89,7 +89,7 @@ export default function StickerDetail() {
             <div className="stickers-toppart_container">
                 <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
                 /
-                <NavLink to={'/explored-stickers'} className={'navlink'}>Explored Stickers</NavLink> 
+                <NavLink to={'/explored-stickers'} className={'navlink'}>Explore Stickers</NavLink> 
                 /
                 <NavLink className={'navlink'} style={{cursor:'default'}}>{single_sticker[0]?.title}</NavLink>
             </div>

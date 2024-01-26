@@ -85,7 +85,7 @@ function Navigation() {
           
           <div id="nav-link_container">
             {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
-            <NavLink to="/explored-stickers" className="navlink">Explored Stickers</NavLink>
+            <NavLink to="/explored-stickers" className="navlink">Explore Stickers</NavLink>
             <NavLink to="/launch-sticker" className="navlink" >Launch Sticker</NavLink>
           </div>
 

@@ -8,7 +8,7 @@ export default function Thankyou () {
             <div>
                 <NavLink to={'/'} className={'navlink'}>Back to Home</NavLink>
                 or
-                <NavLink to={'/explored-stickers'} className={'navlink'}>Explored More Stickers</NavLink>
+                <NavLink to={'/explored-stickers'} className={'navlink'}>Explore More Stickers</NavLink>
             </div>
         </div>
         </>

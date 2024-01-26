@@ -55,7 +55,7 @@ export default function MainPage () {
             </div>
 
             <div id='explored-stickers_container'>
-                <div>EXPLORED STICKERS</div>
+                <div>EXPLORE STICKERS</div>
                 <div id='explored-stickers_cards'>
                         {s.map(sticker => {
                             return (

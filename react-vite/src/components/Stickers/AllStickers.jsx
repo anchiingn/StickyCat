@@ -62,7 +62,7 @@ export default function AllStickers() {
         <div className="stickers-toppart_container">
             <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
             /
-            <NavLink className={'navlink'} style={{cursor:'default'}}>Explored Stickers</NavLink> 
+            <NavLink className={'navlink'} style={{cursor:'default'}}>Explore Stickers</NavLink> 
         </div>
 
         {/* <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>All Sticky Stickers</div> */}

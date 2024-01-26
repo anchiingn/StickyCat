@@ -38,7 +38,7 @@ export default function AllFavoriteStickers() {
                         <p className="user-paragraph">Oops! Your sticker collection seems a bit bare. Let&apos;s explored all charming masterpiece together!</p>
                         <div className="line-in-between"></div>
                         <button className="user-button">
-                            <NavLink to={'/explored-stickers'} className={'navlink'} style={{padding:'20px 40px', borderRadius:'50px'}}>Explored Sticker</NavLink>
+                            <NavLink to={'/explored-stickers'} className={'navlink'} style={{padding:'20px 40px', borderRadius:'50px'}}>Explore Sticker</NavLink>
                         </button>
                     </div>
                     </>
