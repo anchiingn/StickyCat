@@ -9,8 +9,9 @@ cart_routes = Blueprint('carts', __name__)
 
 
 @cart_routes.route('/my-cart')
+@login_required
 def get_cart_stickers():
-    cart_stickers = Cart.query.filter_by(cart = True).all()
+    cart_stickers = Cart.query.filter_by(userId = current_user.id).all()
     cart_data = []
     for cart_sticker in cart_stickers:
         data = cart_sticker.to_dict()

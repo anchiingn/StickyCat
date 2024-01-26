@@ -51,7 +51,6 @@ export default function CreateReview () {
         navigate(`/stickers/${id}`)
         closeModal()
     }
-    console.log(validation.review)
     return (
         <>
             <div className="review-form_container">

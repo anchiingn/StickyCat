@@ -14,7 +14,6 @@ export default function OtherStickers () {
 
     const stickers = Object.values(allStickers)
     const userSticker = stickers.filter(s => s.ownerId)
-    console.log(userSticker)
 
     return (
         <>

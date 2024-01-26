@@ -14,9 +14,9 @@ export default function AllCartStickers () {
 
     const cart_stickers = fetchCartStickers ?Object.values(fetchCartStickers) :[]
 
-
     return (
         <>
+        {cart_stickers.length !== 0 ? (
             <div >
                 {cart_stickers.map(sticker => {
                     if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
@@ -28,6 +28,9 @@ export default function AllCartStickers () {
                     }
                 })}
             </div>
+        ) :(
+            <div>Cart is Empty</div>
+        )}
         </>
     )
 }

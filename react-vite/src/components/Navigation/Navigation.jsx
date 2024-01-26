@@ -121,9 +121,15 @@ function Navigation() {
                       </div>
 
                       <div id="checkout_container" >
-                        <button id="checkout" onClick={toggleMenu}>
-                          <div onClick={getCheckout}>Checkout</div>
-                        </button>
+                        {cart_stickers.length !== 0 ? (
+                          <button id="checkout" onClick={toggleMenu}>
+                            <div onClick={getCheckout}>Checkout</div>
+                          </button>
+                        ) :(
+                          <button id="checkout">
+                            <div style={{backgroundColor:'var(--color-black)', color:'var(--hover-grey)'}}>Checkout</div>
+                          </button>
+                        )}
                       </div>
                     </>
                   ) :(

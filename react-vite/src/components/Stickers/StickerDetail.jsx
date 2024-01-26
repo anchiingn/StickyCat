@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer"
+import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllFavorites } from "../../redux/stickerReducer"
 import { useParams, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
@@ -23,6 +23,7 @@ export default function StickerDetail() {
     
     const single_sticker = sticker ? Object.values(sticker) : []
     const reviews = Object.values(fetchReviews)
+
 
     // -------------------  Add/Remove from Favorite ------------------- //
     const addToFavorite = async(e) => {
@@ -81,9 +82,6 @@ export default function StickerDetail() {
         }
     }
 
-    console.log(single_sticker)
-
-
     return (
         <>
         {single_sticker && single_sticker.length > 0 && single_sticker[0].user && single_sticker[0].user.length > 0 &&(
@@ -121,11 +119,16 @@ export default function StickerDetail() {
                         </div>
                         <div style={{display:'flex', justifyContent:'space-between'}}>
                             <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
-                            {single_sticker[0]?.favorited?.length === 0 || single_sticker[0]?.favorited[0]?.userId !== user?.id ?(
-                                <i className="fa-regular fa-heart favorite-button" style={{fontSize:'16px'}} onClick={addToFavorite}/>
-                            ): (
-                                <i className="fa-solid fa-heart favorite-button" style={{fontSize:'16px'}} onClick={removeFromFavorite}/>
+                            {user && (
+                                <div>
+                                    {single_sticker[0]?.favorited?.length === 0 ? (
+                                        <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={addToFavorite}></i>
+                                    ) : (
+                                        <i className="fa-solid fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={removeFromFavorite}></i>
+                                    )}
+                                </div>
                             )}
+
                         </div>
                         
                         {user && single_sticker[0]?.ownerId !== user?.id && (

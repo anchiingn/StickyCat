@@ -44,7 +44,7 @@ function ProfileButton() {
     {user ? (
       <>
         <button onClick={toggleMenu} className="buttons">
-        <i class="fa-solid fa-user" style={{fontSize:'20px', marginRight:'10px', position:'relative', top:'1px', right:'-5px'}}/>
+        <i className="fa-solid fa-user" style={{fontSize:'20px', marginRight:'10px', position:'relative', top:'1px', right:'-5px'}}/>
         </button>
         {showMenu && (
           <ul className={"profile-dropdown"} ref={ulRef}>

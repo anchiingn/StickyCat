@@ -35,13 +35,19 @@ def get_stickers():
 
 @sticker_routes.route('/<int:id>')
 def get_single_sticker(id):
+    if current_user.is_authenticated:
+        user_id = current_user.id
+    else:
+    # Handle the case when the user is not authenticated
+        user_id = None
+        
     sticker = Sticker.query.get(id)
 
     sticker_data = []
 
     data = sticker.to_dict()
     currentStickers = User.query.filter_by(id = sticker.ownerId).all()
-    favorites = Favorite.query.filter_by(stickerId = sticker.id).all()
+    favorites = Favorite.query.filter_by(stickerId=sticker.id, userId=user_id).all()
     reviews = Review.query.filter_by(stickerId = sticker.id).all()
     carts = Cart.query.filter_by(stickerId = sticker.id).all()
 

@@ -9,7 +9,8 @@ favorite_routes = Blueprint('favorites', __name__)
 
 @favorite_routes.route('/my-favorite-stickers')
 def get_favorite_stickers():
-    favorite_stickers = Favorite.query.all()
+    favorite_stickers = Favorite.query.filter_by(userId = current_user.id).all()
+
     favorite_data = []
     for favorite_sticker in favorite_stickers:
         data = favorite_sticker.to_dict()
