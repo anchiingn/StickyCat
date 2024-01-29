@@ -24,10 +24,13 @@ def get_stickers():
         favorites = Favorite.query.filter_by(stickerId = sticker.id).all()
         carts = Cart.query.filter_by(stickerId = sticker.id).all()
         reviews = Review.query.filter_by(stickerId = sticker.id).all()
+        users = User.query.filter_by(id = sticker.ownerId).all()
+
         
         data['cart'] = [cart.to_dict() for cart in carts]
         data['favorited'] = [favorite.to_dict() for favorite in favorites]
         data['reviews'] = [review.to_dict() for review in reviews]
+        data['users'] = [user.to_dict() for user in users]
         sticker_data.append(data)
 
     return sticker_data

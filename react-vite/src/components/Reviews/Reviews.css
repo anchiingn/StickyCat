@@ -19,7 +19,8 @@
     cursor: pointer;
     border: none;
     background-color: transparent;
-    height: 30px;
+    font-size: 17px;
+    text-decoration: underline;
     /* padding: 5px 15px;
     border-radius: 50px; */
 }
@@ -31,7 +32,8 @@
 }
 
 #create-review > button:hover, button > .navlink:hover {
-    color: var(--color-red);
+    color: var(--hover-grey);
+    text-decoration: none;
 }
 
 

@@ -24,7 +24,6 @@ export default function AllStickers() {
     }
 
 
-
     return (
         <>
         <div className="stickers-toppart_container">
@@ -48,7 +47,7 @@ export default function AllStickers() {
             </div>
             {loadMore >= stickers.length 
                 ? (null)
-                : (<button onClick={loadMoreStickers} id="load-more">Load More Stickers</button>)
+                : (<div onClick={loadMoreStickers} id="load-more">Load More Stickers</div>)
             }
         </div>
 

@@ -72,7 +72,6 @@ function Navigation() {
       navigate('/thank-you-for-your-purchased')
     }
   }
-
   
   return (
     <div className="container">
@@ -105,11 +104,11 @@ function Navigation() {
               </div>
 
               {show && (
-                <div id="cart-modal" ref={ulRef}>
+                <div className={`cart-modal ${show === false ?'close-cart' : ''}`}  ref={ulRef}>
 
                   <div id="cart-top">
                     <div style={{fontWeight:'bold'}}>My Cart -</div>
-                    <button onClick={toggleMenu} className="buttons close-cart"><i className="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
+                    <button onClick={toggleMenu} className="buttons"><i className="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
                   </div>
 
                   <div id="cart-stickers_container">

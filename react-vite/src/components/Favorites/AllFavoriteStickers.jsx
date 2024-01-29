@@ -57,8 +57,10 @@ export default function AllFavoriteStickers() {
                                                 <img src={sticker?.stickers[0]?.image} alt={sticker?.stickers[0]?.title} />
                                             </div>
                                             <div className="sticker-details_top">
-                                                <div>{sticker?.stickers[0]?.title}</div>
-                                                <div>${sticker?.stickers[0]?.price}</div>
+                                                <div>
+                                                    <div>{sticker?.stickers[0]?.title}</div>
+                                                    <div>${sticker?.stickers[0]?.price}</div>
+                                                </div>
                                             </div>
                                         </NavLink>
                                         <div className="sticker-details_bottom">

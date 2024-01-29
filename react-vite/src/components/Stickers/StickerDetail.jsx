@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState, useRef } from "react"
-import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllFavorites } from "../../redux/stickerReducer"
+import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer"
 import { useParams, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"

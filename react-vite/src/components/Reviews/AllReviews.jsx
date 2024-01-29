@@ -52,13 +52,13 @@ export default function ALlReviews({ sticker, id }) {
                     {user ? (sticker[0].ownerId !== user?.id && (
                         <button style={{listStyle:'none', display:'flex', alignItems:'flex-end'}}>
                             <OpenModalMenuItem 
-                                itemText='- WRITE A REVIEW -'
+                                itemText='Write a Review  '
                                 modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
                             />
                         </button>
                     )) : (
                         <button style={{listStyle:'none'}}>
-                            <NavLink to='/login' className={'navlink'}>- WRITE A REVIEW -</NavLink>
+                            <NavLink to='/login' className={'navlink'}>Write a Review  </NavLink>
                         </button>
                     )
                 }
@@ -132,7 +132,10 @@ export default function ALlReviews({ sticker, id }) {
                 <div style={{display:'flex', justifyContent:'center'}}>
                     {loadMore >= reviews.length 
                         ? (null)
-                        : (<button onClick={loadMoreReviews} id="load-more">Load More Reviews</button>)
+                        : (<div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+                               <div onClick={loadMoreReviews} id="load-more"> Load More Reviews </div>
+                               <span style={{marginTop:'20px'}}>or</span>
+                           </div>)
                     }
                 </div>
 
@@ -140,13 +143,13 @@ export default function ALlReviews({ sticker, id }) {
                     {user ? (sticker[0].ownerId !== user?.id && (
                         <button style={{listStyle:'none', marginTop:'20px'}}>
                             <OpenModalMenuItem 
-                                itemText='- WRITE A REVIEW -'
+                                itemText=' Write a Review  '
                                 modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
                             />
                         </button>
                     )) : (
                         <button style={{listStyle:'none', marginTop:'20px'}}>
-                            <NavLink to='/login' className={'navlink'}>- WRITE A REVIEW -</NavLink>
+                            <NavLink to='/login' className={'navlink'}> Write a Review </NavLink>
                         </button>
                     )
                 }

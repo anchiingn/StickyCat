@@ -53,8 +53,10 @@ export default function CurrentStickers() {
                                                 <img src={sticker?.image} alt={sticker?.title} />
                                             </div>
                                             <div className="sticker-details_top">
-                                                <div>{sticker?.title}</div>
-                                                <div>${sticker?.price}</div>
+                                                <div>
+                                                    <div>{sticker?.title}</div>
+                                                    <div>${sticker?.price}</div>
+                                                </div>
                                             </div>
                                         </NavLink>
                                         <div className="sticker-details_bottom">

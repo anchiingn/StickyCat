@@ -124,7 +124,7 @@
   font-size: 10px;
 }
 
-#cart-modal {
+.cart-modal {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -154,10 +154,10 @@
 
 @keyframes cart-close {
   0% {
-    transform: translateX(25em);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(25em);
   }
 }
 
