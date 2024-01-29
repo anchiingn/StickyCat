@@ -156,6 +156,20 @@ nav > ul > li > button:not(.numPage) {
     z-index: 1;
 }
 
+#load-more {
+    margin-top: 50px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--color-red);
+}
+
+#load-more:hover {
+    background-color: var(--color-black);
+    color: var(--hover-grey);
+    cursor: pointer;
+}
+
 @media (max-width: 1250px) {
     .sticker-cards_container {
         display: grid;

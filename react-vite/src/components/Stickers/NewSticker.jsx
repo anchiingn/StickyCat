@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { thunkCreateNewStickers } from '../../redux/stickerReducer';
@@ -15,6 +15,7 @@ export default function NewSticker () {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const imgRef = useRef();
 
     useEffect(() => {
         const errors = {}
@@ -63,6 +64,9 @@ export default function NewSticker () {
         navigate('/my-stickers')
     }
 
+    const handleImg = () => {
+        imgRef.current.click()
+    }
     
     return (
         <>
@@ -76,21 +80,30 @@ export default function NewSticker () {
         <div className='container'>
             <div className='sticker-form_container' style={{marginBottom:'200px'}}>
                     <div>New Sticker</div>
-                    <form onSubmit={onSubmit} encType="multipart/form-data" className='create-form'>
+
                     {validation.title && submit && <p className="errors">{validation.title}</p>}
                     {validation.price && submit && <p className="errors">{validation.price}</p>}
                     {validation.image && submit && <p className="errors">{validation.image}</p>}
                     {validation.height && submit && <p className="errors">{validation.height}</p>}
                     {validation.width && submit && <p className="errors">{validation.width}</p>}
                     {validation.message && submit && <p className="errors">{validation.message}</p>}
-
+                    
+                    <form onSubmit={onSubmit} encType="multipart/form-data" className='create-form'>
+                    
+                    <div id='image-side'> 
                         <label>Image <span style={{color:'var(--color-red)'}}>*</span> </label>
-                        <input 
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => setImage(e.target.files[0])}
-                            
+                        <div onClick={handleImg}>
+                            {image ?<img src={URL.createObjectURL(image)} alt="" style={{width:'100%', cursor:'pointer'}}/>  :<img src='https://stickycat.s3.us-east-2.amazonaws.com/Landing_Page_.png' alt="" style={{width:'100%', cursor:'pointer'}}/>}
+                            <input 
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => {setImage(e.target.files[0])}}
+                                // ref={imgRef}
+                                // style={{display:'none'}}
                             />
+                        </div>
+                    </div>
+                    <div id='form-side'>
                         <label>Title <span style={{color:'var(--color-red)'}}>*</span> </label>
                         <input 
                             type="text"
@@ -123,6 +136,7 @@ export default function NewSticker () {
                             onChange={(e) => setMessage(e.target.value)}
                         />
                         <button>Submit</button>
+                    </div>
                     </form>
             </div>
         </div> 

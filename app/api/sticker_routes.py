@@ -148,6 +148,8 @@ def update_stickers(id):
 def delete_sticker(id):
     sticker = Sticker.query.get(id)
 
+    remove_file_from_s3(sticker.image)
+
     db.session.delete(sticker)
     db.session.commit()
     

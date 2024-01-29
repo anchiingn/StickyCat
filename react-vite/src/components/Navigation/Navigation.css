@@ -148,6 +148,19 @@
   }
 }
 
+.close-cart {
+  animation: cart-close 0.6s ease-in-out;
+}
+
+@keyframes cart-close {
+  0% {
+    transform: translateX(25em);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 #cart-stickers_container{
     width: 21em;
     height: 45em;

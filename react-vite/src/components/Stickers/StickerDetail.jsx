@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllFavorites } from "../../redux/stickerReducer"
 import { useParams, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
@@ -10,6 +10,7 @@ import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
 export default function StickerDetail() {
     const { id } = useParams()
     const dispatch = useDispatch()
+    const reviewRef = useRef()
     const sticker = useSelector(state => state?.stickers)
     const fetchReviews = useSelector(state => state?.reviews)
     const user = useSelector(state => state.session.user)
@@ -82,6 +83,15 @@ export default function StickerDetail() {
         }
     }
 
+       
+    // -------------------  Scroll To Review  ------------------- //
+    const scrollToReview = () => {
+        window.scrollTo({
+            top: reviewRef.current.offsetTop,
+            behavior: "smooth"
+        })
+    }
+
     return (
         <>
         {single_sticker && single_sticker.length > 0 && single_sticker[0].user && single_sticker[0].user.length > 0 &&(
@@ -110,7 +120,12 @@ export default function StickerDetail() {
                                     }}></i>
                                 </div>
                         ) })}
-                        <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>{starRating.toFixed(1)} ({reviews?.length})</div>
+
+                        <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>
+                            {starRating.toFixed(1)} 
+                            <div onClick={() => scrollToReview()}>(<span style={{textDecoration:'underline', cursor:'pointer'}}>{reviews?.length}</span>)</div>
+                        </div>
+
                         </div>
 
                         <div id="top-part">  
@@ -168,7 +183,7 @@ export default function StickerDetail() {
 
 
             {/*  ------ Get Reviews --------- */}
-            <div id="review_container">
+            <div id="review_container" ref={reviewRef}>
                 <ALlReviews sticker={single_sticker} id={id}/>
             </div>
             

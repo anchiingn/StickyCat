@@ -29,7 +29,10 @@ export default function AllCartStickers () {
                 })}
             </div>
         ) :(
-            <div>Cart is Empty</div>
+            <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+                <img src="https://stickycat.s3.us-east-2.amazonaws.com/IMG_2919.PNG" alt="" style={{width:'100%'}}/>
+                <div>Cart is Empty</div>
+            </div>
         )}
         </>
     )

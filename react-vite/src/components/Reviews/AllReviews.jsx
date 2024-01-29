@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
 import CreateReview from "./CreateReview"
@@ -13,6 +13,8 @@ export default function ALlReviews({ sticker, id }) {
     const dispatch = useDispatch()
     const fetchAllReviews = useSelector(state => state.reviews)
     const user = useSelector(state => state.session.user)
+    const [ loadMore, setLoadMore ] = useState(5)
+
 
     useEffect(() => {
         dispatch(thunkLoadAllReviews(id))
@@ -22,6 +24,7 @@ export default function ALlReviews({ sticker, id }) {
     if (!fetchAllReviews) return null
 
     const reviews = fetchAllReviews ? Object.values(fetchAllReviews) : []
+    
 
     // -------------------  Star Rating  ------------------- //
     let starRating = 0
@@ -35,25 +38,31 @@ export default function ALlReviews({ sticker, id }) {
     }
 
 
-    // -------------------  Review Date  ------------------- //
-    // let day;
-    // let month;
-    // let year;
-
-    // for (let reviewDate of reviews) {
-    //     console.log(reviewDate.crea)
-    //     const date = new Date(reviewDate.createAt)
-    
-    //     day = date.getDate()
-    //     month = date.getMonth() + 1
-    //     year = date.getFullYear()
-    // }
+    // -------------------  Pagination  ------------------- //
+    const loadMoreReviews = () => {
+        setLoadMore( prev => prev + 5)
+    }
 
     return (
         <>
             <div id="reviews_container">
                 <div id="reviews-top_container">
                     <div style={{ fontWeight: 'bold', fontSize:'20px'}}>Reviews:</div>
+                    <div id="create-review">
+                    {user ? (sticker[0].ownerId !== user?.id && (
+                        <button style={{listStyle:'none', display:'flex', alignItems:'flex-end'}}>
+                            <OpenModalMenuItem 
+                                itemText='- WRITE A REVIEW -'
+                                modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
+                            />
+                        </button>
+                    )) : (
+                        <button style={{listStyle:'none'}}>
+                            <NavLink to='/login' className={'navlink'}>- WRITE A REVIEW -</NavLink>
+                        </button>
+                    )
+                }
+                </div>
                 </div>
                 <div id="star-rating" style={{marginTop:'5px', marginBottom:'10px', paddingBottom:'40px', borderBottom: '1px solid var(--color-black)'}}>
                     {[1, 2, 3, 4, 5].map((starNum) => {
@@ -66,9 +75,10 @@ export default function ALlReviews({ sticker, id }) {
                             </div>
                     ) })}
                     <div style={{marginLeft:'5px'}}>{starRating.toFixed(1)} ({reviews?.length})</div>
-                </div>                    
+                </div>       
+                             
                 {reviews.length > 0 ? (
-                    reviews.map(review => {
+                    reviews.slice(0, loadMore).map(review => {
                         const date = new Date(review.createAt)
     
                         const day = date.getDate()
@@ -118,6 +128,13 @@ export default function ALlReviews({ sticker, id }) {
                 ) : (
                     <div>No reviews available.</div>
                 )}
+
+                <div style={{display:'flex', justifyContent:'center'}}>
+                    {loadMore >= reviews.length 
+                        ? (null)
+                        : (<button onClick={loadMoreReviews} id="load-more">Load More Reviews</button>)
+                    }
+                </div>
 
                 <div id="create-review">
                     {user ? (sticker[0].ownerId !== user?.id && (
