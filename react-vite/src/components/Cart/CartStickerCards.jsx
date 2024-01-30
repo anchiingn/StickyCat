@@ -26,7 +26,7 @@ export default function CartStickerCards ({ sticker }) {
             </NavLink>
                 <div id="cart-infos_container">
                     <div className="cart-infos">
-                        <div>{sticker?.stickers[0]?.title}</div>
+                        <div style={{fontWeight:'bold'}}>{sticker?.stickers[0]?.title}</div>
                         <div>${sticker?.stickers[0]?.price}</div>
                     </div>
                     <div className="cart-infos">
@@ -38,6 +38,9 @@ export default function CartStickerCards ({ sticker }) {
                         </div>
                     </div>
                 </div>
+
+
+                
                 {/* <div id="remove-card" style={{listStyle:'none'}}>
                     <OpenModalMenuItem 
                         itemText={<><i class="fa-regular fa-trash-can"></i></>}

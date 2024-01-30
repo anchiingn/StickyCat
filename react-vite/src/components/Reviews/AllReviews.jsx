@@ -24,7 +24,7 @@ export default function ALlReviews({ sticker, id }) {
     if (!fetchAllReviews) return null
 
     const reviews = fetchAllReviews ? Object.values(fetchAllReviews) : []
-    
+    reviews.sort((a,b) => b.id - a.id)  //newest review on top
 
     // -------------------  Star Rating  ------------------- //
     let starRating = 0
@@ -48,21 +48,28 @@ export default function ALlReviews({ sticker, id }) {
             <div id="reviews_container">
                 <div id="reviews-top_container">
                     <div style={{ fontWeight: 'bold', fontSize:'20px'}}>Reviews:</div>
+                    
                     <div id="create-review">
-                    {user ? (sticker[0].ownerId !== user?.id && (
-                        <button style={{listStyle:'none', display:'flex', alignItems:'flex-end'}}>
-                            <OpenModalMenuItem 
-                                itemText='Write a Review  '
-                                modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
-                            />
+                    {user ? (
+                        reviews.some(review => review?.user?.id === user.id) ? (
+                            <div style={{marginTop:'20px'}}>Already Reviewed</div>
+                        ) : (
+                            <button style={{ listStyle: 'none', marginTop: '20px' }}>
+                                <OpenModalMenuItem
+                                    itemText='Write a Review'
+                                    modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]} />}
+                                />
+                            </button>
+                        )
+                    ) : (
+                        <button style={{ listStyle: 'none', marginTop: '20px' }}>
+                            <NavLink to='/login' className={'navlink'}>
+                                Write a Review
+                            </NavLink>
                         </button>
-                    )) : (
-                        <button style={{listStyle:'none'}}>
-                            <NavLink to='/login' className={'navlink'}>Write a Review  </NavLink>
-                        </button>
-                    )
-                }
-                </div>
+                    )}
+                    </div>
+
                 </div>
                 <div id="star-rating" style={{marginTop:'5px', marginBottom:'10px', paddingBottom:'40px', borderBottom: '1px solid var(--color-black)'}}>
                     {[1, 2, 3, 4, 5].map((starNum) => {
@@ -140,20 +147,26 @@ export default function ALlReviews({ sticker, id }) {
                 </div>
 
                 <div id="create-review">
-                    {user ? (sticker[0].ownerId !== user?.id && (
-                        <button style={{listStyle:'none', marginTop:'20px'}}>
-                            <OpenModalMenuItem 
-                                itemText=' Write a Review  '
-                                modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]}/>}
-                            />
+                    {user ? (
+                        reviews.some(review => review?.user?.id === user.id) ? (
+                            <div style={{marginTop:'20px'}}>Already Reviewed</div>
+                        ) : (
+                            <button style={{ listStyle: 'none', marginTop: '20px' }}>
+                                <OpenModalMenuItem
+                                    itemText='Write a Review'
+                                    modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]} />}
+                                />
+                            </button>
+                        )
+                    ) : (
+                        <button style={{ listStyle: 'none', marginTop: '20px' }}>
+                            <NavLink to='/login' className={'navlink'}>
+                                Write a Review
+                            </NavLink>
                         </button>
-                    )) : (
-                        <button style={{listStyle:'none', marginTop:'20px'}}>
-                            <NavLink to='/login' className={'navlink'}> Write a Review </NavLink>
-                        </button>
-                    )
-                }
+                    )}
                 </div>
+
 
             </div>
         </>

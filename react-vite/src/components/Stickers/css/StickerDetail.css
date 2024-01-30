@@ -15,8 +15,10 @@
 }
 
 
+
 #sticker-detail_image {
     width: calc(43% - 150px);
+    height: 100%;
     margin-right: 20px;
 }
 

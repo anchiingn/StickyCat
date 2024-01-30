@@ -120,6 +120,10 @@
     margin: 0px 8px;
 }
 
+.cart-infos:first-child {
+    margin-top: 15px;
+}
+
 .cart-infos > #quantity-add-remove >button {
     border: none;
     background-color: transparent;

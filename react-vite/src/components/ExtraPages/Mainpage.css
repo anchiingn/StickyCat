@@ -179,12 +179,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 #explored-stickers_container > div:nth-child(1) {
     font-size: 22px;
 }
-
 
 #explored-stickers_cards {
     display: grid;

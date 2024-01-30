@@ -48,6 +48,7 @@ export default function AllFavoriteStickers() {
                     <div className="line-in-between"></div> */}
                         <div className="sticker-cards_container">
                             {favorite_stickers.map(sticker => {
+
                                 // Check if sticker and sticker.stickers exist and have at least one element
                             if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
                                 return (
@@ -58,7 +59,7 @@ export default function AllFavoriteStickers() {
                                             </div>
                                             <div className="sticker-details_top">
                                                 <div>
-                                                    <div>{sticker?.stickers[0]?.title}</div>
+                                                    <div style={{fontWeight:'bold'}}>{sticker?.stickers[0]?.title}</div>
                                                     <div>${sticker?.stickers[0]?.price}</div>
                                                 </div>
                                             </div>

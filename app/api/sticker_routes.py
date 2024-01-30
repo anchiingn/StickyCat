@@ -72,8 +72,13 @@ def get_current_stickers():
     sticker_data = []
     for sticker in stickers:
         data = sticker.to_dict()
+        
+        reviews = Review.query.filter_by(stickerId = sticker.id).all()
         currentStickers = User.query.filter_by(id = sticker.ownerId).all()
+
         data['user'] = [user.to_dict() for user in currentStickers]
+        data['reviews'] = [review.to_dict() for review in reviews]
+
         sticker_data.append(data)
 
     return sticker_data

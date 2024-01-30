@@ -33,14 +33,13 @@ export default function StickerCards({ sticker }) {
 
      // -------------------  Star Rating  ------------------- //
      let starRating = 0
-     for (let review of sticker.reviews) {
-         if (sticker.reviews?.length >= 1) {
-             starRating += (review?.star)/sticker.reviews?.length
-         }
-         else {
-             starRating = review?.star
-         }
-     }
+     if (sticker.reviews && sticker.reviews.length >= 1) { //check if it their is review before iteration
+        for (let review of sticker.reviews) {
+          starRating += (review?.star) / sticker.reviews.length;
+        }
+      } else if (sticker.reviews && sticker.reviews.length === 1) {
+        starRating = sticker.reviews[0]?.star;
+      }
 
     return (
         <>
@@ -57,7 +56,7 @@ export default function StickerCards({ sticker }) {
                         </div>
                         <div>
                             <div style={{color:'var(--hover-grey'}}>By: {sticker?.users[0]?.firstname} {sticker?.users[0]?.lastname}</div>
-                            {user && (
+                            {user && sticker.ownerId !== user.id && (
                                 <div>
                                     {sticker?.favorited?.length === 0 ? (
                                         <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={addToFavorite}></i>

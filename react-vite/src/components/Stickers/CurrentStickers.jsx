@@ -17,6 +17,8 @@ export default function CurrentStickers() {
 
     const stickers = Object.values(allStickers)
     stickers.sort((a,b) => b.id - a.id)
+    
+    
 
     return (
         <>
@@ -45,6 +47,15 @@ export default function CurrentStickers() {
                             {/* <div className="line-in-between"></div> */}
                             <div className="sticker-cards_container"> 
                             {stickers.map(sticker => {
+
+                                // -------------------  Star Rating  ------------------- //
+                                let starRating= 0;
+                                if (sticker.reviews && sticker.reviews.length >= 1) { //check if it their is review before iteration
+                                for (let review of sticker.reviews) {
+                                    starRating += (review?.star) / sticker.reviews.length;
+                                }
+                                }
+
                                 if (user?.id === sticker?.ownerId) {
                                     return (
                                     <div key={sticker?.id} className="stickers_container">
@@ -54,10 +65,32 @@ export default function CurrentStickers() {
                                             </div>
                                             <div className="sticker-details_top">
                                                 <div>
-                                                    <div>{sticker?.title}</div>
+                                                    <div style={{fontWeight:'bold'}}>{sticker?.title}</div>
                                                     <div>${sticker?.price}</div>
                                                 </div>
+
+                                                <div style={{color:'var(--hover-grey'}}>By: {user?.firstname} {user?.lastname}</div>
+                                                
+                                                <div>
+                                                    <div id="star-rating">
+                                                    {[1, 2, 3, 4, 5].map((starNum) => {
+                                                        return (
+                                                            <div>
+                                                                <i className={`fa-solid fa-star`} style={{
+                                                                    color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
+                                                                    fontSize:'8px'
+                                                                }}></i>
+                                                            </div>
+                                                    ) })}
+
+                                                    <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>
+                                                        {starRating.toFixed(1)} ({sticker?.reviews?.length})
+                                                    </div>
+                                                </div>
+
                                             </div>
+                                        </div>
+
                                         </NavLink>
                                         <div className="sticker-details_bottom">
                                             <NavLink to={`/${sticker.id}/edit-sticker`} className={'navlink'}>Edit</NavLink>

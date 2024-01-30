@@ -126,7 +126,7 @@ function Navigation() {
                           </button>
                         ) :(
                           <button id="checkout">
-                            <div style={{backgroundColor:'var(--color-black)', color:'var(--hover-grey)'}}>Checkout</div>
+                            <div style={{backgroundColor:'var(--color-black)', color:'var(--hover-grey)', cursor:'default'}}>Checkout</div>
                           </button>
                         )}
                       </div>
