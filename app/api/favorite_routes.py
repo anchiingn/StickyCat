@@ -17,6 +17,8 @@ def get_favorite_stickers():
         stickers = Sticker.query.filter_by(id = favorite_sticker.stickerId).all()
         data['stickers'] = [sticker.to_dict() for sticker in stickers]
         favorite_data.append(data)
+
+    
     return favorite_data
 
 @favorite_routes.route('<int:id>', methods=['POST'])

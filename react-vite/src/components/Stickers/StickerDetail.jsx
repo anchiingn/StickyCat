@@ -111,9 +111,9 @@ export default function StickerDetail() {
 
                     <div id='sticker-detail_infos'>
                         <div id="star-rating">
-                        {[1, 2, 3, 4, 5].map((starNum) => {
+                        {[1, 2, 3, 4, 5].map((starNum, index) => {
                             return (
-                                <div>
+                                <div key={index}>
                                     <i className={`fa-solid fa-star`} style={{
                                         color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
                                         fontSize:'8px'
@@ -134,7 +134,7 @@ export default function StickerDetail() {
                         </div>
                         <div style={{display:'flex', justifyContent:'space-between'}}>
                             <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
-                            {user && (
+                            {user && single_sticker[0]?.ownerId !== user.id && (
                                 <div>
                                     {single_sticker[0]?.favorited?.length === 0 ? (
                                         <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={addToFavorite}></i>
@@ -171,8 +171,8 @@ export default function StickerDetail() {
                         <div>
                             <div style={{fontWeight:'bold', marginTop:'10px'}}>Dimensions:</div>
                             <div style={{margin:'0px 20px'}}>
-                                <div id="height">Height: {single_sticker[0]?.height}" </div>
-                                <div id="width">Width: {single_sticker[0]?.width}" </div>
+                                <div id="height">Height: {single_sticker[0]?.height}&quot; </div>
+                                <div id="width">Width: {single_sticker[0]?.width}&quot; </div>
                             </div>
                         </div>
                         

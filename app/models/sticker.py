@@ -34,5 +34,13 @@ class Sticker(db.Model):
             'width': self.width,
             'message': self.message,
             'createAt': self.createAt,
-            'updateAt': self.updateAt
+            'updateAt': self.updateAt,
+            'user': {
+                'firstname': self.user_sticker.firstname,
+                'lastname': self.user_sticker.lastname
+            },
+            
+            'star': [review.star for review in self.review_sticker],
+            'review': [review.review for review in self.review_sticker]
+            
         }

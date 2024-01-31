@@ -43,6 +43,7 @@ export default function ALlReviews({ sticker, id }) {
         setLoadMore( prev => prev + 5)
     }
 
+
     return (
         <>
             <div id="reviews_container">
@@ -51,7 +52,7 @@ export default function ALlReviews({ sticker, id }) {
                     
                     <div id="create-review">
                     {user ? (
-                        reviews.some(review => review?.user?.id === user.id) ? (
+                        sticker[0].ownerId === user.id  ? (
                             <div style={{marginTop:'20px'}}>Already Reviewed</div>
                         ) : (
                             <button style={{ listStyle: 'none', marginTop: '20px' }}>
@@ -147,25 +148,35 @@ export default function ALlReviews({ sticker, id }) {
                 </div>
 
                 <div id="create-review">
-                    {user ? (
-                        reviews.some(review => review?.user?.id === user.id) ? (
-                            <div style={{marginTop:'20px'}}>Already Reviewed</div>
+                    {user ? (   // If there is log-in user
+                        sticker[0].ownerId === user.id ? (
+                        <button style={{ display: 'none' }}>
+                            <OpenModalMenuItem
+                            itemText="Write a Review"
+                            modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]} />}
+                            />
+                        </button>
+                        ) : (
+                        reviews.some((review) => review?.user?.id === user.id) ? (
+                            <div style={{ marginTop: '20px' }}>Already Reviewed</div>
                         ) : (
                             <button style={{ listStyle: 'none', marginTop: '20px' }}>
-                                <OpenModalMenuItem
-                                    itemText='Write a Review'
-                                    modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]} />}
-                                />
+                            <OpenModalMenuItem
+                                itemText="Write a Review"
+                                modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]} />}
+                            />
                             </button>
                         )
-                    ) : (
+                        )
+                    ) : (       // If there is no log-in user
                         <button style={{ listStyle: 'none', marginTop: '20px' }}>
-                            <NavLink to='/login' className={'navlink'}>
-                                Write a Review
-                            </NavLink>
+                        <NavLink to="/login" className="navlink">
+                            Write a Review
+                        </NavLink>
                         </button>
                     )}
-                </div>
+                    </div>
+
 
 
             </div>

@@ -1,7 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
-import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllStickers } from "../../redux/stickerReducer"
-import { thunkLoadAllReviews } from "../../redux/reviewReducer"
+import {  thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllStickers } from "../../redux/stickerReducer"
 import { useParams, NavLink } from "react-router-dom"
 
 import './Stickers.css'
@@ -41,6 +39,7 @@ export default function StickerCards({ sticker }) {
         starRating = sticker.reviews[0]?.star;
       }
 
+
     return (
         <>
         {sticker && sticker.users && sticker.users.length > 0 &&(
@@ -56,7 +55,7 @@ export default function StickerCards({ sticker }) {
                         </div>
                         <div>
                             <div style={{color:'var(--hover-grey'}}>By: {sticker?.users[0]?.firstname} {sticker?.users[0]?.lastname}</div>
-                            {user && sticker.ownerId !== user.id && (
+                            {/* {user && sticker.ownerId !== user.id && (
                                 <div>
                                     {sticker?.favorited?.length === 0 ? (
                                         <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={addToFavorite}></i>
@@ -64,13 +63,13 @@ export default function StickerCards({ sticker }) {
                                         <i className="fa-solid fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={removeFromFavorite}></i>
                                     )}
                                 </div>
-                            )}
+                            )} */}
                         </div>
                         <div>
                             <div id="star-rating">
-                            {[1, 2, 3, 4, 5].map((starNum) => {
+                            {[1, 2, 3, 4, 5].map((starNum, index) => {
                                 return (
-                                    <div>
+                                    <div key={index}>
                                         <i className={`fa-solid fa-star`} style={{
                                             color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
                                             fontSize:'8px'

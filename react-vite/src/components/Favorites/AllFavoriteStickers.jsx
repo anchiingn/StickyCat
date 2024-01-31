@@ -16,8 +16,7 @@ export default function AllFavoriteStickers() {
     }, [dispatch])
 
     const favorite_stickers = fetchAllFavorites ? Object.values(fetchAllFavorites) : []
-    favorite_stickers.sort((a,b) => b.id - a.id)
-
+    favorite_stickers.sort((a,b) => b?.id - a?.id)
 
     return (
     <>
@@ -48,7 +47,13 @@ export default function AllFavoriteStickers() {
                     <div className="line-in-between"></div> */}
                         <div className="sticker-cards_container">
                             {favorite_stickers.map(sticker => {
-
+                                // -------------------  Star Rating  ------------------- //
+                                let starRating= 0;
+                                if (sticker.stickers && sticker.stickers.length > 0 ) { //check if it their is review before iteration
+                                for (let star of sticker.stickers[0]?.star) {
+                                    starRating += (star) / sticker.stickers[0]?.star?.length;
+                                }
+                                }
                                 // Check if sticker and sticker.stickers exist and have at least one element
                             if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
                                 return (
@@ -61,6 +66,24 @@ export default function AllFavoriteStickers() {
                                                 <div>
                                                     <div style={{fontWeight:'bold'}}>{sticker?.stickers[0]?.title}</div>
                                                     <div>${sticker?.stickers[0]?.price}</div>
+                                                </div>
+                                                <div style={{color:'var(--hover-grey'}}>By: {sticker?.stickers[0]?.user?.firstname} {sticker?.stickers[0]?.user?.lastname}</div>
+                                                <div>
+                                                    <div id="star-rating">
+                                                    {[1, 2, 3, 4, 5].map((starNum, index) => {
+                                                        return (
+                                                            <div key={index}>
+                                                                <i className={`fa-solid fa-star`} style={{
+                                                                    color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
+                                                                    fontSize:'8px'
+                                                                }}></i>
+                                                            </div>
+                                                    ) })}
+
+                                                    <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>
+                                                        {starRating.toFixed(1)} ({sticker.stickers[0]?.review?.length})
+                                                    </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </NavLink>

@@ -16,12 +16,17 @@ sticker_routes = Blueprint('stickers', __name__)
 
 @sticker_routes.route('/')
 def get_stickers():
+    if current_user.is_authenticated:
+        user_id = current_user.id
+    else:
+        user_id = None
+
     stickers = Sticker.query.all()
 
     sticker_data = []
     for sticker in stickers:
         data = sticker.to_dict()
-        favorites = Favorite.query.filter_by(stickerId = sticker.id).all()
+        favorites = Favorite.query.filter_by(stickerId=sticker.id).all()
         carts = Cart.query.filter_by(stickerId = sticker.id).all()
         reviews = Review.query.filter_by(stickerId = sticker.id).all()
         users = User.query.filter_by(id = sticker.ownerId).all()
@@ -41,7 +46,6 @@ def get_single_sticker(id):
     if current_user.is_authenticated:
         user_id = current_user.id
     else:
-    # Handle the case when the user is not authenticated
         user_id = None
         
     sticker = Sticker.query.get(id)
