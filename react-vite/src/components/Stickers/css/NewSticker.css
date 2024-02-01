@@ -3,16 +3,21 @@
     flex-direction: column;
     align-items: center;
     width: 70em;
-    height: 30em;
-    margin-top: -10px;
+    height: max-content;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(149, 149, 149, 0.5);
+    background-color: rgb(243, 238, 225);
+    margin: 0px auto;
+    margin-bottom: 100px;
 }
 
 .sticker-form_container > div:first-child{
-    margin-top: 20px;
     font-size: 30px;
-    font-family: var(--big-font);
-    letter-spacing: 1.5px;
+    font-weight: bold;
+    margin: 40px 0px;
 }
+
+
 
 .create-form {
     display: flex;
@@ -23,13 +28,33 @@
 #image-side > div{
     display: flex;
     flex-direction: column;
-    width: 20em;
+    width: 19.1em;
     margin-right: 50px;
 }
 
 #image-side > div > img {
-    margin: 10px 0px;
+    margin-bottom: 10px;
 }
+
+input[type='file'] {
+    /* border: 1px solid var(--color-black); */
+    box-shadow: 0px 2px 2px grey,
+                0px 0px 1px grey;
+    height: 40px;
+    border-radius: 50px;
+    background-color: var(--color-white);
+}
+
+::-webkit-file-upload-button {
+    background-color: var(--color-red);
+    border: none;
+    height: 40px;
+    border-radius: 50px;
+    padding: 0px 20px;
+    margin-right: 20px;
+}
+
+
 
 
 #form-side {
@@ -37,34 +62,48 @@
     flex-direction: column;
 }
 
-.create-form > label , #form-side > label{
-    margin-top: 10px;
+#form-side > input{
+    margin-bottom: 10px;
 }
 
 .height-width_container {
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.height-width_container > label {
-    margin: 10px;
+.height-width_container > label, .height-width_container > input:first-child {
+    margin-right: 10px;
+}
+
+.height-width_container > label:nth-child(3){
+    margin-left: 10px;
 }
 
 .create-form > textarea,  #form-side > textarea {
     height: 100px;
     margin-bottom: 20px;
-    
 }
 
-.create-form > button, #form-side > button {
+
+
+#form-side > div > button {
     height: 45px;
+    width: 15em;
     border-radius: 50px;
     border: none;
+    margin: 5px auto;
+}
+
+#form-side > div > button:first-child{
     background-color: var(--color-red);
 }
 
-.create-form > button:hover, #form-side > button:hover {
+.cancel-form {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+#form-side > div > button:hover, .cancel-form:hover, ::-webkit-file-upload-button:hover {
     background-color: var(--color-black);
     color: var(--hover-grey);
     cursor: pointer;
 }
-

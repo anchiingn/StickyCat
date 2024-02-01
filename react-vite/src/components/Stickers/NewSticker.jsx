@@ -32,10 +32,10 @@ export default function NewSticker () {
                 errors.image = 'Image is required';
             }
             if (!height) {
-                errors.height = 'height is required';
+                errors.height = 'Height is required';
             }
             if (!width) {
-                errors.width = 'width is required';
+                errors.width = 'Width is required';
             }
             if (message && message.length > 500) {
                 errors.message = 'Must contain 500 characters long'
@@ -70,30 +70,26 @@ export default function NewSticker () {
     
     return (
         <>
-        <div className="stickers-toppart_container">
+        {/* <div className="stickers-toppart_container">
             <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
             /
             <NavLink to={'/launch-sticker'} className={'navlink'}>Launch Sticker</NavLink> 
             /
             <NavLink className={'navlink'} style={{cursor:'default'}}>Create Sticker</NavLink>
-        </div>
-        <div className='container'>
-            <div className='sticker-form_container' style={{marginBottom:'200px'}}>
+        </div> */}
+
+        <div >
+            <div className='sticker-form_container'>
                     <div>New Sticker</div>
 
-                    {validation.title && submit && <p className="errors">{validation.title}</p>}
-                    {validation.price && submit && <p className="errors">{validation.price}</p>}
-                    {validation.image && submit && <p className="errors">{validation.image}</p>}
-                    {validation.height && submit && <p className="errors">{validation.height}</p>}
-                    {validation.width && submit && <p className="errors">{validation.width}</p>}
-                    {validation.message && submit && <p className="errors">{validation.message}</p>}
-                    
+
+
                     <form onSubmit={onSubmit} encType="multipart/form-data" className='create-form'>
                     
                     <div id='image-side'> 
                         <label>Image <span style={{color:'var(--color-red)'}}>*</span> </label>
                         <div onClick={handleImg}>
-                            {image ?<img src={URL.createObjectURL(image)} alt="" style={{width:'100%', cursor:'pointer'}}/>  :<img src='https://stickycat.s3.us-east-2.amazonaws.com/Landing_Page_.png' alt="" style={{width:'100%', cursor:'pointer'}}/>}
+                            {image ?<img src={URL.createObjectURL(image)} alt="" style={{width:'100%', cursor:'pointer'}}/>  :<img src='https://stickycat.s3.us-east-2.amazonaws.com/upload.png' alt="" style={{width:'100%'}}/>}
                             <input 
                                 type="file"
                                 accept="image/*"
@@ -104,6 +100,15 @@ export default function NewSticker () {
                         </div>
                     </div>
                     <div id='form-side'>
+                        <div className='error_container'>
+                            {validation.title && submit && <p className="errors">{validation.title}</p>}
+                            {validation.price && submit && <p className="errors">{validation.price}</p>}
+                            {validation.image && submit && <p className="errors">{validation.image}</p>}
+                            {validation.height && submit && <p className="errors">{validation.height}</p>}
+                            {validation.width && submit && <p className="errors">{validation.width}</p>}
+                            {validation.message && submit && <p className="errors">{validation.message}</p>}
+                        </div>
+
                         <label>Title <span style={{color:'var(--color-red)'}}>*</span> </label>
                         <input 
                             type="text"
@@ -135,7 +140,11 @@ export default function NewSticker () {
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                         />
-                        <button>Submit</button>
+
+                        <div style={{display:'flex'}}>
+                            <button >Submit</button>
+                            <button className='cancel-form' onClick={() => navigate('/launch-sticker')}>Cancel</button>
+                        </div>
                     </div>
                     </form>
             </div>

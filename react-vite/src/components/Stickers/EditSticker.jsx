@@ -85,20 +85,32 @@ export default function EditSticker () {
 
     return (
         <>
-        <div className="stickers-toppart_container">
+        {/* <div className="stickers-toppart_container">
             <NavLink to={'/my-stickers'} className={'navlink'}>My Stickers</NavLink> 
             /
             <NavLink className={'navlink'} style={{cursor:'default'}}>Edit Sticker</NavLink>
-        </div>
-        <div className='container'>
-            <div className='sticker-form_container' style={{marginBottom:'250px'}}>
+        </div> */}
+
+
+        <div >
+            <div className='sticker-form_container'>
                     <div>Edit Sticker</div>
-                    <img src={sticker?.image} alt="" style={{width:"170px", margin:'10px 0px'}}/>
-                    <form onSubmit={onSubmit} encType="multipart/form-data" className='edit-form' >
-                    {validation.title && submit && <p className="errors">{validation.title}</p>}
-                    {validation.price && submit && <p className="errors">{validation.price}</p>}
-                    {validation.height && submit && <p className="errors">{validation.height}</p>}
-                    {validation.width && submit && <p className="errors">{validation.width}</p>}
+
+                    <form onSubmit={onSubmit} encType="multipart/form-data" className='create-form' >
+                    
+                    <div id='image-side'>
+                        <div>
+                            <img src={sticker?.image} alt="" />
+                        </div>
+                    </div>
+                    
+                    <div id='form-side'>
+                        <div className='error_container'>
+                            {validation.title && submit && <p className="errors">{validation.title}</p>}
+                            {validation.price && submit && <p className="errors">{validation.price}</p>}
+                            {validation.height && submit && <p className="errors">{validation.height}</p>}
+                            {validation.width && submit && <p className="errors">{validation.width}</p>}
+                        </div>
 
                         <label>Title</label>
                         <input 
@@ -131,7 +143,12 @@ export default function EditSticker () {
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                         />
-                        <button>Submit</button>
+                        <div style={{display:'flex'}}>
+                            <button >Submit</button>
+                            <button className='cancel-form' onClick={() => navigate('/my-stickers')}>Cancel</button>
+                        </div>
+                    </div>
+
                     </form>
             </div>
         </div> 

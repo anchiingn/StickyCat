@@ -24,10 +24,10 @@ export default function AllFavoriteStickers() {
             <>
             {/* <div style={{display:'flex', flexDirection:'column', backgroundColor:'aqua', height:'max-content'}}> */}
                 
-            <div className="stickers-toppart_container">
-            <NavLink className={'navlink'} style={{cursor:'default'}}>My Favorite Stickers</NavLink> 
-            /
-            </div>
+            {/* <div className="stickers-toppart_container">
+                <NavLink className={'navlink'} style={{cursor:'default'}}>My Favorite Stickers</NavLink> 
+                /
+            </div> */}
 
         <div className="allStickers_container" id="user-stickers_container">
             {favorite_stickers.length === 0 ?(

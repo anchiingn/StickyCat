@@ -24,10 +24,10 @@ export default function CurrentStickers() {
         <>
         {user && (
             <>
-                <div className="stickers-toppart_container">
+                {/* <div className="stickers-toppart_container">
                 <NavLink className={'navlink'} style={{cursor:'default'}}>My Stickers</NavLink> 
                 /
-                </div>
+                </div> */}
 
                 <div className="allStickers_container">
                     {stickers.length === 0 ?(
