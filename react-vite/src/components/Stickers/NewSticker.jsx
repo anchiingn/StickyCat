@@ -126,12 +126,14 @@ export default function NewSticker () {
                             <label>Height <span style={{color:'var(--color-red)'}}>*</span> </label>
                             <input 
                                 type="number"
+                                min={0}
                                 value={height}
                                 onChange={(e) => setHeight(e.target.value)}
                             />
                             <label>Width <span style={{color:'var(--color-red)'}}>*</span> </label>
                             <input 
                                 type="number"
+                                min={0}
                                 value={width}
                                 onChange={(e) => setWidth(e.target.value)}
                             />
