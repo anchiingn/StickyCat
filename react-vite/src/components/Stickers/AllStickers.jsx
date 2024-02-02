@@ -16,7 +16,7 @@ export default function AllStickers() {
         dispatch(thunkLoadAllStickers())
         setTimeout(() => {
             setIsLoading(false)
-        }, 0)
+        }, 200)
     }, [dispatch])
 
     const stickers = Object.values(allStickers)
@@ -31,14 +31,15 @@ export default function AllStickers() {
     return (
         <>
         {isLoading ? (
-            <div>loading...</div>
+            <h2 style={{margin:'auto'}}>Loading...</h2>
         ) : (
             <>
-            {/* <div className="stickers-toppart_container">
-                <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
+            <div className="stickers-toppart_container">
+                {/* <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
+                / */}
+                <NavLink className={'navlink'} style={{cursor:'default'}}>Explore Stickers </NavLink> 
                 /
-                <NavLink className={'navlink'} style={{cursor:'default'}}>Explore Stickers</NavLink> 
-            </div> */}
+            </div>
     
             {/* <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>All Sticky Stickers</div> */}
             <div className="allStickers_container">

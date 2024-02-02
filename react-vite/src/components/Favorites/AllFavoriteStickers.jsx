@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { thunkLoadAllFavorites } from "../../redux/stickerReducer"
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
 import { NavLink } from "react-router-dom"
@@ -10,9 +10,13 @@ export default function AllFavoriteStickers() {
     const dispatch = useDispatch()
     const fetchAllFavorites = useSelector(state => state?.stickers)
     const user = useSelector(state => state.session.user)
+    const [ isLoading, setIsLoading ] = useState(true)
 
     useEffect(() => {
         dispatch(thunkLoadAllFavorites())
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 200)
     }, [dispatch])
 
     const favorite_stickers = fetchAllFavorites ? Object.values(fetchAllFavorites) : []
@@ -20,14 +24,18 @@ export default function AllFavoriteStickers() {
 
     return (
     <>
+    {isLoading ? (
+        <h2 style={{margin:'auto'}}>Loading...</h2>
+    ) :(
+        <>
         {user && (
             <>
             {/* <div style={{display:'flex', flexDirection:'column', backgroundColor:'aqua', height:'max-content'}}> */}
                 
-            {/* <div className="stickers-toppart_container">
+            <div className="stickers-toppart_container">
                 <NavLink className={'navlink'} style={{cursor:'default'}}>My Favorite Stickers</NavLink> 
                 /
-            </div> */}
+            </div>
 
         <div className="allStickers_container" id="user-stickers_container">
             {favorite_stickers.length === 0 ?(
@@ -106,6 +114,8 @@ export default function AllFavoriteStickers() {
         {/* </div> */}
         </>
         )}
+        </>
+    )}
     </>
     )
 }

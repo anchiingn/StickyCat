@@ -34,8 +34,8 @@ function LoginFormPage() {
 
   const demo = async (e) => {
     e.preventDefault()
-    return await dispatch(thunkLogin({ email: 'demo@aa.io', password: 'password' }))
-    .then(navigate('/'))
+    await dispatch(thunkLogin({ email: 'demo@aa.io', password: 'password' }))
+    navigate('/')
   }
 
   const signup = async (e) => {

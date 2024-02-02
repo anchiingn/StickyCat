@@ -85,11 +85,12 @@ export default function EditSticker () {
 
     return (
         <>
-        {/* <div className="stickers-toppart_container">
-            <NavLink to={'/my-stickers'} className={'navlink'}>My Stickers</NavLink> 
-            /
+        <div className="stickers-toppart_container">
+            {/* <NavLink to={'/my-stickers'} className={'navlink'}>My Stickers</NavLink> 
+            / */}
             <NavLink className={'navlink'} style={{cursor:'default'}}>Edit Sticker</NavLink>
-        </div> */}
+            /
+        </div>
 
 
         <div >
