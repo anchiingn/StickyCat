@@ -5,8 +5,8 @@
     width: 70em;
     height: max-content;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgb(149, 149, 149, 0.5);
-    background-color: rgb(243, 238, 225);
+    /* box-shadow: 0px 0px 10px rgb(149, 149, 149, 0.5);
+    background-color: rgb(243, 238, 225); */
     margin: 0px auto;
     margin-bottom: 100px;
 }
@@ -24,6 +24,7 @@
     /* flex-direction: column; */
     margin-bottom: 50px;
 }
+
 
 #image-side > div{
     display: flex;
@@ -106,4 +107,18 @@ input[type='file'] {
     background-color: var(--color-black);
     color: var(--hover-grey);
     cursor: pointer;
+}
+
+@media screen and (max-width:1250px) { 
+    .sticker-form_container {
+        width: 50em;
+    }
+
+    .create-form {
+        flex-direction: column;
+    }
+
+    #image-side {
+        margin-bottom: 20px;
+    }
 }

@@ -15,7 +15,6 @@
 }
 
 
-
 #sticker-detail_image {
     width: calc(43% - 150px);
     height: 100%;
@@ -110,4 +109,47 @@
     color: var(--color-red);
     border: none;
     cursor: pointer;
+}
+
+.goback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 100px;
+    top: 20px;
+}
+
+.goback:hover {
+    background-color: var(--color-yellow);
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:1250px) {
+    #sticker-detail_container {
+        width: fit-content;
+    }
+
+    #sticker-detail_container > div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #sticker-detail_image {
+        width: 50%;
+        margin-bottom: 40px;
+    }
+    
+    #sticker-detail_infos  {
+        width: 100%;
+    }
+
+    #review_container {
+        margin: 50px 5.2em;
+        margin-top: 50px;
+    } 
 }

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState, useRef } from "react"
 import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer"
-import { useParams, NavLink } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
@@ -10,6 +10,7 @@ import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
 export default function StickerDetail() {
     const { id } = useParams()
     const dispatch = useDispatch()
+    const navigator = useNavigate()
     const reviewRef = useRef()
     const sticker = useSelector(state => state?.stickers)
     const fetchReviews = useSelector(state => state?.reviews)
@@ -94,16 +95,11 @@ export default function StickerDetail() {
 
     return (
         <>
+        <div className='goback' onClick={() => navigator(-1)}>
+            <i className="fa-solid fa-arrow-left"></i>
+        </div>
         {single_sticker && single_sticker.length > 0 && single_sticker[0].user && single_sticker[0].user.length > 0 &&(
             <>
-            {/* <div className="stickers-toppart_container">
-                <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
-                /
-                <NavLink to={'/explored-stickers'} className={'navlink'}>Explore Stickers</NavLink> 
-                /
-                <NavLink className={'navlink'} style={{cursor:'default'}}>{single_sticker[0]?.title}</NavLink>
-            </div> */}
-
 
             <div id="sticker-detail_container">
                 <div>

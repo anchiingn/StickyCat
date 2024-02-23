@@ -51,22 +51,31 @@ export default function ALlReviews({ sticker, id }) {
                     <div style={{ fontWeight: 'bold', fontSize:'20px'}}>Reviews:</div>
                     
                     <div id="create-review">
-                    {user ? (
-                        sticker[0].ownerId === user.id  ? (
-                            <div style={{marginTop:'20px'}}>Already Reviewed</div>
+                    {user ? (   // If there is log-in user
+                        sticker[0].ownerId === user.id ? (
+                        <button style={{ display: 'none' }}>
+                            <OpenModalMenuItem
+                            itemText="Write a Review"
+                            modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]} />}
+                            />
+                        </button>
+                        ) : (
+                        reviews.some((review) => review?.user?.id === user.id) ? (
+                            <div style={{ marginTop: '20px' }}>Already Reviewed</div>
                         ) : (
                             <button style={{ listStyle: 'none', marginTop: '20px' }}>
-                                <OpenModalMenuItem
-                                    itemText='Write a Review'
-                                    modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]} />}
-                                />
+                            <OpenModalMenuItem
+                                itemText="Write a Review"
+                                modalComponent={<CreateReview reviews={reviews} sticker={sticker[0]} />}
+                            />
                             </button>
                         )
-                    ) : (
+                        )
+                    ) : (       // If there is no log-in user
                         <button style={{ listStyle: 'none', marginTop: '20px' }}>
-                            <NavLink to='/login' className={'navlink'}>
-                                Write a Review
-                            </NavLink>
+                        <NavLink to="/login" className="navlink">
+                            Write a Review
+                        </NavLink>
                         </button>
                     )}
                     </div>
@@ -75,7 +84,7 @@ export default function ALlReviews({ sticker, id }) {
                 <div id="star-rating" style={{marginTop:'5px', marginBottom:'10px', paddingBottom:'40px', borderBottom: '1px solid var(--color-black)'}}>
                     {[1, 2, 3, 4, 5].map((starNum) => {
                         return (
-                            <div>
+                            <div key={starNum.id}>
                                 <i className={`fa-solid fa-star`} style={{
                                     color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
                                     fontSize:'20px'
@@ -98,7 +107,7 @@ export default function ALlReviews({ sticker, id }) {
                                 <div id="star-rating" style={{marginTop:'25px', marginBottom:'10px'}}>
                                     {[1, 2, 3, 4, 5].map((starNum) => {
                                         return (
-                                        <div>
+                                        <div key={starNum.id}>
                                             <i className={`fa-solid fa-star`} style={{
                                                 color: review?.star >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
                                                 fontSize:'8px'
