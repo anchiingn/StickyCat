@@ -19,14 +19,19 @@ Render
 [Feature List](https://github.com/anchiingn/StickyCat/wiki/Feature-List) | [Database Schema](https://github.com/anchiingn/StickyCat/wiki/Database-Schema) | [User Stories](https://github.com/anchiingn/StickyCat/wiki/User-Stories) | [Wireframes](https://github.com/anchiingn/StickyCat/wiki/WireFrames)
 
 # Landing Page
+<img width="1500" alt="Screen Shot 2024-02-01 at 11 34 48 PM" src="https://github.com/anchiingn/StickyCat/assets/132519374/4c5f7070-7a56-40ba-a2e6-92bf9afc129a">
 
 # Explored Sticker Page
+<img width="1500" alt="Screen Shot 2024-02-01 at 11 34 26 PM" src="https://github.com/anchiingn/StickyCat/assets/132519374/22539998-6b00-4ef5-a427-cb9fd5d70aae">
 
-# Launch Sticker Page
+# Create Sticker
+<img width="1500" alt="Screen Shot 2024-02-01 at 11 34 18 PM" src="https://github.com/anchiingn/StickyCat/assets/132519374/a96eec55-3db5-4d3b-8d76-ee86d464c607">
 
 # Sticker Detail Page 
+<img width="1500" alt="Screen Shot 2024-02-01 at 11 38 17 PM" src="https://github.com/anchiingn/StickyCat/assets/132519374/0d0d2ac2-1086-4262-8e2d-4ae7f7df74e0">
 
 # Sign In/Up Page
+<img width="900" alt="Screen Shot 2024-02-01 at 11 35 00 PM" src="https://github.com/anchiingn/StickyCat/assets/132519374/d94fb2cd-8e6b-468c-bed3-538fe32207fa">
 
 ## Getting started
 
