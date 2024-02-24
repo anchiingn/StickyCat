@@ -241,9 +241,9 @@
 @media screen and (max-width:400px) { 
 
     #mainpage_container > img {
-        width: calc(100% - 20px);
+        width: calc(100% );
         margin-bottom: 50px;
-        left: 20px;
+        left: 0;
     }
 
     #mainpage-title-text {
@@ -253,6 +253,7 @@
     #about-title_container {
         margin-top: 20px;
         margin-bottom: -15px;
+        width: 100dvw;
     }
 
     #about-info {
@@ -266,10 +267,14 @@
         width: 100%;
     }
 
-    #about-texts_container p {
+    #about-texts_container p, #launch-sticker_container p {
         margin-top: 21px;
         width: 17em;
         text-align: center;
+    }
+
+    .yellow_container {
+        width: 100dvw;
     }
 
     .yellow2_container {
@@ -285,8 +290,22 @@
     }
 
     #explored-stickers_cards {
+        width: 100%;
+    }
+
+    #explored-stickers_cards {
         grid-template-columns: 1fr;
     }
+
+    #launch-sticker_container {
+        width: 100dvw;
+        height: fit-content;
+    }
+
+    #launch-sticker_container .navlink {
+        margin-bottom: 40px;
+    }
+
 }
 
 

@@ -9,10 +9,10 @@
     
 }
 
-#footer-mainpage_container > img {
+/* #footer-mainpage_container > img {
     height: 70px;
     margin-left: 20px;
-}
+} */
 
 #footer-top { 
     display: flex;
@@ -20,7 +20,7 @@
     align-items: center;
     /* background-color: aqua; */
     width: 100%; 
-    margin: 0px 100px;
+    margin: 0px 30px;
     
 }
 
@@ -37,6 +37,6 @@
     margin-left: 20px;
 }
 
-@media screen and (max-width: 1250px){
+@media screen and (max-width: 400px){
     
 }
