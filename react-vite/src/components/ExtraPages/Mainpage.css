@@ -13,8 +13,8 @@
     position: relative;
     right: 105px;
     bottom: 10px;
-
 }
+
  #mainpage-title-text {
     display: flex;
     justify-content: space-between;
@@ -237,3 +237,58 @@
     background-color: var(--color-black);
     
 }
+
+@media screen and (max-width:400px) { 
+
+    #mainpage_container > img {
+        width: calc(100% - 20px);
+        margin-bottom: 50px;
+        left: 20px;
+    }
+
+    #mainpage-title-text {
+        display: none;
+    }
+
+    #about-title_container {
+        margin-top: 20px;
+        margin-bottom: -15px;
+    }
+
+    #about-info {
+        width: 100dvw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #about-texts_container {
+        width: 100%;
+    }
+
+    #about-texts_container p {
+        margin-top: 21px;
+        width: 17em;
+        text-align: center;
+    }
+
+    .yellow2_container {
+        position: relative;
+        top: -9.5em;
+    }
+
+    #explored-stickers_container {
+        width: 100dvw;
+        position: relative;
+        top: -3em;
+        height: fit-content;
+    }
+
+    #explored-stickers_cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+

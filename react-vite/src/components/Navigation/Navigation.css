@@ -63,7 +63,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
-  padding: 10px 40px;
+  padding: 10px 30px;
   /* border-radius: 50px; */
   box-shadow: 0px 3px 2px rgba(128, 128, 128, 0.1);
 }
@@ -109,7 +109,7 @@
 #cart-stickers_length {
   position: absolute;
   top: 23px;
-  right: 35px;
+  right: 28px;
   background-color: var(--color-red);
   color: var(--color-white);
   width: 18px;
@@ -178,26 +178,60 @@
 
 
 #checkout > div:hover {
-color: rgb(93, 92, 91);
-background-color: var(--color-black);
-cursor: pointer;
+  color: rgb(93, 92, 91);
+  background-color: var(--color-black);
+  cursor: pointer;
 }
 
 #cart_container > button {
-border: none;
+  border: none; 
 }
 
 #cart_container > button > .navlink {
-background-color: var(--color-red);
-border-radius: 50px;
-border: none;
-padding: 4px 10px;
+  background-color: var(--color-red);
+  border-radius: 50px;
+  border: none;
+  padding: 4px 10px;
 }
 
 #cart_container > button > .navlink:hover {
-background-color: var(--color-black);
-color: rgb(93, 92, 91);
-cursor: pointer;
+  background-color: var(--color-black);
+  color: rgb(93, 92, 91);
+  cursor: pointer;
 }
 
+.bar_butt {
+  display: none;
+}
+
+@media screen and (max-width:400px) {
+  #nav-link_container {
+    display: none;
+  }
+
+  .bar_butt {
+    display: block;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+  }
+
+  #nav-link_container_mobile {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: var(--color-white);
+    box-shadow: 0px 3px 2px rgba(128, 128, 128, 0.1);
+    width: 100dvw;
+    padding: 20px;
+  }
+
+  #nav-link_container_mobile .navlink {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+}
 

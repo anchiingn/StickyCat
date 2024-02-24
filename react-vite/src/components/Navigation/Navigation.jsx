@@ -10,10 +10,11 @@ import AllCartStickers from "../Cart/AllCartStickers";
 
 function Navigation() {
   const [show, setShow] = useState(false)
+  const [bar, setBar] = useState(false)
   const ulRef = useRef();
+  const barRef = useRef()
   const dispatch = useDispatch()
   const fetchCartStickers = useSelector(state => state.carts)
-  const fetchStickers = useSelector(state => state.stickers)
   const user = useSelector (state => state.session.user)
   
   const navigate = useNavigate()
@@ -23,7 +24,6 @@ function Navigation() {
   },[dispatch]);
 
   const cart_stickers = Object.values(fetchCartStickers);
-  const stickers = Object.values(fetchStickers)
 
   let quantity = 0
   for (let sticker of cart_stickers) {
@@ -45,12 +45,29 @@ function Navigation() {
       if (ulRef.current && !ulRef.current.contains(e.target)) {
         setShow(false);
       }
+      
     };
 
     document.addEventListener("click", closeMenu);
 
     return () => document.removeEventListener("click", closeMenu);
   }, [show]);
+
+  // useEffect(() => {
+  //   if (!bar) return;
+
+  //   const closeMenu = (e) => {
+
+  //     if (barRef.current && !barRef.current.contains(e.target)) {
+  //       console.log(barRef.current)
+  //       setBar(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("click", closeMenu);
+
+  //   return () => document.removeEventListener("click", closeMenu);
+  // }, [bar]);
 
 
   // -------- Total Price --------//
@@ -88,6 +105,14 @@ function Navigation() {
             <NavLink to="/launch-sticker" className="navlink" >Launch Sticker</NavLink>
           </div>
 
+          <button onClick={() => setBar(!bar)} className="bar_butt" ><i className="fa-solid fa-bars"></i></button>
+          {bar && (
+            <div id="nav-link_container_mobile" ref={barRef} >
+            {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
+            <NavLink to="/explored-stickers" className="navlink">Explore Stickers</NavLink>
+            <NavLink to="/launch-sticker" className="navlink" >Launch Sticker</NavLink>
+          </div>
+          )}
 
           <div id='profile-cart_container'>
             <div>
@@ -100,7 +125,6 @@ function Navigation() {
                   <i className="fa-solid fa-cart-shopping" style={{fontSize:'20px'}}/>
                   <div id="cart-stickers_length" style={{cursor:'pointer'}}>{quantity}</div>
                 </button>
-                
               </div>
 
               {show && (
