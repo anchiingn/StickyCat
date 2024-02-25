@@ -194,12 +194,33 @@ nav > ul > li > button:not(.numPage) {
       
     }
 
+    .stickers_container {
+        margin-left: -10px;
+    }
+
     .sticker-cards_container {
         display: grid;
         grid-template-columns: 1fr;
     }
 
+}
+
+@media screen and (max-width:450px){ 
+    .user-stickers_container {
+        width: 20em;
+        height: 30em;
+        margin: auto;
+    }
+
+    .user-paragraph {
+        width: 100%;
+    }
+
+    .line-in-between {
+        width: 14em;
+    }
+
     .allStickers_container > p {
-        margin: 0px 70px;
+        margin: 0px 35px;
     }
 }
