@@ -63,3 +63,10 @@
     background-color: var(--color-black);
     color: var(--hover-grey);
 }
+
+@media screen and (max-width:450px){ 
+    .delete_container {
+        flex-direction: column;
+        margin: 15px 0px;
+    }
+}

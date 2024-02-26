@@ -143,3 +143,38 @@
     border-bottom: 1.5px solid var(--color-black);
     margin-bottom: 10px;
 }
+
+
+@media screen and (max-width:450px){ 
+    .login_container {
+        width: 100dvw;
+    }
+
+    .signup_container {
+        width: 100dvw;
+    }
+
+    .login_form  {
+        width: 20em;
+    }
+
+    .signup_form {
+        width: 20em;
+    }
+
+    .log-sign_container button {
+        width: 20em;
+    }
+
+    .text-before-button_container span {
+        width: 90px;
+    }
+
+    .firstname-lastname input {
+        width: 23.2em;
+    }
+
+    .firstname-lastname > label:nth-child(3) {
+        margin-left: 0;
+    }
+}

@@ -152,4 +152,34 @@
         margin: 50px 5.2em;
         margin-top: 50px;
     } 
+
+}
+
+@media screen and (max-width:450px) {
+    #sticker-detail_container {
+        width: 100dvw;
+        margin: 0 auto;
+    }
+
+    #cart-shipdate > div:first-child{
+        width: 100%;
+    }
+
+    #addToCart {
+        width: 20em;
+    } 
+
+    .goback {
+        left: 30px;
+    }
+
+    #review_container {
+        margin: 0;
+        margin-top: 30px;
+    }
+
+    #reviews_container {
+        width: 20em;
+        margin: 0 auto;
+    }
 }

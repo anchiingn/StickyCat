@@ -125,7 +125,7 @@ export default function EditSticker () {
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />
-                        <div className='height-width_container'>
+                        <div className='height-width_container create_height-width'>
                             <label>Height</label>
                             <input 
                                 type="number"

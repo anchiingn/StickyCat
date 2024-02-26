@@ -144,3 +144,11 @@
     }
 }
 
+@media screen and (max-width:450px){
+    #thank-you-message_container > h1 {
+        width: 10em;
+        text-align: center;
+        font-size: 40px;
+    }
+}
+
