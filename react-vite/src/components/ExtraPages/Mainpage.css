@@ -284,14 +284,13 @@
 
     #explored-stickers_container {
         width: 100dvw;
+        background-color: #255bc8;
         position: relative;
         top: -3em;
         height: fit-content;
     }
 
-    #explored-stickers_cards {
-        width: 100%;
-    }
+
 
     #explored-stickers_cards {
         grid-template-columns: 1fr;
