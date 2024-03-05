@@ -15,6 +15,10 @@
     bottom: 10px;
 }
 
+#mainpage-title-text-v2 {
+    display: none;
+}
+
  #mainpage-title-text {
     display: flex;
     justify-content: space-between;
@@ -26,7 +30,7 @@
 
 } 
 
-#mainpage-title-text > span {
+#mainpage-title-text > span, #mainpage-title-text-v2 > span {
     font-family: var(--big-font);
     font-size: 100px;
     color: var(--color--black);
@@ -238,6 +242,45 @@
     
 }
 
+@media screen and (max-width:1370px){
+    #mainpage_container {
+        flex-direction: row;
+    }
+
+    #mainpage_container > img {
+        left: 50px;
+    }
+
+    #mainpage-title-text {
+        display: none;
+    }
+
+    #mainpage-title-text-v2 {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: -25px;
+        bottom: -5px;
+        margin-right: 20px;
+    }
+
+    #mainpage-title-text-v2 > span {
+        font-size: calc(7vw + 1vh); 
+    }
+
+    #mainpage-title-text-v2 > span:nth-child(2) {
+        margin-top: -30px;
+    }
+  
+    
+}
+
+@media screen and (max-width:900px) {
+    #mainpage-title-text-v2 {
+        display: none;
+    }
+}
+
 @media screen and (max-width:450px) { 
 
     #mainpage_container > img {
@@ -288,8 +331,6 @@
         top: -3em;
         height: fit-content;
     }
-
-
 
     #explored-stickers_cards {
         grid-template-columns: 1fr;

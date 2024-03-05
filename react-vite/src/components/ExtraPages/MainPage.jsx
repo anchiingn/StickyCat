@@ -4,6 +4,7 @@ import { thunkLoadAllStickers } from "../../redux/stickerReducer"
 import StickerCards from "../Stickers/StickerCards"
 import { NavLink } from "react-router-dom"
 import './MainPage.css'
+import './MainPagev2.css'
 
 export default function MainPage () {
     const dispatch = useDispatch()
@@ -21,6 +22,10 @@ export default function MainPage () {
             <div id='mainpage_container'>
                 <img src="https://stickycat.s3.us-east-2.amazonaws.com/Screen_Shot_2024-01-17_at_3.15.46_PM+1.png" alt="" />
                 <div id='mainpage-title-text'>
+                    <span>STICKY</span>
+                    <span>STICKERS</span>
+                </div>
+                <div id='mainpage-title-text-v2'>
                     <span>STICKY</span>
                     <span>STICKERS</span>
                 </div>
