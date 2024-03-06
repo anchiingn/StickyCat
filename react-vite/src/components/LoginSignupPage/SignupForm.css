@@ -21,9 +21,6 @@
     width: 50em;
     height: 25em;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgb(149, 149, 149, 0.5);
-    margin-bottom: 40px;
-    background-color: rgb(243, 238, 225);
 }
 
 .login_container > h1 {
@@ -49,9 +46,6 @@
     width: 50em;
     height: 34em;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgb(149, 149, 149, 0.5);
-    margin-bottom: 50px;
-    background-color: rgb(243, 238, 225);
 }
 
 .signup_container > h1 {
@@ -145,7 +139,7 @@
 }
 
 
-@media screen and (max-width:450px){ 
+@media screen and (max-width:750px){ 
     .login_container {
         width: 100dvw;
     }
@@ -160,6 +154,10 @@
 
     .signup_form {
         width: 20em;
+    }
+
+    .log-sign_container  {
+        margin-bottom: 50px;
     }
 
     .log-sign_container button {
