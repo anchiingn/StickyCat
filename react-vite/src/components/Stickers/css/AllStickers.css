@@ -57,6 +57,12 @@
     align-items: center;
 }
 
+.stickers_container:hover 
+.sticker-images_container > img {
+    width: 105%;
+    height: 105%;
+}
+
 
 .sticker-images_container {
     display: flex;
@@ -73,10 +79,7 @@
     height: 95%;
 }
 
-.sticker-images_container > img:hover {
-    width: 105%;
-    height: 105%;
-}
+
 
 .sticker-details_top {
     display: flex;
