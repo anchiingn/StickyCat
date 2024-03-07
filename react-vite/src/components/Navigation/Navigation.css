@@ -210,7 +210,7 @@
   }  
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:580px) {
   #nav-link_container {
     display: none;
   }

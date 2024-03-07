@@ -306,7 +306,7 @@
 
 }
 
-@media screen and (max-width:450px) { 
+@media screen and (max-width:580px) { 
 
     #mainpage_container > img {
         width: calc(100% );
@@ -342,12 +342,20 @@
     }
 
     .yellow_container {
+        bottom: 8em;
+    }
+
+    .yellow_container {
         width: 100dvw;
     }
 
     .yellow2_container {
         position: relative;
         top: -9.5em;
+    }
+
+    #about_container {
+        bottom: 8em;
     }
 
     #explored-stickers_container {
@@ -358,7 +366,8 @@
     }
 
     #explored-stickers_cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: auto;
+        justify-content: center;
     }
 
     #launch-sticker_container {
@@ -371,6 +380,8 @@
     }
 
 }
+
+
 
 
 
