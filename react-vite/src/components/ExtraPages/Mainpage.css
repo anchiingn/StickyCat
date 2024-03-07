@@ -62,7 +62,7 @@
 .yellow2_container {
     background-color: rgb(249, 203, 35);
     position: absolute;
-    top: 82em;
+    top: 83.5em;
     width: 100vw;
     height: 50px;
     display: flex;
@@ -178,16 +178,17 @@
 
 /* ----- Explored Stickers ----- */
 #explored-stickers_container {
-    margin-top: -50px;
+    margin-top: 10px;
     height: 37.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
 }
 
 #explored-stickers_container > div:nth-child(1) {
     font-size: 22px;
+    margin-bottom: 20px;
 }
 
 #explored-stickers_cards {
@@ -195,6 +196,10 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     width: calc(100% - 10em);
     margin: 70px;
+}
+
+#explored-stickers_container .navlink.view:hover {
+    color: var(--hover-grey);
 }
 
 /* ----- Launch Sticker ----- */
@@ -281,12 +286,15 @@
     #explored-stickers_cards {
         grid-template-columns: 1fr 1fr; 
     }
+
+    
 }
 
 @media screen and (max-width:900px) {
     #mainpage-title-text-v2 {
         display: none;
     }  
+    
 }
 
 
@@ -295,6 +303,7 @@
         grid-template-columns: auto; 
         justify-content: center;
     }
+
 }
 
 @media screen and (max-width:450px) { 

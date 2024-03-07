@@ -69,7 +69,7 @@ export default function MainPage () {
                             )
                         })}
                 </div>
-                <NavLink to={'/explored-stickers'} className={'navlink'}>- VIEW ALL -</NavLink>
+                <NavLink to={'/explored-stickers'} className={'navlink view'}>- VIEW ALL -</NavLink>
             </div>
 
             <div id='launch-sticker_container'>
