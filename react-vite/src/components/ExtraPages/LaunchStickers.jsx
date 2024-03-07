@@ -20,7 +20,7 @@ export default function LaunchStickers () {
 
                 <h1>TURN YOUR CREATIVITY INTO STICKER</h1>
                 <p>Let&apos;s embark on a creative journey together! With StickyCat, we&apos;ll join forces to bring your dream sticker collection to life. Collaborating, conceptualizing, presenting, marketing, and manufacturing all tailored by you for your fans. The best part? It&apos;s a seamless, worry free adventure with no upfront expenses!</p>
-                <div className="line-in-between"></div>
+                <div className="line-in-between lpage"></div>
 
                 <button className='user-button'>
                     {user ?(

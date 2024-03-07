@@ -57,6 +57,7 @@
     height: 3em;
     cursor: pointer;
     border-radius: 100px;
+    border: none;
 }
 
 .delete-buttons > button:first-child:hover, .delete-buttons >button:nth-child(2):hover {
@@ -64,9 +65,14 @@
     color: var(--hover-grey);
 }
 
+@media screen and (max-width:750px){ 
+    .delete_container {
+        margin: 15px 0px;
+    }
+}
+
 @media screen and (max-width:450px){ 
     .delete_container {
         flex-direction: column;
-        margin: 15px 0px;
     }
 }

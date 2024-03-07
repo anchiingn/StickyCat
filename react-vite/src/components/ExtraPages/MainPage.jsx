@@ -4,7 +4,6 @@ import { thunkLoadAllStickers } from "../../redux/stickerReducer"
 import StickerCards from "../Stickers/StickerCards"
 import { NavLink } from "react-router-dom"
 import './MainPage.css'
-import './MainPagev2.css'
 
 export default function MainPage () {
     const dispatch = useDispatch()
