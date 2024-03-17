@@ -35,13 +35,10 @@ export default function AllStickers() {
         ) : (
             <>
             <div className="stickers-toppart_container">
-                {/* <NavLink to={'/'} className={'navlink'}>Home</NavLink> 
-                / */}
                 <NavLink className={'navlink'} style={{cursor:'default'}}>Explore Stickers </NavLink> 
                 /
             </div>
     
-            {/* <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>All Sticky Stickers</div> */}
             <div className="allStickers_container">
                 <p>Explore stickers from around the world, where each one is a delightful tiny masterpiece. <br/>Brimming with cuteness and playful charm, they're sure to bring a smile to your day.</p>
                 <div className="line-in-between"></div>
@@ -60,13 +57,7 @@ export default function AllStickers() {
                 }
             </div>
     
-            {/* <div onClick={() => {
-                window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: "smooth",
-                  });
-            }}>^</div> */}
+           
             </>
 
         )}
