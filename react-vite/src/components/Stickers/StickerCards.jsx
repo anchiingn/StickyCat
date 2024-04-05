@@ -17,17 +17,17 @@ export default function StickerCards({ sticker }) {
 
 
      // -------------------  Add/Remove from Favorite ------------------- //
-     const addToFavorite = async(e) => {
-        e.preventDefault()
-        await dispatch(thunkAddToFavorite(sticker, sticker.id))
-        await dispatch(thunkLoadAllStickers())
-    }
+    //  const addToFavorite = async(e) => {
+    //     e.preventDefault()
+    //     await dispatch(thunkAddToFavorite(sticker, sticker.id))
+    //     await dispatch(thunkLoadAllStickers())
+    // }
 
-    const removeFromFavorite = async(e) => {
-        e.preventDefault()
-        await dispatch(thunkDeleteFromFavorite(sticker?.favorited[0]?.id))
-        await dispatch(thunkLoadAllStickers())
-    }
+    // const removeFromFavorite = async(e) => {
+    //     e.preventDefault()
+    //     await dispatch(thunkDeleteFromFavorite(sticker?.favorited[0]?.id))
+    //     await dispatch(thunkLoadAllStickers())
+    // }
 
      // -------------------  Star Rating  ------------------- //
      let starRating = 0
@@ -54,7 +54,7 @@ export default function StickerCards({ sticker }) {
                             <div>${sticker?.price}</div>
                         </div>
                         <div>
-                            <div style={{color:'var(--hover-grey'}}>By: {sticker?.users[0]?.firstname} {sticker?.users[0]?.lastname}</div>
+                            <div style={{color:'var(--hover-grey', fontSize:'12px'}}>By: {sticker?.users[0]?.firstname} {sticker?.users[0]?.lastname}</div>
                             {/* {user && sticker.ownerId !== user.id && (
                                 <div>
                                     {sticker?.favorited?.length === 0 ? (

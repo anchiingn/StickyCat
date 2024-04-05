@@ -142,20 +142,33 @@ export default function StickerDetail() {
 
                         </div>
                         
-                        {user && single_sticker[0]?.ownerId !== user?.id && (
-                        <div id="cart-shipdate">
-                            <div >
-                                <div style={{display:'flex', alignItems:'center'}}>
-                                    <button id="addToCart" onClick={addToCart}>Add to Cart</button>
+                        {user && single_sticker[0]?.ownerId !== user?.id ? (
+                            <div id="cart-shipdate">
+                                <div >
+                                    <div style={{display:'flex', alignItems:'center'}}>
+                                        <button id="addToCart" onClick={addToCart}>Add to Cart</button>
+                                    </div>
+
+                                    {cart && (
+                                        <div id="cart-noti">Sticker has been added to cart</div>
+                                    )}
                                 </div>
 
-                                {cart && (
-                                    <div id="cart-noti">Sticker has been added to cart</div>
-                                )}
+                                <div>Estimated to Ship {monthName} {day}, {year}</div>
                             </div>
+                        ) :(
+                            <div id="cart-shipdate">
+                                <div >
+                                    <div style={{display:'flex', alignItems:'center'}}>
+                                        <button id="addToCart">
+                                        <NavLink to="/login" className="navlink">
+                                            Add to Cart
+                                        </NavLink>
+                                        </button>
+                                    </div>
 
-                            <div>Estimated to Ship {monthName} {day}, {year}</div>
-                        </div>
+                                </div>
+                            </div>
                         )}
 
                         <div id="message">
