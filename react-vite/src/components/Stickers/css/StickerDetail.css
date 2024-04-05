@@ -48,8 +48,9 @@
     font-size: 25px;
 }
 
-#sticker-detail_infos > #name {
-    margin-bottom: 30px;
+#name {
+    color: var(--hover-grey);
+    font-size: 16px;
 }
 
 #cart-shipdate {

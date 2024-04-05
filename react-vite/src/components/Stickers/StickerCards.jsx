@@ -54,7 +54,7 @@ export default function StickerCards({ sticker }) {
                             <div>${sticker?.price}</div>
                         </div>
                         <div>
-                            <div style={{color:'var(--hover-grey', fontSize:'12px'}}>By: {sticker?.users[0]?.firstname} {sticker?.users[0]?.lastname}</div>
+                            <div style={{color:'var(--hover-grey)', fontSize:'12px'}}>By: {sticker?.users[0]?.firstname} {sticker?.users[0]?.lastname}</div>
                             {/* {user && sticker.ownerId !== user.id && (
                                 <div>
                                     {sticker?.favorited?.length === 0 ? (

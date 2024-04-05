@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState, useRef } from "react"
 import { thunkLoadSingleSticker, thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
@@ -130,41 +130,51 @@ export default function StickerDetail() {
                         </div>
                         <div style={{display:'flex', justifyContent:'space-between'}}>
                             <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
-                            {user && single_sticker[0]?.ownerId !== user.id && (
+                            {user ?(
+                                single_sticker[0]?.ownerId !== user.id && (
+                                    <div>
+                                        {single_sticker[0]?.favorited?.length === 0 ? (
+                                            <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={addToFavorite}></i>
+                                        ) : (
+                                            <i className="fa-solid fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={removeFromFavorite}></i>
+                                        )}
+                                    </div>
+                            ) 
+                            ) :(
                                 <div>
-                                    {single_sticker[0]?.favorited?.length === 0 ? (
-                                        <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={addToFavorite}></i>
-                                    ) : (
-                                        <i className="fa-solid fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={removeFromFavorite}></i>
-                                    )}
+                                    <NavLink to="/login" className="navlink">
+                                    <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }}></i>
+                                    </NavLink>
                                 </div>
                             )}
 
                         </div>
                         
-                        {user && single_sticker[0]?.ownerId !== user?.id ? (
-                            <div id="cart-shipdate">
-                                <div >
-                                    <div style={{display:'flex', alignItems:'center'}}>
-                                        <button id="addToCart" onClick={addToCart}>Add to Cart</button>
+                        {user ?(
+                            single_sticker[0]?.ownerId !== user?.id && (
+                                <div id="cart-shipdate">
+                                    <div >
+                                        <div style={{display:'flex', alignItems:'center'}}>
+                                            <button id="addToCart" onClick={addToCart}>Add to Cart</button>
+                                        </div>
+
+                                        {cart && (
+                                            <div id="cart-noti">Sticker has been added to cart</div>
+                                        )}
                                     </div>
 
-                                    {cart && (
-                                        <div id="cart-noti">Sticker has been added to cart</div>
-                                    )}
+                                    <div>Estimated to Ship {monthName} {day}, {year}</div>
                                 </div>
-
-                                <div>Estimated to Ship {monthName} {day}, {year}</div>
-                            </div>
+                        ) 
                         ) :(
                             <div id="cart-shipdate">
                                 <div >
                                     <div style={{display:'flex', alignItems:'center'}}>
-                                        <button id="addToCart">
                                         <NavLink to="/login" className="navlink">
+                                        <button id="addToCart">
                                             Add to Cart
-                                        </NavLink>
                                         </button>
+                                        </NavLink>
                                     </div>
 
                                 </div>
