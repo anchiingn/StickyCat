@@ -16,6 +16,7 @@ export default function MainPage () {
     const stickers = Object.values(allStickers)
     const s = stickers.slice(0,4)
 
+
     return (
         <>
             <div id='mainpage_container'>
@@ -60,14 +61,16 @@ export default function MainPage () {
 
             <div id='explored-stickers_container'>
                 <div>EXPLORE STICKERS</div>
-                <div id='explored-stickers_cards'>
-                        {s.map(sticker => {
-                            return (
-                                <div key={sticker?.id} className="stickers_container">
-                                    <StickerCards sticker={sticker} />
-                                </div>
-                            )
-                        })}
+                <div className="stickers_card_wrapper">
+                    <div id='explored-stickers_cards'>
+                            {s.map(sticker => {
+                                return (
+                                    <div key={sticker?.id} className="stickers_container">
+                                        <StickerCards sticker={sticker} />
+                                    </div>
+                                )
+                            })}
+                    </div>
                 </div>
                 <NavLink to={'/explored-stickers'} className={'navlink view'}>- VIEW ALL -</NavLink>
             </div>

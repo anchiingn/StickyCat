@@ -199,6 +199,14 @@
     color: var(--hover-grey);
 }
 
+
+.stickers_card_wrapper {
+    width: 100dvw;
+    height: 495px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
 /* ----- Launch Sticker ----- */
 #launch-sticker_container {
     height: 20em;
