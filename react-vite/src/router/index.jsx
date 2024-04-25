@@ -12,6 +12,7 @@ import CheckoutPage from '../components/ExtraPages/CheckoutPage';
 import LaunchStickers from '../components/ExtraPages/LaunchStickers';
 import HowItWork from '../components/ExtraPages/HowItWork';
 import Thankyou from '../components/ExtraPages/ThankYou';
+import TagFilter from '../components/Filter/TagFilter';
 import Layout from './Layout';
 
 export const router = createBrowserRouter([
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
       {
         path:"thank-you-for-your-purchased",
         element: <Thankyou />
+      },
+      {
+        path:"stickers/tags/:tag",
+        element: <TagFilter/>
       },
       {
         path: "*",

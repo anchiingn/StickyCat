@@ -22,6 +22,7 @@ class Sticker(db.Model):
     cart_sticker = db.relationship('Cart', back_populates='sticker_cart', cascade='delete')
     review_sticker = db.relationship('Review', back_populates='sticker_review', cascade='delete')
     favorite_sticker = db.relationship('Favorite', back_populates='sticker_favorite', cascade='delete')
+    tag_sticker = db.relationship('Tag', back_populates='sticker_tag')
 
     def to_dict(self):
         return {
@@ -41,6 +42,27 @@ class Sticker(db.Model):
             },
             
             'star': [review.star for review in self.review_sticker],
-            'review': [review.review for review in self.review_sticker]
+            'review': [review.review for review in self.review_sticker],
+            'tag': [tag.tag for tag in self.tag_sticker]
             
+        }
+    
+
+class Tag(db.Model):
+    __tablename__ = 'tags'
+
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
+    id = db.Column(db.Integer, primary_key=True)
+    stickerId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('stickers.id')))
+    tag = db.Column(db.String(50))
+
+    sticker_tag = db.relationship('Sticker', back_populates='tag_sticker')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'stickerId': self.stickerId,
+            'tag': self.tag
         }

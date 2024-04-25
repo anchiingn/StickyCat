@@ -99,7 +99,6 @@ def create_new_stickers():
         image=form.data['image']
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
-        print('Aaaaaaaaaaaaa', upload)
 
         if "url" not in upload:
             return {'errors': upload}
