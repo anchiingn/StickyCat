@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from "react";
 import {  useDispatch, useSelector } from "react-redux";
 import { thunkLoadAllCarts, thunkRemoveAllSticker } from "../../redux/cardReducer";
 import AllCartStickers from "../Cart/AllCartStickers";
-import Filter from "../Filter/Filter";
 
 
 
@@ -174,7 +173,6 @@ function Navigation() {
           </div>
         </div>
     </div>
-    <Filter />
     </>
   );
 }
