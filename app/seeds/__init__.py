@@ -4,7 +4,6 @@ from .sticker_datas import seed_stickers, undo_stickers
 from .cart_data import seed_carts, undo_carts
 from .favorite_datas import seed_favorites, undo_favorites
 from .review_datas import seed_reviews, undo_reviews
-from .tag import seed_tags, undo_tags
 
 from app.models.db import db, environment, SCHEMA
 
@@ -26,7 +25,6 @@ def seed():
         db.session.execute(f"TRUNCATE table {SCHEMA}.reviews RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.favorites RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.carts RESTART IDENTITY CASCADE;")
-        db.session.execute(f"TRUNCATE table {SCHEMA}.tags RESTART IDENTITY CASCADE;")
 
 
 
@@ -37,7 +35,6 @@ def seed():
     seed_reviews()
     seed_favorites()
     seed_carts()
-    seed_tags()
     # Add other seed functions here
 
 
@@ -49,5 +46,4 @@ def undo():
     undo_reviews()
     undo_favorites()
     undo_carts()
-    undo_tags()
     # Add other undo functions here
