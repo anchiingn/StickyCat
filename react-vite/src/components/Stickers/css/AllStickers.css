@@ -50,6 +50,7 @@
 }
 
 .stickers_container {
+    position: relative;
     width: 16em;
     margin: auto;
     display: flex;
@@ -171,6 +172,35 @@ nav > ul > li > button:not(.numPage) {
     color: var(--hover-grey);
     text-decoration: none;
     cursor: pointer;
+}
+
+.cart_hover, .cart_hove{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #255bc8;
+    color: var(--color-white);
+    font-weight: 300;
+    border-radius: 25px;
+    width: 100%;
+    position: absolute;
+    bottom: 5.2em;
+    z-index: 2;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+
+.cart_hove {
+    display: none;
+    left: 0em;
+}
+
+.stickers_container:hover  .cart_hover {
+    display: flex;
+}
+
+.stickers_container:hover  .cart_hove {
+    display: flex;
 }
 
 @media (max-width: 1250px) {
