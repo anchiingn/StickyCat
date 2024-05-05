@@ -1,6 +1,6 @@
 .navigator_container {
-  background-color: var(--color-yellow);
-  box-shadow: 0px 0px 3px var(--color-shadow);
+  /* background-color: var(--color-yellow); */
+  /* box-shadow: 0px 0px 3px var(--color-shadow); */
   display: grid;
   grid-template-columns: 1.5fr 2fr 1.5fr;
   padding: 15px 30px;
@@ -9,7 +9,9 @@
   top: 0px;
   z-index: 100;
 
-  && .navigator_wrapper_left, .navigator_wrapper_middle, .navigator_wrapper_right {
+  && .navigator_wrapper_left,
+  .navigator_wrapper_middle,
+  .navigator_wrapper_right {
     display: flex;
     align-items: center;
   }
@@ -19,43 +21,44 @@
   gap: 20px;
 
   && .logo_name {
-  font-family: var(--big-font);
-  letter-spacing: 1px;
+    font-family: var(--big-font);
+    letter-spacing: 1.5px;
+    font-size: 22px;
   }
 
-  && .search_bar_wrapper{
+  && .search_bar_wrapper {
     display: flex;
     align-items: center;
     border-radius: 50px;
     height: 35px;
     width: 100%;
-    
-    && .search_form{
+
+    && .search_form {
       position: relative;
       display: flex;
       align-items: center;
       width: 75%;
       height: 100%;
     }
-  
+
     && input {
       width: 100%;
       height: 100%;
       border-radius: 50px;
       border: 1px solid var(--color-shadow);
       padding-left: 25px;
-      background-color: var(--color-white);
+      background-color: rgb(241, 240, 236);
     }
 
     && input::placeholder {
       color: var(--color-shadow);
     }
-  
+
     && input:focus {
       outline: transparent;
-      background-color: white;
+      background-color: var(--color-white);
     }
-  
+
     && input:focus::placeholder {
       color: transparent;
     }
@@ -69,7 +72,7 @@
       right: 20px;
       color: darkgrey;
     }
-  
+
     && i:hover {
       color: grey;
       cursor: pointer;
@@ -79,8 +82,12 @@
 }
 
 .navigator_wrapper_middle {
-  gap: 45px;
+  gap: 30px;
   justify-content: center;
+
+  && .navlink {
+    font-size: 18px;
+  }
 }
 
 .navigator_wrapper_right {
@@ -93,18 +100,27 @@
 /* ------------- CartIcon -------------- */
 .cartIcon_container {
   position: relative;
+
+  && i {
+    font-size: 22px;
+  }
+
   && i:hover {
-     color: var(--color-white);
-     cursor: pointer;
+    color: var(--color-white);
+    cursor: pointer;
   }
 
   && .cart_length_number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 12px;
     right: -6px;
     background-color: red;
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
+    font-size: 10px;
   }
 }

@@ -1,12 +1,14 @@
 import { thunkDeleteFromCart, thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 
 const CartIcon = () => {
     const dispatch = useDispatch();
+    const cartRef = useRef()
     const loadStickerCarts = useSelector(state => state.carts);
     const user = useSelector (state => state.session.user)
+    const [ showCart, setShowCart ] = useState(false)
 
     
     useEffect(() => {
@@ -21,6 +23,29 @@ const CartIcon = () => {
             quantity += sticker.quantity
         }
     }
+
+
+    const toggleCart = (e) => {
+        e.stopPropagation(); 
+        setShowCart(!showCart)
+    }
+
+    useEffect(() => {
+        if (!showCart) return;
+    
+        const closeMenu = (e) => {
+          if (cartRef.current && !cartRef.current.contains(e.target)) {
+            setShowCart(false);
+          }
+          
+        };
+    
+        document.addEventListener("click", closeMenu);
+    
+        return () => document.removeEventListener("click", closeMenu);
+      }, [showCart]);
+      
+      
 
     return (
         <div className="cartIcon_container">

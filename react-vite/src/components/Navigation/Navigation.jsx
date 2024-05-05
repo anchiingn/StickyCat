@@ -2,10 +2,7 @@ import ProfileButton from "./ProfileButton";
 import CartIcon from "./CartIcon";
 import Search from "./Search/Search";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { thunkLoadAllCarts, thunkRemoveAllSticker } from "../../redux/cardReducer";
-import AllCartStickers from "../Cart/AllCartStickers";
+
 import "./Navigation.css";
 
 
