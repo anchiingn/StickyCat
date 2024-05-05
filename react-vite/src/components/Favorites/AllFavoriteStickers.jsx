@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { thunkLoadAllFavorites } from "../../redux/stickerReducer"
-import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
+import OpenModalMenuItem from "../OpenModalButton/OpenModalMenuItem"
 import { NavLink } from "react-router-dom"
 import DeleteFavorites from "./DeleteFavorites"
 

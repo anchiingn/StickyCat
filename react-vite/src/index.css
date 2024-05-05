@@ -2,12 +2,13 @@
 :root {
     --big-font: 'Alfa Slab One', serif;
     --small-font: 'Red Hat Display', sans-serif;
-    --color-white: #f5f2eb;
-    --color-background: #f5f2eb;
+    --color-white: #f8f7f4;
+    --color-background: #f8f7f4;
     --color-shadow: rgb(95, 94, 92, 0.4);
     --color-black: #201f1e;
     --color-red: rgb(233, 68, 27);
     --color-yellow: rgb(249, 203, 35);
+    --color-blue: #255bc8;
     --hover-grey: rgb(93, 92, 91);
 }
 

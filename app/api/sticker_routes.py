@@ -187,3 +187,10 @@ def create_new_reviews(id):
         return new_review.to_dict()
     else:
         return form.errors, 401
+
+
+@sticker_routes.route('/search/<searchStickers>')
+def search_sticker(searchStickers):
+    if (searchStickers):
+        stickers = Sticker.query.filter(Sticker.title.ilike(f"%{searchStickers}%")).all()
+        return [sticker.to_dict() for sticker in stickers]

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { thunkLoadCurrentStickers } from "../../redux/stickerReducer"
 import { NavLink } from "react-router-dom"
-import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
+import OpenModalMenuItem from "../OpenModalButton/OpenModalMenuItem"
 import DeleteSticker from "./DeleteSticker"
 // import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 

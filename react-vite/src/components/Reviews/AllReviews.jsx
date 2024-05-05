@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
-import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
+import OpenModalMenuItem from "../OpenModalButton/OpenModalMenuItem"
 import CreateReview from "./CreateReview"
 import DeleteReview from "./DeleteReview"
 import EditReview from "./EditReview"

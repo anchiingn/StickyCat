@@ -6,6 +6,7 @@ import './Stickers.css'
 
 
 export default function StickerCards({ sticker }) {
+    console.log(sticker)
     const { id } = useParams()
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
@@ -42,7 +43,6 @@ export default function StickerCards({ sticker }) {
 
     return (
         <>
-        {sticker && sticker.users && sticker.users.length > 0 &&(
             <NavLink to={`/stickers/${sticker?.id}`} className={'navlink'}>
                 <div style={{position:'relative'}}>
                     <div className="sticker-images_container">
@@ -54,7 +54,9 @@ export default function StickerCards({ sticker }) {
                             <div>${sticker?.price}</div>
                         </div>
                         <div>
-                            <div style={{color:'var(--hover-grey)', fontSize:'12px'}}>By: {sticker?.users[0]?.firstname} {sticker?.users[0]?.lastname}</div>
+                            {sticker && sticker.users && sticker.users.length > 0 && (
+                                <div style={{color:'var(--hover-grey)', fontSize:'12px'}}>By: {sticker?.users[0]?.firstname} {sticker?.users[0]?.lastname}</div>
+                            )}
                             {/* {user && sticker.ownerId !== user.id && (
                                 <div>
                                     {sticker?.favorited?.length === 0 ? (
@@ -91,7 +93,6 @@ export default function StickerCards({ sticker }) {
                     )}
                 </div>
             </NavLink>
-        )}
         </>
     )
 }
