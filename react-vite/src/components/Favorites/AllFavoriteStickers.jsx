@@ -4,6 +4,8 @@ import { thunkLoadAllFavorites } from "../../redux/stickerReducer"
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem"
 import { NavLink } from "react-router-dom"
 import DeleteFavorites from "./DeleteFavorites"
+import StickerCards from "../Stickers/StickerCards"
+import AddToCart from "../Cart/AddToCart"
 
 
 export default function AllFavoriteStickers() {
@@ -66,35 +68,7 @@ export default function AllFavoriteStickers() {
                             if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
                                 return (
                                     <div key={sticker?.id} className="stickers_container">
-                                        <NavLink to={`/stickers/${sticker?.stickerId}`} className={'navlink'}>
-                                            <div className="sticker-images_container">
-                                                <img src={sticker?.stickers[0]?.image} alt={sticker?.stickers[0]?.title} />
-                                            </div>
-                                            <div className="sticker-details_top">
-                                                <div>
-                                                    <div style={{fontWeight:'bold'}}>{sticker?.stickers[0]?.title}</div>
-                                                    <div>${sticker?.stickers[0]?.price}</div>
-                                                </div>
-                                                <div style={{color:'var(--hover-grey'}}>By: {sticker?.stickers[0]?.user?.firstname} {sticker?.stickers[0]?.user?.lastname}</div>
-                                                <div>
-                                                    <div id="star-rating">
-                                                    {[1, 2, 3, 4, 5].map((starNum, index) => {
-                                                        return (
-                                                            <div key={index}>
-                                                                <i className={`fa-solid fa-star`} style={{
-                                                                    color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
-                                                                    fontSize:'8px'
-                                                                }}></i>
-                                                            </div>
-                                                    ) })}
-
-                                                    <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>
-                                                        {starRating.toFixed(1)} ({sticker.stickers[0]?.review?.length})
-                                                    </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </NavLink>
+                                        <StickerCards sticker={sticker.stickers[0]} />
                                         <div className="sticker-details_bottom">
                                             <div></div>
                                             <div style={{listStyle:'none', cursor:'pointer'}}>
@@ -104,6 +78,7 @@ export default function AllFavoriteStickers() {
                                                 />
                                             </div>
                                         </div>
+                                        <AddToCart sticker={sticker.stickers[0]} />
                                     </div>
                                 )} })}
                         </div>

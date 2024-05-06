@@ -9,6 +9,10 @@ const LOAD_ALL_FAVORITES = 'stickers/loadAllFavorites'
 const ADD_TO_FAVORITE = 'stickers/addToFavorite'
 const DELETE_FROM_FAVORITE = 'stickers/deleteFromFavorite'
 
+const SEARCH_STICKERS = 'stickers/searchStickers'
+
+
+//action
 const loadAllStickers = (allStickers) => {
     return {
         type: LOAD_ALL_STICKERS,
@@ -73,6 +77,14 @@ const deleteFromFavorite = (sticker) => {
         sticker
     };
 }
+
+const searchSticker = (stickers) => {
+    return {
+        type: SEARCH_STICKERS,
+        stickers
+    }
+}
+
 
 //thunks
 export const thunkLoadAllStickers = () => async (dispatch) => {
@@ -198,6 +210,16 @@ export const thunkDeleteFromFavorite = (id) => async (dispatch) => {
     }
 }
 
+
+export const thunkSearchStickers = (searchStickers) => async (dispatch) => {
+    const res = await fetch(`/api/stickers/search/${encodeURIComponent(searchStickers)}`);
+
+    if (res.ok) {
+        const stickers = await res.json();
+        dispatch(searchSticker(stickers))
+    }
+}
+
 //reducer
 const initialState = {}
 export const stickerReducer = (state = initialState, action) => {
@@ -208,7 +230,7 @@ export const stickerReducer = (state = initialState, action) => {
             return newStates
 
         case LOAD_SINGLE_STICKER:
-            let nextState = { }
+            let nextState = {}
             nextState = { ...action.sticker }
             return nextState
 
@@ -223,7 +245,7 @@ export const stickerReducer = (state = initialState, action) => {
         case EDIT_STICKER:
             return { ...state, [action.sticker.id]: action.sticker };
 
-        case LOAD_ALL_FAVORITES:{
+        case LOAD_ALL_FAVORITES: {
             const newStates = {}
             action.stickers.forEach(sticker => newStates[sticker.id] = sticker)
             return newStates
@@ -231,6 +253,14 @@ export const stickerReducer = (state = initialState, action) => {
 
         case ADD_TO_FAVORITE:
             return { ...state, [action.sticker.id]: action.sticker };
+
+        case SEARCH_STICKERS: {
+            let nextState = {};
+            action.stickers.forEach(sticker => nextState[sticker.id] = sticker);
+            console.log(nextState)
+            return nextState
+        }
+        
         default:
             return state
     }

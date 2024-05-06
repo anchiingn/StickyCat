@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { thunkLoadAllStickers } from "../../redux/stickerReducer"
-import { thunkAddToCart } from "../../redux/cardReducer"
-import { thunkLoadAllCarts } from "../../redux/cardReducer"
-import { thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer"
+import { thunkLoadAllStickers } from "../../redux/stickerReducer";
+import { thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer";
 import './Stickers.css'
 import StickerCards from "./StickerCards"
 import { NavLink } from "react-router-dom"
+import AddToCart from "../Cart/AddToCart"
+import AddToFavorite from "../Favorites/AddToFavorite";
 
 
 export default function AllStickers() {
@@ -51,65 +51,17 @@ export default function AllStickers() {
 
 
                                 //add and remove from favorite
-                                const addToFavorite = async (e) => {
-                                    e.preventDefault()
-                                    await dispatch(thunkAddToFavorite(sticker, sticker.id))
-                                    await dispatch(thunkLoadAllStickers())
-                                }
-                                ///////////////////////////////
+                              
 
-                                const removeFromFavorite = async (e) => {
-                                    e.preventDefault()
-                                    await dispatch(thunkDeleteFromFavorite(sticker?.favorited[0]?.id))
-                                    await dispatch(thunkLoadAllStickers())
-                                }
-
-                                //add to cart
-                                const addToCart = async (e) => {
-                                    e.preventDefault()
-
-                                    await dispatch(thunkAddToCart(sticker, sticker.id))
-                                    await dispatch(thunkLoadAllCarts())
-                                }
-                                /////////////
 
                                 return (
                                     <div key={sticker?.id} className="stickers_container">
                                         <StickerCards sticker={sticker} />
 
                                         {/* add and remove from favorite */}
-                                        {user ? (
-                                            sticker?.ownerId !== user.id && (
-                                                <div>
-                                                    {sticker?.favorited?.length === 0 ? (
-                                                        <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={addToFavorite}></i>
-                                                    ) : (
-                                                        <i className="fa-solid fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={removeFromFavorite}></i>
-                                                    )}
-                                                </div>
-                                            )
-                                        ) : (
-                                            <div>
-                                                <NavLink to="/login" className="navlink">
-                                                    <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }}></i>
-                                                </NavLink>
-                                            </div>
-                                        )}
-
-                                        {/* add to cart */}
-                                        {user ? (
-                                            sticker.ownerId !== user?.id && (
-                                                <div className="cart_hover" onClick={addToCart}>
-                                                    Add to cart
-                                                </div>
-                                            )
-                                        ) : (
-                                            <NavLink to="/login" className="navlink">
-                                                <div className="cart_hove" >
-                                                    Add to cart
-                                                </div>
-                                            </NavLink>
-                                        )}
+                                        <AddToFavorite sticker={sticker} />
+                                        <AddToCart sticker={sticker} />
+                                        
                                     </div>
                                 )
                             })}

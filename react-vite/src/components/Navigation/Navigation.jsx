@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import {  useDispatch, useSelector } from "react-redux";
 import { thunkLoadAllCarts, thunkRemoveAllSticker } from "../../redux/cardReducer";
 import AllCartStickers from "../Cart/AllCartStickers";
-
+import Search from "./Search/Search";
 
 
 function Navigation() {
@@ -98,6 +98,7 @@ function Navigation() {
           <div id="logo_container">
             {/* <NavLink to="/" className="navlink"><img src="https://stickycat.s3.us-east-2.amazonaws.com/Screen_Shot_2024-01-17_at_3.15.46_PM.png" alt="" style={{width:'35px'}}/></NavLink> */}
             <NavLink to="/" className="navlink" id="logo-name">StickyCat</NavLink>
+            <Search />
           </div>
           
           <div id="nav-link_container">

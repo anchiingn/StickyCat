@@ -42,7 +42,7 @@ class Sticker(db.Model):
             
             'star': [review.star for review in self.review_sticker],
             'review': [review.review for review in self.review_sticker],
-            
+            'favorited' : [favorite.favorite for favorite in self.favorite_sticker]
         }
     
 

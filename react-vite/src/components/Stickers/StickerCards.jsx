@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import {  thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllStickers } from "../../redux/stickerReducer"
+import { thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllStickers } from "../../redux/stickerReducer"
 import { useParams, NavLink } from "react-router-dom"
 
 import './Stickers.css'
@@ -12,11 +12,11 @@ export default function StickerCards({ sticker }) {
 
     // useEffect(() => {
     //     dispatch(thunkLoadAllReviews(sticker.reviews.id))
-        
+
     // }, [dispatch, id])
 
 
-     // -------------------  Add/Remove from Favorite ------------------- //
+    // -------------------  Add/Remove from Favorite ------------------- //
     //  const addToFavorite = async(e) => {
     //     e.preventDefault()
     //     await dispatch(thunkAddToFavorite(sticker, sticker.id))
@@ -29,32 +29,35 @@ export default function StickerCards({ sticker }) {
     //     await dispatch(thunkLoadAllStickers())
     // }
 
-     // -------------------  Star Rating  ------------------- //
-     let starRating = 0
-     if (sticker.reviews && sticker.reviews.length >= 1) { //check if it their is review before iteration
-        for (let review of sticker.reviews) {
-          starRating += (review?.star) / sticker.reviews.length;
+    // -------------------  Star Rating  ------------------- //
+    let starRating = 0
+    if (sticker.review && sticker.review.length >= 1) { //check if it their is review before iteration
+        for (let star of sticker.star) {
+            starRating += star / sticker.review.length;
         }
-      } else if (sticker.reviews && sticker.reviews.length === 1) {
-        starRating = sticker.reviews[0]?.star;
-      }
-
-
+    } else if (sticker.review && sticker.review.length === 1) {
+        starRating = sticker.star;
+    }
+    
     return (
         <>
-        {sticker && sticker.users && sticker.users.length > 0 &&(
             <NavLink to={`/stickers/${sticker?.id}`} className={'navlink'}>
-                <div style={{position:'relative'}}>
+                <div style={{ position: 'relative' }}>
                     <div className="sticker-images_container">
-                        <img src={sticker?.image} alt={sticker?.title}/>
+                        <img src={sticker?.image} alt={sticker?.title} />
                     </div>
                     <div className="sticker-details_top">
                         <div>
-                            <div style={{fontWeight:'bold'}}>{sticker?.title}</div>
+                            <div style={{ fontWeight: 'bold' }}>{sticker?.title}</div>
                             <div>${sticker?.price}</div>
                         </div>
                         <div>
-                            <div style={{color:'var(--hover-grey)', fontSize:'12px'}}>By: {sticker?.users[0]?.firstname} {sticker?.users[0]?.lastname}</div>
+                            {window.location.pathname === '/my-stickers' ? (
+                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>By: {sticker?.user[0]?.firstname} {sticker?.user[0]?.lastname}</div>
+                            ) :(
+                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>By: {sticker?.user?.firstname} {sticker?.user?.lastname}</div>
+                            )}
+
                             {/* {user && sticker.ownerId !== user.id && (
                                 <div>
                                     {sticker?.favorited?.length === 0 ? (
@@ -67,19 +70,20 @@ export default function StickerCards({ sticker }) {
                         </div>
                         <div>
                             <div id="star-rating">
-                            {[1, 2, 3, 4, 5].map((starNum, index) => {
-                                return (
-                                    <div key={index}>
-                                        <i className={`fa-solid fa-star`} style={{
-                                            color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
-                                            fontSize:'8px'
-                                        }}></i>
-                                    </div>
-                            ) })}
+                                {[1, 2, 3, 4, 5].map((starNum, index) => {
+                                    return (
+                                        <div key={index}>
+                                            <i className={`fa-solid fa-star`} style={{
+                                                color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
+                                                fontSize: '8px'
+                                            }}></i>
+                                        </div>
+                                    )
+                                })}
 
-                            <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>
-                                {starRating.toFixed(1)} ({sticker?.reviews?.length})
-                            </div>
+                                <div style={{ display: 'flex', alignItems: 'flex-end', marginTop: '-2px', paddingLeft: '5px' }}>
+                                    {starRating.toFixed(1)} ({sticker?.review?.length})
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,7 +95,6 @@ export default function StickerCards({ sticker }) {
                     )}
                 </div>
             </NavLink>
-        )}
         </>
     )
 }
