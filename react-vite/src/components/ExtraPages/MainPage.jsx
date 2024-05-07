@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { thunkLoadAllStickers } from "../../redux/stickerReducer"
-import StickerCards from "../Stickers/StickerCards"
 import { NavLink } from "react-router-dom"
+import StickerCards from "../Stickers/StickerCards"
+import AddToCart from "../Cart/AddToCart"
+import AddToFavorite from "../Favorites/AddToFavorite";
+
 import './MainPage.css'
 
 export default function MainPage () {
@@ -67,6 +70,8 @@ export default function MainPage () {
                                 return (
                                     <div key={sticker?.id} className="stickers_container">
                                         <StickerCards sticker={sticker} />
+                                        <AddToCart sticker={sticker} />
+                                        <AddToFavorite sticker={sticker} />
                                     </div>
                                 )
                             })}

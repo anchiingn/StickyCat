@@ -124,7 +124,7 @@ function Navigation() {
             <div id="cart-container">
               <div id="cart-modal_container"> 
                 <button onClick={toggleMenu} className="buttons">
-                  <i className="fa-solid fa-cart-shopping" style={{fontSize:'20px'}}/>
+                  <i className="fa-solid fa-cart-shopping" style={{fontSize:'23px'}}/>
                   <div id="cart-stickers_length" style={{cursor:'pointer'}}>{quantity}</div>
                 </button>
               </div>
