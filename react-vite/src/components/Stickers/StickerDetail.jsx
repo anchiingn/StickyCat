@@ -153,8 +153,8 @@ export default function StickerDetail() {
                         {user ?(
                             single_sticker[0]?.ownerId !== user?.id && (
                                 <div id="cart-shipdate">
-                                    <div >
-                                        <div style={{display:'flex', alignItems:'center'}}>
+                                    <div style={{width:'100%'}}>
+                                        <div style={{display:'flex', alignItems:'center', width:'100%'}}>
                                             <button id="addToCart" onClick={addToCart}>Add to Cart</button>
                                         </div>
 

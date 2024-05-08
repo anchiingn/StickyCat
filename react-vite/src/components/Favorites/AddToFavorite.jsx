@@ -2,7 +2,7 @@ import { NavLink, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllStickers, thunkLoadCurrentStickers, thunkLoadAllFavorites } from "../../redux/stickerReducer"
 import { thunkSearchStickers } from "../../redux/stickerReducer"
-
+import './AddToFavorite.css'
 
 const AddToFavorite = ({ sticker }) => {
     const { searchStickers } = useParams();
@@ -42,11 +42,11 @@ const AddToFavorite = ({ sticker }) => {
             {/* add and remove from favorite */}
             {user ? (
                 sticker?.ownerId !== user.id && (
-                    <div>
+                    <div className="add_to_favorite">
                         {sticker?.favorited?.length === 0 ? (
-                            <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={addToFavorite}></i>
+                            <i className="fa-regular fa-heart favorite-button" onClick={addToFavorite}></i>
                         ) : (
-                            <i className="fa-solid fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={removeFromFavorite}></i>
+                            <i className="fa-solid fa-heart favorite-button" onClick={removeFromFavorite}></i>
                         )}
                     </div>
                 )

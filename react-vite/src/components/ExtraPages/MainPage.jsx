@@ -70,7 +70,7 @@ export default function MainPage () {
                                 return (
                                     <div key={sticker?.id} className="stickers_container">
                                         <StickerCards sticker={sticker} />
-                                        <AddToCart sticker={sticker} />
+                                        {/* <AddToCart sticker={sticker} /> */}
                                         <AddToFavorite sticker={sticker} />
                                     </div>
                                 )

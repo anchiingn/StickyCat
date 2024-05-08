@@ -174,6 +174,8 @@ function Navigation() {
           </div>
         </div>
     </div>
+    <div className="ad_freeshipping">FREE SHIPPING OVER $25</div>
+
     </>
   );
 }

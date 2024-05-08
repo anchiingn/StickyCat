@@ -60,7 +60,7 @@ export default function AllStickers() {
 
                                         {/* add and remove from favorite */}
                                         <AddToFavorite sticker={sticker} />
-                                        <AddToCart sticker={sticker} />
+                                        {/* <AddToCart sticker={sticker} /> */}
                                         
                                     </div>
                                 )

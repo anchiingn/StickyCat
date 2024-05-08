@@ -71,13 +71,13 @@
     align-items: center;
     width: 15em;
     height: 18em;
-
 }
 
 .sticker-images_container > img {
     object-fit: contain;
     width: 95%;
     height: 95%;
+    transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
 }
 
 
@@ -195,13 +195,26 @@ nav > ul > li > button:not(.numPage) {
     left: 0em;
 }
 
-.stickers_container:hover  .cart_hover {
+.add_to_favorite {
+    position: absolute;
+    top: 55px;
+    right: 10px;
+    font-size: 20px;
+    background-color:var(--color-white);
+    box-shadow: 0px 1px 4px rgba(128, 128, 128, 0.4);
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+
+    display: none;
+}
+
+.stickers_container:hover .add_to_favorite{
     display: flex;
 }
 
-.stickers_container:hover  .cart_hove {
-    display: flex;
-}
 
 @media (max-width: 1250px) {
     .sticker-cards_container {
