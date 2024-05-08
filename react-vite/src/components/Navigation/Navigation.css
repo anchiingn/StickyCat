@@ -63,7 +63,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: 40px;
   padding: 12px 15px;
-  box-shadow: 0px 1px 3px rgba(128, 128, 128, 0.1);
+  /* box-shadow: 0px 1px 3px rgba(128, 128, 128, 0.1); */
 
 }
 
@@ -81,6 +81,7 @@
     height: 35px;
     width: 13em;
     margin-left: 10px;
+    position: relative;
 
     && .search_form {
       position: relative;
@@ -94,18 +95,19 @@
       width: 100%;
       height: 100%;
       border-radius: 50px;
-      border: 1px solid var(--color-shadow);
+      border: none;
       padding-left: 25px;
-      background-color: rgb(236, 232, 226);
+      background-color: rgb(232, 227, 220);
     }
-
+    
     && input::placeholder {
       color: var(--color-shadow);
     }
-
+    
     && input:focus {
       outline: transparent;
       background-color: var(--color-white);
+      border: 1px solid rgb(232, 227, 220);
     }
 
     && input:focus::placeholder {
@@ -120,6 +122,11 @@
       position: absolute;
       right: 20px;
       color: darkgrey;
+    }
+
+    && .close-search {
+      position: absolute;
+      left: -30px;
     }
 
     && i:hover {

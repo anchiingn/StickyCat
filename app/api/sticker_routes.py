@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db
 from datetime import date
+from sqlalchemy import func
 from app.forms.sticker_form import StickerForm
 from app.forms.updatestickerr_forrm import UpdateStickerForm
 from app.forms.review_form import ReviewForm
@@ -196,6 +197,13 @@ def search_sticker(searchStickers):
     if (searchStickers):
         stickers = Sticker.query.filter(Sticker.title.ilike(f"%{searchStickers}%")).all()
 
+        isSearch = True
+
+        if not stickers:
+            stickers = Sticker.query.limit(4).all()
+            isSearch = False
+
+
         sticker_data = []
         for sticker in stickers:
             data = sticker.to_dict()
@@ -204,7 +212,7 @@ def search_sticker(searchStickers):
             reviews = Review.query.filter_by(stickerId = sticker.id).all()
             users = User.query.filter_by(id = sticker.ownerId).all()
 
-            
+            data['isSearch'] = isSearch
             data['cart'] = [cart.to_dict() for cart in carts]
             data['favorited'] = [favorite.to_dict() for favorite in favorites]
             data['reviews'] = [review.to_dict() for review in reviews]
@@ -212,3 +220,6 @@ def search_sticker(searchStickers):
             sticker_data.append(data)
 
         return sticker_data
+    
+    
+

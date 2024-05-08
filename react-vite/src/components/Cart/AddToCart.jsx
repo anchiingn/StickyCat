@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
 
 const AddToCart = ({ sticker }) => {
-    console.log(sticker)
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
 

@@ -225,7 +225,7 @@ const initialState = {}
 export const stickerReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL_STICKERS:
-            const newStates = {}
+            const newStates = {...state}
             action.allStickers.forEach(sticker => newStates[sticker.id] = sticker)
             return newStates
 
@@ -257,7 +257,6 @@ export const stickerReducer = (state = initialState, action) => {
         case SEARCH_STICKERS: {
             let nextState = {};
             action.stickers.forEach(sticker => nextState[sticker.id] = sticker);
-            console.log(nextState)
             return nextState
         }
         
