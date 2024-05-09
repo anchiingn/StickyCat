@@ -87,12 +87,12 @@ export default function StickerCards({ sticker }) {
                             </div>
                         </div>
                     </div>
-                    {sticker?.reviews?.length > 1 && (
+                    {/* {sticker?.reviews?.length > 1 && (
                         <div id="best-seller">
                             <img src="https://stickycat.s3.us-east-2.amazonaws.com/Screen_Shot_2024-01-17_at_3.15.46_PM+2.png" alt="" />
                             <div>Best Seller</div>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </NavLink>
         </>

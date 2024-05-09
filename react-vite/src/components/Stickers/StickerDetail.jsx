@@ -118,7 +118,7 @@ export default function StickerDetail() {
                         ) })}
 
                         <div style={{display:'flex', alignItems:'flex-end', marginTop:'-2px', paddingLeft:'5px'}}>
-                            {starRating.toFixed(1)} 
+                            {/* {starRating.toFixed(1)}  */}
                             <div onClick={() => scrollToReview()}>(<span style={{textDecoration:'underline', cursor:'pointer'}}>{reviews?.length}</span>)</div>
                         </div>
 
@@ -153,17 +153,20 @@ export default function StickerDetail() {
                         {user ?(
                             single_sticker[0]?.ownerId !== user?.id && (
                                 <div id="cart-shipdate">
-                                    <div style={{width:'100%'}}>
+                                    <div style={{width:'100%', height:'fit-content'}}>
+                                        {cart && (
+                                            <div id="cart-noti">Sticker has been added to cart</div>
+                                        )} 
                                         <div style={{display:'flex', alignItems:'center', width:'100%'}}>
                                             <button id="addToCart" onClick={addToCart}>Add to Cart</button>
                                         </div>
 
-                                        {cart && (
-                                            <div id="cart-noti">Sticker has been added to cart</div>
-                                        )}
                                     </div>
 
-                                    <div>Estimated to Ship {monthName} {day}, {year}</div>
+                                    <div className="Estimated_shipDate">
+                                        <i className="fa-solid fa-truck-fast"  />
+                                        Estimated to Ship {monthName} {day}, {year}
+                                    </div>
                                 </div>
                         ) 
                         ) :(
