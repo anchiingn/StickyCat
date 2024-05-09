@@ -22,12 +22,12 @@ export default function SignupFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      return setErrors({
-        confirmPassword:
-          "Confirm Password field must be the same as the Password field",
-      });
-    }
+    // if (password !== confirmPassword) {
+    //   return setErrors({
+    //     confirmPassword:
+    //       "Confirm Password field must be the same as the Password field",
+    //   });
+    // }
  
     // if (!email.includes('@')) {
     //   return setErrors({
@@ -118,9 +118,13 @@ export default function SignupFormPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          {errors.password && <p className="errors">*{errors.password}</p>}
+          {/* {errors.password && <p className="errors">*{errors.password}</p>} */}
+          <div className={password.length > 8 ?'color-green' :(errors.password) ?'color-red' :''}><i className="fa-regular fa-circle-check"></i> A minimum of 8 characters</div>
+          <div className={password.match(/[0-9]/) ?'color-green' :(errors.password) ?'color-red' :''}><i className="fa-regular fa-circle-check"></i> Include at least one number</div>
+          <div className={password.match(/[A-Z]/) ?'color-green' :(errors.password) ?'color-red' :''}><i className="fa-regular fa-circle-check"></i> Include at least one uppercase letter</div>
+          <div className={password.match(/[a-z]/) ?'color-green' :(errors.password) ?'color-red' :''}><i className="fa-regular fa-circle-check"></i> Include at least one lower letter</div>
 
-          <label>
+          {/* <label>
             Confirm Password <span style={{color:'var(--color-red)'}}>*</span>
           </label>
             <input
@@ -129,7 +133,8 @@ export default function SignupFormPage() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-          {errors.confirmPassword && <p className="errors">*{errors.confirmPassword}</p>}
+          {errors.confirmPassword && <p className="errors">*{errors.confirmPassword}</p>} */}
+
 
           <div style={{display:'flex', justifyContent:'center'}}>
             <button type="submit">Sign Up</button>

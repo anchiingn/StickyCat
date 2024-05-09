@@ -38,6 +38,7 @@
   border-radius: 50px;
   border: none;
   padding: 3px 10px;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .profile-dropdown > button:hover {
@@ -46,6 +47,14 @@
   cursor: pointer;
 }
 
+.sign_In_Up{
+  margin-right: 5px;
+  transition: color 0.2s ease-in-out;
+}
+
+.sign_In_Up:hover {
+    color: var(--color-red);
+  }
 /* ------ Free Shipping Ad ------ */
 .ad_freeshipping {
   width: 100%;
