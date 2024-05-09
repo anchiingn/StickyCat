@@ -52,6 +52,7 @@ function LoginFormPage() {
         {errors.length > 0 &&
           errors.map((message) => <p className="errors" key={message}>{message}</p>)}
         <form onSubmit={handleSubmit} className={["login_form", "form"].join(" ")}>
+          <div style={{ display: 'flex', justifyContent: 'center', flexDirection:'column' }}>
           <label>
             Email <span style={{color:'var(--color-red)'}}>*</span>
           </label>
@@ -59,19 +60,21 @@ function LoginFormPage() {
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
-
+          </div>
           {errors.email && <p className="errors">*{errors.email}</p>}
-          <label>
-            Password <span style={{color:'var(--color-red)'}}>*</span>
-          </label>
-            <input className='login_input'
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+
+          <div style={{ display: 'flex', justifyContent: 'center', flexDirection:'column' }}>
+            <label>
+              Password <span style={{color:'var(--color-red)'}}>*</span>
+            </label>
+              <input className='login_input'
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+          </div>
+
           {errors.password && <p className="errors">*{errors.password}</p>}
 
           <div style={{display:'flex', justifyContent:'center'}}>

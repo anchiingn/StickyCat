@@ -28,7 +28,7 @@ export default function SignupFormPage() {
     //       "Confirm Password field must be the same as the Password field",
     //   });
     // }
- 
+
     // if (!email.includes('@')) {
     //   return setErrors({
     //     email:
@@ -41,7 +41,6 @@ export default function SignupFormPage() {
         firstname,
         lastname,
         email,
-        username,
         password,
       })
     );
@@ -57,74 +56,72 @@ export default function SignupFormPage() {
     e.preventDefault()
     navigate('/login')
   }
+  console.log(errors)
 
   return (
     <>
-    <div className="log-sign_container">
-      <div className="signup_container">
-        
-        <h1>Sign Up</h1>
-        {/* {errors.server && <p className="errors">*{errors.server}</p>} */}
-        <form onSubmit={handleSubmit} className={["signup_form", "form"].join(" ")}>
-          <div className="firstname-lastname">
-          <label>
-            Firstname <span style={{color:'var(--color-red)'}}>*</span>
-          </label>
-            <input 
-              type="text"
-              value={firstname}
-              onChange={(e) => setFirstname(e.target.value)}
-              required
-            />
+      <div className="log-sign_container">
+        <div className="signup_container">
 
-            <label>
-            Lastname <span style={{color:'var(--color-red)'}}>*</span>
-            </label>
-            <input 
-              type="text"
-              value={lastname}
-              onChange={(e) => setLastname(e.target.value)}
-              required
-            />
-          </div>
-          <label>
-            Email <span style={{color:'var(--color-red)'}}>*</span>
-          </label>
-            <input 
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          {errors.email && <p className="errors">*{errors.email}</p>}
+          <h1>Sign Up</h1>
+          {/* {errors.server && <p className="errors">*{errors.server}</p>} */}
+          <form onSubmit={handleSubmit} className={["signup_form", "form"].join(" ")}>
+            <div className="firstname-lastname">
+              <div>
+                <label>
+                  Firstname <span style={{ color: 'var(--color-red)' }}>*</span>
+                </label>
+                <input
+                  type="text"
+                  value={firstname}
+                  onChange={(e) => setFirstname(e.target.value)}
+                />
+                {errors.firstname && <p className="errors">*{errors.firstname}</p>}
+              </div>
 
-          <label>
-            Username <span style={{color:'var(--color-red)'}}>*</span>
-          </label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          {errors.username && <p className="errors">*{errors.username}</p>}
+              <div>
+                <label>
+                  Lastname <span style={{ color: 'var(--color-red)' }}>*</span>
+                </label>
+                <input
+                  type="text"
+                  value={lastname}
+                  onChange={(e) => setLastname(e.target.value)}
+                />
+                {errors.lastname && <p className="errors">*{errors.lastname}</p>}
+              </div>
 
-          <label>
-            Password <span style={{color:'var(--color-red)'}}>*</span>
-          </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          {/* {errors.password && <p className="errors">*{errors.password}</p>} */}
-          <div className={password.length > 8 ?'color-green' :(errors.password) ?'color-red' :''}><i className="fa-regular fa-circle-check"></i> A minimum of 8 characters</div>
-          <div className={password.match(/[0-9]/) ?'color-green' :(errors.password) ?'color-red' :''}><i className="fa-regular fa-circle-check"></i> Include at least one number</div>
-          <div className={password.match(/[A-Z]/) ?'color-green' :(errors.password) ?'color-red' :''}><i className="fa-regular fa-circle-check"></i> Include at least one uppercase letter</div>
-          <div className={password.match(/[a-z]/) ?'color-green' :(errors.password) ?'color-red' :''}><i className="fa-regular fa-circle-check"></i> Include at least one lower letter</div>
+            </div>
 
-          {/* <label>
+            <div style={{ display: "flex", flexDirection: 'column' }}>
+              <label>
+                Email <span style={{ color: 'var(--color-red)' }}>*</span>
+              </label>
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            {errors.email && <p className="errors">*{errors.email}</p>}
+
+            <div style={{ display: "flex", flexDirection: 'column' }}>
+              <label>
+                Password <span style={{ color: 'var(--color-red)' }}>*</span>
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            {/* {errors.password && <p className="errors">*{errors.password}</p>} */}
+            <div className={password.length > 8 ? 'color-green' : (errors.password) ? 'color-red' : ''}><i className="fa-regular fa-circle-check"></i> A minimum of 8 characters</div>
+            <div className={password.match(/[0-9]/) ? 'color-green' : (errors.password) ? 'color-red' : ''}><i className="fa-regular fa-circle-check"></i> Include at least one number</div>
+            <div className={password.match(/[A-Z]/) ? 'color-green' : (errors.password) ? 'color-red' : ''}><i className="fa-regular fa-circle-check"></i> Include at least one uppercase letter</div>
+            <div className={password.match(/[a-z]/) ? 'color-green' : (errors.password) ? 'color-red' : ''} style={{ marginBottom: '30px' }}><i className="fa-regular fa-circle-check"></i> Include at least one lower letter</div>
+
+            {/* <label>
             Confirm Password <span style={{color:'var(--color-red)'}}>*</span>
           </label>
             <input
@@ -136,22 +133,22 @@ export default function SignupFormPage() {
           {errors.confirmPassword && <p className="errors">*{errors.confirmPassword}</p>} */}
 
 
-          <div style={{display:'flex', justifyContent:'center'}}>
-            <button type="submit">Sign Up</button>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom:'50px' }}>
+              <button type="submit">Sign Up</button>
+            </div>
+          </form>
+
+          <div className="text-before-button_container">
+            <span></span>
+            <div>Already have an account</div>
+            <span></span>
           </div>
-        </form>
+          <button onClick={signin} className="login-signup_button" >Sign In</button>
+
+        </div>
 
       </div>
 
-      <div className="text-before-button_container">
-        <span></span>
-        <div>Already have an account</div>
-        <span></span>
-      </div>
-
-      <button onClick={signin} className="login-signup_button" style={{marginBottom:'100px'}}>Sign In</button>
-
-    </div>
     </>
   );
 }
