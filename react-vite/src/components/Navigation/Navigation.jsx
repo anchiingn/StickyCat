@@ -124,7 +124,7 @@ function Navigation() {
             <div id="cart-container">
               <div id="cart-modal_container"> 
                 <button onClick={toggleMenu} className="buttons">
-                  <i className="fa-solid fa-cart-shopping" style={{fontSize:'23px'}}/>
+                  <i className="fa-solid fa-basket-shopping" style={{fontSize:'23px'}}/>
                   <div id="cart-stickers_length" style={{cursor:'pointer'}}>{quantity}</div>
                 </button>
               </div>
@@ -174,7 +174,7 @@ function Navigation() {
           </div>
         </div>
     </div>
-    <div className="ad_freeshipping">FREE SHIPPING OVER $25</div>
+    {/* <div className="ad_freeshipping">FREE SHIPPING OVER $25</div> */}
 
     </>
   );

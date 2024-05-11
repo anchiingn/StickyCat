@@ -49,12 +49,13 @@ function ProfileButton() {
         {showMenu && (
           <ul className={"profile-dropdown"} ref={ulRef}>
               <>
-                <li>Hi, {user.username}</li>
-                <li>{user.email}</li>
+                <li>Hi, {user.firstname}</li>
+                {/* <li>{user.email}</li> */}
                 <div className="profile-underline"></div>
                 {user && (
                   <>
                   <div id="profile-navlink">
+                    <NavLink to="" className="navlink">My Orders</NavLink>
                     <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink>
                     <NavLink to="/my-favorite-stickers" className="navlink">My Favorite Stickers</NavLink>
                   </div>

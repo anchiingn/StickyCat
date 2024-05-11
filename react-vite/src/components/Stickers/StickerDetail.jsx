@@ -171,15 +171,16 @@ export default function StickerDetail() {
                         ) 
                         ) :(
                             <div id="cart-shipdate">
-                                <div >
-                                    <div style={{display:'flex', alignItems:'center'}}>
-                                        <NavLink to="/login" className="navlink">
-                                        <button id="addToCart">
-                                            Add to Cart
-                                        </button>
-                                        </NavLink>
-                                    </div>
-
+                                <div style={{width:'100%', height:'fit-content'}}>
+                                    <NavLink to="/login" className="navlink" style={{ width:'100%'}}>
+                                        <div >
+                                            <button id="addToCart">Add to Cart</button>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                                <div className="Estimated_shipDate">
+                                        <i className="fa-solid fa-truck-fast"  />
+                                        Estimated to Ship {monthName} {day}, {year}
                                 </div>
                             </div>
                         )}

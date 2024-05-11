@@ -46,6 +46,13 @@ export default function AllStickers() {
                     <div className="allStickers_container">
                         <p>Explore stickers from around the world, where each one is a delightful tiny masterpiece. <br />Brimming with cuteness and playful charm, they're sure to bring a smile to your day.</p>
                         <div className="line-in-between"></div>
+
+                        {/* <div>
+                            <div> Sort By</div>
+                            <div>{stickers.length} stickers</div>
+                        </div> */}
+
+
                         <div className="sticker-cards_container">
                             {stickers.slice(0, loadMore).map(sticker => {
 

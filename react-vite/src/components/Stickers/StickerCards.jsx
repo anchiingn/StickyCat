@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux"
-import { thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllStickers } from "../../redux/stickerReducer"
 import { useParams, NavLink } from "react-router-dom"
 
 import './Stickers.css'
@@ -9,25 +8,6 @@ export default function StickerCards({ sticker }) {
     const { id } = useParams()
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
-
-    // useEffect(() => {
-    //     dispatch(thunkLoadAllReviews(sticker.reviews.id))
-
-    // }, [dispatch, id])
-
-
-    // -------------------  Add/Remove from Favorite ------------------- //
-    //  const addToFavorite = async(e) => {
-    //     e.preventDefault()
-    //     await dispatch(thunkAddToFavorite(sticker, sticker.id))
-    //     await dispatch(thunkLoadAllStickers())
-    // }
-
-    // const removeFromFavorite = async(e) => {
-    //     e.preventDefault()
-    //     await dispatch(thunkDeleteFromFavorite(sticker?.favorited[0]?.id))
-    //     await dispatch(thunkLoadAllStickers())
-    // }
 
     // -------------------  Star Rating  ------------------- //
     let starRating = 0
@@ -57,16 +37,6 @@ export default function StickerCards({ sticker }) {
                             ) :(
                                 <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>By: {sticker?.user?.firstname} {sticker?.user?.lastname}</div>
                             )}
-
-                            {/* {user && sticker.ownerId !== user.id && (
-                                <div>
-                                    {sticker?.favorited?.length === 0 ? (
-                                        <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={addToFavorite}></i>
-                                    ) : (
-                                        <i className="fa-solid fa-heart favorite-button" style={{ fontSize: '16px' }} onClick={removeFromFavorite}></i>
-                                    )}
-                                </div>
-                            )} */}
                         </div>
                         <div>
                             <div id="star-rating">
@@ -75,14 +45,14 @@ export default function StickerCards({ sticker }) {
                                         <div key={index}>
                                             <i className={`fa-solid fa-star`} style={{
                                                 color: starRating >= starNum ? 'var(--color-red)' : 'rgb(187, 182, 178)',
-                                                fontSize: '8px'
+                                                fontSize: '5px'
                                             }}></i>
                                         </div>
                                     )
                                 })}
 
                                 <div style={{ display: 'flex', alignItems: 'flex-end', marginTop: '-2px', paddingLeft: '5px' }}>
-                                    {starRating.toFixed(1)} ({sticker?.review?.length})
+                                     ({sticker?.review?.length})
                                 </div>
                             </div>
                         </div>

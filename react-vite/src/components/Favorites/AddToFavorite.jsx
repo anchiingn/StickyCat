@@ -51,11 +51,7 @@ const AddToFavorite = ({ sticker }) => {
                     </div>
                 )
             ) : (
-                <div>
-                    <NavLink to="/login" className="navlink">
-                        <i className="fa-regular fa-heart favorite-button" style={{ fontSize: '16px' }}></i>
-                    </NavLink>
-                </div>
+                null
             )}
         </>
     )
