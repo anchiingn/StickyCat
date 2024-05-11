@@ -12,7 +12,6 @@ export default function SignupFormPage() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -56,7 +55,6 @@ export default function SignupFormPage() {
     e.preventDefault()
     navigate('/login')
   }
-  console.log(errors)
 
   return (
     <>
