@@ -1,9 +1,8 @@
 """
 
-
 Revision ID: f57aab8d6574
 Revises: 
-Create Date: 2024-05-09 13:00:21.771939
+Create Date: 2024-04-26 15:08:52.932452
 
 """
 from alembic import op
@@ -29,7 +28,7 @@ def upgrade():
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email')
+    sa.UniqueConstraint('email'),
     )
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
