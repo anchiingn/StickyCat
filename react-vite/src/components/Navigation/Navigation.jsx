@@ -53,22 +53,6 @@ function Navigation() {
     return () => document.removeEventListener("click", closeMenu);
   }, [show]);
 
-  // useEffect(() => {
-  //   if (!bar) return;
-
-  //   const closeMenu = (e) => {
-
-  //     if (barRef.current && !barRef.current.contains(e.target)) {
-  //       console.log(barRef.current)
-  //       setBar(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("click", closeMenu);
-
-  //   return () => document.removeEventListener("click", closeMenu);
-  // }, [bar]);
-
 
   // -------- Total Price --------//
   let total = 0;
@@ -174,7 +158,7 @@ function Navigation() {
           </div>
         </div>
     </div>
-    {/* <div className="ad_freeshipping">FREE SHIPPING OVER $25</div> */}
+    <div className="ad_freeshipping">FREE SHIPPING OVER $25</div> 
 
     </>
   );

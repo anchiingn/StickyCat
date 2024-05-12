@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
         element: <SignupFormPage />,
       },
       {
-        path: "stickers/:id",
+        path: "stickers/:id/:title",
         element: <StickerDetail />
       },
       {
