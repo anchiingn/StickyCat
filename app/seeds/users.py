@@ -6,14 +6,34 @@ from sqlalchemy.sql import text
 def seed_users():
     demo = User(
         firstname='Demo', lastname='Mode', email='demo@aa.io', password='password')
+    
     marnie = User(
         firstname='Marnie', lastname='Garcie', email='marnie@aa.io', password='password')
+    
     bobbie = User(
         firstname='Bobbie', lastname='Brown', email='bobbie@aa.io', password='password')
+    
     emma = User(
         firstname='Emma', lastname='Rodriguez', email='emma@aa.io', password='password')
+    
     ren = User(
         firstname='Ren', lastname='Ito', email='ren@aa.io', password='password')
+    
+    jane = User(
+        firstname='Jane', lastname='Doe', email='jane@aa.io', password='password')
+
+    john = User(
+        firstname='John', lastname='Smith', email='john@aa.io', password='password')
+
+    alice = User(
+        firstname='Alice', lastname='Johnson', email='alice@aa.io', password='password')
+
+    mark = User(
+        firstname='Mark', lastname='Lee', email='mark@aa.io', password='password')
+
+    sophia = User(
+        firstname='Sophia', lastname='Martinez', email='sophia@aa.io', password='password')
+
     
 
     db.session.add(demo)
@@ -21,6 +41,12 @@ def seed_users():
     db.session.add(bobbie)
     db.session.add(emma)
     db.session.add(ren)
+    db.session.add(jane)
+    db.session.add(john)
+    db.session.add(alice)
+    db.session.add(mark)
+    db.session.add(sophia)
+
     db.session.commit()
 
 

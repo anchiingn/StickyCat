@@ -1,13 +1,9 @@
-import { useDispatch, useSelector } from "react-redux"
-import { useParams, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 import './Stickers.css'
 
 
 export default function StickerCards({ sticker }) {
-    const { id } = useParams()
-    const dispatch = useDispatch()
-    const user = useSelector(state => state.session.user)
 
     // -------------------  Star Rating  ------------------- //
     let starRating = 0
@@ -21,7 +17,7 @@ export default function StickerCards({ sticker }) {
     
     return (
         <>
-            <NavLink to={`/stickers/${sticker?.id}`} className={'navlink'}>
+            <NavLink to={`/stickers/${sticker?.id}/${sticker?.title}`} className={'navlink'}>
                 <div style={{ position: 'relative' }}>
                     <div className="sticker-images_container">
                         <img src={sticker?.image} alt={sticker?.title} />
@@ -33,9 +29,9 @@ export default function StickerCards({ sticker }) {
                         </div>
                         <div>
                             {window.location.pathname === '/my-stickers' ? (
-                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>By: {sticker?.user[0]?.firstname} {sticker?.user[0]?.lastname}</div>
+                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>Sticker by: {sticker?.user[0]?.firstname} {sticker?.user[0]?.lastname}</div>
                             ) :(
-                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>By: {sticker?.user?.firstname} {sticker?.user?.lastname}</div>
+                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>Sticker by: {sticker?.user?.firstname} {sticker?.user?.lastname}</div>
                             )}
                         </div>
                         <div>
