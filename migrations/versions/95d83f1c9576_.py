@@ -1,8 +1,8 @@
 """
 
-Revision ID: f57aab8d6574
+Revision ID: 95d83f1c9576
 Revises: 
-Create Date: 2024-05-13 12:05:20.491361
+Create Date: 2024-05-13 12:22:21.259941
 
 """
 from alembic import op
@@ -13,9 +13,8 @@ environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 
-
 # revision identifiers, used by Alembic.
-revision = 'f57aab8d6574'
+revision = '95d83f1c9576'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -30,7 +29,7 @@ def upgrade():
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email'),
+    sa.UniqueConstraint('email')
     )
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
