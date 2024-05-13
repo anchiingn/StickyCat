@@ -132,6 +132,21 @@
 
 #quantity-add-remove {
     font-size: 15px;
+
+    && button {
+        background-color: transparent;
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    && button:hover {
+        background-color: var(--color-yellow);
+    }
 }
 
 .cart-infos>#quantity-add-remove>button {
@@ -164,8 +179,3 @@
     cursor: pointer;
 }
 
-
-.quantity_button:hover {
-    cursor: pointer;
-    color: var(--hover-grey);
-}

@@ -126,13 +126,13 @@ function Navigation() {
                     <>
                       <div id="cart_container">
                           <AllCartStickers />
-                          <div id="total-price">Total: <span>${total}</span></div>
+                          <div id="total-price">Subtotal: <span>${total}</span></div>
                       </div>
 
                       <div id="checkout_container" >
                         {cart_stickers.length !== 0 ? (
                           <button id="checkout" onClick={toggleMenu}>
-                            <div onClick={getCheckout}>Checkout</div>
+                            <div onClick={() => navigate('/checkout')}>Checkout</div>
                           </button>
                         ) :(
                           <button id="checkout">

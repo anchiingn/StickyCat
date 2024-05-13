@@ -32,9 +32,9 @@ export default function CartStickerCards ({ sticker }) {
                     <div className="cart-infos">
                         <div>Quantity -</div>
                         <div style={{display:'flex'}} id="quantity-add-remove">
-                            <button style={{marginRight:'6px'}} onClick={removeSticker}><i className="fa-solid fa-minus quantity_button"></i></button>
+                            <button style={{marginRight:'10px'}} onClick={removeSticker}>-</button>
                             <div>{sticker?.quantity}</div>
-                            <button style={{marginLeft:'5px'}} onClick={addSticker}><i className="fa-solid fa-plus quantity_button"></i></button>
+                            <button style={{marginLeft:'10px'}} onClick={addSticker}>+</button>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import Layout from './Layout';
 import LoginFormPage from '../components/LoginSignupPage/LoginFormPage';
 import SignupFormPage from '../components/LoginSignupPage/SignupFormPage';
 import AllStickers from '../components/Stickers/AllStickers';
@@ -13,7 +14,6 @@ import LaunchStickers from '../components/ExtraPages/LaunchStickers';
 import HowItWork from '../components/ExtraPages/HowItWork';
 import Thankyou from '../components/ExtraPages/ThankYou';
 import SearchSticker from '../components/Navigation/Search/SearchStickers';
-import Layout from './Layout';
 
 export const router = createBrowserRouter([
   {
