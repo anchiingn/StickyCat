@@ -29,9 +29,9 @@ export default function StickerCards({ sticker }) {
                         </div>
                         <div>
                             {window.location.pathname === '/my-stickers' ? (
-                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>Sticker by: {sticker?.user[0]?.firstname} {sticker?.user[0]?.lastname}</div>
+                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>Design by: {sticker?.user[0]?.firstname} {sticker?.user[0]?.lastname}</div>
                             ) :(
-                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>Sticker by: {sticker?.user?.firstname} {sticker?.user?.lastname}</div>
+                                <div style={{ color: 'var(--hover-grey)', fontSize: '12px' }}>Design by: {sticker?.user?.firstname} {sticker?.user?.lastname}</div>
                             )}
                         </div>
                         <div>

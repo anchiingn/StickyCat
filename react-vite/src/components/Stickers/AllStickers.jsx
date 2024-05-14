@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { thunkLoadAllStickers } from "../../redux/stickerReducer";
-import { thunkAddToFavorite, thunkDeleteFromFavorite } from "../../redux/stickerReducer";
 import './Stickers.css'
 import StickerCards from "./StickerCards"
-import { NavLink } from "react-router-dom"
-import AddToCart from "../Cart/AddToCart"
+// import AddToCart from "../Cart/AddToCart"
 import AddToFavorite from "../Favorites/AddToFavorite";
 
 
 export default function AllStickers() {
+   
+
     const dispatch = useDispatch()
     const allStickers = useSelector(state => state?.stickers)
     const user = useSelector(state => state.session.user)

@@ -20,8 +20,6 @@ const SearchSticker = () => {
 
     const stickers = Object.values(loadSearchStickers)
 
-
-
     return (
         <>
             <div className="stickers-toppart_container">
@@ -34,7 +32,8 @@ const SearchSticker = () => {
                     )}
             </div>
             {stickers && stickers.length > 0 && stickers[0].isSearch && stickers.length > 0 ? (
-                <div className="sticker-cards_container">
+                <>
+                <div className="sticker-cards_container search-stickers_container">
                     {stickers.map(sticker => {
                         return (
                             <div key={sticker?.id} className="stickers_container">
@@ -45,10 +44,27 @@ const SearchSticker = () => {
                         )
                     })}
                 </div>
+
+                <div className="explore-more-stickers">Explore More Stickers</div>
+                <div className="sticker-cards_container explore-more_container">
+                    {stickers[0].alternative_stickers.map(sticker => {
+                        return (
+                            <div key={sticker?.id} className="stickers_container">
+                                <StickerCards sticker={sticker} />
+                                <AddToFavorite sticker={sticker} />
+                                {/* <AddToCart sticker={sticker} /> */}
+                            </div>
+                        )
+                    })}
+                </div>
+                </>
             ) : (
                 <>
-                    <div>Whoopsie! Couldn&apos;t find &quot;<span>{searchStickers}</span>&quot;.</div>
-                    <div>Let look for other stickers</div>
+                    <div className="couldnt-find">
+                        <p >Whoopsie! Couldn&apos;t find &quot;<span>{searchStickers}</span>&quot;.</p>
+                        <p >Let explore the other stickers</p>
+                    </div>
+
                     <div className="sticker-cards_container">
                         {stickers.map(sticker => {
                             return (
@@ -60,8 +76,10 @@ const SearchSticker = () => {
                             )
                         })}
                     </div>
+
                 </>
             )}
+
         </>
     )
 }

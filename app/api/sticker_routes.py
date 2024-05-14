@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
+from sqlalchemy import and_
 from app.models import db
 from datetime import date
-from sqlalchemy import func
 from app.forms.sticker_form import StickerForm
 from app.forms.updatestickerr_forrm import UpdateStickerForm
 from app.forms.review_form import ReviewForm
@@ -54,11 +54,13 @@ def get_single_sticker(id):
     sticker_data = []
 
     data = sticker.to_dict()
+    userStickers = Sticker.query.filter(and_(Sticker.ownerId == sticker.ownerId, Sticker.id != sticker.id)).limit(4).all()
     currentStickers = User.query.filter_by(id = sticker.ownerId).all()
     favorites = Favorite.query.filter_by(stickerId=sticker.id, userId=user_id).all()
     reviews = Review.query.filter_by(stickerId = sticker.id).all()
     carts = Cart.query.filter_by(stickerId = sticker.id).all()
 
+    data['userStickers'] = [sticker.to_dict() for sticker in userStickers]
     data['cart'] = [cart.to_dict() for cart in carts]
     data['user'] = [user.to_dict() for user in currentStickers]
     data['favorited'] = [favorite.to_dict() for favorite in favorites]
@@ -196,7 +198,7 @@ def create_new_reviews(id):
 def search_sticker(searchStickers):
     if (searchStickers):
         stickers = Sticker.query.filter(Sticker.title.ilike(f"%{searchStickers}%")).all()
-
+        alternative_stickers = Sticker.query.filter(Sticker.title.notilike(f"%{searchStickers}%")).limit(4).all()
         isSearch = True
 
         if not stickers:
@@ -212,6 +214,7 @@ def search_sticker(searchStickers):
             reviews = Review.query.filter_by(stickerId = sticker.id).all()
             users = User.query.filter_by(id = sticker.ownerId).all()
 
+            data['alternative_stickers'] = [sticker.to_dict() for sticker in alternative_stickers]
             data['isSearch'] = isSearch
             data['cart'] = [cart.to_dict() for cart in carts]
             data['favorited'] = [favorite.to_dict() for favorite in favorites]

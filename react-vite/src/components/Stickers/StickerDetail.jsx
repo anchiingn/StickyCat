@@ -5,6 +5,9 @@ import { useParams, useNavigate, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
+import AddToCart from "../Cart/AddToCart"
+import AddToFavorite from "../Favorites/AddToFavorite"
+import StickerCards from "./StickerCards"
 
 
 export default function StickerDetail() {
@@ -16,7 +19,6 @@ export default function StickerDetail() {
     const fetchReviews = useSelector(state => state?.reviews)
     const user = useSelector(state => state.session.user)
     const [cart, setCart] = useState(false)
-
     useEffect(() => {
         dispatch(thunkLoadSingleSticker(id))
         dispatch(thunkLoadAllReviews(id))
@@ -92,6 +94,7 @@ export default function StickerDetail() {
             behavior: "smooth"
         })
     }
+    console.log(single_sticker)
 
     return (
         <>
@@ -129,7 +132,7 @@ export default function StickerDetail() {
                             <div id="price">${single_sticker[0]?.price}</div>
                         </div>
                         <div style={{display:'flex', justifyContent:'space-between'}}>
-                            <div id="name">By: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
+                            <div id="name">Design by: {single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</div>
                             {user ?(
                                 single_sticker[0]?.ownerId !== user.id && (
                                     <div>
@@ -204,6 +207,19 @@ export default function StickerDetail() {
                 </div>
             </div>
 
+            <p className="explore-sticker-by-designer">Explore stickers by <span>{single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</span> :</p>
+
+            <div className="sticker-cards_container">
+                {single_sticker[0].userStickers.map(sticker => {
+                    return (
+                        <div key={sticker?.id} className="stickers_container">
+                            <StickerCards sticker={sticker} />
+                            <AddToFavorite sticker={sticker} />
+                            <AddToCart sticker={sticker} />
+                        </div>
+                    )
+                })}
+            </div>
 
             {/*  ------ Get Reviews --------- */}
             <div id="review_container" ref={reviewRef}>
