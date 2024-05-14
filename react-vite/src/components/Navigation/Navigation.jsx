@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import { useState, useEffect, useRef } from "react";
-import {  useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { thunkLoadAllCarts, thunkRemoveAllSticker } from "../../redux/cardReducer";
 import AllCartStickers from "../Cart/AllCartStickers";
 import Search from "./Search/Search";
@@ -15,13 +15,13 @@ function Navigation() {
   const barRef = useRef()
   const dispatch = useDispatch()
   const fetchCartStickers = useSelector(state => state.carts)
-  const user = useSelector (state => state.session.user)
-  
+  const user = useSelector(state => state.session.user)
+
   const navigate = useNavigate()
 
   useEffect(() => {
-      dispatch(thunkLoadAllCarts())
-  },[dispatch]);
+    dispatch(thunkLoadAllCarts())
+  }, [dispatch]);
 
   const cart_stickers = Object.values(fetchCartStickers);
 
@@ -34,7 +34,7 @@ function Navigation() {
 
   // -------- Close Cart When Click Outside --------//
   const toggleMenu = (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
     setShow(!show);
   };
 
@@ -45,7 +45,7 @@ function Navigation() {
       if (ulRef.current && !ulRef.current.contains(e.target)) {
         setShow(false);
       }
-      
+
     };
 
     document.addEventListener("click", closeMenu);
@@ -61,7 +61,7 @@ function Navigation() {
       total += sticker?.stickers[0]?.price * sticker.quantity;
     }
   }
-  total = (total).toFixed(2); 
+  total = (total).toFixed(2);
 
 
   // -------- Checkout --------//
@@ -73,10 +73,10 @@ function Navigation() {
       navigate('/thank-you-for-your-purchased')
     }
   }
-  
+
   return (
     <>
-    <div className="container">
+      <div className="container">
 
         <div id="nav_container">
           <div id="logo_container">
@@ -84,7 +84,7 @@ function Navigation() {
             <NavLink to="/" className="navlink" id="logo-name">StickyCat</NavLink>
             <Search />
           </div>
-          
+
           <div id="nav-link_container">
             {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
             <NavLink to="/explored-stickers" className="navlink">Explore Stickers</NavLink>
@@ -94,10 +94,10 @@ function Navigation() {
           <button onClick={() => setBar(!bar)} className="bar_butt" ><i className="fa-solid fa-bars"></i></button>
           {bar && (
             <div id="nav-link_container_mobile" ref={barRef} >
-            {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
-            <NavLink to="/explored-stickers" className="navlink">Explore Stickers</NavLink>
-            <NavLink to="/launch-sticker" className="navlink" >Launch Sticker</NavLink>
-          </div>
+              {/* <NavLink to="/how-it-work" className="navlink">How It Work</NavLink> */}
+              <NavLink to="/explored-stickers" className="navlink">Explore Stickers</NavLink>
+              <NavLink to="/launch-sticker" className="navlink" >Launch Sticker</NavLink>
+            </div>
           )}
 
           <div id='profile-cart_container'>
@@ -106,49 +106,49 @@ function Navigation() {
             </div>
 
             <div id="cart-container">
-              <div id="cart-modal_container"> 
+              <div id="cart-modal_container">
                 <button onClick={toggleMenu} className="buttons">
-                  <i className="fa-solid fa-basket-shopping" style={{fontSize:'23px'}}/>
-                  <div id="cart-stickers_length" style={{cursor:'pointer'}}>{quantity}</div>
+                  <i className="fa-solid fa-basket-shopping" style={{ fontSize: '23px' }} />
+                  <div id="cart-stickers_length" style={{ cursor: 'pointer' }}>{quantity}</div>
                 </button>
               </div>
 
               {show && (
-                <div className={`cart-modal ${show === false ?'close-cart' : ''}`}  ref={ulRef}>
+                <div className={`cart-modal `} ref={ulRef}>
 
                   <div id="cart-top">
-                    <div style={{fontWeight:'bold'}}>My Cart -</div>
-                    <button onClick={toggleMenu} className="buttons"><i className="fa-solid fa-xmark" style={{fontSize:'20px', color:'var(--color-black)'}}/></button>
+                    <div style={{ fontWeight: 'bold' }}>My Cart -</div>
+                    <button onClick={toggleMenu} className="buttons"><i className="fa-solid fa-xmark" style={{ fontSize: '20px', color: 'var(--color-black)' }} /></button>
                   </div>
 
                   <div id="cart-stickers_container">
-                  {user ? (
-                    <>
-                      <div id="cart_container">
+                    {user ? (
+                      <>
+                        <div id="cart_container">
                           <AllCartStickers />
                           <div id="total-price">Subtotal: <span>${total}</span></div>
-                      </div>
+                        </div>
 
-                      <div id="checkout_container" >
-                        {cart_stickers.length !== 0 ? (
-                          <button id="checkout" onClick={toggleMenu}>
-                            <div onClick={() => navigate('/checkout')}>Checkout</div>
-                          </button>
-                        ) :(
-                          <button id="checkout">
-                            <div style={{backgroundColor:'var(--color-black)', color:'var(--hover-grey)', cursor:'default'}}>Checkout</div>
-                          </button>
-                        )}
+                        <div id="checkout-cart_container" >
+                          {cart_stickers.length !== 0 ? (
+                            <button id="checkout" onClick={toggleMenu}>
+                              <div onClick={() => navigate('/checkout')}>Checkout</div>
+                            </button>
+                          ) : (
+                            <button id="checkout">
+                              <div style={{ backgroundColor: 'var(--color-black)', color: 'var(--hover-grey)', cursor: 'default' }}>Checkout</div>
+                            </button>
+                          )}
+                        </div>
+                      </>
+                    ) : (
+                      <div id="cart_container">
+                        <div style={{ marginBottom: '20px' }}>Nothing in cart ... You need to sign in</div>
+                        <button>
+                          <NavLink to='/login' className={'navlink'}>Sign In/Up</NavLink>
+                        </button>
                       </div>
-                    </>
-                  ) :(
-                    <div id="cart_container">
-                      <div style={{marginBottom:'20px'}}>Nothing in cart ... You need to sign in</div>
-                      <button>
-                        <NavLink to='/login' className={'navlink'}>Sign In/Up</NavLink>
-                      </button>
-                    </div>
-                  )}
+                    )}
                   </div>
 
                 </div>
@@ -157,8 +157,8 @@ function Navigation() {
             </div>
           </div>
         </div>
-    </div>
-    <div className="ad_freeshipping">FREE SHIPPING OVER $25</div> 
+      </div>
+      {/* <div className="ad_freeshipping">FREE SHIPPING OVER $10</div> */}
 
     </>
   );

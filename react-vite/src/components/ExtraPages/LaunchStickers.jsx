@@ -13,7 +13,7 @@ export default function LaunchStickers () {
         
 
         <div className='blank-background_container'>
-            <div className='small_container'>Innovation <span>-</span> Imaginative <span>-</span> Originality <span>-</span> Inventive <span>-</span> Visionary</div>
+            <div className='small_container'></div>
             
 
             <div className='about-infos_container'>

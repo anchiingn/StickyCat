@@ -54,7 +54,7 @@ function LoginFormPage() {
         <form onSubmit={handleSubmit} className={["login_form", "form"].join(" ")}>
           <div style={{ display: 'flex', justifyContent: 'center', flexDirection:'column' }}>
           <label>
-            Email <span style={{color:'var(--color-red)'}}>*</span>
+            Email 
           </label>
             <input className='login_input'
               type="text"
@@ -66,7 +66,7 @@ function LoginFormPage() {
 
           <div style={{ display: 'flex', justifyContent: 'center', flexDirection:'column' }}>
             <label>
-              Password <span style={{color:'var(--color-red)'}}>*</span>
+              Password 
             </label>
               <input className='login_input'
                 type="password"
@@ -91,7 +91,7 @@ function LoginFormPage() {
         <span></span>
       </div>
 
-      <button onClick={signup} className="login-signup_button">Sign Up</button>
+      <button onClick={signup} className="login-signup_button">Create New Account</button>
       <button onClick={demo} className="login-signup_button">Demo User</button>
 
     </div>

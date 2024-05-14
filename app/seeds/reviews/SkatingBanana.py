@@ -9,7 +9,7 @@ SkatingBanana = [
         'userId': 3,
         'stickerId': 1,
         'review': 'Fun and bright, but it started peeling off a bit.',
-        'star': 3,
+        'star': 5,
     },
     {
         'userId': 4,
@@ -21,7 +21,7 @@ SkatingBanana = [
         'userId': 5,
         'stickerId': 1,
         'review': 'Cute design but the color was a little less vibrant than expected.',
-        'star': 4,
+        'star': 5,
     },
     {
         'userId': 6,

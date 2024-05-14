@@ -25,10 +25,8 @@ const SearchSticker = () => {
     return (
         <>
             <div className="stickers-toppart_container">
-                <NavLink className={'navlink'} style={{ cursor: 'default' }}>
-                    Search Stickers
-                </NavLink>
-                /
+                <span>Search Stickers</span> <span>/</span>
+
                 {stickers && stickers.length > 0 && stickers[0].isSearch
                     ? (<div>{stickers.length} results for &quot;{searchStickers}&quot;</div>)
                     : (

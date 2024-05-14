@@ -39,7 +39,7 @@ export default function AllStickers() {
             ) : (
                 <>
                     <div className="stickers-toppart_container">
-                        <NavLink className={'navlink'} style={{ cursor: 'default' }}>Explore Stickers </NavLink>
+                        <span>Explore Stickers </span>
                         /
                     </div>
 

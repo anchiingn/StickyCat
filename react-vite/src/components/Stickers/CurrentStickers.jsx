@@ -36,8 +36,7 @@ export default function CurrentStickers() {
                     {user && (
                         <>
                             <div className="stickers-toppart_container">
-                                <NavLink className={'navlink'} style={{ cursor: 'default' }}>My Stickers</NavLink>
-                                /
+                                <span>My Stickers</span> <span>/</span>
                             </div>
 
                             <div className="allStickers_container">

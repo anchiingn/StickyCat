@@ -1,11 +1,13 @@
 .stickers-toppart_container {
     margin-left: 150px;
     margin-bottom: 40px;
+    display: flex;
+
+    && span {
+        margin-right: 15px;
+    }
 }
 
-.stickers-toppart_container > .navlink {
-    margin: 0px 15px;
-}
 
 
 .allStickers_container {

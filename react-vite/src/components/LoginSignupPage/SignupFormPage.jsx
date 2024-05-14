@@ -67,7 +67,7 @@ export default function SignupFormPage() {
             <div className="firstname-lastname">
               <div>
                 <label>
-                  Firstname <span style={{ color: 'var(--color-red)' }}>*</span>
+                  Firstname 
                 </label>
                 <input
                   type="text"
@@ -79,7 +79,7 @@ export default function SignupFormPage() {
 
               <div>
                 <label>
-                  Lastname <span style={{ color: 'var(--color-red)' }}>*</span>
+                  Lastname 
                 </label>
                 <input
                   type="text"
@@ -93,7 +93,7 @@ export default function SignupFormPage() {
 
             <div style={{ display: "flex", flexDirection: 'column' }}>
               <label>
-                Email <span style={{ color: 'var(--color-red)' }}>*</span>
+                Email 
               </label>
               <input
                 type="text"
@@ -105,7 +105,7 @@ export default function SignupFormPage() {
 
             <div style={{ display: "flex", flexDirection: 'column' }}>
               <label>
-                Password <span style={{ color: 'var(--color-red)' }}>*</span>
+                Password 
               </label>
               <input
                 type="password"
@@ -132,7 +132,7 @@ export default function SignupFormPage() {
 
 
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom:'50px' }}>
-              <button type="submit">Sign Up</button>
+              <button type="submit">Create Account</button>
             </div>
           </form>
 

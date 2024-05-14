@@ -27,15 +27,14 @@ export default function CartStickerCards ({ sticker }) {
                 <div id="cart-infos_container">
                     <div className="cart-infos">
                         <div style={{fontWeight:'bold'}}>{sticker?.stickers[0]?.title}</div>
-                        <div>${sticker?.stickers[0]?.price}</div>
-                    </div>
-                    <div className="cart-infos">
-                        <div>Quantity -</div>
                         <div style={{display:'flex'}} id="quantity-add-remove">
                             <button style={{marginRight:'10px'}} onClick={removeSticker}>-</button>
                             <div>{sticker?.quantity}</div>
                             <button style={{marginLeft:'10px'}} onClick={addSticker}>+</button>
                         </div>
+                    </div>
+                    <div className="cart-infos">
+                        <div>${sticker?.stickers[0]?.price}</div>
                     </div>
                 </div>
 
