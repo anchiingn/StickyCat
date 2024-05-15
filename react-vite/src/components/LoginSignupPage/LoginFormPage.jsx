@@ -10,7 +10,8 @@ function LoginFormPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
+  const [showPassword, setShowPassword] = useState(false)
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
@@ -42,6 +43,10 @@ function LoginFormPage() {
     navigate('/signup')
   }
 
+  const handelShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
+
   return (
     <>
     <div className="log-sign_container">
@@ -65,11 +70,18 @@ function LoginFormPage() {
           {errors.email && <p className="errors">*{errors.email}</p>}
 
           <div style={{ display: 'flex', justifyContent: 'center', flexDirection:'column' }}>
-            <label>
-              Password 
-            </label>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <label>
+                Password 
+              </label>
+              {showPassword ?(
+                <i className="fa-regular fa-eye" onClick={handelShowPassword} />
+              ) :(
+                <i class="fa-regular fa-eye-slash" onClick={handelShowPassword} />
+              )}
+            </div>
               <input className='login_input'
-                type="password"
+                type={showPassword ?'text' :'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

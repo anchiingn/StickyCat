@@ -13,8 +13,9 @@ export default function SignupFormPage() {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false)
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
@@ -54,6 +55,10 @@ export default function SignupFormPage() {
   const signin = async (e) => {
     e.preventDefault()
     navigate('/login')
+  }
+
+  const handelShowPassword = () => {
+    setShowPassword(!showPassword)
   }
 
   return (
@@ -104,11 +109,18 @@ export default function SignupFormPage() {
             {errors.email && <p className="errors">*{errors.email}</p>}
 
             <div style={{ display: "flex", flexDirection: 'column' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <label>
                 Password 
               </label>
+              {showPassword ?(
+                <i className="fa-regular fa-eye" onClick={handelShowPassword} />
+              ) :(
+                <i class="fa-regular fa-eye-slash" onClick={handelShowPassword} />
+              )}
+            </div>
               <input
-                type="password"
+                type={showPassword ?'text' :'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

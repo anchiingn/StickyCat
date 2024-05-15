@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     width: 100dvw;
+    margin-bottom: 80px;
 }
 
 #sticker-detail_container > div {
     margin-top: 40px;
     display: flex;
     justify-content: space-evenly;
-    gap: 40px;
+    gap: 100px;
     align-items: flex-start;
     height: fit-content;
     width: 80%;
@@ -42,7 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 25px;
+    /* margin-top: 5px; */
     /* margin-bottom: 5px; */
 
     && #title {
@@ -86,7 +87,7 @@
 
 #cart-noti {
     position: absolute;
-    top: 350px;
+    top: 300px;
     color: var(--color-red);
     /* margin-top: -5px; */
 }
@@ -126,7 +127,9 @@
 
 #review_container {
     margin: 50px 8em;
-    margin-top: 90px;
+    margin-top: 80px;
+    border-top: 3.5px solid var(--hover-grey);
+    padding-top: 30px;
 } 
 
 .favorite-button {
@@ -156,7 +159,8 @@
 
 .explore-sticker-by-designer {
     margin: 50px 8em;
-    margin-top: 90px;
+    border-top: 3.5px solid var(--hover-grey);
+    padding-top: 40px;
 
     && span {
         font-weight: 700;
