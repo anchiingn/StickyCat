@@ -6,7 +6,6 @@ import StickerCards from "./StickerCards"
 // import AddToCart from "../Cart/AddToCart"
 import AddToFavorite from "../Favorites/AddToFavorite";
 
-
 export default function AllStickers() {
    
 
@@ -39,14 +38,13 @@ export default function AllStickers() {
             ) : (
                 <>
                     <div className="stickers-toppart_container">
-                        <span>Explore Stickers </span>
-                        /
+                        <span>Explore Stickers </span> /
                     </div>
 
                     <div className="allStickers_container">
                         <p>Explore stickers from around the world, where each one is a delightful tiny masterpiece. <br />Brimming with cuteness and playful charm, they're sure to bring a smile to your day.</p>
                         <div className="line-in-between"></div>
-
+                        
                         {/* <div>
                             <div> Sort By</div>
                             <div>{stickers.length} stickers</div>
