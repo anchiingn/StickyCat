@@ -15,9 +15,8 @@
     /* margin: 50px 10em; */
 }
 
-
 #sticker-detail_image {
-    width: calc(43% - 150px);
+    width: calc(50% - 150px);
     height: 100%;
     /* margin-right: 20px; */
 }
@@ -126,7 +125,7 @@
 }
 
 #review_container {
-    margin: 50px 10em;
+    margin: 50px 8em;
     margin-top: 90px;
 } 
 
@@ -155,6 +154,22 @@
     cursor: pointer;
 }
 
+.explore-sticker-by-designer {
+    margin: 50px 8em;
+    margin-top: 90px;
+
+    && span {
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 0.5px;
+    }
+}
+
+.ex-stickers_card_wrapper {
+    height: 24em;
+    overflow: hidden;
+}
+
 
 @media screen and (max-width:1250px) {
     #sticker-detail_container {
@@ -164,6 +179,7 @@
     #sticker-detail_container > div {
         flex-direction: column;
         align-items: center;
+        gap: 0px;
     }
 
     #sticker-detail_image {
@@ -175,7 +191,7 @@
         width: 100%;
     }
 
-    #review_container {
+    #review_container, .explore-sticker-by-designer {
         margin: 50px 5.2em;
         margin-top: 50px;
     } 
@@ -209,4 +225,6 @@
         width: 20em;
         margin: 0 auto;
     }
+
+    
 }

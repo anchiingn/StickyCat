@@ -45,8 +45,13 @@ export default function CheckoutPage() {
 
     return (
         <>
+            <div className='goback' onClick={() => navigate('/')}>
+                <i className="fa-solid fa-arrow-left"></i>
+            </div>
+        
             {cart_stickers.length > 0 ? (
                 <div className='checkout_container'>
+                    
                     <section className='checkout_stickers'>
                         {cart_stickers.map(sticker => {
 
@@ -101,7 +106,13 @@ export default function CheckoutPage() {
                         <div>Total 
                             <span>USD <span>${total.toFixed(2)}</span></span>
                         </div>
-                        <button onClick={getCheckout}>Checkout</button>
+                        <div className="checkout-cart_container" >
+                            <button className="checkout">
+                              <div onClick={getCheckout}>Go to Checkout</div>
+                            </button>
+                          
+                        </div>                    
+                        
                     </section>
                 </div>
             ) : (
@@ -109,7 +120,6 @@ export default function CheckoutPage() {
                     <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
                         <img src="https://stickycat.s3.us-east-2.amazonaws.com/IMG_2919.PNG" alt="empty-cart" style={{ width: '25em' }} />
                         <p>Cart is Empty!!!</p>
-                        <NavLink to={'/explored-stickers'} className={'navlink'}> <i className="fa-solid fa-hand-point-left"></i> Countinue Explored Stickers</NavLink>
                     </div>
                 </>
             )}

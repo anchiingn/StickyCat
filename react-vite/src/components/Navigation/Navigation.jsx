@@ -129,13 +129,13 @@ function Navigation() {
                           <div id="total-price">Subtotal: <span>${total}</span></div>
                         </div>
 
-                        <div id="checkout-cart_container" >
+                        <div className="checkout-cart_container" >
                           {cart_stickers.length !== 0 ? (
-                            <button id="checkout" onClick={toggleMenu}>
+                            <button className="checkout" onClick={toggleMenu}>
                               <div onClick={() => navigate('/checkout')}>Go to Checkout</div>
                             </button>
                           ) : (
-                            <button id="checkout">
+                            <button className="checkout">
                               <div style={{ backgroundColor: 'var(--color-black)', color: 'var(--hover-grey)', cursor: 'default' }}>Checkout</div>
                             </button>
                           )}

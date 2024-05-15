@@ -60,8 +60,7 @@
     align-items: center;
 }
 
-.stickers_container:hover 
-.sticker-images_container > img {
+.sticker-images_container > img:hover  {
     width: 105%;
     height: 105%;
 }
@@ -73,6 +72,8 @@
     align-items: center;
     width: 15em;
     height: 18em;
+    background-color: rgb(237, 232, 224);
+    border-radius: 30px;
 }
 
 .sticker-images_container > img {
@@ -199,8 +200,8 @@ nav > ul > li > button:not(.numPage) {
 
 .add_to_favorite {
     position: absolute;
-    top: 55px;
-    right: 10px;
+    top: 15px;
+    right: 25px;
     font-size: 20px;
     background-color:var(--color-white);
     box-shadow: 0px 1px 4px rgba(128, 128, 128, 0.4);
