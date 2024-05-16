@@ -55,7 +55,7 @@ function ProfileButton() {
                 {user && (
                   <>
                   <div id="profile-navlink">
-                    <NavLink to="" className="navlink">My Orders</NavLink>
+                    {/* <NavLink to="" className="navlink">My Orders</NavLink> */}
                     <NavLink to="/my-stickers" className="navlink">My Stickers</NavLink>
                     <NavLink to="/my-favorite-stickers" className="navlink">My Favorite Stickers</NavLink>
                   </div>

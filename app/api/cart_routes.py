@@ -73,7 +73,7 @@ def remove_one_sticker(id):
     if cart_sticker.quantity == 1:
         db.session.delete(cart_sticker)
         db.session.commit()
-        return jsonify(message='decrease the quantity by 1')
+        return jsonify(message='Remove from cart successfully')
     
     return jsonify(message='Sticker not found')
 
