@@ -1,6 +1,6 @@
 """
 
-Revision ID: 4ecaef5d8a90
+Revision ID: 95d83f1c9576
 Revises: 
 Create Date: 2024-05-13 12:48:25.007996
 
@@ -14,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = '4ecaef5d8a90'
+revision = '95d83f1c9576'
 down_revision = None
 branch_labels = None
 depends_on = None
