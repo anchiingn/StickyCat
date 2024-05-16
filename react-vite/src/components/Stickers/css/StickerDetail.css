@@ -148,7 +148,7 @@
     height: 40px;
     position: relative;
     left: 100px;
-    top: 20px;
+    /* top: 20px; */
     transition: background-color 0.25s ease-in-out;
 }
 

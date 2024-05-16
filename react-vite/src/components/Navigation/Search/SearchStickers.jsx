@@ -26,9 +26,9 @@ const SearchSticker = () => {
                 <span>Search Stickers</span> <span>/</span>
 
                 {stickers && stickers.length > 0 && stickers[0].isSearch
-                    ? (<div>{stickers.length} results for &quot;{searchStickers}&quot;</div>)
+                    ? (<div>{stickers.length} {stickers.length === 1 ?'result' :'results'} for &quot;{searchStickers}&quot;</div>)
                     : (
-                        <div>0 results for &quot;{searchStickers}&quot;</div>
+                        <div>0 result for &quot;{searchStickers}&quot;</div>
                     )}
             </div>
             {stickers && stickers.length > 0 && stickers[0].isSearch && stickers.length > 0 ? (
