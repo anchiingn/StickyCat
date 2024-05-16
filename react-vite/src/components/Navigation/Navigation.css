@@ -340,6 +340,10 @@
 }
 
 @media screen and (max-width:900px) {
+  #nav_container {
+    padding: 10px 0px;
+  }
+
   #nav-link_container {
     display: none;
   }
