@@ -14,8 +14,8 @@
     justify-content: space-between;
     width: 20em;
     padding-bottom: 8px;
-    border-bottom: 1.5px solid var(--color-black);
-    margin: 20px 0px;
+    /* border-bottom: 1.5px solid var(--color-black); */
+    margin-top: 20px;
 }
 
 
@@ -85,6 +85,8 @@
     flex-direction: column;
     justify-content: flex-end;
     margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid var(--color-shadow);
     /* cursor: none; */
 }
 

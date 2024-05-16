@@ -16,7 +16,6 @@ export default function NewSticker () {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const imgRef = useRef();
-
     useEffect(() => {
         const errors = {}
             if (!title) {
@@ -40,6 +39,10 @@ export default function NewSticker () {
             if (message && message.length > 500) {
                 errors.message = 'Must contain 500 characters long'
             }
+            if (image && !image.type.includes('jpeg') && !image.type.includes('png')) {
+                errors.image = 'file must be jpeg'
+            }
+
         
     
         setValidation(errors);
@@ -64,9 +67,7 @@ export default function NewSticker () {
         navigate('/my-stickers')
     }
 
-    const handleImg = () => {
-        imgRef.current.click()
-    }
+    
     
     return (
         <>
@@ -84,12 +85,12 @@ export default function NewSticker () {
                     
                     <div id='image-side'> 
                         <label>Image <span style={{color:'var(--color-red)'}}>*</span> </label>
-                        <div onClick={handleImg}>
+                        <div>
                             {image ?<img src={URL.createObjectURL(image)} alt="" style={{width:'100%', cursor:'pointer'}}/>  :<img src='https://stickycat.s3.us-east-2.amazonaws.com/upload.png' alt="" style={{width:'100%'}}/>}
                             <input 
                                 type="file"
                                 accept="image/*"
-                                onChange={(e) => {setImage(e.target.files[0])}}
+                                onChange={(e) => setImage(e.target.files[0])}
                                 // ref={imgRef}
                                 // style={{display:'none'}}
                             />
