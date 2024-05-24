@@ -132,7 +132,7 @@ function Navigation() {
                         <div className="checkout-cart_container" >
                           {cart_stickers.length !== 0 ? (
                             <button className="checkout" onClick={toggleMenu}>
-                              <div onClick={() => navigate('/checkout')}>Go to Checkout</div>
+                              <div onClick={getCheckout}>Go to Checkout</div>
                             </button>
                           ) : (
                             <button className="checkout">
