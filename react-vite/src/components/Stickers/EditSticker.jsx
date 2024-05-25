@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams, NavLink } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { thunkEditStickers, thunkLoadCurrentStickers, thunkLoadSingleSticker } from '../../redux/stickerReducer';
 
 export default function EditSticker () {
@@ -14,7 +14,7 @@ export default function EditSticker () {
         dispatch(thunkLoadSingleSticker(id))
     },[dispatch, id])
 
-    const sticker = fetchStickers ?Object.values(fetchStickers).pop() :[]
+    const sticker = fetchStickers ?Object.values(fetchStickers).shift() :[]
 
     const [title, setTitle] = useState(sticker?.title || '');
     const [price, setPrice] = useState(sticker?.price || '');

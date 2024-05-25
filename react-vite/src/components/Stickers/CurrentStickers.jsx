@@ -25,7 +25,7 @@ export default function CurrentStickers() {
     const stickers = Object.values(allStickers)
     stickers.sort((a, b) => b.id - a.id)
 
-
+    console.log(stickers)
 
     return (
         <>

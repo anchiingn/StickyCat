@@ -80,10 +80,12 @@ def get_current_stickers():
     for sticker in stickers:
         data = sticker.to_dict()
         
+        userStickers = Sticker.query.filter(and_(Sticker.ownerId == sticker.ownerId, Sticker.id != sticker.id)).limit(4).all()
         reviews = Review.query.filter_by(stickerId = sticker.id).all()
         currentStickers = User.query.filter_by(id = sticker.ownerId).all()
         carts = Cart.query.filter_by(stickerId = sticker.id).all()
 
+        data['userStickers'] = [sticker.to_dict() for sticker in userStickers]
         data['cart'] = [cart.to_dict() for cart in carts]
         data['user'] = [user.to_dict() for user in currentStickers]
         data['reviews'] = [review.to_dict() for review in reviews]

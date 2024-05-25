@@ -1,6 +1,6 @@
-import { NavLink, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllStickers, thunkLoadCurrentStickers, thunkLoadAllFavorites } from "../../redux/stickerReducer"
+import { thunkAddToFavorite, thunkDeleteFromFavorite, thunkLoadAllStickers } from "../../redux/stickerReducer"
 import { thunkSearchStickers } from "../../redux/stickerReducer"
 import './AddToFavorite.css'
 

@@ -19,10 +19,16 @@ export default function StickerDetail() {
     const fetchReviews = useSelector(state => state?.reviews)
     const user = useSelector(state => state.session.user)
     const [cart, setCart] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
         dispatch(thunkLoadSingleSticker(id))
         dispatch(thunkLoadAllReviews(id))
-        
+
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 800)
+
     }, [dispatch, id])
     
     const single_sticker = sticker ? Object.values(sticker) : []
@@ -100,6 +106,10 @@ export default function StickerDetail() {
         <div className='goback' onClick={() => navigator(-1)}>
             <i className="fa-solid fa-arrow-left"></i>
         </div>
+        {isLoading ? (
+                <h2 style={{ margin: 'auto' }}>Loading...</h2>
+            ) : (
+                <>
         {single_sticker && single_sticker.length > 0 && single_sticker[0].user && single_sticker[0].user.length > 0 &&(
             <>
 
@@ -210,7 +220,7 @@ export default function StickerDetail() {
 
             <div className="ex-stickers_card_wrapper">
                 <div className="sticker-cards_container">
-                    {single_sticker[0].userStickers.map(sticker => {
+                    {single_sticker[0]?.userStickers.map(sticker => {
                         return (
                             <div key={sticker?.id} className="stickers_container">
                                 <StickerCards sticker={sticker} />
@@ -230,6 +240,7 @@ export default function StickerDetail() {
 
             </>
         )}
+        </>)}
         </>
     )
 }

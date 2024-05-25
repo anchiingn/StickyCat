@@ -1,11 +1,10 @@
 import { thunkSearchStickers } from "../../../redux/stickerReducer"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import StickerCards from "../../Stickers/StickerCards";
 import AddToCart from "../../Cart/AddToCart";
 import AddToFavorite from "../../Favorites/AddToFavorite";
-import AllStickers from "../../Stickers/AllStickers";
 
 const SearchSticker = () => {
     const { searchStickers } = useParams()

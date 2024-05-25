@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { thunkLoadAllStickers } from "../../redux/stickerReducer"
 import { NavLink } from "react-router-dom"
 import StickerCards from "../Stickers/StickerCards"
-import AddToCart from "../Cart/AddToCart"
 import AddToFavorite from "../Favorites/AddToFavorite";
 
 import './MainPage.css'

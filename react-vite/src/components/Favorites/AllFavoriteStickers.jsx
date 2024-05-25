@@ -58,14 +58,14 @@ export default function AllFavoriteStickers() {
                         <div className="sticker-cards_container">
                             {favorite_stickers.map(sticker => {
                                 // -------------------  Star Rating  ------------------- //
-                                let starRating= 0;
-                                if (sticker.stickers && sticker.stickers.length > 0 ) { //check if it their is review before iteration
-                                for (let star of sticker.stickers[0]?.star) {
-                                    starRating += (star) / sticker.stickers[0]?.star?.length;
-                                }
-                                }
+                                // let starRating= 0;
+                                // if (sticker.stickers && sticker.stickers.length > 0 ) { //check if it their is review before iteration
+                                // for (let star of sticker.stickers[0]?.star) {
+                                //     starRating += (star) / sticker.stickers[0]?.star?.length;
+                                // }
+                                // }
                                 // Check if sticker and sticker.stickers exist and have at least one element
-                            if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
+                                if (sticker && sticker.stickers && sticker.stickers.length > 0 && sticker.userId === user.id) {
                                 return (
                                     <div key={sticker?.id} className="stickers_container">
                                         <StickerCards sticker={sticker.stickers[0]} />

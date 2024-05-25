@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './ExtraPages.css'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { thunkLoadAllCarts, thunkAddToCart, thunkRemoveOneSticker, thunkRemoveAllSticker } from '../../redux/cardReducer'
 
 
@@ -66,7 +66,7 @@ export default function CheckoutPage() {
                                 await dispatch(thunkRemoveOneSticker(sticker?.id))
                                 await dispatch(thunkLoadAllCarts())
                             }
-                            
+
                             return (
                                 <>
                                     {sticker && sticker?.stickers && sticker?.stickers?.length > 0 && sticker?.userId === user?.id && (
