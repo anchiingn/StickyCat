@@ -66,6 +66,7 @@ export default function CheckoutPage() {
                                 await dispatch(thunkRemoveOneSticker(sticker?.id))
                                 await dispatch(thunkLoadAllCarts())
                             }
+                            
                             return (
                                 <>
                                     {sticker && sticker?.stickers && sticker?.stickers?.length > 0 && sticker?.userId === user?.id && (
