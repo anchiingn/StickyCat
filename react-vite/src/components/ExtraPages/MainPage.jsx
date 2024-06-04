@@ -16,7 +16,7 @@ export default function MainPage () {
         dispatch(thunkLoadAllStickers())
         setTimeout(() =>{
             setIsLoading(false)
-        }, 400)
+        }, 1000)
     }, [dispatch])
 
     const stickers = Object.values(allStickers)

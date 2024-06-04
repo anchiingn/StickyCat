@@ -19,7 +19,7 @@ export default function AllStickers() {
         dispatch(thunkLoadAllStickers())
         setTimeout(() => {
             setIsLoading(false)
-        }, 200)
+        }, 500)
     }, [dispatch])
 
     const stickers = Object.values(allStickers)
@@ -50,31 +50,31 @@ export default function AllStickers() {
                             <div>{stickers.length} stickers</div>
                         </div> */}
 
+                        <div className="sticker_wrapper">
+                            <div className="sticker_filter">filter</div>
 
-                        <div className="sticker-cards_container">
-                            {stickers.slice(0, loadMore).map(sticker => {
+                            <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
+                                {/* <div className="sort-filter">sort</div> */}
 
+                                <div className="sticker-cards_container">
+                                    {stickers.slice(0, loadMore).map(sticker => {
 
-                                //add and remove from favorite
-                              
+                                        return (
+                                            <div key={sticker?.id} className="stickers_container">
+                                                <StickerCards sticker={sticker} />
 
-
-                                return (
-                                    <div key={sticker?.id} className="stickers_container">
-                                        <StickerCards sticker={sticker} />
-
-                                        {/* add and remove from favorite */}
-                                        <AddToFavorite sticker={sticker} />
-                                        {/* <AddToCart sticker={sticker} /> */}
-                                        
-                                    </div>
-                                )
-                            })}
+                                                {/* add and remove from favorite */}
+                                                <AddToFavorite sticker={sticker} />
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                                {loadMore >= stickers.length
+                                    ? (null)
+                                    : (<div onClick={loadMoreStickers} id="load-more">Load More Stickers</div>)
+                                }
+                            </div>
                         </div>
-                        {loadMore >= stickers.length
-                            ? (null)
-                            : (<div onClick={loadMoreStickers} id="load-more">Load More Stickers</div>)
-                        }
                     </div>
 
 
