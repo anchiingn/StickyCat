@@ -51,7 +51,15 @@ export default function AllStickers() {
                         </div> */}
 
                         <div className="sticker_wrapper">
-                            <div className="sticker_filter">filter</div>
+                            <div className="sticker_filter">
+                                <div>filter</div>
+                                <div>all</div>
+                                <div>cute</div>
+                                <div>cool</div>
+                                <div>anime</div>
+                                <div>animal</div>
+                                <div>food</div>
+                            </div>
 
                             <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
                                 {/* <div className="sort-filter">sort</div> */}
