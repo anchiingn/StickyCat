@@ -73,7 +73,8 @@ export default function AllStickers() {
                         </div>
 
                         {isLoading ?(
-                            <h2 style={{ margin: 'auto' }}>Loading...</h2>
+                            <h2 className="loading">Loading...</h2>
+                            
                         ) :(
                             <div className="sticker-cards_container">
                                 {window.location.pathname.includes('/popular') ?(
@@ -102,7 +103,6 @@ export default function AllStickers() {
                                             <div key={sticker?.id} className="stickers_container">
                                                 <StickerCards sticker={sticker} />
     
-                                                {/* add and remove from favorite */}
                                                 <AddToFavorite sticker={sticker} />
                                             </div>
                                         )
