@@ -9,7 +9,6 @@ import { NavLink, useParams } from "react-router-dom";
 
 export default function AllStickers() {
    
-    const cato = useParams()
     const dispatch = useDispatch()
     const allStickers = useSelector(state => state?.stickers)
     const user = useSelector(state => state.session.user)
@@ -30,9 +29,15 @@ export default function AllStickers() {
     const loadMoreStickers = () => {
         setLoadMore(prev => prev + 12)
     }
-console.log(cato)
 
-    // if {cato === '/po'}
+    // if (window.location.pathname.includes('/popular')) {
+    //     console.log('polular')
+    // }
+    // else {
+    //     console.log('none')
+    // }
+
+    const popularSticker = stickers.filter(sticker => sticker.star.length >= 5)
 
     return (
         <>
@@ -54,7 +59,7 @@ console.log(cato)
                             <div className="sticker_filter">
                                 <h4>SHOP COLLECTIONS</h4>
                                 <div>
-                                    <div>All</div>
+                                    <NavLink to={'/explored-stickers'}>All</NavLink>
                                     <div>Recent</div>
                                     <NavLink to={'/explored-stickers/popular'}>Popular</NavLink>
                                     <div>Stickers by Designers</div>
@@ -74,17 +79,35 @@ console.log(cato)
                                 </div>
 
                                 <div className="sticker-cards_container">
-                                    {stickers.slice(0, loadMore).map(sticker => {
-
-                                        return (
-                                            <div key={sticker?.id} className="stickers_container">
-                                                <StickerCards sticker={sticker} />
-
-                                                {/* add and remove from favorite */}
-                                                <AddToFavorite sticker={sticker} />
-                                            </div>
-                                        )
-                                    })}
+                                    {window.location.pathname.includes('/popular') ?(
+                                        <>
+                                        {popularSticker.slice(0, loadMore).map(sticker => {
+    
+                                            return (
+                                                <div key={sticker?.id} className="stickers_container">
+                                                    <StickerCards sticker={sticker} />
+    
+                                                    {/* add and remove from favorite */}
+                                                    <AddToFavorite sticker={sticker} />
+                                                </div>
+                                            )
+                                        })}
+                                        </>
+                                    ) :(
+                                        <>
+                                        {stickers.slice(0, loadMore).map(sticker => {
+    
+                                            return (
+                                                <div key={sticker?.id} className="stickers_container">
+                                                    <StickerCards sticker={sticker} />
+    
+                                                    {/* add and remove from favorite */}
+                                                    <AddToFavorite sticker={sticker} />
+                                                </div>
+                                            )
+                                        })}
+                                        </>
+                                    )}
                                 </div>
                                 {loadMore >= stickers.length
                                     ? (null)
