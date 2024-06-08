@@ -47,43 +47,53 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    height: 60px;
+    height: 30px;
     background-color: var(--color-white);
-    position: sticky;
-    top: 55px;
-    z-index: 1;
 }
 
 .sticker_wrapper {
     display: flex;
+    gap: 30px;
 
     .sticker_filter {
-        width: 15em;
+        width: 12em;
         height: 10em;
-        margin-right: 25px;
         position: sticky;
         top: 115px;
-        background-color: rgb(237, 232, 224);
+        /* background-color: rgb(237, 232, 224); */
         border-radius: 30px;
-        padding: 25px;
+
+        h4 {
+            margin-bottom: 20px;
+        }
+
+        && div{
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        && .filter-cato {
+            margin-left: 20px;
+            color: var(--hover-grey);
+        }
     }
 }
 
 .sticker-cards_container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: fit-content;
-    margin: auto;
-    gap: 35px 10px;
+    width:100%;
+    gap: 35px 20px;
+    /* background-color: aqua; */
 }
 
 .stickers_container {
     position: relative;
-    width: 16em;
-    margin: auto;
+    width: calc(17em - 20px);
     display: flex;
     flex-direction: column;
     align-items: center;
+   
 }
 
 .sticker-images_container > img:hover  {
@@ -96,8 +106,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15em;
-    height: 18em;
+    width: calc(17em - 20px);
+    height: calc(20em - 20px);
     background-color: rgb(237, 232, 224);
     border-radius: 30px;
 }

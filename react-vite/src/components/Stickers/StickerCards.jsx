@@ -18,7 +18,7 @@ export default function StickerCards({ sticker }) {
     return (
         <>
             <NavLink to={`/stickers/${sticker?.id}/${encodeURIComponent(sticker?.title.replace(/\s+/g, '-').toLowerCase())}`} className={'navlink'}>
-                <div style={{ position: 'relative' }}>
+                <div style={{ position: 'relative' }} className="st">
                     <div className="sticker-images_container">
                         <img src={sticker?.image} alt={sticker?.title} />
                     </div>

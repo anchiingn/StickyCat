@@ -45,24 +45,30 @@ export default function AllStickers() {
                         <p>Explore stickers from around the world, where each one is a delightful tiny masterpiece. <br />Brimming with cuteness and playful charm, they're sure to bring a smile to your day.</p>
                         <div className="line-in-between"></div>
                         
-                        {/* <div>
-                            <div> Sort By</div>
-                            <div>{stickers.length} stickers</div>
-                        </div> */}
+                        
 
                         <div className="sticker_wrapper">
                             <div className="sticker_filter">
-                                <div>filter</div>
-                                <div>all</div>
-                                <div>cute</div>
-                                <div>cool</div>
-                                <div>anime</div>
-                                <div>animal</div>
-                                <div>food</div>
+                                <h4>SHOP COLLECTIONS</h4>
+                                <div>
+                                    <div>Recent</div>
+                                    <div>Popular</div>
+                                    <div>Stickers by Designers</div>
+                                    <div>Categories</div>
+
+                                    <div className="filter-cato">All</div>
+                                    <div className="filter-cato">Cute</div>
+                                    <div className="filter-cato">Cool</div>
+                                    <div className="filter-cato">Anime</div>
+                                    <div className="filter-cato">Animal</div>
+                                    <div className="filter-cato">Food</div>
+                                </div>
                             </div>
 
                             <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
-                                {/* <div className="sort-filter">sort</div> */}
+                                <div className="sort-filter">
+                                    <div>sort <i className="fa-solid fa-arrow-up-a-z"></i></div>
+                                </div>
 
                                 <div className="sticker-cards_container">
                                     {stickers.slice(0, loadMore).map(sticker => {
