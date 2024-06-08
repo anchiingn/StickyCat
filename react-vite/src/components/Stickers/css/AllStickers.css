@@ -49,6 +49,8 @@
     width: 100%;
     height: 30px;
     background-color: var(--color-white);
+    color: var(--hover-grey);
+    font-size: 15px;
 }
 
 .sticker_wrapper {

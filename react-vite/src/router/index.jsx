@@ -14,6 +14,7 @@ import LaunchStickers from '../components/ExtraPages/LaunchStickers';
 import HowItWork from '../components/ExtraPages/HowItWork';
 import Thankyou from '../components/ExtraPages/ThankYou';
 import SearchSticker from '../components/Navigation/Search/SearchStickers';
+import Popular from '../components/Stickers/Categories/Popular';
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: "/explored-stickers",
         element: <AllStickers />,
+      },
+      {
+        path: "/explored-stickers/popular",
+        element: <Popular />,
       },
       {
         path: "login",

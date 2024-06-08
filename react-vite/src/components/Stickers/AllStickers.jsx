@@ -5,10 +5,11 @@ import './Stickers.css'
 import StickerCards from "./StickerCards"
 // import AddToCart from "../Cart/AddToCart"
 import AddToFavorite from "../Favorites/AddToFavorite";
+import { NavLink, useParams } from "react-router-dom";
 
 export default function AllStickers() {
    
-
+    const cato = useParams()
     const dispatch = useDispatch()
     const allStickers = useSelector(state => state?.stickers)
     const user = useSelector(state => state.session.user)
@@ -29,7 +30,9 @@ export default function AllStickers() {
     const loadMoreStickers = () => {
         setLoadMore(prev => prev + 12)
     }
+console.log(cato)
 
+    // if {cato === '/po'}
 
     return (
         <>
@@ -51,12 +54,12 @@ export default function AllStickers() {
                             <div className="sticker_filter">
                                 <h4>SHOP COLLECTIONS</h4>
                                 <div>
+                                    <div>All</div>
                                     <div>Recent</div>
-                                    <div>Popular</div>
+                                    <NavLink to={'/explored-stickers/popular'}>Popular</NavLink>
                                     <div>Stickers by Designers</div>
                                     <div>Categories</div>
 
-                                    <div className="filter-cato">All</div>
                                     <div className="filter-cato">Cute</div>
                                     <div className="filter-cato">Cool</div>
                                     <div className="filter-cato">Anime</div>
