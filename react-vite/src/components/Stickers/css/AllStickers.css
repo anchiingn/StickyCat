@@ -207,13 +207,17 @@ nav > ul > li > button:not(.numPage) {
 }
 
 #load-more {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
     margin-top: 50px;
     border-radius: 50px;
     text-decoration: underline;
+    color: var(--hover-grey);
 }
 
 #load-more:hover {
-    color: var(--hover-grey);
+    color: var(--color-shadow);
     text-decoration: none;
     cursor: pointer;
 }

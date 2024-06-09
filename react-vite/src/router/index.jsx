@@ -14,7 +14,6 @@ import LaunchStickers from '../components/ExtraPages/LaunchStickers';
 import HowItWork from '../components/ExtraPages/HowItWork';
 import Thankyou from '../components/ExtraPages/ThankYou';
 import SearchSticker from '../components/Navigation/Search/SearchStickers';
-import Popular from '../components/Stickers/Categories/Popular';
 
 export const router = createBrowserRouter([
   {
@@ -25,12 +24,18 @@ export const router = createBrowserRouter([
         element: <MainPage />
       },
       {
-        path: "/explored-stickers",
-        element: <AllStickers />,
-      },
-      {
-        path: "/explored-stickers/popular",
-        element: <Popular />,
+        path: "explored-stickers",
+        children: [
+          {
+            index: true,
+            element: <AllStickers />
+          },
+          {
+
+            path: "popular",
+            element: <AllStickers />,
+          }
+        ]
       },
       {
         path: "login",
@@ -65,19 +70,19 @@ export const router = createBrowserRouter([
         element: <HowItWork />
       },
       {
-        path:"launch-sticker",
-        element: <LaunchStickers /> 
+        path: "launch-sticker",
+        element: <LaunchStickers />
       },
       {
-        path:"checkout",
-        element: <CheckoutPage /> 
+        path: "checkout",
+        element: <CheckoutPage />
       },
       {
-        path:"thank-you-for-your-purchased",
+        path: "thank-you-for-your-purchased",
         element: <Thankyou />
       },
       {
-        path:'stickers/search/:searchStickers',
+        path: 'stickers/search/:searchStickers',
         element: <SearchSticker />
       },
       {

@@ -5,7 +5,8 @@ import './Stickers.css'
 import StickerCards from "./StickerCards"
 // import AddToCart from "../Cart/AddToCart"
 import AddToFavorite from "../Favorites/AddToFavorite";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Popular from "./Categories/Popular";
 
 export default function AllStickers() {
    
@@ -30,14 +31,6 @@ export default function AllStickers() {
         setLoadMore(prev => prev + 12)
     }
 
-    // if (window.location.pathname.includes('/popular')) {
-    //     console.log('polular')
-    // }
-    // else {
-    //     console.log('none')
-    // }
-
-    const popularSticker = stickers.filter(sticker => sticker.star.length >= 5)
 
     return (
         <>
@@ -76,41 +69,32 @@ export default function AllStickers() {
                             <h2 className="loading">Loading...</h2>
                             
                         ) :(
-                            <div className="sticker-cards_container">
+                            <div>
                                 {window.location.pathname.includes('/popular') ?(
                                     <>
-                                    {popularSticker.slice(0, loadMore).map(sticker => {
-    
-                                        return (
-                                            <div key={sticker?.id} className="stickers_container">
-                                                <StickerCards sticker={sticker} />
-    
-                                                {/* add and remove from favorite */}
-                                                <AddToFavorite sticker={sticker} />
-                                            </div>
-                                        )
-                                    })}
-                                    {loadMore >= popularSticker.length
-                                        ? (null)
-                                        : (<div onClick={loadMoreStickers} id="load-more">Load More Stickers</div>)
-                                    }
+                                    <Popular stickers={stickers} loadMore={loadMore} loadMoreStickers={loadMoreStickers}/>
                                     </>
                                 ) :(
                                     <>
-                                    {stickers.slice(0, loadMore).map(sticker => {
-    
-                                        return (
-                                            <div key={sticker?.id} className="stickers_container">
-                                                <StickerCards sticker={sticker} />
-    
-                                                <AddToFavorite sticker={sticker} />
-                                            </div>
-                                        )
-                                    })}
-                                    {loadMore >= stickers.length
-                                        ? (null)
-                                        : (<div onClick={loadMoreStickers} id="load-more">Load More Stickers</div>)
-                                    }
+                                    <div className="sticker-cards_container">
+                                        {stickers.slice(0, loadMore).map(sticker => {
+        
+                                            return (
+                                                <div key={sticker?.id} className="stickers_container">
+                                                    <StickerCards sticker={sticker} />
+        
+                                                    <AddToFavorite sticker={sticker} />
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+
+                                    <div style={{display:'flex', justifyContent:'center'}}>
+                                        {loadMore >= stickers.length
+                                            ? (null)
+                                            : (<div onClick={loadMoreStickers} id="load-more">Load More Stickers</div>)
+                                        }
+                                    </div>
                                     </>
                                 )}
                             </div>
