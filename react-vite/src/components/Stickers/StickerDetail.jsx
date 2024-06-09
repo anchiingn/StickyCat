@@ -218,17 +218,18 @@ export default function StickerDetail() {
 
             <p className="explore-sticker-by-designer">Explore stickers by <span>{single_sticker[0]?.user[0]?.firstname} {single_sticker[0]?.user[0]?.lastname}</span> :</p>
 
-            <div className="ex-stickers_card_wrapper">
-                <div className="sticker-cards_container">
-                    {single_sticker[0]?.userStickers.map(sticker => {
-                        return (
-                            <div key={sticker?.id} className="stickers_container">
-                                <StickerCards sticker={sticker} />
-                                <AddToFavorite sticker={sticker} />
-                                <AddToCart sticker={sticker} />
-                            </div>
-                        )
-                    })}
+            <div style={{ display:'flex', justifyContent:'center'}}>
+                <div className="ex-stickers_card_wrapper">
+                        <div className="sticker-cards_container">
+                            {single_sticker[0]?.userStickers.map(sticker => {
+                                return (
+                                    <div key={sticker?.id} className="stickers_container">
+                                        <StickerCards sticker={sticker} />
+                                        <AddToFavorite sticker={sticker} />
+                                    </div>
+                                )
+                            })}
+                        </div>
                 </div>
             </div>
 
