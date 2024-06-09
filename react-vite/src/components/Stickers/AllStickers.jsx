@@ -47,9 +47,9 @@ export default function AllStickers() {
                         <h4>SHOP COLLECTIONS</h4>
                         <div>
                             <div><NavLink to={'/explored-stickers'} className={'navlink'}>All</NavLink></div>
-                            <div><NavLink className={'navlink'}>Recent</NavLink></div>
+                            {/* <div><NavLink className={'navlink'}>Recent</NavLink></div> */}
                             <div><NavLink to={'/explored-stickers/popular'} className={'navlink'}>Popular</NavLink></div>
-                            <div>Stickers by Designers</div>
+                            {/* <div>Stickers by Designers</div> */}
                             <div>Categories</div>
 
                             <div className="filter-cato">Cute</div>
