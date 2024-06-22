@@ -51,12 +51,13 @@ export default function AllStickers() {
                             <div><NavLink to={'/explored-stickers/popular'} className={'navlink'}>Popular</NavLink></div>
                             {/* <div>Stickers by Designers</div> */}
                             <div>Categories</div>
-
-                            <div className="filter-cato">Cute</div>
-                            <div className="filter-cato">Cool</div>
-                            <div className="filter-cato">Anime</div>
-                            <div className="filter-cato">Animal</div>
-                            <div className="filter-cato">Food</div>
+                                <ul>
+                                    <li className="filter-cato">Cute</li>
+                                    <li className="filter-cato">Cool</li>
+                                    <li className="filter-cato">Anime</li>
+                                    <li className="filter-cato">Animal</li>
+                                    <li className="filter-cato">Food</li>
+                                </ul>
                         </div>
                     </div>
 
