@@ -57,35 +57,7 @@
     font-size: 15px;
 }
 
-.sticker_wrapper {
-    display: flex;
-    gap: 30px;
 
-    .sticker_filter {
-        width: 12em;
-        height: 10em;
-        position: sticky;
-        top: 115px;
-        /* background-color: rgb(237, 232, 224); */
-        border-radius: 30px;
-
-        h4 {
-            margin-bottom: 20px;
-        }
-
-        && div{
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-
-        && .filter-cato {
-            margin-bottom: 10px;
-            margin-left: -15px;
-            list-style: none;
-            color: var(--hover-grey);
-        }
-    }
-}
 
 .sticker-cards_container {
     display: grid;
