@@ -43,7 +43,7 @@ export default function AllStickers() {
                 <span className="line-in-between"></span>
 
                 <div className="sticker_wrapper">
-                    {/* <div className="sticker_filter">
+                    <div className="sticker_filter">
                         <h4>SHOP COLLECTIONS</h4>
                         <div>
                             <div><NavLink to={'/explored-stickers'} className={'navlink'}>All</NavLink></div>
@@ -59,7 +59,7 @@ export default function AllStickers() {
                                     <li className="filter-cato">Food</li>
                                 </ul>
                         </div>
-                    </div> */}
+                    </div>
 
                     <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
                         {/* <div className="sort-filter">
