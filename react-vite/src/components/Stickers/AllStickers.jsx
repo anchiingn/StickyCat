@@ -49,7 +49,7 @@ export default function AllStickers() {
                             <div><NavLink to={'/explored-stickers'} className={'navlink'}>All</NavLink></div>
                             <div><NavLink className={'navlink'}>Recent</NavLink></div>
                             <div><NavLink to={'/explored-stickers/popular'} className={'navlink'}>Popular</NavLink></div>
-                            {/* <div>Stickers by Designers</div> */}
+                            <div>Stickers by Designers</div>
                             <div>Categories</div>
                                 <ul>
                                     <li className="filter-cato">Cute</li>
