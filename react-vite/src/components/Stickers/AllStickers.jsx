@@ -23,7 +23,7 @@ export default function AllStickers() {
         }, 1000)
     }, [dispatch])
 
-    const stickers = Object.values(allStickers)
+    // const stickers = Object.values(allStickers)
 
 
     // -------------------  Pagination  ------------------- //
