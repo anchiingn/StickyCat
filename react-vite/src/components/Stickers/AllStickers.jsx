@@ -62,10 +62,10 @@ export default function AllStickers() {
                     </div> */}
 
                     <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
-                        {/* <div className="sort-filter">
+                        <div className="sort-filter">
                             <div>sort <i className="fa-solid fa-arrow-up-a-z"></i></div>
                             <div>A-Z</div>
-                        </div> */}
+                        </div>
 
                         {isLoading ?(
                             <h2 className="loading">Loading...</h2>
