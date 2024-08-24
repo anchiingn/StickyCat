@@ -45,7 +45,7 @@ export default function AllStickers() {
                 <div className="sticker_wrapper">
                     <div className="sticker_filter">
                         <h4>SHOP COLLECTIONS</h4>
-                        <div>
+                        {/* <div>
                             <div><NavLink to={'/explored-stickers'} className={'navlink'}>All</NavLink></div>
                             <div><NavLink className={'navlink'}>Recent</NavLink></div>
                             <div><NavLink to={'/explored-stickers/popular'} className={'navlink'}>Popular</NavLink></div>
@@ -58,7 +58,7 @@ export default function AllStickers() {
                                     <li className="filter-cato">Animal</li>
                                     <li className="filter-cato">Food</li>
                                 </ul>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
