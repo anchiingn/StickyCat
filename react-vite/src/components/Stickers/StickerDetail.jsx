@@ -5,7 +5,6 @@ import { useParams, useNavigate, NavLink } from "react-router-dom"
 import ALlReviews from "../Reviews/AllReviews"
 import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 import { thunkAddToCart, thunkLoadAllCarts } from "../../redux/cardReducer"
-import AddToCart from "../Cart/AddToCart"
 import AddToFavorite from "../Favorites/AddToFavorite"
 import StickerCards from "./StickerCards"
 
