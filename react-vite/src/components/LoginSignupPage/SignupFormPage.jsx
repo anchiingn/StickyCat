@@ -116,7 +116,7 @@ export default function SignupFormPage() {
               {showPassword ?(
                 <i className="fa-regular fa-eye" onClick={handelShowPassword} />
               ) :(
-                <i class="fa-regular fa-eye-slash" onClick={handelShowPassword} />
+                <i className="fa-regular fa-eye-slash" onClick={handelShowPassword} />
               )}
             </div>
               <input
