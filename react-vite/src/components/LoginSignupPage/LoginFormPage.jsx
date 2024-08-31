@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { thunkLogin } from "../../redux/session";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function LoginFormPage() {
   const navigate = useNavigate();
@@ -77,7 +77,7 @@ function LoginFormPage() {
               {showPassword ?(
                 <i className="fa-regular fa-eye" onClick={handelShowPassword} />
               ) :(
-                <i class="fa-regular fa-eye-slash" onClick={handelShowPassword} />
+                <i className="fa-regular fa-eye-slash" onClick={handelShowPassword} />
               )}
             </div>
               <input className='login_input'
