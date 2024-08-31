@@ -7,7 +7,6 @@ import DeleteSticker from "./DeleteSticker"
 import AddToFavorite from "../Favorites/AddToFavorite"
 import AddToCart from "../Cart/AddToCart"
 import StickerCards from "./StickerCards"
-// import { thunkLoadAllReviews } from "../../redux/reviewReducer"
 
 export default function CurrentStickers() {
     const dispatch = useDispatch()

@@ -12,7 +12,7 @@ export default function AllStickers() {
    
     const dispatch = useDispatch()
     const allStickers = useSelector(state => state?.stickers)
-    const user = useSelector(state => state.session.user)
+    // const user = useSelector(state => state.session.user)
     const [loadMore, setLoadMore] = useState(12)
     const [isLoading, setIsLoading] = useState(true)
 
@@ -39,7 +39,7 @@ export default function AllStickers() {
             </div>
 
             <div className="allStickers_container">
-                <p>Explore stickers from around the world, where each one is a delightful tiny masterpiece. <br />Brimming with cuteness and playful charm, they're sure to bring a smile to your day.</p>
+                <p>Explore stickers from around the world, where each one is a delightful tiny masterpiece. <br />Brimming with cuteness and playful charm, they&apos;re sure to bring a smile to your day.</p>
                 <span className="line-in-between"></span>
 
                 <div className="sticker_wrapper">
