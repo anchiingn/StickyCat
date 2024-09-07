@@ -15,7 +15,7 @@ export default function NewSticker () {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const imgRef = useRef();
+    // const imgRef = useRef();
     useEffect(() => {
         const errors = {}
             if (!title) {
