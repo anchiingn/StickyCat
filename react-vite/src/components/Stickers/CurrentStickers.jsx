@@ -44,7 +44,7 @@ export default function CurrentStickers() {
                                         <>
                                             <div className="user-stickers_container">
                                                 {/* <div style={{fontFamily:'var(--big-font)', fontSize:'30px', letterSpacing:'1.25px'}}>My Sticky Stickers</div> */}
-                                                <p className="user-paragraph">Oops! Your sticker collection seems a bit bare. Let's create a charming masterpiece together!</p>
+                                                <p className="user-paragraph">Oops! Your sticker collection seems a bit bare. Let&apos;s create a charming masterpiece together!</p>
                                                 <div className="line-in-between"></div>
                                                 <button className="user-button">
                                                     <NavLink to={'/new-sticker'} className={'navlink'} style={{ padding: '20px 40px', borderRadius: '50px' }}>Create Sticker</NavLink>

@@ -99,7 +99,7 @@ function LoginFormPage() {
 
       <div className="text-before-button_container">
         <span></span>
-        <div>Don't have account</div>
+        <div>Don&apos;t have account</div>
         <span></span>
       </div>
 
