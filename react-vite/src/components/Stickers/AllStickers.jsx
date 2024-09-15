@@ -51,13 +51,13 @@ export default function AllStickers() {
                             <div><NavLink to={'/explored-stickers/popular'} className={'navlink'}>Popular</NavLink></div>
                             <div>Stickers by Designers</div>
                             <div>Categories</div>
-                                {/* <ul>
+                                <ul>
                                     <li className="filter-cato">Cute</li>
                                     <li className="filter-cato">Cool</li>
                                     <li className="filter-cato">Anime</li>
                                     <li className="filter-cato">Animal</li>
                                     <li className="filter-cato">Food</li>
-                                // </ul> */}
+                                // </ul>
                         </div>
                     </div>
 
