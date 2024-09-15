@@ -57,7 +57,7 @@ export default function AllStickers() {
                                     <li className="filter-cato">Anime</li>
                                     <li className="filter-cato">Animal</li>
                                     <li className="filter-cato">Food</li>
-                                // </ul>
+                                </ul>
                         </div>
                     </div>
 
