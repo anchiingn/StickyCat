@@ -102,7 +102,7 @@ export default function AllStickers() {
                             </div>
                             
                         )}
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
 
